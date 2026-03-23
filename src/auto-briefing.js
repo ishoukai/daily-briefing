@@ -3,11 +3,16 @@
 /**
  * 自動ブリーフィング — データ収集 → 事前フィルタ → Claude API要約 → enriched_data保存 → HTML生成
  *
- * 最適化:
- *   - キーワードスコアリングで日次ニュースを上位20件に絞り込み
- *   - PubMed論文は高インパクトジャーナル優先で各カテゴリ3件
- *   - API送信は合計30〜35件（109件→大幅削減）
- *   - 全体タイムアウト20分
+ * 曜日分散:
+ *   月曜・木曜: 制度アラート重点日（厚労省をAPI要約）
+ *   水曜: テック・AI重点日（arXiv取得 + HNをAPI要約）
+ *   金曜: 論文ダイジェスト日（PubMed全カテゴリ取得 → API要約）
+ *   火・土・日: ニュース上位20件のみAPI送信
+ *
+ * 週次キャッシュ:
+ *   output/weekly_papers.json  — 金曜に保存
+ *   output/weekly_tech.json    — 水曜に保存
+ *   output/weekly_alerts.json  — 月・木に保存
  */
 
 const { execSync } = require('child_process');
@@ -17,8 +22,24 @@ const path = require('path');
 const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
 const WEEKLY_PAPERS_PATH = path.join(OUTPUT_DIR, 'weekly_papers.json');
+const WEEKLY_TECH_PATH = path.join(OUTPUT_DIR, 'weekly_tech.json');
+const WEEKLY_ALERTS_PATH = path.join(OUTPUT_DIR, 'weekly_alerts.json');
 const NODE_BIN = process.execPath;
 const GLOBAL_TIMEOUT_MS = 20 * 60 * 1000; // 20 minutes
+
+// --- Day-of-week schedule ---
+
+function getDaySchedule() {
+  const dayOfWeek = new Date().getDay(); // 0=日, 1=月, ..., 6=土
+  const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
+  return {
+    dayOfWeek,
+    dayName: dayNames[dayOfWeek],
+    isAlertDay: dayOfWeek === 1 || dayOfWeek === 4,  // 月・木
+    isTechDay: dayOfWeek === 3,                       // 水
+    isPaperDay: dayOfWeek === 5,                      // 金
+  };
+}
 
 // --- Keyword scoring for news pre-filter ---
 
@@ -39,7 +60,7 @@ function assignFallbackPriority(article) {
   const text = `${article.title || ''} ${article.description || ''}`;
   const hasHighKeyword = HIGH_KEYWORDS.some(kw => text.includes(kw));
   const hasMidKeyword = MID_KEYWORDS.some(kw => text.includes(kw));
-  article.priority = article.priority || (hasHighKeyword ? '要注視' : hasMidKeyword ? '要注視' : '参考');
+  article.priority = article.priority || (hasHighKeyword || hasMidKeyword ? '要注視' : '参考');
   article.summary_ja = article.summary_ja || article.title;
   article.impact = article.impact || '';
   article.memo = article.memo || '';
@@ -68,7 +89,6 @@ function filterPubmedForAPI(pubmedData) {
 
   for (const [key, catData] of Object.entries(pubmedData)) {
     const articles = catData.articles || [];
-    // Sort: top journals first
     const sorted = [...articles].sort((a, b) => {
       const aTop = isTopJournal(a) ? 0 : 1;
       const bTop = isTopJournal(b) ? 0 : 1;
@@ -90,7 +110,6 @@ function filterPubmedForAPI(pubmedData) {
       a.source = a.source || 'PubMed';
       a.specialty = a.specialty || catData.label;
       a.category = 'paper';
-      // Mechanical fallback
       a.priority = a.priority || (catData.priority === 'high' ? '要注視' : '参考');
       a.summary_ja = a.summary_ja || (a.abstract || '').substring(0, 200);
       a.impact = a.impact || '';
@@ -102,28 +121,67 @@ function filterPubmedForAPI(pubmedData) {
   return { apiArticles, fallbackArticles };
 }
 
-// --- Main ---
+// --- Helpers ---
 
-function isMonday() {
-  return new Date().getDay() === 1;
+function loadJSON(filepath) {
+  try {
+    if (fs.existsSync(filepath)) return JSON.parse(fs.readFileSync(filepath, 'utf8'));
+  } catch (e) { /* ignore */ }
+  return null;
 }
+
+function saveJSON(filepath, data) {
+  fs.mkdirSync(path.dirname(filepath), { recursive: true });
+  fs.writeFileSync(filepath, JSON.stringify(data, null, 2), 'utf8');
+}
+
+function writeSummarizedBack(rawData, key, summarizedArticles) {
+  if (!rawData[key]) return;
+  const map = new Map(rawData[key].map((a, i) => [a.title, i]));
+  for (const s of summarizedArticles) {
+    if (map.has(s.title)) {
+      const idx = map.get(s.title);
+      rawData[key][idx] = { ...rawData[key][idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
+    }
+  }
+}
+
+function writePubmedBack(rawData, summarizedArticles) {
+  for (const s of summarizedArticles) {
+    if (s._pubmedKey && rawData.pubmed && rawData.pubmed[s._pubmedKey]) {
+      const articles = rawData.pubmed[s._pubmedKey].articles;
+      const idx = articles.findIndex(a => a.pmid === s.pmid || a.title === s.title);
+      if (idx >= 0) articles[idx] = { ...articles[idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
+    }
+  }
+}
+
+// --- Main ---
 
 async function main() {
   const startTime = Date.now();
   const deadlineMs = startTime + GLOBAL_TIMEOUT_MS;
-  const monday = isMonday();
-  const modeLabel = monday ? '週次（フル）' : '日次';
+  const schedule = getDaySchedule();
+
+  const focusLabels = [];
+  if (schedule.isAlertDay) focusLabels.push('制度アラート');
+  if (schedule.isTechDay) focusLabels.push('テック・AI');
+  if (schedule.isPaperDay) focusLabels.push('論文ダイジェスト');
+  const modeLabel = focusLabels.length > 0 ? focusLabels.join('+') : '日次';
 
   console.log('═══════════════════════════════════════════════');
   console.log('  Auto Briefing — 自動ブリーフィング開始');
-  console.log(`  ${new Date().toLocaleString('ja-JP')}  [${modeLabel}]`);
+  console.log(`  ${new Date().toLocaleString('ja-JP')}（${schedule.dayName}）[${modeLabel}]`);
   console.log('═══════════════════════════════════════════════');
 
   // 1. データ収集
   console.log('\n[1/4] データ収集中...');
-  const collectArgs = monday ? '--weekly --no-summary' : '--no-summary';
+  const collectFlags = ['--no-summary'];
+  if (!schedule.isPaperDay) collectFlags.push('--skip-pubmed');
+  if (schedule.isTechDay) collectFlags.push('--arxiv');
+
   try {
-    execSync(`"${NODE_BIN}" src/collect.js ${collectArgs}`, {
+    execSync(`"${NODE_BIN}" src/collect.js ${collectFlags.join(' ')}`, {
       cwd: PROJECT_ROOT,
       stdio: 'inherit',
       env: { ...process.env },
@@ -141,19 +199,45 @@ async function main() {
   }
   const rawData = JSON.parse(fs.readFileSync(rawDataPath, 'utf8'));
 
-  // 月曜以外: PubMed/arXivを前回の週次データで補完
-  if (!monday) {
-    if (fs.existsSync(WEEKLY_PAPERS_PATH)) {
-      console.log('  前回の週次データ (weekly_papers.json) を再利用します');
-      const weeklyData = JSON.parse(fs.readFileSync(WEEKLY_PAPERS_PATH, 'utf8'));
-      if (weeklyData.pubmed && !rawData.pubmed) rawData.pubmed = weeklyData.pubmed;
-      if (weeklyData.arxiv && (!rawData.arxiv || rawData.arxiv.length === 0)) rawData.arxiv = weeklyData.arxiv;
-    } else {
-      console.log('  weekly_papers.json が見つかりません。PubMed/arXivデータなしで続行します。');
+  // 週次キャッシュの再利用
+  if (!schedule.isPaperDay) {
+    const cached = loadJSON(WEEKLY_PAPERS_PATH);
+    if (cached) {
+      console.log('  論文データ (weekly_papers.json) を再利用');
+      if (cached.pubmed) rawData.pubmed = cached.pubmed;
+      if (cached.arxiv && (!rawData.arxiv || rawData.arxiv.length === 0)) rawData.arxiv = cached.arxiv;
+    }
+  }
+  if (!schedule.isTechDay) {
+    const cached = loadJSON(WEEKLY_TECH_PATH);
+    if (cached) {
+      console.log('  テックデータ (weekly_tech.json) を再利用');
+      if (cached.hackernews) {
+        // Merge cached HN summaries into rawData
+        for (const a of cached.hackernews) {
+          const existing = (rawData.hackernews || []).find(x => x.title === a.title);
+          if (existing && a.priority) {
+            Object.assign(existing, { priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo });
+          }
+        }
+      }
+      if (cached.arxiv && (!rawData.arxiv || rawData.arxiv.length === 0)) rawData.arxiv = cached.arxiv;
+    }
+  }
+  if (!schedule.isAlertDay) {
+    const cached = loadJSON(WEEKLY_ALERTS_PATH);
+    if (cached && cached.mhlw) {
+      console.log('  制度アラートデータ (weekly_alerts.json) を再利用');
+      for (const a of cached.mhlw) {
+        const existing = (rawData.mhlw || []).find(x => x.title === a.title);
+        if (existing && a.priority) {
+          Object.assign(existing, { priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo });
+        }
+      }
     }
   }
 
-  // 3. Claude APIで要約・優先度判定（事前フィルタ付き）
+  // 3. Claude APIで要約・優先度判定
   console.log('\n[2/4] Claude APIで記事を評価中...');
 
   if (!process.env.ANTHROPIC_API_KEY) {
@@ -165,30 +249,37 @@ async function main() {
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     const { summarizeArticles } = require('./summarize');
 
-    // --- PubMed: journal-based filtering ---
-    let pubmedApiArticles = [];
-    if (rawData.pubmed) {
+    // --- PubMed: 金曜のみAPI要約 ---
+    if (schedule.isPaperDay && rawData.pubmed) {
       const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
-      pubmedApiArticles = apiArticles;
-      console.log(`  PubMed: ${apiArticles.length} 件をAPI送信, ${fallbackArticles.length} 件はデフォルト優先度`);
+      console.log(`  [金曜] PubMed: ${apiArticles.length} 件をAPI送信, ${fallbackArticles.length} 件はデフォルト`);
 
-      // Write fallback articles back to rawData
       for (const a of fallbackArticles) {
-        if (rawData.pubmed[a._pubmedKey]) {
-          const articles = rawData.pubmed[a._pubmedKey].articles;
-          const idx = articles.findIndex(x => x.pmid === a.pmid || x.title === a.title);
-          if (idx >= 0) articles[idx] = { ...articles[idx], priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo };
+        writePubmedBack(rawData, [a]);
+      }
+
+      if (apiArticles.length > 0) {
+        try {
+          const summarized = await summarizeArticles(apiArticles, config, { deadlineMs });
+          writePubmedBack(rawData, summarized);
+        } catch (e) {
+          console.error('  PubMed API error:', e.message);
         }
       }
     }
 
-    // --- News: keyword scoring + top 20 filter ---
+    // --- ニュース: キーワードスコアリング ---
     const allNewsRaw = [];
     const newsSourceKeys = ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune'];
     const sourceLabels = {
       mhlw: '厚労省', hackernews: 'HackerNews', arxiv: 'arXiv', medscape: 'Medscape',
       fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune',
     };
+
+    // 曜日別のAPI対象ソース
+    const extraAPISources = new Set();
+    if (schedule.isAlertDay) extraAPISources.add('mhlw');
+    if (schedule.isTechDay) { extraAPISources.add('hackernews'); extraAPISources.add('arxiv'); }
 
     for (const key of newsSourceKeys) {
       if (rawData[key]) {
@@ -205,17 +296,27 @@ async function main() {
     const scored = allNewsRaw.map(a => ({ article: a, score: scoreArticle(a) }));
     scored.sort((a, b) => b.score - a.score);
 
-    const newsForAPI = [];      // score >= 3, top 20
-    const newsLowScore = [];    // score 1-2: fallback priority
-    const newsExcluded = [];    // score 0: excluded
+    const newsForAPI = [];
+    const newsLowScore = [];
+    const newsExcluded = [];
 
     for (const { article, score } of scored) {
-      if (score === 0) {
+      // Skip articles that already have priority from cache
+      if (article.priority) {
+        continue;
+      }
+
+      const isExtraSource = extraAPISources.has(article._sourceKey);
+
+      if (score === 0 && !isExtraSource) {
         article.priority = '除外';
         article.summary_ja = article.title;
         article.impact = '';
         article.memo = '';
         newsExcluded.push(article);
+      } else if (isExtraSource) {
+        // 重点日のソースは必ずAPI送信
+        newsForAPI.push(article);
       } else if (score <= 2) {
         assignFallbackPriority(article);
         newsLowScore.push(article);
@@ -227,10 +328,11 @@ async function main() {
       }
     }
 
-    console.log(`  News: ${newsForAPI.length} 件をAPI送信, ${newsLowScore.length} 件はデフォルト優先度, ${newsExcluded.length} 件は除外`);
-    console.log(`  合計API送信: ${pubmedApiArticles.length + newsForAPI.length} 件`);
+    console.log(`  News: ${newsForAPI.length} 件をAPI送信, ${newsLowScore.length} 件はデフォルト, ${newsExcluded.length} 件は除外`);
+    const totalAPI = (schedule.isPaperDay && rawData.pubmed ? Object.values(rawData.pubmed).reduce((n, c) => n + Math.min((c.articles||[]).length, 3), 0) : 0) + newsForAPI.length;
+    console.log(`  合計API送信: 約${totalAPI} 件`);
 
-    // Write fallback/excluded news back to rawData immediately
+    // Write fallback/excluded back
     for (const a of [...newsLowScore, ...newsExcluded]) {
       const key = a._sourceKey;
       if (rawData[key]) {
@@ -239,23 +341,11 @@ async function main() {
       }
     }
 
-    // --- Call API for filtered articles ---
-    try {
-      if (pubmedApiArticles.length > 0) {
-        const summarized = await summarizeArticles(pubmedApiArticles, config, { deadlineMs });
-        for (const s of summarized) {
-          if (s._pubmedKey && rawData.pubmed[s._pubmedKey]) {
-            const articles = rawData.pubmed[s._pubmedKey].articles;
-            const idx = articles.findIndex(a => a.pmid === s.pmid || a.title === s.title);
-            if (idx >= 0) articles[idx] = { ...articles[idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
-          }
-        }
-      }
-
-      if (newsForAPI.length > 0) {
+    // --- Call API for news ---
+    if (newsForAPI.length > 0) {
+      try {
         const summarizedNews = await summarizeArticles(newsForAPI, config, { deadlineMs });
 
-        // Build maps for writing back
         const maps = {};
         for (const key of newsSourceKeys) {
           maps[key] = new Map((rawData[key] || []).map((a, i) => [a.title, i]));
@@ -265,15 +355,35 @@ async function main() {
           const key = s._sourceKey;
           if (key && maps[key] && maps[key].has(s.title)) {
             const idx = maps[key].get(s.title);
-            const enrichFields = { priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
-            rawData[key][idx] = { ...rawData[key][idx], ...enrichFields };
+            rawData[key][idx] = { ...rawData[key][idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
           }
         }
+      } catch (e) {
+        console.error('News API error:', e.message);
+        assignDefaultPriorities(rawData);
       }
-    } catch (e) {
-      console.error('Claude API呼び出しに失敗:', e.message);
-      console.log('残りの記事にデフォルト優先度を割り当てます。');
-      assignDefaultPriorities(rawData);
+    }
+
+    // --- 週次キャッシュの保存 ---
+    if (schedule.isPaperDay) {
+      const weeklyData = {};
+      if (rawData.pubmed) weeklyData.pubmed = rawData.pubmed;
+      if (rawData.arxiv) weeklyData.arxiv = rawData.arxiv;
+      saveJSON(WEEKLY_PAPERS_PATH, weeklyData);
+      console.log(`  週次保存: weekly_papers.json`);
+    }
+    if (schedule.isTechDay) {
+      const weeklyData = {};
+      if (rawData.hackernews) weeklyData.hackernews = rawData.hackernews;
+      if (rawData.arxiv) weeklyData.arxiv = rawData.arxiv;
+      saveJSON(WEEKLY_TECH_PATH, weeklyData);
+      console.log(`  週次保存: weekly_tech.json`);
+    }
+    if (schedule.isAlertDay) {
+      const weeklyData = {};
+      if (rawData.mhlw) weeklyData.mhlw = rawData.mhlw;
+      saveJSON(WEEKLY_ALERTS_PATH, weeklyData);
+      console.log(`  週次保存: weekly_alerts.json`);
     }
   }
 
@@ -281,17 +391,24 @@ async function main() {
   console.log('\n[3/4] enriched_data.json を保存中...');
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   const enrichedPath = path.join(OUTPUT_DIR, 'enriched_data.json');
+
+  // 更新日メタデータを埋め込み
+  rawData._meta = rawData._meta || {};
+  rawData._meta.generated = new Date().toISOString().split('T')[0];
+  if (schedule.isPaperDay) rawData._meta.papers_updated = rawData._meta.generated;
+  if (schedule.isTechDay) rawData._meta.tech_updated = rawData._meta.generated;
+  if (schedule.isAlertDay) rawData._meta.alerts_updated = rawData._meta.generated;
+
+  // 前回のメタデータを引き継ぎ
+  const prevEnriched = loadJSON(enrichedPath);
+  if (prevEnriched && prevEnriched._meta) {
+    if (!schedule.isPaperDay && prevEnriched._meta.papers_updated) rawData._meta.papers_updated = prevEnriched._meta.papers_updated;
+    if (!schedule.isTechDay && prevEnriched._meta.tech_updated) rawData._meta.tech_updated = prevEnriched._meta.tech_updated;
+    if (!schedule.isAlertDay && prevEnriched._meta.alerts_updated) rawData._meta.alerts_updated = prevEnriched._meta.alerts_updated;
+  }
+
   fs.writeFileSync(enrichedPath, JSON.stringify(rawData, null, 2), 'utf8');
   console.log(`保存完了: ${enrichedPath}`);
-
-  // 月曜: PubMed/arXiv データを weekly_papers.json に保存
-  if (monday) {
-    const weeklyData = {};
-    if (rawData.pubmed) weeklyData.pubmed = rawData.pubmed;
-    if (rawData.arxiv) weeklyData.arxiv = rawData.arxiv;
-    fs.writeFileSync(WEEKLY_PAPERS_PATH, JSON.stringify(weeklyData, null, 2), 'utf8');
-    console.log(`週次データ保存: ${WEEKLY_PAPERS_PATH}`);
-  }
 
   // 5. HTML生成
   console.log('\n[4/4] HTML生成中...');

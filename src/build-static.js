@@ -350,10 +350,22 @@ function buildBriefingPage(data, date, allDates, basePath) {
     ? renderCards(techItems)
     : '<div class="empty-state">テック記事はありません。</div>';
 
+  // Update dates from _meta
+  const meta = data._meta || {};
+  function formatUpdateDate(isoDate) {
+    if (!isoDate) return '';
+    const d2 = new Date(isoDate + 'T00:00:00');
+    const dow = ['日', '月', '火', '水', '木', '金', '土'][d2.getDay()];
+    return `${d2.getMonth() + 1}/${d2.getDate()}（${dow}）`;
+  }
+  const papersUpdated = formatUpdateDate(meta.papers_updated);
+  const alertsUpdated = formatUpdateDate(meta.alerts_updated);
+  const techUpdated = formatUpdateDate(meta.tech_updated);
+
   // Source counts
   const sourceCounts = {};
   for (const [src, items] of Object.entries(bySource)) {
-    const name = { pubmed: 'PubMed', mhlw: '厚労省', hackernews: 'HackerNews', arxiv: 'arXiv', medscape: 'Medscape', fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT' }[src] || src;
+    const name = { pubmed: 'PubMed', mhlw: '厚労省', hackernews: 'HackerNews', arxiv: 'arXiv', medscape: 'Medscape', fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune' }[src] || src;
     sourceCounts[name] = items.length;
   }
   const pillsHTML = Object.entries(sourceCounts).map(([name, count]) =>
@@ -380,9 +392,9 @@ ${layoutHeader('', basePath)}
   <div class="source-pills">${pillsHTML}</div>
   <div class="tabs">
     <div class="tab active" onclick="showTab(this,'morning')">朝ブリーフィング<span class="badge">${morningCount}</span></div>
-    <div class="tab" onclick="showTab(this,'pubmed')">論文ダイジェスト<span class="badge">${papersCount}</span></div>
-    <div class="tab" onclick="showTab(this,'alert')">制度アラート<span class="badge">${mhlwArticles.length}</span></div>
-    <div class="tab" onclick="showTab(this,'tech')">テック・AI<span class="badge">${techItems.length}</span></div>
+    <div class="tab" onclick="showTab(this,'pubmed')">論文ダイジェスト${papersUpdated ? '<span style="font-size:10px;color:var(--sub);margin-left:4px">'+papersUpdated+'</span>' : ''}<span class="badge">${papersCount}</span></div>
+    <div class="tab" onclick="showTab(this,'alert')">制度アラート${alertsUpdated ? '<span style="font-size:10px;color:var(--sub);margin-left:4px">'+alertsUpdated+'</span>' : ''}<span class="badge">${mhlwArticles.length}</span></div>
+    <div class="tab" onclick="showTab(this,'tech')">テック・AI${techUpdated ? '<span style="font-size:10px;color:var(--sub);margin-left:4px">'+techUpdated+'</span>' : ''}<span class="badge">${techItems.length}</span></div>
   </div>
   <div class="panel active" id="morning">
     <div class="stats-row">

@@ -33,6 +33,7 @@ const onlyPubmed = args.includes('--pubmed');
 const onlyMhlw = args.includes('--mhlw');
 const noSummary = args.includes('--no-summary');
 const isWeekly = args.includes('--weekly');
+const skipPubmed = args.includes('--skip-pubmed');
 
 async function main() {
   console.log('═══════════════════════════════════════════════');
@@ -59,7 +60,7 @@ async function main() {
   let mtResults = [];
 
   // ===== 1. PubMed =====
-  if (!onlyMhlw) {
+  if (!onlyMhlw && !skipPubmed) {
     pubmedResults = await pubmed.collectAll(config);
     let pubmedCount = 0;
     for (const [key, data] of Object.entries(pubmedResults)) {
