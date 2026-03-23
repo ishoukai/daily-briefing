@@ -42,11 +42,16 @@ function priorityClass(priority) {
   }
 }
 
+function stripHtmlTags(str) {
+  return String(str || '').replace(/<[^>]+>/g, '').trim();
+}
+
 function displayTitle(article) {
-  if (article.title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(article.title) && article.summary_ja) {
+  const title = stripHtmlTags(article.title);
+  if (title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(title) && article.summary_ja) {
     return article.summary_ja.split('\u3002')[0] + '\u3002';
   }
-  return article.title || '';
+  return title;
 }
 
 function articleId(article) {
@@ -307,8 +312,8 @@ function buildBriefingPage(data, date, allDates, basePath) {
     (priorityOrder[a.priority] ?? 3) - (priorityOrder[b.priority] ?? 3)
   );
 
-  // Morning tab — PubMed/arXivは除外（論文タブのみ）
-  const morningExcludeSources = new Set(['pubmed', 'arxiv']);
+  // Morning tab — PubMed/arXiv/厚労省は除外（専用タブのみ）
+  const morningExcludeSources = new Set(['pubmed', 'arxiv', 'mhlw']);
   const morningArticles = articles.filter(a => !morningExcludeSources.has(a._source));
   const allMorning = sortByPriority(morningArticles);
   const morningHigh = allMorning.filter(a => a.priority === '要対応');

@@ -262,12 +262,17 @@ function priorityClass(priority) {
   }
 }
 
+function stripHtmlTags(str) {
+  return String(str || '').replace(/<[^>]+>/g, '').trim();
+}
+
 function displayTitle(article) {
+  const title = stripHtmlTags(article.title);
   // 英語タイトルの場合はsummary_jaを見出しに使用
-  if (article.title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(article.title) && article.summary_ja) {
+  if (title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(title) && article.summary_ja) {
     return article.summary_ja.split('。')[0] + '。';
   }
-  return article.title || '';
+  return title;
 }
 
 function renderCardHTML(article, readStatus) {
@@ -411,9 +416,9 @@ app.get('/archive/:date', (req, res) => {
     (priorityOrder[a.priority] ?? 3) - (priorityOrder[b.priority] ?? 3)
   );
 
-  // Morning briefing: PubMed/arXivは除外（論文タブのみ）
-  // 要対応=全件、要注視=最大7件、参考=最大5件（折りたたみ）、合計20件上限
-  const morningExcludeSources = new Set(['pubmed', 'arxiv']);
+  // Morning briefing: PubMed/arXiv/厚労省は除外（専用タブのみ）
+  // 要対応=全件、要注視=最大10件、参考=最大5件（折りたたみ）、合計20件上限
+  const morningExcludeSources = new Set(['pubmed', 'arxiv', 'mhlw']);
   const morningArticles = articles.filter(a => !morningExcludeSources.has(a._source));
   const allMorning = sortByPriority(morningArticles);
   const morningHigh = allMorning.filter(a => a.priority === '要対応');

@@ -47,7 +47,7 @@ function parseRSSItems(xml, maxItems) {
     }
 
     items.push({
-      title: title.trim().replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#039;/g, "'").replace(/&quot;/g, '"'),
+      title: title.trim().replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#039;/g, "'").replace(/&quot;/g, '"').trim(),
       url: link.trim(),
       date,
       source: 'Fierce Healthcare',

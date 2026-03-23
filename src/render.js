@@ -22,11 +22,16 @@ function priorityClass(priority) {
   }
 }
 
+function stripHtmlTags(str) {
+  return String(str || '').replace(/<[^>]+>/g, '').trim();
+}
+
 function displayTitle(item) {
-  if (item.title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(item.title) && item.summary_ja) {
+  const title = stripHtmlTags(item.title);
+  if (title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(title) && item.summary_ja) {
     return item.summary_ja.split('。')[0] + '。';
   }
-  return item.title || '';
+  return title;
 }
 
 function renderCard(item) {
@@ -279,9 +284,9 @@ if (require.main === module) {
   }
 
   // Categorize
-  // Morning: ニュース系のみ（PubMed/arXivは論文タブのみ）
+  // Morning: ニュース系のみ（PubMed/arXiv/厚労省は専用タブのみ）
   const allItems = [...allNews, ...allPapers, ...allTech];
-  const morning = [...allNews, ...allTech];
+  const morning = [...allNews.filter(i => !(i.source || '').includes('厚労省')), ...allTech];
 
   // Alerts: MHLW only
   const alerts = allNews.filter(i => (i.source || '').includes('厚労省'));
