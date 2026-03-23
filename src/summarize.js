@@ -11,7 +11,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function callClaude(messages, systemPrompt, model = 'claude-sonnet-4-20250514', timeoutMs = 60000) {
+function callClaude(messages, systemPrompt, model = 'claude-sonnet-4-20250514', timeoutMs = 120000) {
   return new Promise((resolve, reject) => {
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
@@ -21,7 +21,7 @@ function callClaude(messages, systemPrompt, model = 'claude-sonnet-4-20250514', 
 
     const body = JSON.stringify({
       model,
-      max_tokens: 4096,
+      max_tokens: 8192,
       system: systemPrompt,
       messages,
     });
@@ -85,8 +85,8 @@ async function summarizeArticles(articles, config, options = {}) {
   const systemPrompt = config.claude_api.system_prompt;
   const deadlineMs = options.deadlineMs || Infinity;
 
-  // バッチ処理: 1回のAPI呼び出しで最大15記事を処理
-  const batchSize = 15;
+  // バッチ処理: 1回のAPI呼び出しで最大25記事を処理（通常は20件前後で1バッチ完結）
+  const batchSize = 25;
   const results = [];
 
   for (let i = 0; i < articles.length; i += batchSize) {
@@ -142,7 +142,7 @@ ${articlesText}`;
           [{ role: 'user', content: userMessage }],
           systemPrompt,
           config.claude_api.model,
-          60000
+          120000
         );
 
         // Parse JSON response

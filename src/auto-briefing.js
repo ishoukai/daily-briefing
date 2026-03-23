@@ -25,7 +25,7 @@ const WEEKLY_PAPERS_PATH = path.join(OUTPUT_DIR, 'weekly_papers.json');
 const WEEKLY_TECH_PATH = path.join(OUTPUT_DIR, 'weekly_tech.json');
 const WEEKLY_ALERTS_PATH = path.join(OUTPUT_DIR, 'weekly_alerts.json');
 const NODE_BIN = process.execPath;
-const GLOBAL_TIMEOUT_MS = 20 * 60 * 1000; // 20 minutes
+const GLOBAL_TIMEOUT_MS = 15 * 60 * 1000; // 15 minutes
 
 // --- Day-of-week schedule ---
 
@@ -249,117 +249,90 @@ async function main() {
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     const { summarizeArticles } = require('./summarize');
 
-    // --- PubMed: 金曜のみAPI要約 ---
-    if (schedule.isPaperDay && rawData.pubmed) {
-      const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
-      console.log(`  [金曜] PubMed: ${apiArticles.length} 件をAPI送信, ${fallbackArticles.length} 件はデフォルト`);
+    // --- 厳格なAPI送信件数制限（全ソース合計20〜25件） ---
 
-      for (const a of fallbackArticles) {
-        writePubmedBack(rawData, [a]);
-      }
-
-      if (apiArticles.length > 0) {
-        try {
-          const summarized = await summarizeArticles(apiArticles, config, { deadlineMs });
-          writePubmedBack(rawData, summarized);
-        } catch (e) {
-          console.error('  PubMed API error:', e.message);
-        }
-      }
-    }
-
-    // --- ニュース: キーワードスコアリング ---
-    const allNewsRaw = [];
     const newsSourceKeys = ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune'];
     const sourceLabels = {
       mhlw: '厚労省', hackernews: 'HackerNews', arxiv: 'arXiv', medscape: 'Medscape',
       fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune',
     };
 
-    // 曜日別の追加API対象ソース（重点日）
-    const extraAPISources = new Set();
-    if (schedule.isAlertDay) extraAPISources.add('mhlw');
-    if (schedule.isTechDay) { extraAPISources.add('hackernews'); extraAPISources.add('arxiv'); }
+    // 曜日別のソース上限（厳格）
+    const baseLimits = { mhlw: 3, nikkei: 8, ft: 4, medscape: 2, fierce: 2, carenet: 1 };
+    let limits;
+    if (schedule.isAlertDay) {
+      limits = { ...baseLimits, mhlw: 5, nikkei: 6 };
+    } else if (schedule.isTechDay) {
+      limits = { ...baseLimits, nikkei: 5, hackernews: 2, arxiv: 1 };
+    } else if (schedule.isPaperDay) {
+      limits = { ...baseLimits, nikkei: 3, ft: 2 };
+    } else {
+      limits = { ...baseLimits };
+    }
 
-    // 医療専門メディア: スコアリングバイパス、常にAPI対象
-    // 厚労省は全件、日経カテゴリページ最大15件、FT最大10件、Medscape/Fierce/CareNet各最大5件
-    const medicalMediaLimits = {
-      mhlw: Infinity,     // 全件
-      nikkei: 15,
-      ft: 10,
-      medscape: 5,
-      fierce: 5,
-      carenet: 5,
-      m3: 5,
-      medical_tribune: 5,
-    };
-    // キーワードスコアリング対象（一般ニュース）
-    const generalSources = new Set(['hackernews', 'arxiv']);
+    // PubMed: 金曜のみ上位10件をAPI送信
+    let pubmedApiArticles = [];
+    if (schedule.isPaperDay && rawData.pubmed) {
+      const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
+      pubmedApiArticles = apiArticles.slice(0, 10);
+      const pubmedFallback = [...apiArticles.slice(10), ...fallbackArticles];
+      for (const a of pubmedFallback) writePubmedBack(rawData, [a]);
+      console.log(`  [金曜] PubMed: ${pubmedApiArticles.length} 件をAPI送信`);
+    }
 
+    // ニュース記事を収集しスコアリング
+    const allNewsRaw = [];
     for (const key of newsSourceKeys) {
       if (rawData[key]) {
         for (const article of rawData[key]) {
           article.source = article.source || sourceLabels[key] || key;
           if (key === 'nikkei' || key === 'ft') article._rssOnly = true;
           article._sourceKey = key;
+          article._score = scoreArticle(article);
           allNewsRaw.push(article);
         }
       }
     }
 
+    // 各ソースからスコア上位を上限件数まで選択
     const newsForAPI = [];
-    const newsLowScore = [];
-    const newsExcluded = [];
-    const mediaCounters = {};
+    const newsRest = [];
+    const counters = {};
+
+    // スコア降順でソート
+    allNewsRaw.sort((a, b) => b._score - a._score);
 
     for (const article of allNewsRaw) {
-      // Skip articles that already have priority from cache
-      if (article.priority) continue;
+      if (article.priority) continue; // キャッシュ済みはスキップ
 
       const key = article._sourceKey;
-      const isExtraSource = extraAPISources.has(key);
-      const mediaLimit = medicalMediaLimits[key];
+      const limit = limits[key] || 0;
+      counters[key] = (counters[key] || 0) + 1;
 
-      if (mediaLimit !== undefined) {
-        // 医療専門メディア: スコアリングなしでAPI対象（上限あり）
-        mediaCounters[key] = (mediaCounters[key] || 0) + 1;
-        if (mediaCounters[key] <= mediaLimit) {
-          newsForAPI.push(article);
-        } else {
-          assignFallbackPriority(article);
-          newsLowScore.push(article);
-        }
-      } else if (isExtraSource) {
-        // 重点日の追加ソース（HN, arXiv）は必ずAPI送信
+      if (counters[key] <= limit) {
         newsForAPI.push(article);
-      } else if (generalSources.has(key)) {
-        // 一般ソース: キーワードスコアリング適用
-        const score = scoreArticle(article);
-        if (score === 0) {
-          article.priority = '除外';
-          article.summary_ja = article.title;
-          article.impact = '';
-          article.memo = '';
-          newsExcluded.push(article);
-        } else if (score <= 2) {
-          assignFallbackPriority(article);
-          newsLowScore.push(article);
-        } else {
-          newsForAPI.push(article);
-        }
       } else {
-        // 未知のソース: フォールバック
-        assignFallbackPriority(article);
-        newsLowScore.push(article);
+        newsRest.push(article);
       }
     }
 
-    console.log(`  News: ${newsForAPI.length} 件をAPI送信, ${newsLowScore.length} 件はデフォルト, ${newsExcluded.length} 件は除外`);
-    const totalAPI = (schedule.isPaperDay && rawData.pubmed ? Object.values(rawData.pubmed).reduce((n, c) => n + Math.min((c.articles||[]).length, 3), 0) : 0) + newsForAPI.length;
-    console.log(`  合計API送信: 約${totalAPI} 件`);
+    // 残りはフォールバック or 除外
+    for (const article of newsRest) {
+      if (article._score === 0) {
+        article.priority = '除外';
+        article.summary_ja = article.title;
+        article.impact = '';
+        article.memo = '';
+      } else {
+        assignFallbackPriority(article);
+      }
+    }
 
-    // Write fallback/excluded back
-    for (const a of [...newsLowScore, ...newsExcluded]) {
+    const allForAPI = [...pubmedApiArticles, ...newsForAPI];
+    console.log(`  API送信: ${allForAPI.length} 件（PubMed ${pubmedApiArticles.length} + News ${newsForAPI.length}）`);
+
+    // Write fallback/rest back to rawData
+    for (const a of newsRest) {
       const key = a._sourceKey;
       if (rawData[key]) {
         const idx = rawData[key].findIndex(x => x.title === a.title);
@@ -367,17 +340,20 @@ async function main() {
       }
     }
 
-    // --- Call API for news ---
-    if (newsForAPI.length > 0) {
+    // --- 1回のAPI呼び出しで全件処理 ---
+    if (allForAPI.length > 0) {
       try {
-        const summarizedNews = await summarizeArticles(newsForAPI, config, { deadlineMs });
+        const summarized = await summarizeArticles(allForAPI, config, { deadlineMs });
 
+        // Write PubMed results back
+        writePubmedBack(rawData, summarized.filter(s => s._pubmedKey));
+
+        // Write news results back
         const maps = {};
         for (const key of newsSourceKeys) {
           maps[key] = new Map((rawData[key] || []).map((a, i) => [a.title, i]));
         }
-
-        for (const s of summarizedNews) {
+        for (const s of summarized) {
           const key = s._sourceKey;
           if (key && maps[key] && maps[key].has(s.title)) {
             const idx = maps[key].get(s.title);
@@ -385,7 +361,7 @@ async function main() {
           }
         }
       } catch (e) {
-        console.error('News API error:', e.message);
+        console.error('API error:', e.message);
         assignDefaultPriorities(rawData);
       }
     }
