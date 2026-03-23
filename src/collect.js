@@ -2,11 +2,15 @@
 
 /**
  * Daily Intelligence Briefing — メイン収集スクリプト
- * 
+ *
  * 使い方:
  *   node src/collect.js              # 全ソースから収集
  *   node src/collect.js --pubmed     # PubMedのみ
  *   node src/collect.js --no-summary # Claude APIを使わない（テスト用）
+ *
+ * auto-briefing.jsからrequireして使う場合:
+ *   const { collect } = require('./collect');
+ *   await collect({ noSummary: true, skipPubmed: true });
  */
 
 const fs = require('fs');
@@ -27,17 +31,30 @@ const ft = require('./sources/ft');
 const { summarizeArticles } = require('./summarize');
 const { generateHTML, saveHTML } = require('./render');
 
-// Parse CLI args
-const args = process.argv.slice(2);
-const onlyPubmed = args.includes('--pubmed');
-const onlyMhlw = args.includes('--mhlw');
-const noSummary = args.includes('--no-summary');
-const isWeekly = args.includes('--weekly');
-const skipPubmed = args.includes('--skip-pubmed');
+/**
+ * データ収集メイン関数
+ * @param {Object} options
+ * @param {boolean} options.onlyPubmed
+ * @param {boolean} options.onlyMhlw
+ * @param {boolean} options.noSummary
+ * @param {boolean} options.isWeekly
+ * @param {boolean} options.skipPubmed
+ * @param {boolean} options.includeArxiv
+ * @param {boolean} options.skipBrowserOpen - ブラウザを開かない（auto-briefingから呼ばれた時）
+ */
+async function collect(options = {}) {
+  const {
+    onlyPubmed = false,
+    onlyMhlw = false,
+    noSummary = false,
+    isWeekly = false,
+    skipPubmed = false,
+    includeArxiv = false,
+    skipBrowserOpen = false,
+  } = options;
 
-async function main() {
   console.log('═══════════════════════════════════════════════');
-  console.log('  Daily Intelligence Briefing — 収集開始');
+  console.log('  ニュースまとめくん — 収集開始');
   console.log(`  ${new Date().toLocaleString('ja-JP')}`);
   console.log('═══════════════════════════════════════════════');
 
@@ -46,7 +63,6 @@ async function main() {
   const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
   const sourceCounts = {};
-  let allArticles = [];
   let pubmedResults = {};
   let mhlwResults = [];
   let hnResults = [];
@@ -87,8 +103,8 @@ async function main() {
     sourceCounts['HackerNews'] = hnResults.length;
   }
 
-  // ===== 4. arXiv (weekly only) =====
-  if (isWeekly || args.includes('--arxiv')) {
+  // ===== 4. arXiv =====
+  if (isWeekly || includeArxiv) {
     arxivResults = await arxiv.collectAll(config);
     sourceCounts['arXiv'] = arxivResults.length;
   }
@@ -172,13 +188,13 @@ async function main() {
   // ===== Merge all non-paper items =====
   const allNews = [...mhlwResults, ...hnResults, ...medscapeResults, ...fierceResults, ...carenetResults, ...nikkeiResults, ...ftResults, ...m3Results, ...mtResults];
 
-  // ===== 5. Claude API で要約・優先度判定 =====
+  // ===== Claude API で要約・優先度判定 =====
   let summarizedPapers = allPapers;
   let summarizedNews = allNews;
 
   if (!noSummary && process.env.ANTHROPIC_API_KEY) {
     console.log('\n[Claude API] 要約・優先度判定を実行中...');
-    
+
     if (allPapers.length > 0) {
       summarizedPapers = await summarizeArticles(allPapers, config);
     }
@@ -188,9 +204,7 @@ async function main() {
   } else {
     if (!noSummary) {
       console.log('\n⚠️  ANTHROPIC_API_KEY が未設定のため、要約をスキップします');
-      console.log('   設定方法: export ANTHROPIC_API_KEY="sk-ant-..."');
     }
-    // Assign default priorities
     for (const p of summarizedPapers) {
       p.priority = p.priority || (p.sourcePriority === 'high' ? '要注視' : '参考');
       p.summary_ja = p.summary_ja || p.abstract?.substring(0, 200);
@@ -224,7 +238,7 @@ async function main() {
   fs.writeFileSync(rawDataPath, JSON.stringify(rawData, null, 2), 'utf8');
   console.log(`\n📄 生データを保存しました: ${rawDataPath}`);
 
-  // ===== 6. Categorize for output =====
+  // ===== Categorize for output =====
   const morning = [
     ...summarizedNews.filter(i => i.category === 'regulation'),
     ...summarizedPapers.filter(i => i.priority === '要対応'),
@@ -232,15 +246,13 @@ async function main() {
   ];
 
   const papers = summarizedPapers;
-
   const alerts = summarizedNews.filter(i => i.category === 'regulation');
-
   const tech = [
     ...hnResults.map(i => ({ ...i, priority: i.priority || 'テック', section: '医療AI・テック' })),
     ...arxivResults.map(i => ({ ...i, priority: 'テック', section: 'arXiv新着' })),
   ];
 
-  // ===== 7. Generate HTML =====
+  // ===== Generate HTML =====
   console.log('\n[HTML] ブリーフィングを生成中...');
 
   const today = new Date();
@@ -258,8 +270,8 @@ async function main() {
 
   const filepath = saveHTML(htmlContent, outputDir);
 
-  // ===== 8. Open in browser (optional) =====
-  if (config.output.open_on_generate) {
+  // ===== Open in browser (optional) =====
+  if (!skipBrowserOpen && config.output.open_on_generate) {
     try {
       execSync(`open "${filepath}"`);
       console.log('🌐 ブラウザで開きました');
@@ -289,7 +301,20 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
 }
 
-main().catch(e => {
-  console.error('❌ エラー:', e.message);
-  process.exit(1);
-});
+// CLI mode
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  collect({
+    onlyPubmed: args.includes('--pubmed'),
+    onlyMhlw: args.includes('--mhlw'),
+    noSummary: args.includes('--no-summary'),
+    isWeekly: args.includes('--weekly'),
+    skipPubmed: args.includes('--skip-pubmed'),
+    includeArxiv: args.includes('--arxiv'),
+  }).catch(e => {
+    console.error('❌ エラー:', e.message);
+    process.exit(1);
+  });
+}
+
+module.exports = { collect };

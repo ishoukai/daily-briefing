@@ -15,9 +15,9 @@
  *   output/weekly_alerts.json  — 月・木に保存
  */
 
-const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
@@ -174,17 +174,15 @@ async function main() {
   console.log(`  ${new Date().toLocaleString('ja-JP')}（${schedule.dayName}）[${modeLabel}]`);
   console.log('═══════════════════════════════════════════════');
 
-  // 1. データ収集
+  // 1. データ収集（同一プロセス内で実行）
   console.log('\n[1/4] データ収集中...');
-  const collectFlags = ['--no-summary'];
-  if (!schedule.isPaperDay) collectFlags.push('--skip-pubmed');
-  if (schedule.isTechDay) collectFlags.push('--arxiv');
-
+  const { collect } = require('./collect');
   try {
-    execSync(`"${NODE_BIN}" src/collect.js ${collectFlags.join(' ')}`, {
-      cwd: PROJECT_ROOT,
-      stdio: 'inherit',
-      env: { ...process.env },
+    await collect({
+      noSummary: true,
+      skipPubmed: !schedule.isPaperDay,
+      includeArxiv: schedule.isTechDay,
+      skipBrowserOpen: true,
     });
   } catch (e) {
     console.error('データ収集に失敗しました:', e.message);
