@@ -60,10 +60,10 @@ function assignFallbackPriority(article) {
   const text = `${article.title || ''} ${article.description || ''}`;
   const hasHighKeyword = HIGH_KEYWORDS.some(kw => text.includes(kw));
   const hasMidKeyword = MID_KEYWORDS.some(kw => text.includes(kw));
-  article.priority = article.priority || (hasHighKeyword || hasMidKeyword ? '要注視' : '参考');
-  article.summary_ja = article.summary_ja || article.title;
-  article.impact = article.impact || '';
-  article.memo = article.memo || '';
+  if (!article.priority) article.priority = (hasHighKeyword || hasMidKeyword) ? '要注視' : '参考';
+  if (!article.summary_ja) article.summary_ja = article.description || article.title || '';
+  if (!article.impact && article.impact !== '') article.impact = '';
+  if (!article.memo && article.memo !== '') article.memo = '';
 }
 
 // --- PubMed journal-based filtering ---
@@ -404,6 +404,9 @@ async function main() {
     }
   }
 
+  // 全記事にsummary_ja/impact/memoを保証（未設定の記事を補完）
+  assignDefaultPriorities(rawData);
+
   // 4. enriched_data.json を保存
   console.log('\n[3/4] enriched_data.json を保存中...');
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -449,24 +452,20 @@ function assignDefaultPriorities(data) {
   if (data.pubmed) {
     for (const [key, catData] of Object.entries(data.pubmed)) {
       for (const article of (catData.articles || [])) {
-        if (!article.priority) {
-          article.priority = catData.priority === 'high' ? '要注視' : '参考';
-          article.summary_ja = article.summary_ja || (article.abstract || '').substring(0, 200);
-          article.impact = article.impact || '';
-          article.memo = article.memo || '';
-        }
+        if (!article.priority) article.priority = catData.priority === 'high' ? '要注視' : '参考';
+        if (!article.summary_ja) article.summary_ja = (article.abstract || article.title || '').substring(0, 200);
+        if (article.impact == null) article.impact = '';
+        if (article.memo == null) article.memo = '';
       }
     }
   }
   for (const key of ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune']) {
     if (data[key]) {
       for (const article of data[key]) {
-        if (!article.priority) {
-          article.priority = '参考';
-          article.summary_ja = article.summary_ja || article.title;
-          article.impact = article.impact || '';
-          article.memo = article.memo || '';
-        }
+        if (!article.priority) article.priority = '参考';
+        if (!article.summary_ja) article.summary_ja = article.description || article.title || '';
+        if (article.impact == null) article.impact = '';
+        if (article.memo == null) article.memo = '';
       }
     }
   }
