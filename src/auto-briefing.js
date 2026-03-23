@@ -151,6 +151,18 @@ async function main() {
         newsArticles.push(article);
       }
     }
+    if (rawData.m3) {
+      for (const article of rawData.m3) {
+        article.source = article.source || 'm3.com';
+        newsArticles.push(article);
+      }
+    }
+    if (rawData.medical_tribune) {
+      for (const article of rawData.medical_tribune) {
+        article.source = article.source || 'Medical Tribune';
+        newsArticles.push(article);
+      }
+    }
 
     try {
       if (allArticles.length > 0) {
@@ -176,6 +188,8 @@ async function main() {
         const carenetMap = new Map((rawData.carenet || []).map((a, i) => [a.title, i]));
         const nikkeiMap = new Map((rawData.nikkei || []).map((a, i) => [a.title, i]));
         const ftMap = new Map((rawData.ft || []).map((a, i) => [a.title, i]));
+        const m3Map = new Map((rawData.m3 || []).map((a, i) => [a.title, i]));
+        const mtMap = new Map((rawData.medical_tribune || []).map((a, i) => [a.title, i]));
 
         for (const s of summarizedNews) {
           const enrichFields = { priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
@@ -203,6 +217,12 @@ async function main() {
           } else if (s.source === 'FT' && ftMap.has(s.title)) {
             const idx = ftMap.get(s.title);
             rawData.ft[idx] = { ...rawData.ft[idx], ...enrichFields };
+          } else if (s.source === 'm3.com' && m3Map.has(s.title)) {
+            const idx = m3Map.get(s.title);
+            rawData.m3[idx] = { ...rawData.m3[idx], ...enrichFields };
+          } else if (s.source === 'Medical Tribune' && mtMap.has(s.title)) {
+            const idx = mtMap.get(s.title);
+            rawData.medical_tribune[idx] = { ...rawData.medical_tribune[idx], ...enrichFields };
           }
         }
       }
@@ -258,7 +278,7 @@ function assignDefaultPriorities(data) {
       }
     }
   }
-  for (const key of ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft']) {
+  for (const key of ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune']) {
     if (data[key]) {
       for (const article of data[key]) {
         article.priority = article.priority || '参考';

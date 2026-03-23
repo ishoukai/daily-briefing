@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Daily Briefing — ローカルWebサーバー
+ * ニュースまとめくん — ローカルWebサーバー
  * Express ベース、ポート3000
  */
 
@@ -135,6 +135,16 @@ function getAllArticles(data) {
       articles.push({ ...article, _source: 'ft' });
     }
   }
+  if (data.m3) {
+    for (const article of data.m3) {
+      articles.push({ ...article, _source: 'm3' });
+    }
+  }
+  if (data.medical_tribune) {
+    for (const article of data.medical_tribune) {
+      articles.push({ ...article, _source: 'medical_tribune' });
+    }
+  }
   return articles;
 }
 
@@ -230,7 +240,7 @@ function layoutHeader(currentPage) {
   const nav = (page, label) =>
     `<a href="${page}"${currentPage === page ? ' class="active"' : ''}>${label}</a>`;
   return `<div class="app-header">
-  <h1>Daily Intelligence Briefing</h1>
+  <h1>ニュースまとめくん by 医承会</h1>
   <nav>
     ${nav('/', 'Latest')}
     ${nav('/archive', 'Archive')}
@@ -313,7 +323,7 @@ function showTab(el, id) {
 app.get('/', (req, res) => {
   const date = getLatestDate();
   if (!date) {
-    return res.send(layoutHead('Daily Briefing') + '<body>' + layoutHeader('/') +
+    return res.send(layoutHead('ニュースまとめくん') + '<body>' + layoutHeader('/') +
       '<div class="container"><div class="empty-state">ブリーフィングがまだありません。<br><code>npm run auto</code> で生成してください。</div></div></body></html>');
   }
   res.redirect(`/archive/${date}`);
@@ -328,7 +338,7 @@ app.get('/archive', (req, res) => {
     return `<li><a href="/archive/${d}">${d}<span class="count">${articles.length} articles</span></a></li>`;
   }).join('\n');
 
-  res.send(`${layoutHead('Archive — Daily Briefing')}
+  res.send(`${layoutHead('Archive — ニュースまとめくん')}
 <body>
 ${layoutHeader('/archive')}
 <div class="container">
@@ -401,9 +411,11 @@ app.get('/archive/:date', (req, res) => {
     (priorityOrder[a.priority] ?? 3) - (priorityOrder[b.priority] ?? 3)
   );
 
-  // Morning briefing: 全ソース混合、優先度順ソート
+  // Morning briefing: PubMed/arXivは除外（論文タブのみ）
   // 要対応=全件、要注視=最大7件、参考=最大5件（折りたたみ）、合計20件上限
-  const allMorning = sortByPriority(articles);
+  const morningExcludeSources = new Set(['pubmed', 'arxiv']);
+  const morningArticles = articles.filter(a => !morningExcludeSources.has(a._source));
+  const allMorning = sortByPriority(morningArticles);
   const morningHigh = allMorning.filter(a => a.priority === '要対応');
   const morningMid = allMorning.filter(a => a.priority === '要注視').slice(0, 7);
   const remainingSlots = Math.max(0, 20 - morningHigh.length - morningMid.length);
@@ -433,6 +445,10 @@ app.get('/archive/:date', (req, res) => {
   const ftArticles = bySource['ft'] || [];
   if (nikkeiArticles.length) sourceCounts['日経'] = nikkeiArticles.length;
   if (ftArticles.length) sourceCounts['FT'] = ftArticles.length;
+  const m3Articles = bySource['m3'] || [];
+  const mtArticles = bySource['medical_tribune'] || [];
+  if (m3Articles.length) sourceCounts['m3.com'] = m3Articles.length;
+  if (mtArticles.length) sourceCounts['Medical Tribune'] = mtArticles.length;
   // Group manual articles by their original source name (e.g. 日経, FT)
   for (const a of manualSrcArticles) {
     const name = a._manualSource || 'Manual';
@@ -756,7 +772,7 @@ function submitArticles() {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`\nDaily Briefing Server`);
+  console.log(`\nニュースまとめくん Server`);
   console.log(`http://localhost:${PORT}`);
   console.log(`\nPress Ctrl+C to stop.\n`);
 });

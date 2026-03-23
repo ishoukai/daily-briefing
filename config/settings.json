@@ -78,6 +78,18 @@
     "url": "https://www.carenet.com/news/archive/1",
     "max_items": 10
   },
+  "m3": {
+    "urls": [
+      "https://www.m3.com/news",
+      "https://open.m3.com/"
+    ],
+    "max_items": 10
+  },
+  "medical_tribune": {
+    "rss_url": "https://medical-tribune.co.jp/rss/",
+    "url": "https://medical-tribune.co.jp/",
+    "max_items": 10
+  },
   "nikkei": {
     "feeds": [
       "https://assets.wor.jp/rss/rdf/nikkei/news.rdf",

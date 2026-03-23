@@ -254,6 +254,18 @@ if (require.main === module) {
     sourceCounts['FT'] = data.ft.length;
   }
 
+  // m3.com
+  if (data.m3 && data.m3.length > 0) {
+    allNews.push(...data.m3.map(i => ({ ...i, source: i.source || 'm3.com' })));
+    sourceCounts['m3.com'] = data.m3.length;
+  }
+
+  // Medical Tribune
+  if (data.medical_tribune && data.medical_tribune.length > 0) {
+    allNews.push(...data.medical_tribune.map(i => ({ ...i, source: i.source || 'Medical Tribune' })));
+    sourceCounts['Medical Tribune'] = data.medical_tribune.length;
+  }
+
   // HackerNews
   if (data.hackernews && data.hackernews.length > 0) {
     allTech.push(...data.hackernews.map(i => ({ ...i, priority: i.priority || 'テック', section: '医療AI・テック' })));
@@ -267,9 +279,9 @@ if (require.main === module) {
   }
 
   // Categorize
-  // Morning: all sources, all priorities (filtering happens in generateHTML)
+  // Morning: ニュース系のみ（PubMed/arXivは論文タブのみ）
   const allItems = [...allNews, ...allPapers, ...allTech];
-  const morning = allItems;
+  const morning = [...allNews, ...allTech];
 
   // Alerts: MHLW only
   const alerts = allNews.filter(i => (i.source || '').includes('厚労省'));

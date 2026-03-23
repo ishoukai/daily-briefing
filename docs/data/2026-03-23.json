@@ -1,10 +1,29 @@
 {
-  "collected_at": "2026-03-22T14:57:42.179Z",
+  "collected_at": "2026-03-23T02:36:13.067Z",
   "pubmed": {
     "internal_medicine_diabetes": {
       "label": "糖尿病・代謝",
       "priority": "high",
       "articles": [
+        {
+          "pmid": "41865332",
+          "title": "Chronic Kidney Disease (CKD): Systematic Review of the Cost Effectiveness of SGLT2 Inhibitors and Other Novel Nephroprotective Drugs.",
+          "abstract": "Chronic kidney disease (CKD) is a major global cause of morbidity and mortality. Recent nephroprotective therapies have improved CKD management, yet their cost effectiveness across settings remains uncertain. This review systematically identified and compared cost-effectiveness studies of novel CKD treatments for both broad CKD populations and disease-specific subgroups. A systematic search was conducted in PubMed and the Cochrane Library using terms related to \"chronic kidney disease,\" \"cost-effectiveness,\" \"cost-utility,\" \"health technology assessment,\" \"SGLT2 inhibitor,\" and commercial and generic names of nephroprotective drugs approved since 2013. Eligible studies were full-length articles in English published between January 2015 and September 2025. Costs, quality-adjusted life-years (QALYs), and incremental cost-effectiveness ratios were extracted. All monetary values were standardized to 2025 US dollars. The search yielded 172 records, of which 26 met inclusion criteria. A supplementary search identified ten additional studies, resulting in 36 evaluations. Most studies assessed sodium-glucose cotransporter 2 inhibitors or finerenone. Across evaluations, these therapies consistently improved outcomes, with QALY gains reported in all studies (0.012-1.44 QALYs gained). Most concluded that the interventions were cost effective compared with standard of care, and 13 reported cost-saving results. Only three studies reported an incremental cost-efffectiveness ratio above $100,000 per QALY threshold. Cost effectiveness was observed in both general CKD and CKD with diabetes mellitus, although estimates varied by country, time horizon, and analytic perspective. Current evidence indicates that novel nephroprotective therapies for CKD are generally cost effective, and in some settings cost saving. These findings support their value in both general CKD and diabetic populations and highlight the importance of early treatment adoption to delay disease progression and reduce long-term healthcare costs.",
+          "authors": "Darb&#xe0; Josep, Ascanio Meritxell, Rodr&#xed;guez Antonio",
+          "journal": "PharmacoEconomics",
+          "date": "2026 03",
+          "doi": "10.1007/s40273-026-01611-6",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41865332/",
+          "source": "PubMed",
+          "specialty": "糖尿病・代謝",
+          "sourcePriority": "high",
+          "category": "paper",
+          "priority": "要注視",
+          "summary_ja": "慢性腎臓病（CKD）治療における SGLT2 阻害剤等の新規腎保護薬の費用対効果を系統的レビューした研究。2013年以降承認された腎保護薬の経済性評価を比較検討している。",
+          "memo": "当院の内科・糖尿病外来でのSGLT2阻害剤使用実績と経済効果の検証が必要。腎機能悪化患者への積極的処方検討の根拠として活用できる。",
+          "_pubmedKey": "internal_medicine_diabetes",
+          "impact": "糖尿病専門クリニックとして、SGLT2阻害剤処方の経済的妥当性を再評価する必要"
+        },
         {
           "pmid": "41864758",
           "title": "AISF practice guidance on pharmacological treatment of metabolic-dysfunction associated steatotic liver disease and steatohepatitis (MASLD/MASH): A 2026 Update.",
@@ -19,10 +38,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "代謝機能異常関連脂肪性肝疾患（MASLD）の薬物治療に関するイタリア肝臓学会の診療指針2026年版。2型糖尿病、肥満、メタボリック症候群患者での有病率増加が報告され、ResmetiromとSemaglutideが第3相試験で組織学的効果を示した。",
-          "memo": "内科（糖尿病・循環器）での糖尿病患者に対する脂肪肝スクリーニングの重要性が高まる。新薬承認により治療選択肢が拡大する可能性。",
+          "summary_ja": "代謝機能異常関連脂肪性肝疾患（MASLD）の薬物治療に関するイタリア肝臓学会の2026年版診療ガイダンス。レスメチロムとセマグルチドが第3相試験で組織学的有効性を示している。",
+          "memo": "当院の糖尿病患者で脂肪肝合併例が多い。新薬承認時の導入準備と適応患者の洗い出しを行う必要がある。",
           "_pubmedKey": "internal_medicine_diabetes",
-          "impact": "糖尿病患者への肝疾患スクリーニング強化と、新薬承認時の治療選択肢拡大への準備が必要。"
+          "impact": "糖尿病・肥満患者の脂肪肝管理において新薬導入時期と適応基準を検討する必要"
         },
         {
           "pmid": "41864364",
@@ -38,8 +57,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "アルツハイマー病におけるPANoptosis（細胞死機構）の役割に関する基礎研究。アミロイドβとタウ蛋白の蓄積がPANoptosomeを活性化し、神経変性を促進するメカニズムを解明。治療介入の新たな標的となる可能性。",
-          "memo": "認知症患者の家族からの相談対応時の参考情報。将来的に新規治療法開発につながる可能性がある基礎研究。",
+          "summary_ja": "アルツハイマー病におけるPANoptosis（複数の細胞死経路を統合したプログラム細胞死）の役割と治療介入の可能性について解説した総説。基礎研究レベルの内容。",
+          "memo": "直接的な診療への影響は限定的だが、認知症患者の病態理解の参考となる。将来の治療法開発動向として把握。",
           "_pubmedKey": "internal_medicine_diabetes",
           "impact": ""
         },
@@ -57,10 +76,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "2型糖尿病高齢者における栄養不良という見落とされがちな老年症候群について。機能能力と生活の質に大きく影響する重要な臨床状態だが、糖尿病研究では軽視されがちな問題として指摘。",
-          "memo": "内科での高齢糖尿病患者診療において、血糖管理だけでなく栄養評価の重要性が増している。多職種連携での対応が必要。",
+          "summary_ja": "2型糖尿病高齢者における栄養失調が見過ごされがちな老年症候群として注目されている。糖尿病研究で栄養失調が軽視される傾向を指摘。",
+          "memo": "当院の糖尿病外来で高齢患者の栄養評価が不十分な可能性。栄養士との連携強化と評価システム構築を検討すべき。",
           "_pubmedKey": "internal_medicine_diabetes",
-          "impact": "高齢糖尿病患者の栄養状態評価を診療プロセスに組み込み、多職種連携強化を検討。"
+          "impact": "糖尿病高齢患者の栄養状態評価を診療プロトコルに組み込む検討が必要"
         },
         {
           "pmid": "41862354",
@@ -76,29 +95,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "GLP-1受容体作動薬の神経精神学的アウトカムに対する効果のシステマティックレビューとメタ分析。2型糖尿病患者の認知機能低下、気分障害、物質使用障害への影響を検証し、神経保護・精神作用効果の可能性を示唆。",
-          "memo": "糖尿病治療でのGLP-1薬使用時に、血糖・体重管理以外の神経精神学的メリットも期待できる可能性。患者説明での差別化要因。",
+          "summary_ja": "GLP-1受容体作動薬の神経精神学的効果に関する系統的レビューとメタ解析。認知機能低下、気分障害、物質使用障害への効果を検討している。",
+          "memo": "当院でのGLP-1薬使用患者で認知機能や精神状態の変化を観察する価値あり。多科連携の強化も検討課題。",
           "_pubmedKey": "internal_medicine_diabetes",
-          "impact": "GLP-1薬処方時の効果説明範囲拡大と、精神的症状改善の可能性について情報提供強化。"
-        },
-        {
-          "pmid": "41860840",
-          "title": "Features of mobile apps for diabetic kidney disease self-management: A scoping review.",
-          "abstract": "Diabetic kidney disease (DKD) is a chronic complication of diabetes mellitus (DM). DKD and chronic kidney disease (CKD) are both long-term conditions requiring ongoing patient care. Individuals living with DKD or CKD can benefit from mobile apps that support effective self-management. However, limited evidence is available about what mobile apps features are commonly included for DKD. This scoping review aimed to identify the features of mobile applications on self-management for individuals with DKD, DM or CKD. The review followed the Joanna Briggs Institute (JBI) methodology for scoping reviews and adhered to PRISMA-ScR reporting guidelines. Five databases (PubMed, Scopus, SAGE Journals, ScienceDirect, and Web of Science) were searched from inception to February 26, 2025. Studies were included if they reported on mobile apps supporting self-management in adults with DKD, DM or CKD. DM and CKD apps were included due to similar self-management needs such as blood sugar or blood pressure tracking that are also relevant to people with DKD. Data were extracted on study characteristics, app features, use of technology, integration with care teams, and reported outcomes. Out of 3521 records identified, eleven studies met the inclusion criteria. Five studies focused on CKD, two on DKD, and four on diabetes. Across the eleven mobile apps reviewed, four core domains of self-management were identified: self-care monitoring (91%), educational components (64%), patient support and motivation (100%), and performance incentives (18%). Four apps employed wearable devices and incorporated supportive devices such as Bluetooth glucometers. However, only two apps included real-time communication features with providers integration with healthcare teams and gamification strategies. Mobile apps targeting DKD frequently incorporate monitoring, education, and motivational features. However, consistent integration with healthcare providers and incentive-based engagement strategies remains limited. Future app development should emphasise personalised feedback, clinical integration, and sustained engagement mechanisms to enhance usability and impact.",
-          "authors": "Yahya Hasmawati, Draman Nani, Kadir Azidah Abdul, Yaacob Najib Majdi",
-          "journal": "PloS one",
-          "date": "2026 03",
-          "doi": "10.1371/journal.pone.0301523",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41860840/",
-          "source": "PubMed",
-          "specialty": "糖尿病・代謝",
-          "sourcePriority": "high",
-          "category": "paper",
-          "priority": "参考",
-          "summary_ja": "糖尿病性腎症患者のセルフマネジメント支援モバイルアプリの機能に関するスコーピングレビュー。糖尿病性腎症と慢性腎疾患患者の長期管理において、モバイルアプリによる効果的なセルフマネジメント支援の重要性を検証。",
-          "memo": "糖尿病患者への療養指導でモバイルアプリ活用の可能性。患者の自己管理支援ツールとしての検討価値あり。",
-          "_pubmedKey": "internal_medicine_diabetes",
-          "impact": ""
+          "impact": "GLP-1薬処方時の多面的効果を患者説明に含め、精神科的既往の確認を強化する"
         }
       ]
     },
@@ -120,8 +120,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "心臓弁膜症手術時の併存冠動脈疾患に対する血管造影由来FFRガイド下冠動脈バイパス術の多施設無作為化試験。中国の12の3次病院で実施され、生理学的ガイド戦略の臨床アウトカム改善効果を検証。",
-          "memo": "循環器疾患患者の高次医療機関紹介時の参考情報。最新の冠動脈疾患治療戦略として認識。",
+          "summary_ja": "心臓弁膜症手術と同時冠動脈バイパス術において、血管造影由来FFRによる生理学的評価が従来の解剖学的評価より良好な結果をもたらすかを検討した中国の多施設無作為化試験。",
+          "memo": "循環器診療での参考情報だが、クリニックレベルでの直接的な影響は限定的。専門医療機関への紹介判断の参考程度。",
           "_pubmedKey": "internal_medicine_cardiology",
           "impact": ""
         },
@@ -139,8 +139,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "急性虚血性脳卒中患者における臨床決定支援システム（CDSS）の脳卒中ケア質と臨床アウトカムへの効果を検証したクラスター無作為化臨床試験。AI画像解析と治療推奨を含むCDSSの有効性を77病院で評価。",
-          "memo": "脳卒中疑い患者の高次医療機関紹介時の参考情報。AI支援診断システムの普及動向として認識。",
+          "summary_ja": "急性虚血性脳卒中患者に対する臨床意思決定支援システム（CDSS）の効果を検討した中国の多施設クラスター無作為化試験。AI支援画像解析等を含む。",
+          "memo": "脳卒中診療の質向上に関する参考情報。当院では脳卒中の急性期治療は行わないが、予防・管理での参考となる。",
           "_pubmedKey": "internal_medicine_cardiology",
           "impact": ""
         },
@@ -158,10 +158,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "乾癬患者における脳卒中リスク増加のシステマティックレビューとメタ分析。18研究、70万人超の乾癬患者を含む解析で、乾癬患者の脳卒中リスク増加が確認された。慢性炎症性皮膚疾患と心血管イベントの関連性を示す。",
-          "memo": "皮膚疾患患者でも循環器リスク評価が重要。他科連携での包括的管理の必要性を示すエビデンス。",
+          "summary_ja": "乾癬患者における脳卒中リスク増加を示すメタ解析。70万人超の乾癬患者を含む18研究を解析し、脳卒中リスクの有意な増加を確認。",
+          "memo": "耳鼻科外来でも皮膚症状を訴える患者がいる。乾癬疑い患者では心血管リスク評価と適切な専門医紹介が重要。",
           "_pubmedKey": "internal_medicine_cardiology",
-          "impact": "乾癬患者に対する心血管リスク評価の強化と、循環器内科への適切な紹介体制構築。"
+          "impact": "皮膚症状で受診する患者の心血管リスク評価を強化し、必要に応じて循環器科紹介を検討"
         },
         {
           "pmid": "41860737",
@@ -177,8 +177,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "多発性骨髄腫治療薬talquetamabの口腔毒性に関するレビュー。GPRC5DとCD3を標的とした初のバイスペシフィック抗体で高い効果を示すが、舌・唾液腺・硬化組織のGPRC5D発現により口腔有害事象が頻発。",
-          "memo": "血液疾患患者の口腔有害事象に関する情報。耳鼻咽喉科での対症療法需要の可能性として認識。",
+          "summary_ja": "多発性骨髄腫治療薬タルケタマブの口腔毒性に関するレビュー。GPRC5D標的療法による舌・唾液腺・角化組織への副作用について解説。",
+          "memo": "血液悪性疾患の専門的治療に関する内容で、クリニックでの直接的な関連性は低い。専門医療機関での治療情報として参考程度。",
           "_pubmedKey": "internal_medicine_cardiology",
           "impact": ""
         },
@@ -196,8 +196,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "高安動脈炎の管理に関する2026年版アップデート。若年女性に多発する慢性大血管血管炎で、疾患活動性と血管損傷の鑑別が困難。PETVASやVAMPスコアなどの新しい評価法とTAIDAI複合スコアの開発が進展。",
-          "memo": "稀な血管炎疾患の最新管理情報。専門医療機関への紹介判断時の参考として保持。",
+          "summary_ja": "高安動脈炎の管理に関する2026年版アップデート。疾患活動性と血管損傷の評価法、PET血管活動性スコア等の新しい評価指標について解説。",
+          "memo": "稀少疾患に関する専門的内容で、クリニックでの遭遇頻度は極めて低い。専門医療機関への紹介判断時の参考情報程度。",
           "_pubmedKey": "internal_medicine_cardiology",
           "impact": ""
         }
@@ -220,9 +220,9 @@
           "specialty": "一般内科",
           "sourcePriority": "medium",
           "category": "paper",
-          "priority": "除外",
-          "summary_ja": "心理学が日常生活でのコミュニケーション能力、人間関係、ストレス管理を改善し、学校、医療、職場でのより良い意思決定を助けることが証明された。ポジティブ心理学は幸福感を高めることに焦点を当て、人生をより価値のあるものにする要因を研究している。",
-          "memo": "",
+          "priority": "参考",
+          "summary_ja": "心理学が日常生活において、コミュニケーション能力や人間関係の改善、ストレス管理に役立つことが証明されている。ポジティブな感情を対象とした練習により、人々はより幸福感を感じ、うつ症状が軽減されることが示されている。",
+          "memo": "患者やスタッフのメンタルヘルス向上に応用可能。クリニックの職場環境改善や患者満足度向上の参考となる。",
           "_pubmedKey": "internal_medicine_general",
           "impact": ""
         },
@@ -240,10 +240,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "糖尿病性腎疾患（DKD）の自己管理支援モバイルアプリの機能に関するスコーピングレビュー。DKDや慢性腎疾患患者が効果的な自己管理を行うためのモバイルアプリの特徴を特定することを目的としている。",
-          "memo": "糖尿病専門クリニックとして、患者の自己管理支援ツールの導入検討材料。モバイルアプリの有効性データは患者指導の質向上に寄与する可能性。",
+          "summary_ja": "糖尿病性腎症の自己管理を支援するモバイルアプリの機能に関するレビュー研究。糖尿病性腎症と慢性腎臓病の長期管理において、効果的な自己管理を支援するモバイルアプリが患者に利益をもたらす可能性がある。",
+          "memo": "糖尿病内科として、患者の腎症管理にモバイルアプリを活用できる。治療成績向上と患者満足度向上につながる可能性。",
           "_pubmedKey": "internal_medicine_general",
-          "impact": "糖尿病患者向けデジタルヘルス導入の参考として活用を検討する。"
+          "impact": "糖尿病患者の自己管理支援ツールの導入検討や、デジタルヘルス活用戦略の策定が必要。"
         },
         {
           "pmid": "41860818",
@@ -259,10 +259,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "英国のプライマリケアにおいて、個別化された喘息行動計画と定期的な専門家によるレビューを含む喘息自己管理支援の実装戦略IMP2ARTの評価研究。支援された自己管理は予定外受診を減らし、喘息転帰と生活の質を改善する。",
-          "memo": "小児科での喘息患者が多い当院にとって、患者・家族への自己管理支援強化は重要。定期的なフォローアップ体制の見直しが必要。",
+          "summary_ja": "英国のプライマリケアにおいて、個別化された喘息アクションプランと定期的な専門家レビューを含む支援付き自己管理の実装に関する研究。この支援により予定外の受診が減少し、喘息の転帰と生活の質が改善される。",
+          "memo": "小児科での小児喘息管理に応用可能。患者教育プログラムの充実により、急患対応の負担軽減が期待できる。",
           "_pubmedKey": "internal_medicine_general",
-          "impact": "小児科の喘息患者管理において自己管理支援プログラムの導入を検討する。"
+          "impact": "呼吸器疾患患者の自己管理支援プログラムの導入を検討し、予定外受診の削減を図る。"
         },
         {
           "pmid": "41860558",
@@ -278,8 +278,8 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "慢性肝疾患における腸内細菌叢移植（FMT）の現在と将来の状況に関するレビュー。肝硬変、肝性脳症、アルコール関連肝疾患の治療において腸内細菌叢移植が有効である可能性を示唆している。",
-          "memo": "消化器内科・外科として将来的な治療選択肢として注視。現時点では実装段階ではないが、肝疾患診療の将来動向として把握しておく価値がある。",
+          "summary_ja": "慢性肝疾患における腸内細菌叢移植（FMT）の現状と将来展望に関するレビュー。肝硬変、肝性脳症、アルコール性肝疾患の治療にFMTが有効である可能性が示されている。",
+          "memo": "消化器内科として、将来的な治療選択肢として注視が必要。現時点では研究段階だが、慢性肝疾患患者への新たなアプローチとなる可能性。",
           "_pubmedKey": "internal_medicine_general",
           "impact": ""
         },
@@ -297,8 +297,8 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "老人医学的専門知識が不足している介護施設での転倒予防のためのeヘルス介入の費用対効果分析。医療過疎地の介護施設居住者を対象とした遠隔医療プログラムの転倒予防効果を調査している。",
-          "memo": "直接的な影響は限定的だが、高齢者医療における遠隔医療の活用事例として参考になる。将来的な在宅医療展開時の参考情報。",
+          "summary_ja": "老人医学の専門知識が不足している介護施設における転倒予防のための個人中心型eヘルス介入の費用対効果分析。遠隔医療プログラムが医療過疎地域の介護施設入居者の転倒予防に効果的である可能性が示された。",
+          "memo": "高齢患者の多いクリニックとして、転倒予防への取り組みや遠隔医療の活用に関する参考情報。地域医療連携の観点でも有用。",
           "_pubmedKey": "internal_medicine_general",
           "impact": ""
         }
@@ -322,8 +322,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "炎症性腸疾患患者の治療とケアの費用対効果に関する系統的レビュー。生物学的製剤と非生物学的製剤の比較、異なる生物学的製剤間の比較、治療順序戦略について検討している。",
-          "memo": "消化器内科として炎症性腸疾患の治療費用対効果は関心事項。生物学的製剤の使用判断や治療戦略立案の参考となる。",
+          "summary_ja": "炎症性腸疾患患者の治療とケアの費用対効果に関する系統的レビュー。生物学的製剤と非生物学的製剤の比較、異なる生物学的療法間の比較、治療順序戦略について検討している。",
+          "memo": "消化器内科として、IBD患者の治療選択や費用対効果を考慮した治療戦略の策定に参考となる情報。",
           "_pubmedKey": "gastroenterology",
           "impact": ""
         },
@@ -341,10 +341,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "急性虫垂炎診断におけるAIの系統的レビュー。診断精度向上、臨床意思決定支援、陰性虫垂切除率の削減において人工知能が有望なツールとして浮上している。",
-          "memo": "消化器外科として急性虫垂炎の診断精度向上は重要課題。AI支援による誤診リスク削減と適切な手術適応判断に活用可能。",
+          "summary_ja": "急性虫垂炎診断における人工知能の活用に関する系統的レビュー。AIが診断精度の向上、臨床意思決定の支援、陰性虫垂切除術率の削減に有望なツールとして注目されている。",
+          "memo": "消化器外科として、急性虫垂炎の診断精度向上は重要課題。AI活用により誤診リスク軽減と医療の質向上が期待できる。",
           "_pubmedKey": "gastroenterology",
-          "impact": "消化器外科の急性腹症診断において、AI診断支援システムの導入を検討する。"
+          "impact": "AI診断支援ツールの導入検討や、急性腹症患者の診断精度向上のための体制整備を検討する。"
         },
         {
           "pmid": "41861173",
@@ -360,8 +360,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "進行食道扁平上皮癌の一次治療におけるPD-1阻害薬と化学療法併用の有益な患者サブグループに関する系統的レビューとメタ解析。欧州医薬品庁がPD-1高発現ESCCに対する一次治療として承認している。",
-          "memo": "消化器内科・外科として食道癌治療の最新動向として把握。当院での対象患者は限定的だが、紹介や連携における判断材料として有用。",
+          "summary_ja": "進行食道扁平上皮癌の一次治療におけるPD-1阻害剤と化学療法併用の有効な患者サブグループに関する系統的レビューとメタ解析。欧州医薬品庁が高PD-1発現ESCCの一次治療として承認している。",
+          "memo": "消化器外科分野の最新治療情報として参考。食道癌患者の紹介タイミングや連携先選択の判断材料となる。",
           "_pubmedKey": "gastroenterology",
           "impact": ""
         },
@@ -379,8 +379,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "大腸癌患者の補助化学療法中における運動介入の効果に関する系統的レビューとメタ解析。運動能力、筋力、疲労、痛み、化学療法誘発性末梢神経障害、不安、うつ、生活の質への影響を評価している。",
-          "memo": "消化器外科として大腸癌術後患者の補助療法中のケアに関連。運動療法の導入や患者指導の根拠として活用可能。",
+          "summary_ja": "大腸癌患者の術後補助化学療法中における運動介入の有効性に関する系統的レビューとメタ解析。運動能力、筋力、疲労、痛み、末梢神経障害、不安、うつ、生活の質への影響を検討している。",
+          "memo": "大腸癌患者の術後ケアや生活指導において、運動療法の重要性を認識し、患者教育や連携先との情報共有に活用できる。",
           "_pubmedKey": "gastroenterology",
           "impact": ""
         },
@@ -398,8 +398,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "炎症性腸疾患におけるCD8+ T細胞の役割と不均一性に関する単細胞トランスクリプトーム解析のナラティブレビュー。IBDにおけるCD8+ T細胞の表現型・機能的多様性と治療機会を特定している。",
-          "memo": "消化器内科として炎症性腸疾患の病態理解と将来的な個別化治療戦略の参考。基礎研究レベルだが治療標的の理解に有用。",
+          "summary_ja": "単一細胞トランスクリプトミクスを用いた炎症性腸疾患におけるCD8+ T細胞の役割と不均一性に関するレビュー。IBDにおいてCD8+ T細胞は顕著な表現型と機能的多様性を示し、特定のT細胞サブセットの標的調節により治療機会が期待される。",
+          "memo": "IBD患者の病態理解と将来的な個別化治療の可能性を示す研究。消化器内科として患者への説明や治療選択の参考となる。",
           "_pubmedKey": "gastroenterology",
           "impact": ""
         }
@@ -423,8 +423,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "上咽頭癌の再発・転移例に対するPD-1/PD-L1阻害薬の治療効果に関するメタ解析研究。9研究883例を対象に生存期間、客観的奏効率、副作用等を評価した。",
-          "memo": "耳鼻咽喉科診療で上咽頭癌を扱う際の治療選択肢として把握。免疫チェックポイント阻害薬の動向は参考情報。",
+          "summary_ja": "上咽頭がんの再発・転移例に対するPD-1/PD-L1阻害薬の治療効果について9つの研究を対象とした系統的レビュー。883人の患者データを解析し、免疫チェックポイント阻害薬の有効性と安全性を評価している。",
+          "memo": "耳鼻咽喉科での上咽頭がん診療への参考となる最新治療情報。一般クリニックでは直接的な影響は限定的だが、専門医との連携時の知識として有用。",
           "_pubmedKey": "ent",
           "impact": ""
         },
@@ -442,8 +442,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "進行食道扁平上皮癌の一次治療におけるPD-1阻害薬と化学療法併用の有効性を評価したメタ解析。欧州で高PD-L1発現ESCCの一次治療として承認されている。",
-          "memo": "消化器内科・外科で食道癌患者を紹介する際の治療選択肢として把握。免疫チェックポイント阻害薬の適応拡大動向。",
+          "summary_ja": "進行食道扁平上皮がんの一次治療において、PD-1阻害薬と化学療法の併用療法の有効な患者群を特定するための系統的レビューとメタ解析。欧州医薬品庁がPD-1高発現例での併用療法を承認している。",
+          "memo": "消化器がん診療の最新動向として把握。当院では内視鏡診断から専門病院への紹介判断に活用できる情報。",
           "_pubmedKey": "ent",
           "impact": ""
         },
@@ -461,10 +461,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "小児中耳炎に対する遠隔医療アプローチの範囲的レビュー。従来の対面診療による鼓膜鏡検査に代わる遠隔診断技術の開発が進んでいる。",
-          "memo": "小児科と耳鼻咽喉科の中耳炎診療で遠隔医療活用の可能性。診療効率化と患者アクセス改善に寄与。",
+          "summary_ja": "小児中耳炎に対するテレヘルス技術の応用と臨床成果に関するスコーピングレビュー。従来の対面診療に代わるデジタルツールの診断精度や実装成果を包括的に調査している。",
+          "memo": "当院の小児科・耳鼻咽喉科での中耳炎診療効率化に直結。テレヘルス導入による診療アクセス向上と収益機会の拡大が期待される。",
           "_pubmedKey": "ent",
-          "impact": "小児科・耳鼻咽喉科で遠隔医療導入の検討時期を見極める。"
+          "impact": "小児科・耳鼻咽喉科でのテレヘルス導入可能性を検討し、遠隔診療体制の構築を準備する。"
         },
         {
           "pmid": "41849355",
@@ -480,7 +480,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "除外",
-          "summary_ja": "後天性聴覚・視覚障害者の労働市場参加に関する促進要因と阻害要因のスコピングレビュー。社会参加の一環として労働の重要性を検討。",
+          "summary_ja": "後天性聴覚視覚障害者の労働市場参加を促進・阻害する要因に関するスコーピングレビュー。社会参加における就労の重要性と関連因子をICFフレームワークで分類している。",
           "memo": "",
           "_pubmedKey": "ent",
           "impact": ""
@@ -499,8 +499,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "前庭神経鞘腫の画像診断技術と腫瘍分類の進歩に関するレビュー。高解像度MRI、拡散テンソル画像などの先進的画像技術が病変評価と手術計画を改善。",
-          "memo": "耳鼻咽喉科で前庭神経鞘腫を疑う症例の画像診断依頼時の参考。先進的画像技術の理解が診断精度向上に寄与。",
+          "summary_ja": "前庭神経鞘腫に対する画像診断技術の進歩と腫瘍分類に関するレビュー。MRIが診断のゴールドスタンダードであり、高解像度MRIやDTIなどの先進技術が病変の特徴づけや手術計画の精緻化に貢献している。",
+          "memo": "耳鼻咽喉科診療での画像診断精度向上の参考情報。めまい患者の精査時により適切な専門医紹介判断が可能となる。",
           "_pubmedKey": "ent",
           "impact": ""
         }
@@ -524,8 +524,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "妊娠中の母体12-HETEと小児喘息との関連、及び妊娠中オメガ3サプリメント摂取への反応に関する研究。母体12-HETE欠乏が小児喘息リスク増加と関連。",
-          "memo": "小児科で喘息児の診療時、妊娠中の母体要因としての12-HETEとオメガ3摂取歴の把握が有用。",
+          "summary_ja": "母体血中12-HETEが小児喘息発症と関連し、妊娠中のオメガ3脂肪酸補給の効果に影響することを2つのコホート研究で実証。母体の12-HETE欠乏が小児の呼吸器疾患リスクと関連している。",
+          "memo": "小児科での喘息予防相談時の参考情報。妊娠中の栄養指導や小児喘息の予防的アプローチに活用できる知見。",
           "_pubmedKey": "pediatrics",
           "impact": ""
         },
@@ -543,8 +543,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "妊娠中にIPV含有百日咳ワクチンを接種した母親の子どもと非接種群の子どもを対象とした、就学前dTaP-IPVブースターワクチンに対する免疫反応比較研究。",
-          "memo": "小児科でワクチン接種スケジュール管理時の参考。妊娠中ワクチン接種が子どもの免疫反応に与える影響を把握。",
+          "summary_ja": "英国での妊娠中百日咳ワクチン接種が小児のポリオワクチン免疫応答に与える影響を調査した第IV相拡大試験。妊娠中dTaP-IPVワクチン接種母の児では、就学前ブースター接種後の抗体価を評価している。",
+          "memo": "小児科でのワクチン接種スケジュールと効果に関する参考情報。妊娠中ワクチン接種の影響を理解した適切な予防接種指導に活用。",
           "_pubmedKey": "pediatrics",
           "impact": ""
         },
@@ -562,27 +562,8 @@
           "sourcePriority": "high",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "不活化エンテロウイルス71型ワクチンの手足口病に対する長期防御効果をモデリング研究で予測。20年間の長期防御効果を数学的モデルで評価。",
-          "memo": "小児科で手足口病の予防策検討時の参考。EV71ワクチンの長期効果データは保護者への説明に有用。",
-          "_pubmedKey": "pediatrics",
-          "impact": ""
-        },
-        {
-          "pmid": "41475673",
-          "title": "Case report and literature review of neurodevelopmental syndrome linked to DOT1L variants.",
-          "abstract": "The DOT1L gene encodes a histone lysine methyltransferase that has the distinctive characteristic of being composed of a DOT1 catalytic domain that targets lysine 79 of the core globular domain of histone H3. DOT1L missense variants have recently been implicated in an autosomal dominant inheritance syndrome with developmental delay and congenital anomalies in postnatal cohorts. We report the twenty-sixth patient with this disorder. Trio genome sequencing (GS) was performed in a patient with developmental delay. Clinical examination showed a predominant global developmental delay affecting language, with cerebral abnormalities visible on magnetic resonance imaging, hypotonia, and ophthalmological and musculoskeletal abnormalities. GS revealed a de novo heterozygous missense variant in exon 3 of DOT1L (c.161C&#xa0;&gt;&#xa0;T; p.(Ala54Val)), which is reported for the first time as the cause of developmental delay and congenital anomalies. Among the 26 reported patients, 23 have missense variants, two have truncating variants, and one has an in-frame deletion. The mode of transmission is predominantly de novo. Current studies indicate multiple pathogenic mechanisms underlying DOT1L-related disorder, including both gain-of-function and loss-of-function effects, underscoring the complexity of the disease etiology. Although the gene exhibits intolerance to loss-of-function variants, a considerable number of truncating variants are observed in control populations, suggesting incomplete penetrance and heterogeneity in the phenotypic expression of DOT1L-associated disorder. No phenotype-genotype correlation could be established. Among reported patients, including ours, the most consistent clinical manifestations are global developmental delay, predominantly affecting language and behavior, and possibly distinctive facial features.",
-          "authors": "Caux Aur&#xe9;lien, Jobic Florence, Keren Boris, Billes Alexis, Magry Virginie et al.",
-          "journal": "Gene",
-          "date": "2026 01",
-          "doi": "10.1016/j.gene.2025.149987",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41475673/",
-          "source": "PubMed",
-          "specialty": "小児科",
-          "sourcePriority": "high",
-          "category": "paper",
-          "priority": "参考",
-          "summary_ja": "DOT1L遺伝子変異に関連した神経発達症候群の症例報告と文献レビュー。発達遅延と先天異常を呈する常染色体優性遺伝症候群の26例目の報告。",
-          "memo": "小児科で発達遅延を呈する患児の遺伝的背景評価時の参考。DOT1L変異による症候群の認識が診断に寄与。",
+          "summary_ja": "エンテロウイルス71型ワクチンの手足口病に対する20年間の長期防御効果を数学モデルで予測した研究。第3相試験データを用い、抗体減衰動態をSegmented Power-law Modelで解析している。",
+          "memo": "小児科での手足口病対策とワクチン相談時の参考情報。ワクチンの長期有効性を理解した適切な予防接種指導に役立つ。",
           "_pubmedKey": "pediatrics",
           "impact": ""
         }
@@ -599,15 +580,15 @@
           "authors": "Isaradech Natthanaphop, Sirikul Wachiranun, Schulz Stefan, Kreuzthaler Markus",
           "journal": "JMIR formative research",
           "date": "2026 03",
-          "doi": "10.2196/82685",
+          "doi": "10.1197/jamia.M1290.",
           "url": "https://pubmed.ncbi.nlm.nih.gov/41861368/",
           "source": "PubMed",
           "specialty": "医療AI・デジタルヘルス",
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "タイの病院記録からの薬剤情報抽出を目的とした、オントロジーベースの薬剤固有表現認識システムの開発と検証。5つの事前訓練済み変換器モデルを評価。",
-          "memo": "電子カルテ導入時の薬剤情報管理システム参考事例。タイ語・英語混在の医療記録処理技術は日本でも応用可能。",
+          "summary_ja": "タイの病院記録から薬剤情報を抽出するため、オントロジーベースのアノテーションと事前訓練済みTransformerモデルを活用した固有表現認識フレームワークの構築と検証を行った研究。",
+          "memo": "医療DX推進における電子カルテデータ活用の参考事例。タイ・英語混合記録の処理技術は当院の多言語対応にも応用可能性あり。",
           "_pubmedKey": "medical_ai",
           "impact": ""
         },
@@ -625,10 +606,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "PICU（小児集中治療室）で保護者の質問に答えるGPT-4ベースのチャットボットの実用性を評価した研究。14名の保護者が参加し、87.5%の登録率を達成した。",
-          "memo": "小児科を有する当法人では、保護者対応の効率化とサービス向上のため、同様のAI技術活用を検討する価値がある。実装前に医療安全面での検証が必要。",
+          "summary_ja": "PICU（小児集中治療室）での保護者支援を目的とした大規模言語モデルチャットボットの実現可能性を評価した前向き研究。GPT-4oベースのHIPAA準拠チャットボットで患者固有のEHRデータを活用している。",
+          "memo": "小児科での保護者への説明支援ツールとして応用可能。AI技術による診療効率化と患者満足度向上の両立が期待される新しいアプローチ。",
           "_pubmedKey": "medical_ai",
-          "impact": "小児科外来でのAI問診システム導入検討時の参考データとして活用する。"
+          "impact": "AI診療支援ツールの導入可能性を検討し、患者・家族とのコミュニケーション向上策を準備する。"
         },
         {
           "pmid": "41849365",
@@ -644,8 +625,8 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "皮膚病変のセグメンテーション（領域分割）を行うAI技術の改良に関する研究。境界の曖昧さや形態の多様性といった課題に対処する新しいネットワーク手法を提案した。",
-          "memo": "皮膚科は当法人の診療科目にないが、AI画像診断技術の進歩として把握。将来的な医療DXの参考情報として記録。",
+          "summary_ja": "皮膚病変の自動分割技術を向上させるAI手法に関する研究。境界の曖昧さや形態学的多様性などの課題に対処する新しいネットワークアーキテクチャを提案している。",
+          "memo": "皮膚科診療でのAI診断支援技術の発展。直接的な診療報酬への影響は現時点では限定的だが、将来的な診療効率化の可能性。",
           "_pubmedKey": "medical_ai",
           "impact": ""
         },
@@ -663,10 +644,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "電子健康記録（EHR）において機械学習を用いて稀な医療イベントを検出する現状と課題に関するスコーピングレビュー。異常検出アプローチについて整理された文献。",
-          "memo": "当法人が扱う糖尿病合併症や循環器疾患の早期発見に応用可能。電子カルテのAI機能拡張時の重要な参考資料となる。",
+          "summary_ja": "電子健康記録（EHR）での稀少医療事象をAIで検出する研究のスコーピングレビュー。医療データの不均衡やAI異常検知の現状と課題を整理している。",
+          "memo": "当クリニックの電子カルテデータを活用した診断支援AI導入の参考となる。稀少疾患の見逃し防止に寄与する可能性。",
           "_pubmedKey": "medical_ai",
-          "impact": "電子カルテシステムでのAI活用計画策定時に、稀な疾患の早期発見機能実装を検討する。"
+          "impact": "電子カルテシステムでのAI活用による稀少疾患の早期発見体制構築を検討する。"
         },
         {
           "pmid": "41838331",
@@ -682,8 +663,8 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "低エネルギー画像から合成造影マンモグラフィ画像を生成する深層学習技術の概念実証研究。造影剤を使わない画像診断の可能性を示した。",
-          "memo": "マンモグラフィは当法人の診療範囲外だが、造影剤レス検査への技術動向として把握。将来的な医療費抑制に寄与する可能性。",
+          "summary_ja": "深層学習を用いて低エネルギー画像から造影剤使用画像を合成生成する技術の概念実証研究。将来的に造影剤なしでの診断が可能になる可能性を示している。",
+          "memo": "放射線画像診断での造影剤使用量削減の可能性。患者負担軽減と診療効率化の観点で将来的に注目すべき技術動向。",
           "_pubmedKey": "medical_ai",
           "impact": ""
         }
@@ -707,10 +688,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "抗血栓薬服用患者において、脳基底核周囲血管間隙の拡大が脳卒中リスクに与える影響を調査した日本の多施設前向き観察研究。52病院が参加した大規模研究。",
-          "memo": "当法人の循環器内科患者の多くが抗血栓薬を服用しており、脳卒中リスク評価の精度向上に直結する重要な知見。画像診断との連携強化が必要。",
+          "summary_ja": "抗血栓療法を受けている患者において、基底核周囲血管周囲腔の拡大が虚血性・出血性イベントリスクに与える影響を調査した多施設前向き観察研究。",
+          "memo": "当院の循環器内科診療で抗凝固薬処方時の判断材料として活用可能。脳出血リスク評価の精度向上に寄与。",
           "_pubmedKey": "healthcare_management",
-          "impact": "循環器内科で抗血栓薬処方患者のMRI画像評価基準を見直し、リスク層別化を強化する。"
+          "impact": "循環器患者の抗血栓療法選択時にMRI所見も考慮したリスク評価を強化する。"
         },
         {
           "pmid": "41861232",
@@ -726,8 +707,8 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "血管性白質病変における脳血流と認知機能の関係を3D-pCASLを用いて調査した前向き研究。128名の参加者で認知機能評価と画像検査を実施した。",
-          "memo": "認知症早期診断への応用可能性があるが、当法人では専門的な脳血流画像検査は実施していない。将来的な連携先検討時の参考情報。",
+          "summary_ja": "血管性白質病変における脳血流と認知機能の関係を3D動脈スピンラベリング法で調査した前向き研究。脳小血管疾患の病態解明を目的としている。",
+          "memo": "認知症予防や早期発見の観点で参考となる基礎研究。直接的な診療への応用は限定的だが、将来的な診断技術向上に寄与。",
           "_pubmedKey": "healthcare_management",
           "impact": ""
         },
@@ -745,10 +726,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "要注視",
-          "summary_ja": "日本の糖尿病外来患者114名を対象とした糖尿病関連スティグマ（偏見・差別）の実態調査。年齢とポリファーマシーが体験されるスティグマに関連することが判明。",
-          "memo": "当法人の糖尿病内科で最も重要な知見。患者の内面的な負担を理解し、多剤併用時の配慮や心理的支援の強化が必要。QOL向上に直結する。",
+          "summary_ja": "日本の糖尿病外来患者における体験的スティグマの調査研究。年齢や多剤服用が糖尿病関連スティグマに影響することを明らかにした単施設横断研究。",
+          "memo": "当院の糖尿病診療において患者の心理的負担を理解し、より良い療養指導や診療環境整備の参考となる重要な知見。",
           "_pubmedKey": "healthcare_management",
-          "impact": "糖尿病患者の心理的負担軽減のため、服薬指導とカウンセリング体制を見直す。"
+          "impact": "糖尿病患者の心理的負担軽減のための診療体制やコミュニケーション方法を見直す。"
         },
         {
           "pmid": "41861186",
@@ -763,11 +744,11 @@
           "specialty": "医療経営・政策",
           "sourcePriority": "medium",
           "category": "paper",
-          "priority": "要注視",
-          "summary_ja": "COVID-19長期症状患者に対する漢方薬治療の効果を調査した日本の単施設前向き観察研究。特に倦怠感などの症状改善に焦点を当てた治療レジメンを開発。",
-          "memo": "当法人でもLong COVID患者の相談が増加しており、標準治療がない中で漢方薬による症状緩和は有効な選択肢。内科での導入検討が必要。",
+          "priority": "参考",
+          "summary_ja": "COVID-19後遺症患者に対する漢方薬を含む治療レジメンの効果を調査した単施設前向き観察研究。症状改善に関与する因子を分析している。",
+          "memo": "COVID-19後遺症への対応として漢方薬併用の参考データ。当院でも後遺症患者への治療選択肢として検討可能。",
           "_pubmedKey": "healthcare_management",
-          "impact": "Long COVID患者への漢方薬処方を検討し、症状改善プログラムを整備する。"
+          "impact": ""
         },
         {
           "pmid": "41860923",
@@ -783,8 +764,8 @@
           "sourcePriority": "medium",
           "category": "paper",
           "priority": "参考",
-          "summary_ja": "X連鎖性低リン血症の青年患者におけるburosumab治療の体験を調査した多施設混合研究法による研究。骨格成長終了前後での治療経験を記述した。",
-          "memo": "稀少疾患の専門治療に関する研究で、当法人の一般的な小児科診療との関連性は低い。稀少疾患患者の紹介先情報として記録。",
+          "summary_ja": "X連鎖性低リン血症の思春期患者におけるburosumab治療の経験を調査した多施設混合研究法による前向き研究。骨格成長終了前後での治療体験を記述している。",
+          "memo": "稀少疾患の治療に関する研究で、小児科診療での参考情報。直接的な診療機会は限定的だが、専門的知識として有用。",
           "_pubmedKey": "healthcare_management",
           "impact": ""
         }
@@ -830,9 +811,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "心臓アミロイドーシスの定量的評価に関する医学論文。循環器疾患の診断技術に関する専門的な内容で、循環器内科の診療知識として参考になる。",
+      "summary_ja": "心臓アミロイドーシスの定量的評価に関する研究。循環器診療における診断技術の進歩について。",
       "impact": "",
-      "memo": "循環器内科での心アミロイドーシス診断に関する最新知見。専門的な診断技術だが、当クリニックでの実施可能性は限定的。"
+      "memo": "当クリニックの循環器内科での診断精度向上に参考となる情報。将来的な検査技術導入の参考。"
     },
     {
       "title": "Paralympic Classification: Making Milano Cortina Fair",
@@ -841,7 +822,7 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "除外",
-      "summary_ja": "パラリンピックの競技分類制度に関する記事で、医療・ヘルスケアに直接関係しない内容。",
+      "summary_ja": "パラリンピックの分類システムに関する記事。スポーツ医学分野の内容。",
       "impact": "",
       "memo": ""
     },
@@ -852,9 +833,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "神経内分泌腫瘍に対するアキシチニブの客観的奏効率向上に関する臨床試験結果。消化器外科での治療選択肢に関連する新薬情報。",
+      "summary_ja": "アキシチニブが神経内分泌腫瘍の奏効率を向上させるという研究結果。がん治療薬の新たな適応について。",
       "impact": "",
-      "memo": "神経内分泌腫瘍の治療薬として注目。当クリニックの消化器外科での治療適応は限定的だが、患者紹介時の知識として有用。"
+      "memo": "消化器外科での腫瘍治療に関連する可能性。専門医との連携強化の参考情報。"
     },
     {
       "title": "Waste Not, Want Not: Scientists Turn Plastic Into Levodopa",
@@ -863,9 +844,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "プラスチック廃棄物からパーキンソン病治療薬レボドパを製造する技術開発に関する基礎研究。環境と医療の接点を示す興味深い研究成果。",
+      "summary_ja": "プラスチック廃棄物からレボドパを生成する技術に関する研究。パーキンソン病治療薬の新製造法について。",
       "impact": "",
-      "memo": "基礎研究レベルの技術で、当クリニック経営への直接的影響はない。将来的な薬剤供給や環境問題への関心として参考程度。"
+      "memo": "将来的な薬価や供給安定性に影響する可能性。環境配慮の製薬技術の動向として注目。"
     },
     {
       "title": "Employee Dies Of Meningitis in North France, Company Says no Link to UK Outbreak",
@@ -873,10 +854,10 @@
       "date": "2026-03-20",
       "source": "Medscape",
       "category": "medical_news",
-      "priority": "参考",
-      "summary_ja": "フランス北部で髄膜炎による死亡事例が発生、英国での集団発生との関連性は否定。感染症の海外動向として参考情報。",
-      "impact": "",
-      "memo": "髄膜炎の海外発生状況として把握。当クリニックへの直接的影響はないが、感染症動向の参考として。"
+      "priority": "要注視",
+      "summary_ja": "フランス北部で髄膜炎による従業員死亡事例。英国のアウトブレイクとの関連性は否定されている感染症事例。",
+      "impact": "髄膜炎の診断・対応手順の再確認と院内感染対策の点検を実施。",
+      "memo": "小児科では髄膜炎の早期診断が重要。成人でも内科で対応する場合があり注意が必要。"
     },
     {
       "title": "Lifelike 3D-Printed ‘Training Brains’ React Like Real Organs",
@@ -885,9 +866,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "実際の脳のように反応する3Dプリント製の訓練用脳モデルの開発。医療教育や手術訓練技術の進歩に関する研究。",
+      "summary_ja": "実際の臓器のように反応する3Dプリント製「訓練用脳」の開発。医療訓練技術の革新について。",
       "impact": "",
-      "memo": "医療教育技術の進歩として興味深いが、当クリニックでの活用機会は限定的。将来的な医療技術動向として参考程度。"
+      "memo": "医療従事者の技術向上に寄与する可能性。将来的な研修制度への応用を検討材料として参考。"
     },
     {
       "title": "Suicidality May Predict Focal Epilepsy Treatment Resistance",
@@ -896,9 +877,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "自殺傾向が焦点性てんかんの治療抵抗性を予測する可能性について。精神的要因と神経疾患治療効果の関連性に関する研究。",
+      "summary_ja": "自殺傾向が焦点性てんかんの治療抵抗性を予測する可能性があるという研究結果。精神症状とてんかん治療の関連について。",
       "impact": "",
-      "memo": "てんかん治療での精神的要因の重要性を示す研究。当クリニックでのてんかん診療は限定的だが、精神的ケアの重要性として参考。"
+      "memo": "内科での薬物治療時の精神症状への注意喚起として参考。専門医への紹介タイミングの判断材料。"
     },
     {
       "title": "Mixed Results for Psilocybin as Blinding Concerns Remain",
@@ -907,9 +888,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "サイロシビン（マジックマッシュルームの活性成分）の臨床試験で混在する結果が報告されており、治療効果の評価において盲検化の問題が残存している。精神医学領域での新しい治療選択肢として注目されている。",
+      "summary_ja": "サイロシビンの治療効果について混合的な結果が報告されており、盲検化の課題が残っている。精神医学領域での新たな治療選択肢として注目されている。",
       "impact": "",
-      "memo": "精神科診療は行っていないが、将来的な治療選択肢として情報収集価値あり。当面は直接的な影響なし。"
+      "memo": "精神科専門医との連携や紹介の際の知識として有用。現時点では直接的な診療への影響は限定的。"
     },
     {
       "title": "Recent Activity Matters for Dementia Risk in Older Adults",
@@ -917,10 +898,10 @@
       "date": "2026-03-19",
       "source": "Medscape",
       "category": "medical_news",
-      "priority": "要注視",
-      "summary_ja": "高齢者において最近の身体活動が認知症リスクに影響することが研究で示された。運動習慣の継続が認知機能維持に重要であることが確認されている。",
-      "impact": "生活習慣病指導や健康相談で運動の重要性をより強調した指導を検討する。",
-      "memo": "糖尿病・循環器患者への運動指導に活用可能。予防医学的アプローチの強化に繋がる情報。"
+      "priority": "参考",
+      "summary_ja": "高齢者において最近の身体活動が認知症リスクに影響することが示された。運動習慣の維持が認知機能保護に重要である。",
+      "impact": "",
+      "memo": "糖尿病や循環器疾患患者への生活指導で活用可能。予防医療の観点から患者指導に有用な情報。"
     },
     {
       "title": "Rules for Thee, Not for Me: Neuroscience & Double Standards",
@@ -929,9 +910,9 @@
       "source": "Medscape",
       "category": "medical_news",
       "priority": "参考",
-      "summary_ja": "神経科学の観点から人間の二重基準について分析した記事。「自分には甘く、他人には厳しい」という心理的傾向を神経科学的に解説している。",
+      "summary_ja": "神経科学における二重基準について論じた記事。医療従事者の倫理的行動や判断における一貫性の重要性を扱っている。",
       "impact": "",
-      "memo": "診療現場での患者コミュニケーションや職員マネジメントに応用可能な心理学的知見として参考になる。"
+      "memo": "医療倫理や組織運営における判断基準の一貫性確保の参考となる。スタッフ教育にも活用可能。"
     }
   ],
   "fierce": [
@@ -1028,40 +1009,53 @@
   ],
   "carenet": [
     {
-      "title": "2026-03-16 ～ 2026-03-22",
+      "title": "2026-03-23 ～ 2026-03-23",
       "url": "https://www.carenet.com/news/archive/0",
       "date": "",
       "source": "CareNet",
       "category": "medical_news",
       "priority": "除外",
-      "summary_ja": "CareNetの記事アーカイブのタイトルのみで、具体的な内容が不明。医療情報として評価できない。",
+      "summary_ja": "CareNetの日付情報のみで具体的な内容が不明。",
       "impact": "",
-      "memo": "内容が不明のため評価対象外。"
+      "memo": ""
     },
     {
-      "title": "2026-03-02 ～ 2026-03-08",
+      "title": "2026-03-09 ～ 2026-03-15",
       "url": "https://www.carenet.com/news/archive/2",
       "date": "",
       "source": "CareNet",
       "category": "medical_news",
       "priority": "除外",
-      "summary_ja": "CareNetの記事アーカイブのタイトルのみで、具体的な内容が不明。医療情報として評価できない。",
+      "summary_ja": "CareNetの日付情報のみで具体的な内容が不明。",
       "impact": "",
-      "memo": "内容が不明のため評価対象外。"
+      "memo": ""
     },
     {
-      "title": "2026-02-23 ～ 2026-03-01",
+      "title": "2026-03-02 ～ 2026-03-08",
       "url": "https://www.carenet.com/news/archive/3",
       "date": "",
       "source": "CareNet",
       "category": "medical_news",
       "priority": "除外",
-      "summary_ja": "CareNetの記事アーカイブのタイトルのみで、具体的な内容が不明。医療情報として評価できない。",
+      "summary_ja": "CareNetの日付情報のみで具体的な内容が不明。",
       "impact": "",
-      "memo": "内容が不明のため評価対象外。"
+      "memo": ""
     }
   ],
   "nikkei": [
+    {
+      "title": "AIを介護相談に活用　鳥取のN.K.C、独居高齢者の見守りに活用も",
+      "url": "https://www.nikkei.com/article/DGXZQOCC189OU0Y6A310C2000000/",
+      "date": "2026-03-22",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "要注視",
+      "summary_ja": "鳥取のN.K.CがAIを介護相談や独居高齢者の見守りに活用する取り組みを開始。AIによる高齢者ケア支援の実用化が進んでいる。",
+      "_rssOnly": true,
+      "impact": "高齢患者の多い当法人でもAI活用による患者フォローアップ体制の検討を開始する。",
+      "memo": "糖尿病・循環器内科の高齢患者管理にAI技術の活用可能性を探る必要がある。地域医療連携の新たな手法として注目。"
+    },
     {
       "title": "最低賃金、適用遅すぎに厚労省も労使も困惑　「原則1月1日」案が浮上",
       "url": "https://www.nikkei.com/article/DGXZQOUA150RS0V10C26A3000000/",
@@ -1070,267 +1064,267 @@
       "source": "日経",
       "category": "news",
       "priority": "要注視",
-      "summary_ja": "最低賃金の適用時期が遅すぎることで厚労省と労使が困惑し、原則1月1日適用案が浮上している。医療従事者の人件費に影響する可能性がある。",
+      "summary_ja": "最低賃金の適用時期が現在の10月から原則1月1日への変更案が浮上。厚労省と労使双方が現行制度の問題を認識している状況。",
       "_rssOnly": true,
-      "impact": "最低賃金改定スケジュールの変更動向を注視し、人件費予算への影響を検討する。",
-      "memo": "クリニックの非正規職員や事務スタッフの人件費に直接影響。年間予算計画の見直しが必要。"
-    },
-    {
-      "title": "「国保逃れ」是正へ基��通知　厚労省、不当な保険料負担圧縮に歯止め",
-      "url": "https://www.nikkei.com/article/DGXZQOUA188QH0Y6A310C2000000/",
-      "date": "2026-03-18",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "要対応",
-      "summary_ja": "厚労省が国保逃れ是正のための基本通知を発出。不当な保険料負担圧縮に歯止めをかける措置で、医療機関の保険請求にも影響する可能性がある。",
-      "_rssOnly": true,
-      "impact": "国保関連の請求処理や患者対応について、新しい通知内容を確認し対応方針を決定する。",
-      "memo": "国保患者が多い当院では請求事務への影響が考えられる。事務スタッフへの周知が必要。"
+      "impact": "賃金制度見直しのタイミング変更に備え、人事労務管理体制の調整を検討する。",
+      "memo": "クリニックスタッフの給与体系や雇用契約への影響を精査する必要がある。年度予算策定時期との整合性も考慮要。"
     },
     {
       "title": "エーザイ、抗がん剤「タズベリク」投与中止 血液がん発生リスク受け",
       "url": "https://www.nikkei.com/article/DGXZQOUC197DG0Z10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
-      "priority": "要注視",
-      "summary_ja": "エーザイが抗がん剤「タズベリク」の投与を中止。血液がん発生リスクが理由で、医薬品安全性管理の重要性を示している。",
+      "priority": "参考",
+      "summary_ja": "エーザイが抗がん剤「タズベリク」の投与を血液がん発生リスクにより中止。薬剤安全性の問題により販売中止となった事例。",
       "_rssOnly": true,
-      "impact": "薬剤安全管理体制を再確認し、院内での副作用報告システムを点検する。",
-      "memo": "当院では抗がん剤使用はないが、薬剤安全管理の参考事例として院内研修に活用。"
+      "impact": "",
+      "memo": "当法人では抗がん剤治療は行っていないが、処方薬の安全性情報収集体制の重要性を再認識する事例。"
     },
     {
       "title": "キッセイ、子宮筋腫治療薬の国内販売開始 自社で開発",
       "url": "https://www.nikkei.com/article/DGXZQOCC196A10Z10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "キッセイ薬品が子宮筋腫治療薬の国内販売を開始。自社開発による新薬で、婦人科領域の治療選択肢が拡大している。",
+      "summary_ja": "キッセイ薬品が自社開発の子宮筋腫治療薬の国内販売を開始。婦人科領域での新薬上市の動向。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "当院に産婦人科はないが、患者から相談があった際の情報提供として把握しておく。"
+      "memo": "当法人では婦人科診療は行っていないが、女性患者への情報提供や適切な専門医紹介のための知識として有用。"
     },
     {
       "title": "インドネシア、デジタルで子どもの健康支援 新興企業のサービス拡大",
       "url": "https://www.nikkei.com/article/DGXZQOUD10AN40Q6A310C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "インドネシアで小児向けデジタルヘルスサービスを提供する新興企業が事業拡大している。デジタル技術を活用した子どもの健康支援サービスの海外動向事例。",
+      "summary_ja": "インドネシアでデジタル技術を活用した小児健康支援サービスを展開する新興企業が拡大している。海外での小児向けデジタルヘルスケア事例として注目される。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "小児科診療でのデジタル化の参考事例。直接的な経営への影響は限定的だが、将来的なデジタル化の方向性として参考になる。"
+      "memo": "小児科診療でのデジタル技術活用の海外動向として参考になる。将来的な小児科診療のDX化のヒントとなり得る。"
+    },
+    {
+      "title": "iPS細胞角膜シート、5月メドに1例目の移植 大阪大学発の新興",
+      "url": "https://www.nikkei.com/article/DGXZQOUF192NB0Z10C26A3000000/",
+      "date": "2026-03-23",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "参考",
+      "summary_ja": "大阪大学発の新興企業がiPS細胞由来角膜シートの移植を5月頃に実施予定。再生医療の実用化が進展している。",
+      "_rssOnly": true,
+      "impact": "",
+      "memo": "再生医療の進歩として興味深いが、当クリニックの診療科目とは直接関係しない。将来的な医療技術動向として把握しておく価値がある。"
     },
     {
       "title": "人生の最期、在宅復帰に尽力 東京・板橋の「おうちにかえろう。病院」",
       "url": "https://www.nikkei.com/article/DGXZQOCC028450S6A300C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
-      "priority": "参考",
-      "summary_ja": "東京・板橋の「おうちにかえろう。病院」が在宅復帰支援に力を入れている。人生の最期を在宅で過ごすための医療提供体制の事例。",
+      "priority": "要注視",
+      "summary_ja": "東京・板橋の病院が在宅復帰支援に特化した取り組みを展開している。終末期医療での在宅移行が注目されている。",
       "_rssOnly": true,
-      "impact": "",
-      "memo": "在宅医療や地域連携の参考事例。クリニックとしての在宅医療への取り組みや地域の医療機関との連携強化の検討材料。"
+      "impact": "在宅医療連携や終末期対応について当院の体制を検討する",
+      "memo": "内科・消化器科で終末期患者への対応が求められる場合がある。在宅医療機関との連携強化を検討すべき事例として参考になる。"
     },
     {
       "title": "科研製薬、遺伝性の希少疾患の治療薬発売 経口剤で患者の負担減",
       "url": "https://www.nikkei.com/article/DGXZQOUC1899R0Y6A310C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "科研製薬が遺伝性希少疾患の経口治療薬を発売し、患者負担軽減を図る。希少疾患領域での新薬開発動向。",
+      "summary_ja": "科研製薬が遺伝性希少疾患の経口治療薬を発売し、患者負担軽減を図っている。希少疾患治療の選択肢が拡大している。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "希少疾患患者への対応は直接的な経営影響は小さい。ただし専門性向上や患者紹介ネットワーク構築の観点で参考になる。"
+      "memo": "希少疾患は専門医療機関での対応が中心となるため、当クリニックへの直接的影響は限定的。患者紹介時の知識として有用。"
     },
     {
       "title": "マレーシアのサンウェイG傘下病院が上場 病床数拡大へ",
       "url": "https://www.nikkei.com/article/DGXZQOGM184LW0Y6A310C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "マレーシアのサンウェイグループ傘下病院が上場し、病床数拡大を計画している。東南アジアの医療サービス市場の動向。",
+      "summary_ja": "マレーシアの病院グループが上場し病床数拡大を計画している。東南アジアでの医療投資が活発化している。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "海外の医療機関経営動向。日本のクリニック経営には直接関係しないが、医療サービス業界のグローバルトレンドとして参考。"
+      "memo": "海外の医療機関経営動向として参考程度。日本国内のクリニック経営への直接的な影響はない。"
     },
     {
       "title": "塩野義製薬、博士課程の内定者をアルバイト雇用 データ分析など",
       "url": "https://www.nikkei.com/article/DGXZQOUF088MT0Y5A201C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "塩野義製薬が博士課程内定者をアルバイト雇用し、データ分析業務に従事させる人材確保策を実施。製薬業界の人材戦略。",
+      "summary_ja": "塩野義製薬が博士課程学生をアルバイト雇用しデータ分析業務に従事させる取り組みを開始した。製薬企業の人材活用事例。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "高度人材確保の参考事例。クリニックでのデータ分析や研究活動に関心があれば参考になるが、直接的な経営への影響は小さい。"
+      "memo": "製薬企業の人材戦略として興味深いが、クリニック経営への直接的関連性は低い。業界動向の把握程度。"
     },
     {
       "title": "eWeLL中野社長、訪問看護のAI活用「誤回答排除で普及へ」",
       "url": "https://www.nikkei.com/article/DGXZQOUF1985M0Z10C26A2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "要注視",
-      "summary_ja": "eWeLL社が訪問看護でのAI活用について、誤回答排除により普及を目指すとの方針を表明。医療現場でのAI導入における精度向上の取り組み。",
+      "summary_ja": "eWeLL社が訪問看護でのAI活用について誤回答排除による普及促進を目指している。医療現場でのAI活用が進展している。",
       "_rssOnly": true,
-      "impact": "AI問診や医療AI導入の参考として、精度と安全性の確保について検討する。",
-      "memo": "クリニックでのAI活用検討時の参考。誤回答リスク対策は患者安全に直結するため、導入時の重要な検討事項。"
+      "impact": "AI問診システムや診療支援AIの導入検討を進める",
+      "memo": "当クリニックでもAI問診システム導入を検討中。医療AIの精度向上と普及動向として注視すべき情報。"
     },
     {
       "title": "エスエス製薬社長にマーケティング本部長の元島陽子氏",
       "url": "https://www.nikkei.com/article/DGXZQOUC139IP0T10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "エスエス製薬の新社長にマーケティング本部長の元島陽子氏が就任。製薬業界の経営陣人事動向。",
+      "summary_ja": "エスエス製薬の新社長にマーケティング本部長の元島陽子氏が就任した。製薬企業の人事異動情報。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "製薬業界の人事動向。クリニック経営には直接影響しないが、取引先企業の経営方針変化の可能性として参考程度。"
+      "memo": "製薬企業の経営陣変更は直接的な影響はないが、取引先動向として把握しておく程度。"
     },
     {
       "title": "アインHD純利益39%増 5〜1月期、販管費抑制で計画上振れ",
       "url": "https://www.nikkei.com/article/DGXZQOFC1765K0X10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "アインホールディングスが5-1月期決算で純利益39%増を達成し、販管費抑制により計画を上振れ。調剤薬局チェーンの業績動向。",
+      "summary_ja": "アインホールディングスが5-1月期純利益39%増を記録し、販管費抑制により計画を上回った。調剤薬局チェーンの好業績。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "近隣薬局の経営状況把握の参考。処方箋発行先として連携する薬局の業界動向を知る上で参考になる。"
+      "memo": "近隣調剤薬局との連携において、業界動向として把握しておく価値がある。薬局業界の経営効率化事例として参考。"
     },
     {
       "title": "キヤノンメディカル、MRIの旗艦モデル刷新 撮影時の息止め不要",
       "url": "https://www.nikkei.com/article/DGXZQOUC1740X0X10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "キヤノンメディカルがMRIの新型機種を発売し、撮影時の息止めが不要になる技術改良を実現。医療機器の技術進歩。",
+      "summary_ja": "キヤノンメディカルがMRIの新型モデルを発表し、撮影時の息止めが不要になる技術を搭載した。医療機器の技術進歩。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "MRI検査の患者負担軽減技術。クリニックでは直接関係しないが、検査依頼先の病院での患者体験向上として参考情報。"
+      "memo": "当クリニックではMRI設備はないが、患者紹介先での検査技術向上として把握しておく価値がある。"
     },
     {
       "title": "関節リウマチなどが寒いと症状が変化するメカニズム、大阪大学解明",
       "url": "https://www.nikkei.com/article/DGXZQOSG05A8O0V00C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "大阪大学が関節リウマチなど症状が寒さで変化するメカニズムを解明した。基礎医学研究の成果。",
+      "summary_ja": "大阪大学が関節リウマチなどの症状が寒さで変化するメカニズムを解明した。基礎研究レベルの成果と推測される。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "リウマチ患者の季節性症状変化の理解に役立つ基礎研究。内科診療での患者説明や症状管理の参考として活用可能。"
+      "memo": "リウマチ患者の診療時に季節要因を考慮する参考情報。患者説明の根拠として活用可能。"
     },
     {
       "title": "システム開発のOmi Japan、医療業界精通のIT人材 福岡で300人育成",
       "url": "https://www.nikkei.com/article/DGXZQOUC1618I0W6A310C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
-      "priority": "要注視",
-      "summary_ja": "システム開発のOmi Japanが福岡で医療業界に精通したIT人材を300人育成する計画を発表。医療DX推進において重要な技術人材の供給体制強化が図られる。",
+      "priority": "参考",
+      "summary_ja": "システム開発会社Omi Japanが福岡で医療IT人材300人の育成を計画。医療DX推進の人材供給に関する業界動向。",
       "_rssOnly": true,
-      "impact": "医療DX導入時の技術支援やシステム開発パートナーの選択肢拡大の可能性。",
-      "memo": "電子カルテや医療システム導入時の技術支援体制の充実。地域のIT人材育成は将来的なシステム導入コスト低減に寄与する可能性。"
+      "impact": "",
+      "memo": "将来的な医療IT人材の供給改善により、電子カルテやシステム導入コストが下がる可能性。"
     },
     {
       "title": "学研HD、介護と教育でアジアを開拓 売上高の海外比率7割へ",
       "url": "https://www.nikkei.com/article/DGXZQOUC048ML0U6A300C2000000/",
-      "date": "2026-03-22",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "参考",
-      "summary_ja": "学研ホールディングスがアジア市場で介護と教育事業を拡大し、海外売上高比率を7割まで引き上げる計画。介護分野での海外展開が加速している。",
-      "_rssOnly": true,
-      "impact": "",
-      "memo": "介護事業の海外展開動向として参考になる。直接的な診療への影響は限定的だが、ヘルスケア産業全体の動向として把握しておきたい。"
-    },
-    {
-      "title": "サワイGHD会長｢新薬メーカーの工場取得検討｣ 後発薬の供給力高める",
-      "url": "https://www.nikkei.com/article/DGXZQOUF1678R0W6A310C2000000/",
-      "date": "2026-03-22",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "要注視",
-      "summary_ja": "サワイグループホールディングス会長が新薬メーカーの工場取得を検討していると発表。後発薬の安定供給体制強化を図る。",
-      "_rssOnly": true,
-      "impact": "後発薬の供給安定化により薬剤費削減効果と処方選択肢の拡大が期待される。",
-      "memo": "後発薬不足問題の解決に向けた業界動向として重要。当クリニックの薬剤費管理や処方戦略に影響する可能性がある。"
-    },
-    {
-      "title": "アツギが着圧靴下、一般医療機器で販売 むくみ改善うたう",
-      "url": "https://www.nikkei.com/article/DGXZQOUC166CL0W6A310C2000000/",
-      "date": "2026-03-22",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "参考",
-      "summary_ja": "アツギが着圧靴下を一般医療機器として販売開始し、むくみ改善効果をうたう。繊維メーカーの医療機器分野参入が進んでいる。",
-      "_rssOnly": true,
-      "impact": "",
-      "memo": "循環器関連の補助的治療選択肢として患者への情報提供に活用可能。医療機器としての効果エビデンスは要確認。"
-    },
-    {
-      "title": "ロート製薬、中国で頻尿治療の医療機器発売",
-      "url": "https://www.nikkei.com/article/DGXZQOUF162ED0W6A310C2000000/",
-      "date": "2026-03-22",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "参考",
-      "summary_ja": "ロート製薬が中国市場で頻尿治療の医療機器を発売。泌尿器科領域での医療機器の海外展開事例として注目される。",
-      "_rssOnly": true,
-      "impact": "",
-      "memo": "泌尿器科領域の治療選択肢拡大の動向として参考。当クリニックでは直接的な関連は少ないが、高齢患者の頻尿相談時の情報として有用。"
-    },
-    {
-      "title": "帝人系、iPS細胞保管サービスでバイオ新興と提携 将来の病気に備え",
-      "url": "https://www.nikkei.com/article/DGXZQOUC166BR0W6A310C2000000/",
-      "date": "2026-03-22",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "参考",
-      "summary_ja": "帝人系企業がバイオ新興企業と提携し、将来の病気に備えたiPS細胞保管サービスを開始。再生医療分野のサービス拡充が進んでいる。",
-      "_rssOnly": true,
-      "impact": "",
-      "memo": "再生医療の商業化動向として参考。患者からの相談があった際の情報源として活用。現時点では直接的な診療への影響は限定的。"
-    },
-    {
-      "title": "明治のナイチンゲール、4月からNHK朝ドラに 看護師の黎明期描く",
-      "url": "https://www.nikkei.com/article/DGXZQOUA139V30T10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "NHK朝ドラで明治時代の看護師を描いた作品が4月から放送開始。看護師の黎明期を題材としたエンターテイメント作品。",
+      "summary_ja": "学研ホールディングスがアジアで介護・教育事業を展開し、海外売上比率7割を目指す企業戦略。",
+      "_rssOnly": true,
+      "impact": "",
+      "memo": ""
+    },
+    {
+      "title": "サワイGHD会長｢新薬メーカーの工場取得検討｣ 後発薬の供給力高める",
+      "url": "https://www.nikkei.com/article/DGXZQOUF1678R0W6A310C2000000/",
+      "date": "2026-03-23",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "要注視",
+      "summary_ja": "サワイGHDが後発薬供給力強化のため新薬メーカー工場取得を検討。ジェネリック医薬品の安定供給に影響する可能性。",
+      "_rssOnly": true,
+      "impact": "処方するジェネリック医薬品の供給状況を継続的に確認し、代替薬の準備を検討する。",
+      "memo": "ジェネリック医薬品の安定供給は薬価差益に直結。供給改善は経営にプラス影響。"
+    },
+    {
+      "title": "アツギが着圧靴下、一般医療機器で販売 むくみ改善うたう",
+      "url": "https://www.nikkei.com/article/DGXZQOUC166CL0W6A310C2000000/",
+      "date": "2026-03-23",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "参考",
+      "summary_ja": "アツギが一般医療機器として着圧靴下を販売開始。むくみ改善効果をうたう製品展開。",
+      "_rssOnly": true,
+      "impact": "",
+      "memo": "循環器内科でむくみ患者への生活指導時の選択肢として認識。医療機器扱いで信頼性向上。"
+    },
+    {
+      "title": "ロート製薬、中国で頻尿治療の医療機器発売",
+      "url": "https://www.nikkei.com/article/DGXZQOUF162ED0W6A310C2000000/",
+      "date": "2026-03-23",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "参考",
+      "summary_ja": "ロート製薬が中国市場で頻尿治療用医療機器を発売。泌尿器科領域の新規治療機器動向。",
+      "_rssOnly": true,
+      "impact": "",
+      "memo": "泌尿器科疾患の治療選択肢拡大の参考情報。将来的な日本市場参入の可能性を注視。"
+    },
+    {
+      "title": "帝人系、iPS細胞保管サービスでバイオ新興と提携 将来の病気に備え",
+      "url": "https://www.nikkei.com/article/DGXZQOUC166BR0W6A310C2000000/",
+      "date": "2026-03-23",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "参考",
+      "summary_ja": "帝人系企業がバイオ新興企業と提携してiPS細胞保管サービスを開始。再生医療分野の新サービス。",
+      "_rssOnly": true,
+      "impact": "",
+      "memo": "将来の再生医療普及時の患者ニーズを理解する参考情報。現時点では直接的影響なし。"
+    },
+    {
+      "title": "明治のナイチンゲール、4月からNHK朝ドラに 看護師の黎明期描く",
+      "url": "https://www.nikkei.com/article/DGXZQOUA139V30T10C26A3000000/",
+      "date": "2026-03-23",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "priority": "除外",
+      "summary_ja": "NHK朝ドラで明治時代の看護師を描いた作品が4月から放送開始。看護師の歴史を題材とした番組。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1338,25 +1332,25 @@
     {
       "title": "睡眠リズム、起きる時間で調整してみよう",
       "url": "https://www.nikkei.com/article/DGXZQOSG116UR0R10C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "睡眠リズムの改善方法として起床時間の調整が有効であることを解説した記事。睡眠障害の改善アプローチに関する健康情報。",
+      "summary_ja": "睡眠リズムの調整方法について、起床時間を重視した生活指導に関する記事。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "患者への生活指導や睡眠相談時の参考情報として活用可能。特に内科診療での生活習慣改善指導に有用。"
+      "memo": "生活習慣病患者への睡眠指導時の参考情報。糖尿病患者の血糖管理にも関連。"
     },
     {
       "title": "「5臓ないなら、ないなりに」 安藤忠雄さん、膵臓がんで再び手術",
       "url": "https://www.nikkei.com/article/DGXZQOUD254HV0V20C26A2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "建築家安藤忠雄さんが膵臓がんで再び手術を受けたことを報告。著名人の病気体験談として紹介された記事。",
+      "summary_ja": "建築家安藤忠雄氏が膵臓がんで再手術を受けたという個人の医療体験に関する記事。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1364,64 +1358,64 @@
     {
       "title": "肥満症は「要治療」 増える専門外来、健康障害防ぐ",
       "url": "https://www.nikkei.com/article/DGXZQOUD038GK0T00C26A3000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "要注視",
-      "summary_ja": "肥満症を治療が必要な疾患として捉え、専門外来が増加している。健康障害の予防を目的とした治療アプローチが注目されている。",
+      "summary_ja": "肥満症治療への関心が高まり、専門外来の設置が増加している。肥満は糖尿病や循環器疾患の重要なリスク要因として認識されている。",
       "_rssOnly": true,
-      "impact": "肥満症治療の専門性向上と専門外来開設の検討が必要。糖尿病診療との連携強化。",
-      "memo": "糖尿病・循環器内科として肥満症治療への取り組み強化が重要。GLP-1薬の活用や専門外来設置の検討材料となる。"
+      "impact": "内科・糖尿病外来での肥満症治療強化、専門外来設置の検討が必要。",
+      "memo": "糖尿病・循環器内科との連携で肥満症治療の収益機会拡大。生活習慣病管理指導料の算定機会増加。"
     },
     {
       "title": "目の前の命と向き合い続ける ジャパンハート創設者・吉岡秀人さん",
       "url": "https://www.nikkei.com/article/DGXZQOUD16AU20W6A310C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "NPO法人ジャパンハート創設者の吉岡秀人氏に関するインタビュー記事。国際医療支援活動を通じた医師の使命と社会貢献について語られている内容と推測される。",
+      "summary_ja": "国際医療支援団体ジャパンハートの創設者・吉岡秀人氏の活動や理念について紹介された記事。医療従事者の使命感に関する内容と推測される。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "医師の社会的使命や国際貢献活動の視点は参考になる。直接的な経営への影響は限定的。"
+      "memo": "医療従事者のモチベーション向上や理念共有に参考となる。直接的な経営影響は限定的。"
     },
     {
       "title": "不調の原因は「普段の呼吸」の可能性 死亡リスクにも影響を及ぼす",
       "url": "https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "要注視",
-      "summary_ja": "普段の呼吸法が健康に与える影響について解説した記事。呼吸の質が不調や死亡リスクに関連するという内容で、予防医学的な観点から注目される。",
+      "summary_ja": "日常的な呼吸の質が健康状態や死亡リスクに影響する可能性が指摘されている。呼吸器系疾患や全身の健康管理への新たな視点。",
       "_rssOnly": true,
-      "impact": "呼吸指導や予防医学的アプローチを診療に取り入れることを検討する。",
-      "memo": "内科診療での生活指導や予防医学的アプローチの参考になる。患者教育の新たな視点として活用可能。"
+      "impact": "呼吸指導や呼吸器系診療の強化、患者教育プログラムの検討。",
+      "memo": "耳鼻咽喉科での呼吸障害診療や内科での生活習慣病指導に活用可能。新たな指導料算定の機会。"
     },
     {
       "title": "放射線の知識、国民に周知を 福島の中間貯蔵施設を訪ねて",
       "url": "https://www.nikkei.com/article/DGXZQOUD045BG0U6A300C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "参考",
-      "summary_ja": "福島の中間貯蔵施設を訪問した記事で、放射線に関する国民の知識向上の必要性について述べている。医療従事者の放射線理解にも関連する内容。",
+      "summary_ja": "福島の中間貯蔵施設を通じて、放射線に関する正確な知識の普及啓発の重要性について論じられている。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "放射線に関する正しい知識は医療従事者として重要。直接的な経営判断への影響は少ない。"
+      "memo": "放射線検査時の患者説明に参考となるが、直接的な診療や経営への影響は限定的。"
     },
     {
       "title": "「対」は社会の最小単位 違い排除せず共存、使い分けを",
       "url": "https://www.nikkei.com/article/DGXZQOUD0215E0S6A300C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "社会の最小単位としての「対」について論じた哲学的・社会学的な内容。多様性の共存と使い分けに関する一般的な議論と推測される。",
+      "summary_ja": "社会における対立構造や多様性の共存について論じた社会論的な内容。医療・ヘルスケアとの直接的な関連性が不明。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1429,28 +1423,15 @@
     {
       "title": "テレワーク社会の落とし穴 体力が10歳分下がり、議論が偏りがちに",
       "url": "https://www.nikkei.com/article/DGXZQOSG174BJ0X10C26A2000000/",
-      "date": "2026-03-22",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "priority": "参考",
-      "summary_ja": "テレワークが身体機能や思考に与える負の影響について分析した記事。体力低下や議論の偏りなど、働き方の変化による健康への影響を扱っている。",
-      "_rssOnly": true,
-      "impact": "",
-      "memo": "コロナ後の働き方変化による健康への影響は診療で遭遇する可能性がある。生活習慣病対策の参考になる。"
-    },
-    {
-      "title": "「不要な入院や退院延長、悪循環招く」 苦悩する現場の医師・看護師",
-      "url": "https://www.nikkei.com/article/DGXZQOUA104OP0Q6A310C2000000/",
-      "date": "2026-03-22",
+      "date": "2026-03-23",
       "description": "",
       "source": "日経",
       "category": "news",
       "priority": "要注視",
-      "summary_ja": "病院での不要な入院や退院延長が医療現場に与える問題について、現場の医師・看護師の苦悩を取り上げた記事。医療制度の課題を扱っている。",
+      "summary_ja": "テレワークの普及により体力低下や議論の偏りなどの健康・社会的問題が生じている。働き方の変化が健康に与える影響を指摘。",
       "_rssOnly": true,
-      "impact": "適切な医療提供と効率的な病院連携について検討し、紹介・逆紹介の運用を見直す。",
-      "memo": "クリニックから病院への紹介タイミングや連携のあり方に関わる重要な視点。医療制度の課題として把握が必要。"
+      "impact": "生活習慣病患者の増加対応、運動指導強化、企業健診での啓発活動検討。",
+      "memo": "糖尿病・循環器疾患患者の増加予測。特定保健指導や生活習慣病管理指導の需要拡大。"
     }
   ],
   "ft": [
@@ -1462,7 +1443,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "イラン情勢がAI産業に与える影響について分析した記事。中東からのエネルギー・化学物質輸入に依存する半導体サプライチェーンへの影響を扱っている。",
+      "summary_ja": "イラン戦争がAI産業に与える影響について、中東からのエネルギーや化学品輸入への依存を通じた半導体サプライチェーンへの懸念を論じている。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1475,7 +1456,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "AI技術のハルシネーション（幻覚）問題がユーザーにとって雇用への懸念より深刻な課題であることを示すAnthropic社の調査結果について報告した記事。",
+      "summary_ja": "AnthropicのClaude利用者8万人を対象とした調査により、AIの幻覚現象がユーザーにとって雇用への脅威より重要な懸念となっていることが判明。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1488,7 +1469,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "法曹界におけるAI技術の活用について、法廷でAIツールを使用する弁護士の事例を通じて法務業界の変化を取り上げた記事。",
+      "summary_ja": "法律業界においてAI技術の活用が進んでおり、新世代の弁護士が法廷でAIツールを使用している実態について報告されている。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1501,7 +1482,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "OpenAI社が2026年末までに従業員数を8000人に倍増させる計画を発表。競合のAnthropic社との差を縮めるための事業拡大戦略の一環。",
+      "summary_ja": "OpenAIが事業拡大を加速し、2026年末までに従業員数を8000人に倍増させる計画を発表。競合Anthropicとの格差縮小を目指している。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1514,7 +1495,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "ウーバーが自動運転車両（ロボタクシー）競争での遅れを取り戻すために奮闘している。競合他社に追い抜かれるリスクに直面している。",
+      "summary_ja": "Uberが自動運転タクシー市場で競争力を維持するため、遅れを取り戻す必要があるという内容。ライドシェアリング業界の技術競争に関する記事。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1527,7 +1508,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "英国は敵対国家による破壊工作のリスクに対してより警戒する必要がある。ロシアや中国が西側を不安定化させる意図があるなら新戦略が必要。",
+      "summary_ja": "英国が敵対国家による破壊工作のリスクに対してより警戒すべきという内容。ロシアや中国による西側諸国の不安定化に関する安全保障の記事。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1540,7 +1521,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "アマゾンが支援する原子力発電企業X-energyがIPOを申請。AI需要による電力需要増加で原子力への関心が高まっている。",
+      "summary_ja": "Amazon出資の原子炉開発企業X-energyがIPOを申請。AI需要による電力需要増加を背景とした原子力発電への関心の高まりが背景。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1553,7 +1534,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "マスク氏がツイッター買収時に投資家を欺いたと陪審が認定。440億ドル買収時のツイート投稿で株主を誤解させた。",
+      "summary_ja": "マスク氏がTwitter買収時に投資家を欺いたと陪審が認定。440億ドルの買収過程でのツイートが株主を誤導したとの判断。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1566,7 +1547,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "トランプ大統領がMAGA支持者からの反発の中、AI規制の限定的適用を求めている。州レベルの法律をブロックしようとしている。",
+      "summary_ja": "トランプ氏がAI規制の縮小を求める中、MAGA派からの激しい反発に直面。州レベルの法律を阻止しようとする一方で連邦レベルのルール作りへの圧力も。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1579,7 +1560,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "MistralのCEOがヨーロッパでAI企業にコンテンツ課税を課すべきと主張。著作権者の生活を守り法的確実性をもたらすとしている。",
+      "summary_ja": "MistralのCEOがヨーロッパでAI企業に対するコンテンツ課税を提案。売上ベースの課税により著作権者の生活を保護し法的確実性をもたらすとの主張。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1592,7 +1573,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "Anthropicをめぐりトランプとシリコンバレーの協定に亀裂。政権がAI研究所への攻撃でビッグテックや元支持者から批判を受けている。",
+      "summary_ja": "Anthropic問題がトランプ政権とシリコンバレーの協定に亀裂を生じさせている。AI研究所への攻撃により、ビッグテックや元支持者から前例のない批判。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1605,7 +1586,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "エドワード・ジョーンズが2.5兆ドルの金融アドバイザーネットワークをAIが代替しないと主張。顧客は人間の洞察を求め続けるとしている。",
+      "summary_ja": "Edward Jones社がAIは2.5兆ドルの金融アドバイザーネットワークを代替しないと主張。新技術が投資業界を揺るがす中でも顧客は人間の洞察を求めるとの見解。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1618,7 +1599,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "オーストラリアのソフトウェア企業AtlassianがAI売りの最大の被害を受け、株価が半分以上下落。従業員の10%を削減している。",
+      "summary_ja": "オーストラリアのソフトウェア企業Atlassianの株価が半減、従業員10％削減を発表。AI関連株式の売り込みで最も打撃を受けた企業の一つ。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1631,7 +1612,7 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "NvidiaのCEOが生産、消費、収益化の出力単位に基づくトークンがAI経済を牽引する未来を描いている。",
+      "summary_ja": "NvidiaのJensen HuangがAI経済をトークンが推進する未来を描く。出力単位の生産、消費、収益化を基盤とした経済システムの構想。",
       "_rssOnly": true,
       "impact": "",
       "memo": ""
@@ -1644,10 +1625,10 @@
       "source": "FT",
       "category": "news",
       "priority": "除外",
-      "summary_ja": "海外旅行中のトラブル体験を通じてAI旅行エージェントの有用性を実感した筆者の体験談。ビッグテック企業への依存度増加への懸念についても言及。",
+      "summary_ja": "海外で立ち往生した経験からAI旅行エージェントの有用性を実感したという記事。BigTech企業への依存度増加に対するユーザーの懸念についても触れている。",
       "_rssOnly": true,
       "impact": "",
-      "memo": "一般的な旅行AIサービスの話題で、医療・ヘルスケア分野との直接的な関連性はない。クリニック経営への影響は想定されない。"
+      "memo": "一般的なAI技術の旅行分野での活用事例であり、医療・ヘルスケア分野とは直接的な関連性が薄い。クリニック経営への直接的な影響はない。"
     }
   ]
 }

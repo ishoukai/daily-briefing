@@ -1,4 +1,4 @@
-# Daily Intelligence Briefing System
+# ニュースまとめくん by 医承会 System
 
 医療法人理事長のための日次インテリジェンスブリーフィング自動生成システム
 

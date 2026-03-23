@@ -21,6 +21,8 @@ const medscape = require('./sources/medscape');
 const fierce = require('./sources/fierce');
 const carenet = require('./sources/carenet');
 const nikkei = require('./sources/nikkei');
+const m3 = require('./sources/m3');
+const medicalTribune = require('./sources/medical-tribune');
 const ft = require('./sources/ft');
 const { summarizeArticles } = require('./summarize');
 const { generateHTML, saveHTML } = require('./render');
@@ -53,6 +55,8 @@ async function main() {
   let carenetResults = [];
   let nikkeiResults = [];
   let ftResults = [];
+  let m3Results = [];
+  let mtResults = [];
 
   // ===== 1. PubMed =====
   if (!onlyMhlw) {
@@ -138,6 +142,26 @@ async function main() {
     }
   }
 
+  // ===== 10. m3.com =====
+  if (!onlyPubmed && !onlyMhlw) {
+    try {
+      m3Results = await m3.collectAll(config);
+      sourceCounts['m3.com'] = m3Results.length;
+    } catch (e) {
+      console.error(`  [m3.com] Error: ${e.message}`);
+    }
+  }
+
+  // ===== 11. Medical Tribune =====
+  if (!onlyPubmed && !onlyMhlw) {
+    try {
+      mtResults = await medicalTribune.collectAll(config);
+      sourceCounts['Medical Tribune'] = mtResults.length;
+    } catch (e) {
+      console.error(`  [Medical Tribune] Error: ${e.message}`);
+    }
+  }
+
   // ===== Flatten PubMed results =====
   const allPapers = [];
   for (const [key, data] of Object.entries(pubmedResults)) {
@@ -145,7 +169,7 @@ async function main() {
   }
 
   // ===== Merge all non-paper items =====
-  const allNews = [...mhlwResults, ...hnResults, ...medscapeResults, ...fierceResults, ...carenetResults, ...nikkeiResults, ...ftResults];
+  const allNews = [...mhlwResults, ...hnResults, ...medscapeResults, ...fierceResults, ...carenetResults, ...nikkeiResults, ...ftResults, ...m3Results, ...mtResults];
 
   // ===== 5. Claude API で要約・優先度判定 =====
   let summarizedPapers = allPapers;
@@ -192,6 +216,8 @@ async function main() {
     carenet: carenetResults,
     nikkei: nikkeiResults,
     ft: ftResults,
+    m3: m3Results,
+    medical_tribune: mtResults,
   };
   const rawDataPath = path.join(outputDir, 'raw_data.json');
   fs.writeFileSync(rawDataPath, JSON.stringify(rawData, null, 2), 'utf8');
@@ -254,7 +280,9 @@ async function main() {
   console.log(`  CareNet: ${carenetResults.length} 件`);
   console.log(`  日経: ${nikkeiResults.length} 件`);
   console.log(`  FT: ${ftResults.length} 件`);
-  const total = allPapers.length + mhlwResults.length + hnResults.length + arxivResults.length + medscapeResults.length + fierceResults.length + carenetResults.length + nikkeiResults.length + ftResults.length;
+  console.log(`  m3.com: ${m3Results.length} 件`);
+  console.log(`  Medical Tribune: ${mtResults.length} 件`);
+  const total = allPapers.length + mhlwResults.length + hnResults.length + arxivResults.length + medscapeResults.length + fierceResults.length + carenetResults.length + nikkeiResults.length + ftResults.length + m3Results.length + mtResults.length;
   console.log(`  合計: ${total} 件`);
   console.log(`\n  出力: ${filepath}`);
   console.log('═══════════════════════════════════════════════\n');
