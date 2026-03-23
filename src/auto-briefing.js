@@ -255,14 +255,14 @@ async function main() {
     };
 
     // 曜日別のソース上限（厳格）
-    const baseLimits = { mhlw: 3, nikkei: 8, ft: 4, medscape: 2, fierce: 2, carenet: 1 };
+    const baseLimits = { mhlw: 3, nikkei: 10, ft: 5, medscape: 3, fierce: 2, carenet: 2 };
     let limits;
     if (schedule.isAlertDay) {
-      limits = { ...baseLimits, mhlw: 5, nikkei: 6 };
+      limits = { ...baseLimits, mhlw: 5, nikkei: 8 };
     } else if (schedule.isTechDay) {
-      limits = { ...baseLimits, nikkei: 5, hackernews: 2, arxiv: 1 };
+      limits = { ...baseLimits, nikkei: 7, ft: 4, carenet: 1, hackernews: 3, arxiv: 2 };
     } else if (schedule.isPaperDay) {
-      limits = { ...baseLimits, nikkei: 3, ft: 2 };
+      limits = { ...baseLimits, nikkei: 5, ft: 3, medscape: 2, carenet: 1 };
     } else {
       limits = { ...baseLimits };
     }
