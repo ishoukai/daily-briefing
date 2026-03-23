@@ -82,9 +82,9 @@ function generateHTML(data) {
     (priorityOrder[a.priority] ?? 3) - (priorityOrder[b.priority] ?? 3)
   );
 
-  // Morning: 要対応=全件、要注視=最大7件、参考=最大5件(折りたたみ)、合計20件上限
+  // Morning: 要対応=全件、要注視=最大10件、参考=最大5件(折りたたみ)、合計20件上限
   const mHigh = morning.filter(i => i.priority === '要対応');
-  const mMid = morning.filter(i => i.priority === '要注視').slice(0, 7);
+  const mMid = morning.filter(i => i.priority === '要注視').slice(0, 10);
   const remainingSlots = Math.max(0, 20 - mHigh.length - mMid.length);
   const mInfo = morning.filter(i => i.priority === '参考').slice(0, Math.min(5, remainingSlots));
 

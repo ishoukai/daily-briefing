@@ -276,10 +276,25 @@ async function main() {
       fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune',
     };
 
-    // 曜日別のAPI対象ソース
+    // 曜日別の追加API対象ソース（重点日）
     const extraAPISources = new Set();
     if (schedule.isAlertDay) extraAPISources.add('mhlw');
     if (schedule.isTechDay) { extraAPISources.add('hackernews'); extraAPISources.add('arxiv'); }
+
+    // 医療専門メディア: スコアリングバイパス、常にAPI対象
+    // 厚労省は全件、日経カテゴリページ最大15件、FT最大10件、Medscape/Fierce/CareNet各最大5件
+    const medicalMediaLimits = {
+      mhlw: Infinity,     // 全件
+      nikkei: 15,
+      ft: 10,
+      medscape: 5,
+      fierce: 5,
+      carenet: 5,
+      m3: 5,
+      medical_tribune: 5,
+    };
+    // キーワードスコアリング対象（一般ニュース）
+    const generalSources = new Set(['hackernews', 'arxiv']);
 
     for (const key of newsSourceKeys) {
       if (rawData[key]) {
@@ -292,37 +307,48 @@ async function main() {
       }
     }
 
-    // Score and sort
-    const scored = allNewsRaw.map(a => ({ article: a, score: scoreArticle(a) }));
-    scored.sort((a, b) => b.score - a.score);
-
     const newsForAPI = [];
     const newsLowScore = [];
     const newsExcluded = [];
+    const mediaCounters = {};
 
-    for (const { article, score } of scored) {
+    for (const article of allNewsRaw) {
       // Skip articles that already have priority from cache
-      if (article.priority) {
-        continue;
-      }
+      if (article.priority) continue;
 
-      const isExtraSource = extraAPISources.has(article._sourceKey);
+      const key = article._sourceKey;
+      const isExtraSource = extraAPISources.has(key);
+      const mediaLimit = medicalMediaLimits[key];
 
-      if (score === 0 && !isExtraSource) {
-        article.priority = '除外';
-        article.summary_ja = article.title;
-        article.impact = '';
-        article.memo = '';
-        newsExcluded.push(article);
+      if (mediaLimit !== undefined) {
+        // 医療専門メディア: スコアリングなしでAPI対象（上限あり）
+        mediaCounters[key] = (mediaCounters[key] || 0) + 1;
+        if (mediaCounters[key] <= mediaLimit) {
+          newsForAPI.push(article);
+        } else {
+          assignFallbackPriority(article);
+          newsLowScore.push(article);
+        }
       } else if (isExtraSource) {
-        // 重点日のソースは必ずAPI送信
+        // 重点日の追加ソース（HN, arXiv）は必ずAPI送信
         newsForAPI.push(article);
-      } else if (score <= 2) {
-        assignFallbackPriority(article);
-        newsLowScore.push(article);
-      } else if (newsForAPI.length < 20) {
-        newsForAPI.push(article);
+      } else if (generalSources.has(key)) {
+        // 一般ソース: キーワードスコアリング適用
+        const score = scoreArticle(article);
+        if (score === 0) {
+          article.priority = '除外';
+          article.summary_ja = article.title;
+          article.impact = '';
+          article.memo = '';
+          newsExcluded.push(article);
+        } else if (score <= 2) {
+          assignFallbackPriority(article);
+          newsLowScore.push(article);
+        } else {
+          newsForAPI.push(article);
+        }
       } else {
+        // 未知のソース: フォールバック
         assignFallbackPriority(article);
         newsLowScore.push(article);
       }

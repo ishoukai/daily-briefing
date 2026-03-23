@@ -417,7 +417,7 @@ app.get('/archive/:date', (req, res) => {
   const morningArticles = articles.filter(a => !morningExcludeSources.has(a._source));
   const allMorning = sortByPriority(morningArticles);
   const morningHigh = allMorning.filter(a => a.priority === '要対応');
-  const morningMid = allMorning.filter(a => a.priority === '要注視').slice(0, 7);
+  const morningMid = allMorning.filter(a => a.priority === '要注視').slice(0, 10);
   const remainingSlots = Math.max(0, 20 - morningHigh.length - morningMid.length);
   const morningInfo = allMorning.filter(a => a.priority === '参考').slice(0, Math.min(5, remainingSlots));
   const morningCount = morningHigh.length + morningMid.length + morningInfo.length;
