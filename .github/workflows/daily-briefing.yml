@@ -24,12 +24,15 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
-      - name: Run auto-briefing
-        run: node src/auto-briefing.js
+      - name: Build briefing
+        run: |
+          node src/auto-briefing.js
+          echo "Auto-briefing completed, building static site..."
+          node src/build-static.js
+          echo "Static site built successfully"
         timeout-minutes: 25
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      - run: node src/build-static.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

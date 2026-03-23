@@ -471,7 +471,9 @@ function assignDefaultPriorities(data) {
   }
 }
 
-main().catch(e => {
+main().then(() => {
+  process.exit(0);
+}).catch(e => {
   console.error('自動ブリーフィング失敗:', e.message);
   process.exit(1);
 });
