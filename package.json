@@ -1,0 +1,24 @@
+{
+  "name": "daily-briefing",
+  "version": "1.0.0",
+  "description": "医療法人理事長のための日次インテリジェンスブリーフィング",
+  "main": "src/collect.js",
+  "scripts": {
+    "start": "node src/auto-briefing.js && node src/server.js",
+    "server": "node src/server.js",
+    "auto": "node src/auto-briefing.js",
+    "daily": "node src/collect.js --no-summary",
+    "weekly": "node src/collect.js --weekly --no-summary",
+    "test": "node src/collect.js --no-summary",
+    "test:pubmed": "node src/collect.js --pubmed --no-summary",
+    "render": "node src/render.js output/enriched_data.json",
+    "build": "node src/auto-briefing.js && node src/build-static.js",
+    "build:static": "node src/build-static.js"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "pubmed": {
+    "base_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils",
+    "max_results_per_query": 5,
+    "days_back": 7,
+    "queries": {
+      "internal_medicine_diabetes": {
+        "label": "糖尿病・代謝",
+        "query": "(diabetes mellitus[MeSH] OR GLP-1[tiab] OR SGLT2[tiab] OR tirzepatide[tiab] OR semaglutide[tiab]) AND (clinical trial[pt] OR review[pt] OR guideline[pt]) AND \"last 7 days\"[dp]",
+        "priority": "high"
+      },
+      "internal_medicine_cardiology": {
+        "label": "循環器",
+        "query": "(cardiovascular diseases[MeSH] OR heart failure[MeSH] OR hypertension[MeSH] OR atrial fibrillation[MeSH]) AND (clinical trial[pt] OR review[pt] OR guideline[pt]) AND \"last 7 days\"[dp]",
+        "priority": "high"
+      },
+      "internal_medicine_general": {
+        "label": "一般内科",
+        "query": "(primary health care[MeSH] OR chronic disease[MeSH] OR polypharmacy[MeSH] OR frailty[MeSH]) AND (clinical trial[pt] OR review[pt]) AND \"last 7 days\"[dp]",
+        "priority": "medium"
+      },
+      "gastroenterology": {
+        "label": "消化器内科・外科",
+        "query": "(gastrointestinal diseases[MeSH] OR inflammatory bowel diseases[MeSH] OR liver neoplasms[MeSH] OR gastrointestinal neoplasms[MeSH] OR helicobacter pylori[MeSH]) AND (clinical trial[pt] OR review[pt] OR guideline[pt]) AND \"last 7 days\"[dp]",
+        "priority": "high"
+      },
+      "ent": {
+        "label": "耳鼻咽喉科",
+        "query": "(otorhinolaryngologic diseases[MeSH] OR hearing loss[MeSH] OR sinusitis[MeSH] OR sleep apnea[MeSH] OR head and neck neoplasms[MeSH]) AND (clinical trial[pt] OR review[pt] OR guideline[pt]) AND \"last 7 days\"[dp]",
+        "priority": "high"
+      },
+      "pediatrics": {
+        "label": "小児科",
+        "query": "(pediatrics[MeSH] OR child[MeSH] OR infant[MeSH]) AND (vaccines[MeSH] OR asthma[MeSH] OR allergic rhinitis[MeSH] OR developmental disabilities[MeSH]) AND (clinical trial[pt] OR review[pt] OR guideline[pt]) AND \"last 7 days\"[dp]",
+        "priority": "high"
+      },
+      "medical_ai": {
+        "label": "医療AI・デジタルヘルス",
+        "query": "(artificial intelligence[MeSH] OR machine learning[MeSH] OR deep learning[tiab]) AND (clinical decision support[MeSH] OR diagnosis, computer-assisted[MeSH] OR electronic health records[MeSH]) AND \"last 7 days\"[dp]",
+        "priority": "medium"
+      },
+      "healthcare_management": {
+        "label": "医療経営・政策",
+        "query": "(health care economics and organizations[MeSH] OR quality of health care[MeSH] OR patient safety[MeSH] OR burnout, professional[MeSH]) AND (Japan[ad] OR Japanese[tiab]) AND \"last 7 days\"[dp]",
+        "priority": "medium"
+      }
+    }
+  },
+  "mhlw": {
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/topics_150873_139_140.html",
+    "keywords": ["診療報酬", "医療安全", "医療DX", "医師偏在", "地域医療構想", "感染症", "薬価", "オンライン診療", "電子処方箋", "マイナ保険証"]
+  },
+  "hackernews": {
+    "api_url": "https://hacker-news.firebaseio.com/v0",
+    "keywords": ["medical AI", "healthcare", "clinical", "FDA", "biotech", "pharma", "LLM medicine", "digital health", "EHR", "telemedicine"],
+    "min_score": 50,
+    "max_items": 30
+  },
+  "arxiv": {
+    "api_url": "http://export.arxiv.org/api/query",
+    "queries": [
+      "cat:cs.AI AND (medical OR clinical OR healthcare OR diagnosis)",
+      "cat:cs.CL AND (medical OR clinical OR biomedical OR EHR)",
+      "cat:q-bio.QM AND (drug discovery OR genomics)"
+    ],
+    "max_results": 15,
+    "frequency": "weekly"
+  },
+  "medscape": {
+    "url": "https://www.medscape.com/cx/rssfeeds/2684.xml",
+    "max_items": 10
+  },
+  "fierce": {
+    "url": "https://www.fiercehealthcare.com/rss/xml",
+    "max_items": 10
+  },
+  "carenet": {
+    "url": "https://www.carenet.com/news/archive/1",
+    "max_items": 10
+  },
+  "nikkei": {
+    "feeds": [
+      "https://assets.wor.jp/rss/rdf/nikkei/news.rdf",
+      "https://assets.wor.jp/rss/rdf/nikkei/economy.rdf",
+      "https://assets.wor.jp/rss/rdf/nikkei/business.rdf",
+      "https://assets.wor.jp/rss/rdf/nikkei/technology.rdf",
+      "https://assets.wor.jp/rss/rdf/nikkei/international.rdf"
+    ],
+    "max_items": 30,
+    "keywords": ["医療", "診療報酬", "厚労省", "製薬", "病院", "クリニック", "介護", "感染症", "ワクチン", "健康保険", "医師", "看護", "薬価", "医療DX", "オンライン診療", "電子カルテ", "がん", "糖尿病", "生活習慣病", "検診", "人間ドック"],
+    "category_pages": [
+      "https://www.nikkei.com/business/healthcare/",
+      "https://www.nikkei.com/lifestyle/medical-health/"
+    ]
+  },
+  "ft": {
+    "feeds": [
+      "https://www.ft.com/rss/home",
+      "https://www.ft.com/companies/health?format=rss",
+      "https://www.ft.com/technology?format=rss"
+    ],
+    "max_items": 15,
+    "keywords": ["health", "pharma", "medical", "biotech", "AI", "hospital", "drug", "FDA", "NHS", "insurance"]
+  },
+  "claude_api": {
+    "model": "claude-sonnet-4-20250514",
+    "max_tokens": 4096,
+    "system_prompt": "あなたは医療法人の理事長のためのインテリジェンスアナリストです。内科（糖尿病・循環器）、耳鼻咽喉科、小児科、消化器内科・外科のクリニックを経営する理事長の視点で、各情報を評価し、経営判断への影響度に基づいて優先度を判定してください。\n\n全ての出力は必ず日本語で記述してください。英語の論文や記事であっても、summary_ja、impact、memoは全て日本語で書いてください。英語のまま出力しないでください。\n\n優先度の基準:\n- 要対応: 直接的な経営判断・制度対応が必要（診療報酬改定、新規規制、算定要件変更等）\n- 要注視: 中期的に経営や診療に影響する可能性（新薬承認、治療ガイドライン変更、テック動向等）\n- 参考: 知っておくべきだが即座の対応不要（業界トレンド、海外動向、基礎研究等）\n- 除外: 医療・ヘルスケアに直接関係しない記事\n\n重要：医療・ヘルスケアに直接関係しない記事（一般的な経済ニュース、政治ニュース、テクノロジー一般など）は、たとえ間接的に医療経営に影響し得るとしても、priorityを\"除外\"に設定してください。\"除外\"に設定された記事はブリーフィングに表示されません。\n\n以下は\"除外\"の例：\n- 中東情勢、原油価格、為替レート、金利動向（医療機関への影響を無理に関連付けない）\n- テスラ、量子コンピュータ、半導体工場（直接的に医療に関係しない）\n- プライベートクレジット市場、株式市場の動向\n\n以下は\"要対応\"または\"要注視\"の例：\n- 診療報酬改定、医療安全管理者の配置義務化\n- 新薬承認、治療ガイドライン変更\n- GLP-1薬の臨床試験結果\n- 医療DX推進、電子カルテ、AI問診\n\n出力はJSON形式で返してください。"
+  },
+  "output": {
+    "dir": "./output",
+    "format": "html",
+    "open_on_generate": true
+  },
+  "schedule": {
+    "daily": "06:00",
+    "weekly_day": "monday"
+  }
+}

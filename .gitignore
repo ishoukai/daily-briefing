@@ -1,0 +1,10 @@
+node_modules/
+output/raw_data.json
+output/enriched_data.json
+output/cron.log
+output/cron-error.log
+output/server.log
+output/server-error.log
+output/read_status.json
+output/manual_articles.json
+output/briefing_*.html
