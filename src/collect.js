@@ -189,30 +189,31 @@ async function collect(options = {}) {
   const allNews = [...mhlwResults, ...hnResults, ...medscapeResults, ...fierceResults, ...carenetResults, ...nikkeiResults, ...ftResults, ...m3Results, ...mtResults];
 
   // ===== Claude API で要約・優先度判定 =====
+  // noSummary=true の場合（auto-briefing.jsから呼ばれた場合）は
+  // priorityを設定しない。auto-briefing.js側でAPI要約 or フォールバックを行う。
   let summarizedPapers = allPapers;
   let summarizedNews = allNews;
 
-  if (!noSummary && process.env.ANTHROPIC_API_KEY) {
-    console.log('\n[Claude API] 要約・優先度判定を実行中...');
-
-    if (allPapers.length > 0) {
-      summarizedPapers = await summarizeArticles(allPapers, config);
-    }
-    if (allNews.length > 0) {
-      summarizedNews = await summarizeArticles(allNews, config);
-    }
-  } else {
-    if (!noSummary) {
+  if (!noSummary) {
+    if (process.env.ANTHROPIC_API_KEY) {
+      console.log('\n[Claude API] 要約・優先度判定を実行中...');
+      if (allPapers.length > 0) {
+        summarizedPapers = await summarizeArticles(allPapers, config);
+      }
+      if (allNews.length > 0) {
+        summarizedNews = await summarizeArticles(allNews, config);
+      }
+    } else {
       console.log('\n⚠️  ANTHROPIC_API_KEY が未設定のため、要約をスキップします');
-    }
-    for (const p of summarizedPapers) {
-      p.priority = p.priority || (p.sourcePriority === 'high' ? '要注視' : '参考');
-      p.summary_ja = p.summary_ja || p.abstract?.substring(0, 200);
-      p.memo = p.memo || '';
-    }
-    for (const n of summarizedNews) {
-      n.priority = n.priority || '参考';
-      n.summary_ja = n.summary_ja || n.title;
+      for (const p of summarizedPapers) {
+        p.priority = p.priority || (p.sourcePriority === 'high' ? '要注視' : '参考');
+        p.summary_ja = p.summary_ja || p.abstract?.substring(0, 200);
+        p.memo = p.memo || '';
+      }
+      for (const n of summarizedNews) {
+        n.priority = n.priority || '参考';
+        n.summary_ja = n.summary_ja || n.title;
+      }
     }
   }
 

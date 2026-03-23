@@ -197,7 +197,7 @@ async function main() {
   }
   const rawData = JSON.parse(fs.readFileSync(rawDataPath, 'utf8'));
 
-  // 週次キャッシュの再利用
+  // 週次キャッシュの再利用（_cached フラグで区別）
   if (!schedule.isPaperDay) {
     const cached = loadJSON(WEEKLY_PAPERS_PATH);
     if (cached) {
@@ -211,11 +211,10 @@ async function main() {
     if (cached) {
       console.log('  テックデータ (weekly_tech.json) を再利用');
       if (cached.hackernews) {
-        // Merge cached HN summaries into rawData
         for (const a of cached.hackernews) {
           const existing = (rawData.hackernews || []).find(x => x.title === a.title);
           if (existing && a.priority) {
-            Object.assign(existing, { priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo });
+            Object.assign(existing, { priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo, _cached: true });
           }
         }
       }
@@ -229,7 +228,7 @@ async function main() {
       for (const a of cached.mhlw) {
         const existing = (rawData.mhlw || []).find(x => x.title === a.title);
         if (existing && a.priority) {
-          Object.assign(existing, { priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo });
+          Object.assign(existing, { priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo, _cached: true });
         }
       }
     }
@@ -280,8 +279,10 @@ async function main() {
 
     // ニュース記事を収集しスコアリング
     const allNewsRaw = [];
+    const sourceTotals = {};
     for (const key of newsSourceKeys) {
       if (rawData[key]) {
+        sourceTotals[key] = rawData[key].length;
         for (const article of rawData[key]) {
           article.source = article.source || sourceLabels[key] || key;
           if (key === 'nikkei' || key === 'ft') article._rssOnly = true;
@@ -290,6 +291,13 @@ async function main() {
           allNewsRaw.push(article);
         }
       }
+    }
+
+    // デバッグ: 各ソースの記事数
+    console.log('  収集記事数:');
+    for (const [key, count] of Object.entries(sourceTotals)) {
+      const cached = rawData[key].filter(a => a._cached).length;
+      console.log(`    ${sourceLabels[key] || key}: ${count} 件${cached > 0 ? ` (うちキャッシュ ${cached} 件)` : ''}`);
     }
 
     // 各ソースからスコア上位を上限件数まで選択
@@ -301,7 +309,8 @@ async function main() {
     allNewsRaw.sort((a, b) => b._score - a._score);
 
     for (const article of allNewsRaw) {
-      if (article.priority) continue; // キャッシュ済みはスキップ
+      // _cached フラグが付いているもののみスキップ（週次キャッシュから復元済み）
+      if (article._cached) continue;
 
       const key = article._sourceKey;
       const limit = limits[key] || 0;
@@ -328,6 +337,14 @@ async function main() {
 
     const allForAPI = [...pubmedApiArticles, ...newsForAPI];
     console.log(`  API送信: ${allForAPI.length} 件（PubMed ${pubmedApiArticles.length} + News ${newsForAPI.length}）`);
+    // デバッグ: API送信内訳
+    const apiBySource = {};
+    for (const a of newsForAPI) {
+      apiBySource[a._sourceKey] = (apiBySource[a._sourceKey] || 0) + 1;
+    }
+    for (const [key, count] of Object.entries(apiBySource)) {
+      console.log(`    ${sourceLabels[key] || key}: ${count} 件 (上限 ${limits[key] || 0})`);
+    }
 
     // Write fallback/rest back to rawData
     for (const a of newsRest) {
