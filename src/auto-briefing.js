@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * 自動ブリーフィング — データ収集 → Claude API要約 → enriched_data保存 → HTML生成
+ * 自動ブリーフィング — データ収集 → 事前フィルタ → Claude API要約 → enriched_data保存 → HTML生成
  *
- * 日次/週次の分離:
- *   月曜: PubMed + arXiv + 日次ソース（フル実行）→ weekly_papers.json に保存
- *   火〜日: 日次ソースのみ → weekly_papers.json を再利用
- *
- * ANTHROPIC_API_KEY 環境変数が必要。
+ * 最適化:
+ *   - キーワードスコアリングで日次ニュースを上位20件に絞り込み
+ *   - PubMed論文は高インパクトジャーナル優先で各カテゴリ3件
+ *   - API送信は合計30〜35件（109件→大幅削減）
+ *   - 全体タイムアウト20分
  */
 
 const { execSync } = require('child_process');
@@ -17,9 +17,92 @@ const path = require('path');
 const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
 const WEEKLY_PAPERS_PATH = path.join(OUTPUT_DIR, 'weekly_papers.json');
-
-// Use 'node' from PATH (works on both macOS and GitHub Actions)
 const NODE_BIN = process.execPath;
+const GLOBAL_TIMEOUT_MS = 20 * 60 * 1000; // 20 minutes
+
+// --- Keyword scoring for news pre-filter ---
+
+const HIGH_KEYWORDS = ['診療報酬', '医療安全', '薬価', '厚労省', '新薬承認', 'ガイドライン', 'GLP-1', 'SGLT2'];
+const MID_KEYWORDS = ['医療', '病院', 'クリニック', '製薬', '介護', '感染症', 'ワクチン', '糖尿病', 'がん', 'AI', 'DX'];
+const LOW_KEYWORDS = ['健康', '保険', '検診', '予防', '治療', '研究', '臨床'];
+
+function scoreArticle(article) {
+  const text = `${article.title || ''} ${article.description || ''}`.toLowerCase();
+  let score = 0;
+  for (const kw of HIGH_KEYWORDS) { if (text.includes(kw.toLowerCase())) score += 5; }
+  for (const kw of MID_KEYWORDS) { if (text.includes(kw.toLowerCase())) score += 3; }
+  for (const kw of LOW_KEYWORDS) { if (text.includes(kw.toLowerCase())) score += 1; }
+  return score;
+}
+
+function assignFallbackPriority(article) {
+  const text = `${article.title || ''} ${article.description || ''}`;
+  const hasHighKeyword = HIGH_KEYWORDS.some(kw => text.includes(kw));
+  const hasMidKeyword = MID_KEYWORDS.some(kw => text.includes(kw));
+  article.priority = article.priority || (hasHighKeyword ? '要注視' : hasMidKeyword ? '要注視' : '参考');
+  article.summary_ja = article.summary_ja || article.title;
+  article.impact = article.impact || '';
+  article.memo = article.memo || '';
+}
+
+// --- PubMed journal-based filtering ---
+
+const TOP_JOURNALS = [
+  'N Engl J Med', 'NEJM', 'Lancet', 'JAMA', 'BMJ', 'Nature Medicine',
+  'Nature', 'Science', 'Ann Intern Med', 'Circulation', 'Eur Heart J',
+  'Gut', 'Gastroenterology', 'Hepatology', 'Diabetes Care', 'Diabetologia',
+  'J Allergy Clin Immunol', 'Pediatrics', 'JAMA Pediatr', 'JAMA Intern Med',
+  'JAMA Otolaryngol', 'Otolaryngol Head Neck Surg', 'Laryngoscope',
+  'J Clin Oncol', 'Lancet Oncol', 'Ann Surg', 'Br J Surg',
+  'NPJ Digit Med', 'Lancet Digit Health',
+];
+
+function isTopJournal(article) {
+  const journal = (article.journal || article.source || '').toLowerCase();
+  return TOP_JOURNALS.some(j => journal.includes(j.toLowerCase()));
+}
+
+function filterPubmedForAPI(pubmedData) {
+  const apiArticles = [];
+  const fallbackArticles = [];
+
+  for (const [key, catData] of Object.entries(pubmedData)) {
+    const articles = catData.articles || [];
+    // Sort: top journals first
+    const sorted = [...articles].sort((a, b) => {
+      const aTop = isTopJournal(a) ? 0 : 1;
+      const bTop = isTopJournal(b) ? 0 : 1;
+      return aTop - bTop;
+    });
+
+    const forAPI = sorted.slice(0, 3);
+    const rest = sorted.slice(3);
+
+    for (const a of forAPI) {
+      a._pubmedKey = key;
+      a.source = a.source || 'PubMed';
+      a.specialty = a.specialty || catData.label;
+      a.category = 'paper';
+      apiArticles.push(a);
+    }
+    for (const a of rest) {
+      a._pubmedKey = key;
+      a.source = a.source || 'PubMed';
+      a.specialty = a.specialty || catData.label;
+      a.category = 'paper';
+      // Mechanical fallback
+      a.priority = a.priority || (catData.priority === 'high' ? '要注視' : '参考');
+      a.summary_ja = a.summary_ja || (a.abstract || '').substring(0, 200);
+      a.impact = a.impact || '';
+      a.memo = a.memo || '';
+      fallbackArticles.push(a);
+    }
+  }
+
+  return { apiArticles, fallbackArticles };
+}
+
+// --- Main ---
 
 function isMonday() {
   return new Date().getDay() === 1;
@@ -27,6 +110,7 @@ function isMonday() {
 
 async function main() {
   const startTime = Date.now();
+  const deadlineMs = startTime + GLOBAL_TIMEOUT_MS;
   const monday = isMonday();
   const modeLabel = monday ? '週次（フル）' : '日次';
 
@@ -52,7 +136,7 @@ async function main() {
   // 2. raw_data.json を読み込み
   const rawDataPath = path.join(OUTPUT_DIR, 'raw_data.json');
   if (!fs.existsSync(rawDataPath)) {
-    console.error('raw_data.json が見つかりません。collect.js が正しく実行されたか確認してください。');
+    console.error('raw_data.json が見つかりません。');
     process.exit(1);
   }
   const rawData = JSON.parse(fs.readFileSync(rawDataPath, 'utf8'));
@@ -62,18 +146,14 @@ async function main() {
     if (fs.existsSync(WEEKLY_PAPERS_PATH)) {
       console.log('  前回の週次データ (weekly_papers.json) を再利用します');
       const weeklyData = JSON.parse(fs.readFileSync(WEEKLY_PAPERS_PATH, 'utf8'));
-      if (weeklyData.pubmed && !rawData.pubmed) {
-        rawData.pubmed = weeklyData.pubmed;
-      }
-      if (weeklyData.arxiv && (!rawData.arxiv || rawData.arxiv.length === 0)) {
-        rawData.arxiv = weeklyData.arxiv;
-      }
+      if (weeklyData.pubmed && !rawData.pubmed) rawData.pubmed = weeklyData.pubmed;
+      if (weeklyData.arxiv && (!rawData.arxiv || rawData.arxiv.length === 0)) rawData.arxiv = weeklyData.arxiv;
     } else {
       console.log('  weekly_papers.json が見つかりません。PubMed/arXivデータなしで続行します。');
     }
   }
 
-  // 3. Claude APIで要約・優先度判定
+  // 3. Claude APIで要約・優先度判定（事前フィルタ付き）
   console.log('\n[2/4] Claude APIで記事を評価中...');
 
   if (!process.env.ANTHROPIC_API_KEY) {
@@ -85,150 +165,114 @@ async function main() {
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     const { summarizeArticles } = require('./summarize');
 
-    // Collect all articles for summarization
-    const allArticles = [];
-
+    // --- PubMed: journal-based filtering ---
+    let pubmedApiArticles = [];
     if (rawData.pubmed) {
-      for (const [key, catData] of Object.entries(rawData.pubmed)) {
-        for (const article of (catData.articles || [])) {
-          article.source = article.source || 'PubMed';
-          article.specialty = article.specialty || catData.label;
-          article.category = 'paper';
-          article._pubmedKey = key;
-          allArticles.push(article);
+      const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
+      pubmedApiArticles = apiArticles;
+      console.log(`  PubMed: ${apiArticles.length} 件をAPI送信, ${fallbackArticles.length} 件はデフォルト優先度`);
+
+      // Write fallback articles back to rawData
+      for (const a of fallbackArticles) {
+        if (rawData.pubmed[a._pubmedKey]) {
+          const articles = rawData.pubmed[a._pubmedKey].articles;
+          const idx = articles.findIndex(x => x.pmid === a.pmid || x.title === a.title);
+          if (idx >= 0) articles[idx] = { ...articles[idx], priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo };
         }
       }
     }
 
-    const newsArticles = [];
-    if (rawData.mhlw) {
-      for (const article of rawData.mhlw) {
-        article.source = article.source || '厚労省';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.hackernews) {
-      for (const article of rawData.hackernews) {
-        article.source = article.source || 'HackerNews';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.arxiv) {
-      for (const article of rawData.arxiv) {
-        article.source = article.source || 'arXiv';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.medscape) {
-      for (const article of rawData.medscape) {
-        article.source = article.source || 'Medscape';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.fierce) {
-      for (const article of rawData.fierce) {
-        article.source = article.source || 'Fierce';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.carenet) {
-      for (const article of rawData.carenet) {
-        article.source = article.source || 'CareNet';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.nikkei) {
-      for (const article of rawData.nikkei) {
-        article.source = article.source || '日経';
-        article._rssOnly = true;
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.ft) {
-      for (const article of rawData.ft) {
-        article.source = article.source || 'FT';
-        article._rssOnly = true;
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.m3) {
-      for (const article of rawData.m3) {
-        article.source = article.source || 'm3.com';
-        newsArticles.push(article);
-      }
-    }
-    if (rawData.medical_tribune) {
-      for (const article of rawData.medical_tribune) {
-        article.source = article.source || 'Medical Tribune';
-        newsArticles.push(article);
+    // --- News: keyword scoring + top 20 filter ---
+    const allNewsRaw = [];
+    const newsSourceKeys = ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune'];
+    const sourceLabels = {
+      mhlw: '厚労省', hackernews: 'HackerNews', arxiv: 'arXiv', medscape: 'Medscape',
+      fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune',
+    };
+
+    for (const key of newsSourceKeys) {
+      if (rawData[key]) {
+        for (const article of rawData[key]) {
+          article.source = article.source || sourceLabels[key] || key;
+          if (key === 'nikkei' || key === 'ft') article._rssOnly = true;
+          article._sourceKey = key;
+          allNewsRaw.push(article);
+        }
       }
     }
 
+    // Score and sort
+    const scored = allNewsRaw.map(a => ({ article: a, score: scoreArticle(a) }));
+    scored.sort((a, b) => b.score - a.score);
+
+    const newsForAPI = [];      // score >= 3, top 20
+    const newsLowScore = [];    // score 1-2: fallback priority
+    const newsExcluded = [];    // score 0: excluded
+
+    for (const { article, score } of scored) {
+      if (score === 0) {
+        article.priority = '除外';
+        article.summary_ja = article.title;
+        article.impact = '';
+        article.memo = '';
+        newsExcluded.push(article);
+      } else if (score <= 2) {
+        assignFallbackPriority(article);
+        newsLowScore.push(article);
+      } else if (newsForAPI.length < 20) {
+        newsForAPI.push(article);
+      } else {
+        assignFallbackPriority(article);
+        newsLowScore.push(article);
+      }
+    }
+
+    console.log(`  News: ${newsForAPI.length} 件をAPI送信, ${newsLowScore.length} 件はデフォルト優先度, ${newsExcluded.length} 件は除外`);
+    console.log(`  合計API送信: ${pubmedApiArticles.length + newsForAPI.length} 件`);
+
+    // Write fallback/excluded news back to rawData immediately
+    for (const a of [...newsLowScore, ...newsExcluded]) {
+      const key = a._sourceKey;
+      if (rawData[key]) {
+        const idx = rawData[key].findIndex(x => x.title === a.title);
+        if (idx >= 0) rawData[key][idx] = { ...rawData[key][idx], priority: a.priority, summary_ja: a.summary_ja, impact: a.impact, memo: a.memo };
+      }
+    }
+
+    // --- Call API for filtered articles ---
     try {
-      if (allArticles.length > 0) {
-        const summarized = await summarizeArticles(allArticles, config);
+      if (pubmedApiArticles.length > 0) {
+        const summarized = await summarizeArticles(pubmedApiArticles, config, { deadlineMs });
         for (const s of summarized) {
           if (s._pubmedKey && rawData.pubmed[s._pubmedKey]) {
             const articles = rawData.pubmed[s._pubmedKey].articles;
             const idx = articles.findIndex(a => a.pmid === s.pmid || a.title === s.title);
-            if (idx >= 0) {
-              articles[idx] = { ...articles[idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
-            }
+            if (idx >= 0) articles[idx] = { ...articles[idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
           }
         }
       }
 
-      if (newsArticles.length > 0) {
-        const summarizedNews = await summarizeArticles(newsArticles, config);
-        const mhlwMap = new Map((rawData.mhlw || []).map((a, i) => [a.title, i]));
-        const hnMap = new Map((rawData.hackernews || []).map((a, i) => [a.title, i]));
-        const arxivMap = new Map((rawData.arxiv || []).map((a, i) => [a.title, i]));
-        const medscapeMap = new Map((rawData.medscape || []).map((a, i) => [a.title, i]));
-        const fierceMap = new Map((rawData.fierce || []).map((a, i) => [a.title, i]));
-        const carenetMap = new Map((rawData.carenet || []).map((a, i) => [a.title, i]));
-        const nikkeiMap = new Map((rawData.nikkei || []).map((a, i) => [a.title, i]));
-        const ftMap = new Map((rawData.ft || []).map((a, i) => [a.title, i]));
-        const m3Map = new Map((rawData.m3 || []).map((a, i) => [a.title, i]));
-        const mtMap = new Map((rawData.medical_tribune || []).map((a, i) => [a.title, i]));
+      if (newsForAPI.length > 0) {
+        const summarizedNews = await summarizeArticles(newsForAPI, config, { deadlineMs });
+
+        // Build maps for writing back
+        const maps = {};
+        for (const key of newsSourceKeys) {
+          maps[key] = new Map((rawData[key] || []).map((a, i) => [a.title, i]));
+        }
 
         for (const s of summarizedNews) {
-          const enrichFields = { priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
-          if (s.source === '厚労省' && mhlwMap.has(s.title)) {
-            const idx = mhlwMap.get(s.title);
-            rawData.mhlw[idx] = { ...rawData.mhlw[idx], ...enrichFields };
-          } else if (s.source === 'HackerNews' && hnMap.has(s.title)) {
-            const idx = hnMap.get(s.title);
-            rawData.hackernews[idx] = { ...rawData.hackernews[idx], ...enrichFields };
-          } else if (s.source === 'arXiv' && arxivMap.has(s.title)) {
-            const idx = arxivMap.get(s.title);
-            rawData.arxiv[idx] = { ...rawData.arxiv[idx], ...enrichFields };
-          } else if (s.source === 'Medscape' && medscapeMap.has(s.title)) {
-            const idx = medscapeMap.get(s.title);
-            rawData.medscape[idx] = { ...rawData.medscape[idx], ...enrichFields };
-          } else if (s.source === 'Fierce' && fierceMap.has(s.title)) {
-            const idx = fierceMap.get(s.title);
-            rawData.fierce[idx] = { ...rawData.fierce[idx], ...enrichFields };
-          } else if (s.source === 'CareNet' && carenetMap.has(s.title)) {
-            const idx = carenetMap.get(s.title);
-            rawData.carenet[idx] = { ...rawData.carenet[idx], ...enrichFields };
-          } else if (s.source === '日経' && nikkeiMap.has(s.title)) {
-            const idx = nikkeiMap.get(s.title);
-            rawData.nikkei[idx] = { ...rawData.nikkei[idx], ...enrichFields };
-          } else if (s.source === 'FT' && ftMap.has(s.title)) {
-            const idx = ftMap.get(s.title);
-            rawData.ft[idx] = { ...rawData.ft[idx], ...enrichFields };
-          } else if (s.source === 'm3.com' && m3Map.has(s.title)) {
-            const idx = m3Map.get(s.title);
-            rawData.m3[idx] = { ...rawData.m3[idx], ...enrichFields };
-          } else if (s.source === 'Medical Tribune' && mtMap.has(s.title)) {
-            const idx = mtMap.get(s.title);
-            rawData.medical_tribune[idx] = { ...rawData.medical_tribune[idx], ...enrichFields };
+          const key = s._sourceKey;
+          if (key && maps[key] && maps[key].has(s.title)) {
+            const idx = maps[key].get(s.title);
+            const enrichFields = { priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
+            rawData[key][idx] = { ...rawData[key][idx], ...enrichFields };
           }
         }
       }
     } catch (e) {
       console.error('Claude API呼び出しに失敗:', e.message);
-      console.log('デフォルト優先度で続行します。');
+      console.log('残りの記事にデフォルト優先度を割り当てます。');
       assignDefaultPriorities(rawData);
     }
   }
@@ -271,20 +315,24 @@ function assignDefaultPriorities(data) {
   if (data.pubmed) {
     for (const [key, catData] of Object.entries(data.pubmed)) {
       for (const article of (catData.articles || [])) {
-        article.priority = article.priority || (catData.priority === 'high' ? '要注視' : '参考');
-        article.summary_ja = article.summary_ja || (article.abstract || '').substring(0, 200);
-        article.impact = article.impact || '';
-        article.memo = article.memo || '';
+        if (!article.priority) {
+          article.priority = catData.priority === 'high' ? '要注視' : '参考';
+          article.summary_ja = article.summary_ja || (article.abstract || '').substring(0, 200);
+          article.impact = article.impact || '';
+          article.memo = article.memo || '';
+        }
       }
     }
   }
   for (const key of ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune']) {
     if (data[key]) {
       for (const article of data[key]) {
-        article.priority = article.priority || '参考';
-        article.summary_ja = article.summary_ja || article.title;
-        article.impact = article.impact || '';
-        article.memo = article.memo || '';
+        if (!article.priority) {
+          article.priority = '参考';
+          article.summary_ja = article.summary_ja || article.title;
+          article.impact = article.impact || '';
+          article.memo = article.memo || '';
+        }
       }
     }
   }
