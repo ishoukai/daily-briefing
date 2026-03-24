@@ -84,12 +84,12 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 <body>
 <div id="auth-overlay" class="auth-overlay" style="display:none">
 <div class="auth-box">
-<h2>ニュースまとめくん</h2>
+<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
 <p>パスワードを入力してください</p>
 <form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
 </div></div>
 <div class="app-header">
-  <h1>ニュースまとめくん by 医承会</h1>
+  <h1><img src="../../kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
   <nav>
     <a href="../../index.html">Latest</a>
     <a href="../../archive/index.html">Archive</a>
@@ -98,14 +98,15 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 </div>
 <div class="container">
   <div style="font-family:var(--font-serif);font-size:15px;color:var(--sub);margin-bottom:16px">2026年3月23日（月）</div>
-  <div class="date-nav"><a href="../../archive/2026-03-23/index.html" class="current">2026-03-23</a></div>
+  <div class="date-nav"><a href="../../archive/2026-03-24/index.html">2026-03-24</a>
+<a href="../../archive/2026-03-23/index.html" class="current">2026-03-23</a></div>
   <div class="source-pills"><span class="source-pill">PubMed <b>37</b></span>
 <span class="source-pill">厚労省 <b>3</b></span>
 <span class="source-pill">Medscape <b>9</b></span>
 <span class="source-pill">Fierce <b>10</b></span>
 <span class="source-pill">日経 <b>26</b></span></div>
   <div class="tabs">
-    <div class="tab active" onclick="showTab(this,'morning')">朝ブリーフィング<span class="badge">12</span></div>
+    <div class="tab active" onclick="showTab(this,'morning')">朝ブリーフィング<span class="badge">14</span></div>
     <div class="tab" onclick="showTab(this,'pubmed')">論文ダイジェスト<span class="badge">32</span></div>
     <div class="tab" onclick="showTab(this,'alert')">制度アラート<span class="badge">3</span></div>
     <div class="tab" onclick="showTab(this,'tech')">テック・AI<span class="badge">5</span></div>
@@ -230,55 +231,39 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
     <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUD038GK0T00C26A3000000/')"> 既読</label>
   </div>
 </div>
+<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/">
+  <div class="card-head">
+    <h3>不調の原因は「普段の呼吸」の可能性 死亡リスクにも影響を及ぼす</h3>
+    <span class="priority p-mid">要注視</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-03-23</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">日常的な呼吸の質が健康状態や死亡リスクに影響する可能性が指摘されている。呼吸器系疾患や全身の健康管理への新たな視点。</div>
+  <div class="impact">呼吸指導や呼吸器系診療の強化、患者教育プログラムの検討。</div>
+  <div class="memo"><strong>理事長メモ:</strong> 耳鼻咽喉科での呼吸障害診療や内科での生活習慣病指導に活用可能。新たな指導料算定の機会。</div>
+  <div class="checkbox-row">
+    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/')"> 既読</label>
+  </div>
+</div>
+<div class="card" data-id="https://www.nikkei.com/article/DGXZQOSG174BJ0X10C26A2000000/">
+  <div class="card-head">
+    <h3>テレワーク社会の落とし穴 体力が10歳分下がり、議論が偏りがちに</h3>
+    <span class="priority p-mid">要注視</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-03-23</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOSG174BJ0X10C26A2000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">テレワークの普及により体力低下や議論の偏りなどの健康・社会的問題が生じている。働き方の変化が健康に与える影響を指摘。</div>
+  <div class="impact">生活習慣病患者の増加対応、運動指導強化、企業健診での啓発活動検討。</div>
+  <div class="memo"><strong>理事長メモ:</strong> 糖尿病・循環器疾患患者の増加予測。特定保健指導や生活習慣病管理指導の需要拡大。</div>
+  <div class="checkbox-row">
+    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOSG174BJ0X10C26A2000000/')"> 既読</label>
+  </div>
+</div>
 <details class="collapsible-section"><summary class="section-label" style="cursor:pointer">参考情報（5件）</summary>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html">
-  <div class="card-head">
-    <h3>診療報酬改定</h3>
-    <span class="priority p-info">参考</span>
-  </div>
-  <div class="source-line">
-    <span class="source">厚生労働省 </span>
-    <a class="link-btn" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-  <div class="body">診療報酬改定</div>
-  
-  
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html')"> 既読</label>
-  </div>
-</div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html">
-  <div class="card-head">
-    <h3>消費税と診療報酬について</h3>
-    <span class="priority p-info">参考</span>
-  </div>
-  <div class="source-line">
-    <span class="source">厚生労働省 </span>
-    <a class="link-btn" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-  <div class="body">消費税と診療報酬について</div>
-  
-  
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html')"> 既読</label>
-  </div>
-</div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html">
-  <div class="card-head">
-    <h3>ジカウイルス感染症</h3>
-    <span class="priority p-info">参考</span>
-  </div>
-  <div class="source-line">
-    <span class="source">厚生労働省 </span>
-    <a class="link-btn" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html" target="_blank" rel="noopener">原文 ↗</a>
-  </div>
-  <div class="body">ジカウイルス感染症</div>
-  
-  
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html')"> 既読</label>
-  </div>
-</div>
 <div class="card" data-id="https://www.medscape.com/s/viewarticle/quantifying-cardiac-amyloid-burden-2026a10007jw?src=rss">
   <div class="card-head">
     <h3>心臓アミロイドーシスの定量的評価に関する研究。</h3>
@@ -309,6 +294,54 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="memo"><strong>理事長メモ:</strong> 消化器外科での腫瘍治療に関連する可能性。専門医との連携強化の参考情報。</div>
   <div class="checkbox-row">
     <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/axitinib-boosts-neuroendocrine-tumor-objective-response-rate-2026a10008jd?src=rss')"> 既読</label>
+  </div>
+</div>
+<div class="card" data-id="https://www.medscape.com/viewarticle/waste-not-want-not-scientists-turn-plastic-levodopa-2026a10008jh?src=rss">
+  <div class="card-head">
+    <h3>プラスチック廃棄物からレボドパを生成する技術に関する研究。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-03-20</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/waste-not-want-not-scientists-turn-plastic-levodopa-2026a10008jh?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">プラスチック廃棄物からレボドパを生成する技術に関する研究。パーキンソン病治療薬の新製造法について。</div>
+  
+  <div class="memo"><strong>理事長メモ:</strong> 将来的な薬価や供給安定性に影響する可能性。環境配慮の製薬技術の動向として注目。</div>
+  <div class="checkbox-row">
+    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/waste-not-want-not-scientists-turn-plastic-levodopa-2026a10008jh?src=rss')"> 既読</label>
+  </div>
+</div>
+<div class="card" data-id="https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss">
+  <div class="card-head">
+    <h3>Lifelike 3D-Printed ‘Training Brains’ React Like Real Organs</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-03-20</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">実際の臓器のように反応する3Dプリント製「訓練用脳」の開発。医療訓練技術の革新について。</div>
+  
+  <div class="memo"><strong>理事長メモ:</strong> 医療従事者の技術向上に寄与する可能性。将来的な研修制度への応用を検討材料として参考。</div>
+  <div class="checkbox-row">
+    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss')"> 既読</label>
+  </div>
+</div>
+<div class="card" data-id="https://www.medscape.com/viewarticle/suicidality-may-predict-treatment-resistance-newly-diagnosed-2026a10008i9?src=rss">
+  <div class="card-head">
+    <h3>自殺傾向が焦点性てんかんの治療抵抗性を予測する可能性があるという研究結果。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-03-20</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/suicidality-may-predict-treatment-resistance-newly-diagnosed-2026a10008i9?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">自殺傾向が焦点性てんかんの治療抵抗性を予測する可能性があるという研究結果。精神症状とてんかん治療の関連について。</div>
+  
+  <div class="memo"><strong>理事長メモ:</strong> 内科での薬物治療時の精神症状への注意喚起として参考。専門医への紹介タイミングの判断材料。</div>
+  <div class="checkbox-row">
+    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/suicidality-may-predict-treatment-resistance-newly-diagnosed-2026a10008i9?src=rss')"> 既読</label>
   </div>
 </div></details>
   </div>

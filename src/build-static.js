@@ -188,7 +188,7 @@ const AUTH_SCRIPT = `
 
 const AUTH_OVERLAY = `<div id="auth-overlay" class="auth-overlay" style="display:none">
 <div class="auth-box">
-<h2>ニュースまとめくん</h2>
+<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
 <p>パスワードを入力してください</p>
 <form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
 </div></div>`;
@@ -239,7 +239,7 @@ function layoutHeader(currentPage, basePath) {
     return `<a href="${href}"${currentPage === page ? ' class="active"' : ''}>${label}</a>`;
   };
   return `<div class="app-header">
-  <h1>ニュースまとめくん by 医承会</h1>
+  <h1><img src="${bp}/kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
   <nav>
     ${nav('/', 'Latest')}
     ${nav('/archive', 'Archive')}
@@ -427,7 +427,7 @@ function buildIndexPage(latestDate) {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>ニュースまとめくん</title>
+<title>管理くんニュース</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E6E0;--text:#1A1A18;--sub:#6B6960;--accent:#1A5F4A;--font-sans:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif;--red:#9B2C2C}
@@ -443,7 +443,7 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);display
 </head>
 <body>
 <div class="auth-box">
-<h2>ニュースまとめくん</h2>
+<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
 <p>パスワードを入力してください</p>
 <form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
 </div>
@@ -473,7 +473,7 @@ function buildArchiveListPage(allDates, dateCounts) {
     return `<li><a href="${d}/index.html">${d}<span class="count">${count} articles</span></a></li>`;
   }).join('\n');
 
-  return `${layoutHead('Archive — ニュースまとめくん')}
+  return `${layoutHead('Archive — 管理くんニュース')}
 <body>
 ${AUTH_OVERLAY}
 ${layoutHeader('/archive', '..')}
@@ -509,7 +509,7 @@ function buildSearchPage(allDates) {
     }
   }
 
-  return `${layoutHead('Search — ニュースまとめくん')}
+  return `${layoutHead('Search — 管理くんニュース')}
 <body>
 ${AUTH_OVERLAY}
 ${layoutHeader('/search', '.')}

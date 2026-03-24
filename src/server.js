@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ニュースまとめくん — ローカルWebサーバー
+ * 管理くんニュース — ローカルWebサーバー
  * Express ベース、ポート3000
  */
 
@@ -240,7 +240,7 @@ function layoutHeader(currentPage) {
   const nav = (page, label) =>
     `<a href="${page}"${currentPage === page ? ' class="active"' : ''}>${label}</a>`;
   return `<div class="app-header">
-  <h1>ニュースまとめくん by 医承会</h1>
+  <h1><img src="/kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
   <nav>
     ${nav('/', 'Latest')}
     ${nav('/archive', 'Archive')}
@@ -328,7 +328,7 @@ function showTab(el, id) {
 app.get('/', (req, res) => {
   const date = getLatestDate();
   if (!date) {
-    return res.send(layoutHead('ニュースまとめくん') + '<body>' + layoutHeader('/') +
+    return res.send(layoutHead('管理くんニュース') + '<body>' + layoutHeader('/') +
       '<div class="container"><div class="empty-state">ブリーフィングがまだありません。<br><code>npm run auto</code> で生成してください。</div></div></body></html>');
   }
   res.redirect(`/archive/${date}`);
@@ -343,7 +343,7 @@ app.get('/archive', (req, res) => {
     return `<li><a href="/archive/${d}">${d}<span class="count">${articles.length} articles</span></a></li>`;
   }).join('\n');
 
-  res.send(`${layoutHead('Archive — ニュースまとめくん')}
+  res.send(`${layoutHead('Archive — 管理くんニュース')}
 <body>
 ${layoutHeader('/archive')}
 <div class="container">
@@ -777,7 +777,7 @@ function submitArticles() {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`\nニュースまとめくん Server`);
+  console.log(`\n管理くんニュース Server`);
   console.log(`http://localhost:${PORT}`);
   console.log(`\nPress Ctrl+C to stop.\n`);
 });
