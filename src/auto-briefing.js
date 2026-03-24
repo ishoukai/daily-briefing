@@ -255,14 +255,14 @@ async function main() {
     };
 
     // 曜日別のソース上限（厳格）
-    const baseLimits = { mhlw: 3, nikkei: 10, ft: 5, medscape: 3, fierce: 2, carenet: 2 };
+    const baseLimits = { mhlw: 3, nikkei: 12, ft: 6, medscape: 4, fierce: 3, carenet: 2 };
     let limits;
     if (schedule.isAlertDay) {
-      limits = { ...baseLimits, mhlw: 5, nikkei: 8 };
+      limits = { ...baseLimits, mhlw: 5, nikkei: 10 };
     } else if (schedule.isTechDay) {
-      limits = { ...baseLimits, nikkei: 7, ft: 4, carenet: 1, hackernews: 3, arxiv: 2 };
+      limits = { ...baseLimits, nikkei: 8, ft: 5, medscape: 3, fierce: 2, hackernews: 4, arxiv: 3 };
     } else if (schedule.isPaperDay) {
-      limits = { ...baseLimits, nikkei: 5, ft: 3, medscape: 2, carenet: 1 };
+      limits = { ...baseLimits, nikkei: 5, ft: 3, medscape: 3, fierce: 2 };
     } else {
       limits = { ...baseLimits };
     }
@@ -271,7 +271,7 @@ async function main() {
     let pubmedApiArticles = [];
     if (schedule.isPaperDay && rawData.pubmed) {
       const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
-      pubmedApiArticles = apiArticles.slice(0, 10);
+      pubmedApiArticles = apiArticles.slice(0, 12);
       const pubmedFallback = [...apiArticles.slice(10), ...fallbackArticles];
       for (const a of pubmedFallback) writePubmedBack(rawData, [a]);
       console.log(`  [金曜] PubMed: ${pubmedApiArticles.length} 件をAPI送信`);
