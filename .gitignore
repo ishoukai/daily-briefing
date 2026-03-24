@@ -1,3 +1,5 @@
+.DS_Store
+*.tar.gz
 node_modules/
 output/raw_data.json
 output/enriched_data.json
