@@ -13,15 +13,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
-
 const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
 const DATA_DIR = path.join(DOCS_DIR, 'data');
-
-// パスワード: "briefing2026" のSHA-256ハッシュ
-const PASSWORD_HASH = crypto.createHash('sha256').update('briefing2026').digest('hex');
 
 // --- Helpers ---
 
@@ -119,9 +114,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .card .impact::before{content:'-> '}
 .card .memo{margin-top:8px;background:#F7F7F5;border-radius:6px;padding:10px 14px;font-size:12.5px;line-height:1.7}
 .card .memo strong{color:var(--accent);font-weight:700}
-.checkbox-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.checkbox-row label{font-size:12px;color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:6px}
-.checkbox-row input[type="checkbox"]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
 .section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sub);margin:28px 0 14px;display:flex;align-items:center;gap:8px}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .archive-list{list-style:none}
@@ -154,46 +146,11 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .search-box input:focus{outline:none;border-color:var(--accent)}
 .search-results-info{font-size:13px;color:var(--sub);margin-bottom:16px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
 .search-results-info b{color:var(--text)}
-.auth-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center}
-.auth-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;max-width:360px;width:100%;text-align:center}
-.auth-box h2{font-family:var(--font-serif);font-size:20px;margin-bottom:8px}
-.auth-box p{font-size:13px;color:var(--sub);margin-bottom:20px}
-.auth-box input{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;font-family:var(--font-sans)}
-.auth-box input:focus{outline:none;border-color:var(--accent)}
-.auth-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
-.auth-box .error{color:var(--red);font-size:12px;margin-top:8px;display:none}
 @media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}.card-head{flex-direction:column;gap:4px}.priority{align-self:flex-start}.app-header{flex-direction:column;align-items:flex-start}}`;
 
 // --- Auth script (SHA-256 check via SubtleCrypto) ---
 
-const AUTH_SCRIPT = `
-<script>
-(function(){
-  var HASH='${PASSWORD_HASH}';
-  var KEY='briefing_auth';
-  function check(){return localStorage.getItem(KEY)===HASH}
-  if(check()){document.getElementById('auth-overlay').remove();return}
-  document.getElementById('auth-overlay').style.display='flex';
-  document.getElementById('auth-form').onsubmit=async function(e){
-    e.preventDefault();
-    var pw=document.getElementById('auth-pw').value;
-    var buf=new TextEncoder().encode(pw);
-    var hash=await crypto.subtle.digest('SHA-256',buf);
-    var hex=Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
-    if(hex===HASH){localStorage.setItem(KEY,HASH);document.getElementById('auth-overlay').remove()}
-    else{document.getElementById('auth-error').style.display='block'}
-  };
-})();
-</script>`;
-
-const AUTH_OVERLAY = `<div id="auth-overlay" class="auth-overlay" style="display:none">
-<div class="auth-box">
-<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
-<p>パスワードを入力してください</p>
-<form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
-</div></div>`;
-
-// --- Tabs / Read status script (localStorage) ---
+// --- Tabs script ---
 
 const CLIENT_SCRIPT = `<script>
 function showTab(el,id){
@@ -202,20 +159,6 @@ function showTab(el,id){
   document.getElementById(id).classList.add('active');
   el.classList.add('active');
 }
-function getReadStatus(){try{return JSON.parse(localStorage.getItem('briefing_read')||'{}')}catch(e){return{}}}
-function toggleRead(el,id){
-  var s=getReadStatus();
-  if(el.checked){s[id]=true}else{delete s[id]}
-  localStorage.setItem('briefing_read',JSON.stringify(s));
-  el.closest('.card').classList.toggle('read',el.checked);
-}
-(function(){
-  var s=getReadStatus();
-  document.querySelectorAll('.card[data-id]').forEach(function(card){
-    var id=card.getAttribute('data-id');
-    if(s[id]){card.classList.add('read');var cb=card.querySelector('input[type=checkbox]');if(cb)cb.checked=true}
-  });
-})();
 </script>`;
 
 // --- HTML generators ---
@@ -249,12 +192,11 @@ function layoutHeader(currentPage, basePath) {
 }
 
 function renderCardHTML(article) {
-  const id = escapeHtml(articleId(article)).replace(/'/g, "\\'");
   const impact = article.impact
     ? `<div class="impact">${escapeHtml(article.impact)}</div>` : '';
   const memo = article.memo
     ? `<div class="memo"><strong>理事長メモ:</strong> ${escapeHtml(article.memo)}</div>` : '';
-  return `<div class="card" data-id="${escapeHtml(articleId(article))}">
+  return `<div class="card">
   <div class="card-head">
     <h3>${escapeHtml(displayTitle(article))}</h3>
     <span class="priority ${priorityClass(article.priority)}">${escapeHtml(article.priority || '')}</span>
@@ -266,9 +208,6 @@ function renderCardHTML(article) {
   <div class="body">${escapeHtml(article.summary_ja || article.abstract || '')}</div>
   ${impact}
   ${memo}
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'${id}')"> 既読</label>
-  </div>
 </div>`;
 }
 
@@ -389,7 +328,6 @@ function buildBriefingPage(data, date, allDates, basePath) {
 
   return `${layoutHead('Briefing ' + date)}
 <body>
-${AUTH_OVERLAY}
 ${layoutHeader('', basePath)}
 <div class="container">
   <div style="font-family:var(--font-serif);font-size:15px;color:var(--sub);margin-bottom:16px">${dateStr}</div>
@@ -417,9 +355,7 @@ ${layoutHeader('', basePath)}
     自動生成: GitHub Actions + Claude API + PubMed + 厚労省 + HN + Medscape + Fierce + CareNet + 日経 + FT
   </div>
 </div>
-${CLIENT_SCRIPT}
-${AUTH_SCRIPT}
-</body></html>`;
+${CLIENT_SCRIPT}</body></html>`;
 }
 
 function buildIndexPage(latestDate) {
@@ -427,43 +363,11 @@ function buildIndexPage(latestDate) {
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="refresh" content="0;url=archive/${latestDate}/index.html">
 <title>管理くんニュース</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E6E0;--text:#1A1A18;--sub:#6B6960;--accent:#1A5F4A;--font-sans:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif;--red:#9B2C2C}
-body{font-family:var(--font-sans);background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh}
-.auth-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;max-width:360px;width:100%;text-align:center}
-.auth-box h2{font-family:var(--font-serif);font-size:20px;margin-bottom:8px}
-.auth-box p{font-size:13px;color:var(--sub);margin-bottom:20px}
-.auth-box input{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;font-family:var(--font-sans)}
-.auth-box input:focus{outline:none;border-color:var(--accent)}
-.auth-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
-.auth-box .error{color:var(--red);font-size:12px;margin-top:8px;display:none}
-</style>
 </head>
 <body>
-<div class="auth-box">
-<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
-<p>パスワードを入力してください</p>
-<form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
-</div>
-<script>
-(function(){
-  var HASH='${PASSWORD_HASH}';
-  var KEY='briefing_auth';
-  var DEST='archive/${latestDate}/index.html';
-  if(localStorage.getItem(KEY)===HASH){location.replace(DEST);return}
-  document.getElementById('auth-form').onsubmit=async function(e){
-    e.preventDefault();
-    var pw=document.getElementById('auth-pw').value;
-    var buf=new TextEncoder().encode(pw);
-    var hash=await crypto.subtle.digest('SHA-256',buf);
-    var hex=Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
-    if(hex===HASH){localStorage.setItem(KEY,HASH);location.replace(DEST)}
-    else{document.getElementById('auth-error').style.display='block'}
-  };
-})();
-</script>
+<p>Redirecting to <a href="archive/${latestDate}/index.html">latest briefing</a>...</p>
 </body></html>`;
 }
 
@@ -475,16 +379,13 @@ function buildArchiveListPage(allDates, dateCounts) {
 
   return `${layoutHead('Archive — 管理くんニュース')}
 <body>
-${AUTH_OVERLAY}
 ${layoutHeader('/archive', '..')}
 <div class="container">
   <h2 style="font-size:18px;margin-bottom:20px;">Archive</h2>
   ${allDates.length > 0
     ? `<ul class="archive-list">${listHTML}</ul>`
     : '<div class="empty-state">アーカイブがまだありません。</div>'}
-</div>
-${AUTH_SCRIPT}
-</body></html>`;
+</div></body></html>`;
 }
 
 function buildSearchPage(allDates) {
@@ -511,16 +412,13 @@ function buildSearchPage(allDates) {
 
   return `${layoutHead('Search — 管理くんニュース')}
 <body>
-${AUTH_OVERLAY}
 ${layoutHeader('/search', '.')}
 <div class="container">
   <h2 style="font-size:18px;margin-bottom:20px;">Search</h2>
   <div class="search-box"><input id="search-input" type="text" placeholder="キーワードを入力..." autofocus></div>
   <div id="search-info" class="search-results-info" style="display:none"></div>
   <div id="search-results"></div>
-</div>
-${AUTH_SCRIPT}
-<script>
+</div><script>
 var DATA=${JSON.stringify(allSearchData)};
 var input=document.getElementById('search-input');
 var info=document.getElementById('search-info');

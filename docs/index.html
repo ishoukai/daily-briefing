@@ -2,41 +2,9 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="refresh" content="0;url=archive/2026-03-24/index.html">
 <title>管理くんニュース</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E6E0;--text:#1A1A18;--sub:#6B6960;--accent:#1A5F4A;--font-sans:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif;--red:#9B2C2C}
-body{font-family:var(--font-sans);background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh}
-.auth-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;max-width:360px;width:100%;text-align:center}
-.auth-box h2{font-family:var(--font-serif);font-size:20px;margin-bottom:8px}
-.auth-box p{font-size:13px;color:var(--sub);margin-bottom:20px}
-.auth-box input{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;font-family:var(--font-sans)}
-.auth-box input:focus{outline:none;border-color:var(--accent)}
-.auth-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
-.auth-box .error{color:var(--red);font-size:12px;margin-top:8px;display:none}
-</style>
 </head>
 <body>
-<div class="auth-box">
-<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
-<p>パスワードを入力してください</p>
-<form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
-</div>
-<script>
-(function(){
-  var HASH='76c85623ee58495b2449fe7dbc47b289c14459b3adb9eebc0c960514147e4233';
-  var KEY='briefing_auth';
-  var DEST='archive/2026-03-24/index.html';
-  if(localStorage.getItem(KEY)===HASH){location.replace(DEST);return}
-  document.getElementById('auth-form').onsubmit=async function(e){
-    e.preventDefault();
-    var pw=document.getElementById('auth-pw').value;
-    var buf=new TextEncoder().encode(pw);
-    var hash=await crypto.subtle.digest('SHA-256',buf);
-    var hex=Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
-    if(hex===HASH){localStorage.setItem(KEY,HASH);location.replace(DEST)}
-    else{document.getElementById('auth-error').style.display='block'}
-  };
-})();
-</script>
+<p>Redirecting to <a href="archive/2026-03-24/index.html">latest briefing</a>...</p>
 </body></html>

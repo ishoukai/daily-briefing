@@ -36,9 +36,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .card .impact::before{content:'-> '}
 .card .memo{margin-top:8px;background:#F7F7F5;border-radius:6px;padding:10px 14px;font-size:12.5px;line-height:1.7}
 .card .memo strong{color:var(--accent);font-weight:700}
-.checkbox-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.checkbox-row label{font-size:12px;color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:6px}
-.checkbox-row input[type="checkbox"]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
 .section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sub);margin:28px 0 14px;display:flex;align-items:center;gap:8px}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .archive-list{list-style:none}
@@ -71,23 +68,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .search-box input:focus{outline:none;border-color:var(--accent)}
 .search-results-info{font-size:13px;color:var(--sub);margin-bottom:16px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
 .search-results-info b{color:var(--text)}
-.auth-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center}
-.auth-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;max-width:360px;width:100%;text-align:center}
-.auth-box h2{font-family:var(--font-serif);font-size:20px;margin-bottom:8px}
-.auth-box p{font-size:13px;color:var(--sub);margin-bottom:20px}
-.auth-box input{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;font-family:var(--font-sans)}
-.auth-box input:focus{outline:none;border-color:var(--accent)}
-.auth-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
-.auth-box .error{color:var(--red);font-size:12px;margin-top:8px;display:none}
 @media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}.card-head{flex-direction:column;gap:4px}.priority{align-self:flex-start}.app-header{flex-direction:column;align-items:flex-start}}</style>
 </head>
 <body>
-<div id="auth-overlay" class="auth-overlay" style="display:none">
-<div class="auth-box">
-<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
-<p>パスワードを入力してください</p>
-<form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
-</div></div>
 <div class="app-header">
   <h1><img src="../../kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
   <nav>
@@ -120,7 +103,7 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
       <div class="stat"><div class="num">0</div><div class="label">新着論文</div></div>
     </div>
     <div class="section-label">要注視 — 中期的に影響</div>
-<div class="card" data-id="https://www.fiercehealthcare.com/health-tech/fierce-health-tech-weekly-rundown-doximity-survey-examines-how-docs-use-ai-lumeris">
+<div class="card">
   <div class="card-head">
     <h3>Health Tech Weekly Rundown: Perplexity  rolls out AI-powered medical records search; Doximity survey examines how docs use AI</h3>
     <span class="priority p-mid">要注視</span>
@@ -132,11 +115,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">PerplexityがAI搭載の医療記録検索機能をリリースし、Doximityが医師のAI利用調査を実施。医療分野でのAI活用技術の進展。</div>
   <div class="impact">AI活用による診療効率化の可能性を検討し、導入可能な技術の調査を開始する。</div>
   <div class="memo"><strong>理事長メモ:</strong> AI技術は診療効率化と患者サービス向上の鍵。電子カルテとの連携可能性も含めて検討要。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.fiercehealthcare.com/health-tech/fierce-health-tech-weekly-rundown-doximity-survey-examines-how-docs-use-ai-lumeris')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.fiercehealthcare.com/sponsored/healow-genie-ai-contact-center-helped-manage-76-calls-demonstrating-patient-access-and">
+<div class="card">
   <div class="card-head">
     <h3>healow Genie AI Contact Center Helped Manage 76% of Calls—Demonstrating That Patient Access and Operational Efficiency Go Together</h3>
     <span class="priority p-mid">要注視</span>
@@ -148,11 +128,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">AIコールセンターが患者からの電話の76%を処理し、患者アクセス向上と運営効率化を両立させた事例。医療機関の業務効率化。</div>
   <div class="impact">AIによる電話対応システムの導入可能性を検討し、費用対効果を分析する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 電話対応業務の効率化は受付スタッフの負担軽減に直結。患者満足度向上にも寄与する可能性。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.fiercehealthcare.com/sponsored/healow-genie-ai-contact-center-helped-manage-76-calls-demonstrating-patient-access-and')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.fiercehealthcare.com/sponsored/beyond-payment-integrity-ai-driven-approach-affordability">
+<div class="card">
   <div class="card-head">
     <h3>&lt;a href=&quot;/sponsored/beyond-payment-integrity-ai-driven-approach-affordability&quot; hreflang=&quot;en&quot;&gt;Beyond payment integrity: An AI-driven approach to affordability&lt;/a&gt;。</h3>
     <span class="priority p-mid">要注視</span>
@@ -164,11 +141,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">&lt;a href=&quot;/sponsored/beyond-payment-integrity-ai-driven-approach-affordability&quot; hreflang=&quot;en&quot;&gt;Beyond payment integrity: An AI-driven approach to affordability&lt;/a&gt;</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.fiercehealthcare.com/sponsored/beyond-payment-integrity-ai-driven-approach-affordability')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.fiercehealthcare.com/ai-and-machine-learning/industry-voices-stop-buying-ai-tools-start-designing-ai-architecture">
+<div class="card">
   <div class="card-head">
     <h3>Industry Voices—Stop buying AI tools, start designing AI architecture</h3>
     <span class="priority p-mid">要注視</span>
@@ -180,11 +154,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">&lt;a href=&quot;/ai-and-machine-learning/industry-voices-stop-buying-ai-tools-start-designing-ai-architecture&quot; hreflang=&quot;en&quot;&gt;Industry Voices—Stop buying AI tools, start designing AI architecture&lt;/a&gt;</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.fiercehealthcare.com/ai-and-machine-learning/industry-voices-stop-buying-ai-tools-start-designing-ai-architecture')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUA150RS0V10C26A3000000/">
+<div class="card">
   <div class="card-head">
     <h3>最低賃金、適用遅すぎに厚労省も労使も困惑　「原則1月1日」案が浮上</h3>
     <span class="priority p-mid">要注視</span>
@@ -196,11 +167,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">最低賃金の適用時期が現在の10月から1月1日への変更案が浮上している。厚労省と労使双方が困惑している状況。</div>
   <div class="impact">人件費への影響を試算し、給与体系の見直し準備を開始する。</div>
   <div class="memo"><strong>理事長メモ:</strong> スタッフの人件費は当クリニックの主要コスト。適用時期変更は年度予算計画に影響する。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUA150RS0V10C26A3000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUF231A20T20C26A3000000/">
+<div class="card">
   <div class="card-head">
     <h3>塩野義製薬、3600億円借り入れ 田辺ファーマからのALS薬事業買収で</h3>
     <span class="priority p-mid">要注視</span>
@@ -212,11 +180,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">塩野義製薬、3600億円借り入れ 田辺ファーマからのALS薬事業買収で</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUF231A20T20C26A3000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUF231LA0T20C26A3000000/">
+<div class="card">
   <div class="card-head">
     <h3>塩野義製薬のコロナ薬「ゾコーバ」、予防向けの承認取得 経口薬で初</h3>
     <span class="priority p-mid">要注視</span>
@@ -228,11 +193,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">塩野義製薬のコロナ治療薬「ゾコーバ」が経口薬として初めて予防向けの承認を取得した。コロナ予防の新たな選択肢。</div>
   <div class="impact">予防投与の適応基準と保険適用状況を確認し、院内での処方体制を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> コロナ予防薬は当クリニックでも需要が見込まれる。処方体制と在庫管理の準備が必要。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUF231LA0T20C26A3000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUC197DG0Z10C26A3000000/">
+<div class="card">
   <div class="card-head">
     <h3>エーザイ、抗がん剤「タズベリク」投与中止 血液がん発生リスク受け</h3>
     <span class="priority p-mid">要注視</span>
@@ -244,11 +206,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">エーザイ、抗がん剤「タズベリク」投与中止 血液がん発生リスク受け</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUC197DG0Z10C26A3000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOCC028450S6A300C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>人生の最期、在宅復帰に尽力 東京・板橋の「おうちにかえろう。病院」</h3>
     <span class="priority p-mid">要注視</span>
@@ -260,11 +219,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">人生の最期、在宅復帰に尽力 東京・板橋の「おうちにかえろう。病院」</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOCC028450S6A300C2000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOGM184LW0Y6A310C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>マレーシアのサンウェイG傘下病院が上場 病床数拡大へ</h3>
     <span class="priority p-mid">要注視</span>
@@ -276,12 +232,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">マレーシアのサンウェイG傘下病院が上場 病床数拡大へ</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOGM184LW0Y6A310C2000000/')"> 既読</label>
-  </div>
 </div>
 <details class="collapsible-section"><summary class="section-label" style="cursor:pointer">参考情報（5件）</summary>
-<div class="card" data-id="https://www.medscape.com/viewarticle/can-exercise-ease-chemobrain-during-chemotherapy-2026a10008pl?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>Can Exercise Ease ‘Chemobrain’ During Chemotherapy?</h3>
     <span class="priority p-info">参考</span>
@@ -293,11 +246,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">化学療法中の認知機能低下（ケモブレイン）に対する運動療法の効果について検討した研究。がん治療中の副作用軽減策。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 当クリニックではがん化学療法は実施していないが、がん患者の支持療法として知識を蓄積。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/can-exercise-ease-chemobrain-during-chemotherapy-2026a10008pl?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>Lifelike 3D-Printed ‘Training Brains’ React Like Real Organs</h3>
     <span class="priority p-info">参考</span>
@@ -309,11 +259,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">Lifelike 3D-Printed ‘Training Brains’ React Like Real Organs</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.fiercehealthcare.com/regulatory/cms-proposed-rule-aims-ax-fax-machine-phase-out-paper-mailing">
+<div class="card">
   <div class="card-head">
     <h3>&lt;a href=&quot;/regulatory/cms-proposed-rule-aims-ax-fax-machine-phase-out-paper-mailing&quot; hreflang=&quot;en&quot;&gt;CMS final rule aims to axe the fax machine, phase out paper mailing&lt;/a&gt;。</h3>
     <span class="priority p-info">参考</span>
@@ -325,11 +272,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">&lt;a href=&quot;/regulatory/cms-proposed-rule-aims-ax-fax-machine-phase-out-paper-mailing&quot; hreflang=&quot;en&quot;&gt;CMS final rule aims to axe the fax machine, phase out paper mailing&lt;/a&gt;</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.fiercehealthcare.com/regulatory/cms-proposed-rule-aims-ax-fax-machine-phase-out-paper-mailing')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.carenet.com/news/archive/0">
+<div class="card">
   <div class="card-head">
     <h3>2026-03-23 ～ 2026-03-23</h3>
     <span class="priority p-info">参考</span>
@@ -341,11 +285,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">CareNetの2026年3月23日のニュースアーカイブページ。具体的な内容は不明だが医療関連情報サイトのアーカイブ。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 内容が不明のため評価困難。医療関連サイトのアーカイブとして一応確認。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.carenet.com/news/archive/0')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOSG167TU0W6A310C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>小児がん「神経芽腫」、未承認薬で臨床研究　国立がん研究センター</h3>
     <span class="priority p-info">参考</span>
@@ -357,14 +298,11 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">国立がん研究センターが小児がんの神経芽腫に対して未承認薬を用いた臨床研究を実施している。小児がん治療の新たな選択肢開発。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 当クリニックの小児科では直接関係しないが、小児がん患者の紹介時の知識として有用。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOSG167TU0W6A310C2000000/')"> 既読</label>
-  </div>
 </div></details>
   </div>
   <div class="panel" id="pubmed"><div class="empty-state">論文がありません。</div></div>
   <div class="panel" id="alert"><div class="section-label">厚労省トピックス</div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html">
+<div class="card">
   <div class="card-head">
     <h3>診療報酬改定</h3>
     <span class="priority p-high">要対応</span>
@@ -376,11 +314,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">厚生労働省の診療報酬改定に関する公式情報。医療機関の経営に直接影響する制度変更の詳細が含まれている。</div>
   <div class="impact">改定内容を精査し、当クリニックの各診療科への影響度を評価、必要な体制変更を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 診療報酬は当クリニックの収益基盤に直結。改定内容によって算定方式や施設基準への対応が必要。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html">
+<div class="card">
   <div class="card-head">
     <h3>消費税と診療報酬について</h3>
     <span class="priority p-high">要対応</span>
@@ -392,11 +327,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">厚生労働省による消費税と診療報酬の関係についての公式見解。医療機関の消費税負担と補填措置に関する重要な情報。</div>
   <div class="impact">消費税負担の実情と補填状況を確認し、必要に応じて関係機関へ意見提出を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 消費税は医療機関の経営を圧迫する要因。診療報酬での補填状況は収益性に直接関わる重要事項。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html">
+<div class="card">
   <div class="card-head">
     <h3>ジカウイルス感染症</h3>
     <span class="priority p-info">参考</span>
@@ -408,9 +340,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">厚生労働省によるジカウイルス感染症に関する公式情報。感染症対策や届出基準などの情報が含まれる。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 感染症対策の一環として把握。当院での感染症診療時の参考情報として保管。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html')"> 既読</label>
-  </div>
 </div></div>
   <div class="panel" id="tech"><div class="empty-state">テック記事はありません。</div></div>
   <div class="footer-note">
@@ -424,38 +353,4 @@ function showTab(el,id){
   document.getElementById(id).classList.add('active');
   el.classList.add('active');
 }
-function getReadStatus(){try{return JSON.parse(localStorage.getItem('briefing_read')||'{}')}catch(e){return{}}}
-function toggleRead(el,id){
-  var s=getReadStatus();
-  if(el.checked){s[id]=true}else{delete s[id]}
-  localStorage.setItem('briefing_read',JSON.stringify(s));
-  el.closest('.card').classList.toggle('read',el.checked);
-}
-(function(){
-  var s=getReadStatus();
-  document.querySelectorAll('.card[data-id]').forEach(function(card){
-    var id=card.getAttribute('data-id');
-    if(s[id]){card.classList.add('read');var cb=card.querySelector('input[type=checkbox]');if(cb)cb.checked=true}
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var HASH='76c85623ee58495b2449fe7dbc47b289c14459b3adb9eebc0c960514147e4233';
-  var KEY='briefing_auth';
-  function check(){return localStorage.getItem(KEY)===HASH}
-  if(check()){document.getElementById('auth-overlay').remove();return}
-  document.getElementById('auth-overlay').style.display='flex';
-  document.getElementById('auth-form').onsubmit=async function(e){
-    e.preventDefault();
-    var pw=document.getElementById('auth-pw').value;
-    var buf=new TextEncoder().encode(pw);
-    var hash=await crypto.subtle.digest('SHA-256',buf);
-    var hex=Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
-    if(hex===HASH){localStorage.setItem(KEY,HASH);document.getElementById('auth-overlay').remove()}
-    else{document.getElementById('auth-error').style.display='block'}
-  };
-})();
-</script>
-</body></html>
+</script></body></html>

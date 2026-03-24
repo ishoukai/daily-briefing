@@ -275,14 +275,12 @@ function displayTitle(article) {
   return title;
 }
 
-function renderCardHTML(article, readStatus) {
-  const id = articleId(article);
-  const isRead = readStatus[id] === true;
+function renderCardHTML(article) {
   const impact = article.impact
     ? `<div class="impact">${escapeHtml(article.impact)}</div>` : '';
   const memo = article.memo
     ? `<div class="memo"><strong>理事長メモ:</strong> ${escapeHtml(article.memo)}</div>` : '';
-  return `<div class="card${isRead ? ' read' : ''}" data-id="${escapeHtml(id)}">
+  return `<div class="card">
   <div class="card-head">
     <h3>${escapeHtml(displayTitle(article))}</h3>
     <span class="priority ${priorityClass(article.priority)}">${escapeHtml(article.priority || '')}</span>
@@ -294,25 +292,11 @@ function renderCardHTML(article, readStatus) {
   <div class="body">${escapeHtml(article.summary_ja || article.abstract || '')}</div>
   ${impact}
   ${memo}
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this, '${escapeHtml(id).replace(/'/g, "\\'")}')" ${isRead ? 'checked' : ''}> 既読</label>
-  </div>
 </div>`;
 }
 
 function clientScript() {
   return `<script>
-function toggleRead(el, id) {
-  fetch('/api/read-status', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ id: id, read: el.checked })
-  }).then(r => {
-    if (r.ok) {
-      el.closest('.card').classList.toggle('read', el.checked);
-    }
-  });
-}
 function showTab(el, id) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -427,7 +411,7 @@ app.get('/archive/:date', (req, res) => {
   const morningInfo = allMorning.filter(a => a.priority === '参考').slice(0, Math.min(5, remainingSlots));
   const morningCount = morningHigh.length + morningMid.length + morningInfo.length;
 
-  const renderCards = (items) => items.map(a => renderCardHTML(a, readStatus)).join('\n');
+  const renderCards = (items) => items.map(a => renderCardHTML(a)).join('\n');
 
   const dateNav = dates.slice(0, 10).map(d =>
     `<a href="/archive/${d}"${d === date ? ' class="current"' : ''}>${d}</a>`
@@ -562,7 +546,7 @@ app.get('/search', (req, res) => {
 
   const cardsHTML = results.map(a => {
     const dateLabel = `<div style="font-size:11px;color:var(--sub);margin-bottom:4px">${escapeHtml(a._date)}</div>`;
-    return dateLabel + renderCardHTML(a, readStatus);
+    return dateLabel + renderCardHTML(a);
   }).join('\n');
 
   res.send(`${layoutHead(`Search: ${query}`)}

@@ -36,9 +36,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .card .impact::before{content:'-> '}
 .card .memo{margin-top:8px;background:#F7F7F5;border-radius:6px;padding:10px 14px;font-size:12.5px;line-height:1.7}
 .card .memo strong{color:var(--accent);font-weight:700}
-.checkbox-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.checkbox-row label{font-size:12px;color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:6px}
-.checkbox-row input[type="checkbox"]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
 .section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sub);margin:28px 0 14px;display:flex;align-items:center;gap:8px}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .archive-list{list-style:none}
@@ -71,23 +68,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .search-box input:focus{outline:none;border-color:var(--accent)}
 .search-results-info{font-size:13px;color:var(--sub);margin-bottom:16px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
 .search-results-info b{color:var(--text)}
-.auth-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center}
-.auth-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;max-width:360px;width:100%;text-align:center}
-.auth-box h2{font-family:var(--font-serif);font-size:20px;margin-bottom:8px}
-.auth-box p{font-size:13px;color:var(--sub);margin-bottom:20px}
-.auth-box input{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;font-family:var(--font-sans)}
-.auth-box input:focus{outline:none;border-color:var(--accent)}
-.auth-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
-.auth-box .error{color:var(--red);font-size:12px;margin-top:8px;display:none}
 @media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}.card-head{flex-direction:column;gap:4px}.priority{align-self:flex-start}.app-header{flex-direction:column;align-items:flex-start}}</style>
 </head>
 <body>
-<div id="auth-overlay" class="auth-overlay" style="display:none">
-<div class="auth-box">
-<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
-<p>パスワードを入力してください</p>
-<form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
-</div></div>
 <div class="app-header">
   <h1><img src="../kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
   <nav>
@@ -100,24 +83,4 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <h2 style="font-size:18px;margin-bottom:20px;">Archive</h2>
   <ul class="archive-list"><li><a href="2026-03-24/index.html">2026-03-24<span class="count">39 articles</span></a></li>
 <li><a href="2026-03-23/index.html">2026-03-23<span class="count">85 articles</span></a></li></ul>
-</div>
-
-<script>
-(function(){
-  var HASH='76c85623ee58495b2449fe7dbc47b289c14459b3adb9eebc0c960514147e4233';
-  var KEY='briefing_auth';
-  function check(){return localStorage.getItem(KEY)===HASH}
-  if(check()){document.getElementById('auth-overlay').remove();return}
-  document.getElementById('auth-overlay').style.display='flex';
-  document.getElementById('auth-form').onsubmit=async function(e){
-    e.preventDefault();
-    var pw=document.getElementById('auth-pw').value;
-    var buf=new TextEncoder().encode(pw);
-    var hash=await crypto.subtle.digest('SHA-256',buf);
-    var hex=Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
-    if(hex===HASH){localStorage.setItem(KEY,HASH);document.getElementById('auth-overlay').remove()}
-    else{document.getElementById('auth-error').style.display='block'}
-  };
-})();
-</script>
-</body></html>
+</div></body></html>

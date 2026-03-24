@@ -36,9 +36,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .card .impact::before{content:'-> '}
 .card .memo{margin-top:8px;background:#F7F7F5;border-radius:6px;padding:10px 14px;font-size:12.5px;line-height:1.7}
 .card .memo strong{color:var(--accent);font-weight:700}
-.checkbox-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.checkbox-row label{font-size:12px;color:var(--sub);cursor:pointer;display:flex;align-items:center;gap:6px}
-.checkbox-row input[type="checkbox"]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
 .section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sub);margin:28px 0 14px;display:flex;align-items:center;gap:8px}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .archive-list{list-style:none}
@@ -71,23 +68,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
 .search-box input:focus{outline:none;border-color:var(--accent)}
 .search-results-info{font-size:13px;color:var(--sub);margin-bottom:16px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
 .search-results-info b{color:var(--text)}
-.auth-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center}
-.auth-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px;max-width:360px;width:100%;text-align:center}
-.auth-box h2{font-family:var(--font-serif);font-size:20px;margin-bottom:8px}
-.auth-box p{font-size:13px;color:var(--sub);margin-bottom:20px}
-.auth-box input{width:100%;padding:10px 14px;font-size:14px;border:1px solid var(--border);border-radius:8px;margin-bottom:12px;font-family:var(--font-sans)}
-.auth-box input:focus{outline:none;border-color:var(--accent)}
-.auth-box button{width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
-.auth-box .error{color:var(--red);font-size:12px;margin-top:8px;display:none}
 @media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}.card-head{flex-direction:column;gap:4px}.priority{align-self:flex-start}.app-header{flex-direction:column;align-items:flex-start}}</style>
 </head>
 <body>
-<div id="auth-overlay" class="auth-overlay" style="display:none">
-<div class="auth-box">
-<img src="/daily-briefing/kanri-kun.png" alt="管理くん" style="height:48px;margin-bottom:12px"><h2>管理くんニュース</h2>
-<p>パスワードを入力してください</p>
-<form id="auth-form"><input id="auth-pw" type="password" placeholder="Password" autofocus><button type="submit">Enter</button><div id="auth-error" class="error">パスワードが正しくありません</div></form>
-</div></div>
 <div class="app-header">
   <h1><img src="../../kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
   <nav>
@@ -119,7 +102,7 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
       <div class="stat"><div class="num">37</div><div class="label">新着論文</div></div>
     </div>
     <div class="section-label">要注視 — 中期的に影響</div>
-<div class="card" data-id="https://www.medscape.com/s/viewarticle/employee-dies-meningitis-north-france-company-says-no-link-2026a10008jq?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>フランス北部で髄膜炎による従業員死亡事例。</h3>
     <span class="priority p-mid">要注視</span>
@@ -131,11 +114,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">フランス北部で髄膜炎による従業員死亡事例。英国のアウトブレイクとの関連性は否定されている感染症事例。</div>
   <div class="impact">髄膜炎の診断・対応手順の再確認と院内感染対策の点検を実施。</div>
   <div class="memo"><strong>理事長メモ:</strong> 小児科では髄膜炎の早期診断が重要。成人でも内科で対応する場合があり注意が必要。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/s/viewarticle/employee-dies-meningitis-north-france-company-says-no-link-2026a10008jq?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOCC189OU0Y6A310C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>AIを介護相談に活用　鳥取のN.K.C、独居高齢者の見守りに活用も</h3>
     <span class="priority p-mid">要注視</span>
@@ -147,11 +127,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">鳥取のN.K.CがAIを介護相談や独居高齢者の見守りに活用する取り組みを開始。AIによる高齢者ケア支援の実用化が進んでいる。</div>
   <div class="impact">高齢患者の多い当法人でもAI活用による患者フォローアップ体制の検討を開始する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 糖尿病・循環器内科の高齢患者管理にAI技術の活用可能性を探る必要がある。地域医療連携の新たな手法として注目。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOCC189OU0Y6A310C2000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUA150RS0V10C26A3000000/">
+<div class="card">
   <div class="card-head">
     <h3>最低賃金、適用遅すぎに厚労省も労使も困惑　「原則1月1日」案が浮上</h3>
     <span class="priority p-mid">要注視</span>
@@ -163,11 +140,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">最低賃金の適用時期が現在の10月から原則1月1日への変更案が浮上。厚労省と労使双方が現行制度の問題を認識している状況。</div>
   <div class="impact">賃金制度見直しのタイミング変更に備え、人事労務管理体制の調整を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> クリニックスタッフの給与体系や雇用契約への影響を精査する必要がある。年度予算策定時期との整合性も考慮要。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUA150RS0V10C26A3000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOCC028450S6A300C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>人生の最期、在宅復帰に尽力 東京・板橋の「おうちにかえろう。病院」</h3>
     <span class="priority p-mid">要注視</span>
@@ -179,11 +153,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">東京・板橋の病院が在宅復帰支援に特化した取り組みを展開している。終末期医療での在宅移行が注目されている。</div>
   <div class="impact">在宅医療連携や終末期対応について当院の体制を検討する</div>
   <div class="memo"><strong>理事長メモ:</strong> 内科・消化器科で終末期患者への対応が求められる場合がある。在宅医療機関との連携強化を検討すべき事例として参考になる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOCC028450S6A300C2000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUF1985M0Z10C26A2000000/">
+<div class="card">
   <div class="card-head">
     <h3>eWeLL中野社長、訪問看護のAI活用「誤回答排除で普及へ」</h3>
     <span class="priority p-mid">要注視</span>
@@ -195,11 +166,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">eWeLL社が訪問看護でのAI活用について誤回答排除による普及促進を目指している。医療現場でのAI活用が進展している。</div>
   <div class="impact">AI問診システムや診療支援AIの導入検討を進める</div>
   <div class="memo"><strong>理事長メモ:</strong> 当クリニックでもAI問診システム導入を検討中。医療AIの精度向上と普及動向として注視すべき情報。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUF1985M0Z10C26A2000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUF1678R0W6A310C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>サワイGHD会長｢新薬メーカーの工場取得検討｣ 後発薬の供給力高める</h3>
     <span class="priority p-mid">要注視</span>
@@ -211,11 +179,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">サワイGHDが後発薬供給力強化のため新薬メーカー工場取得を検討。ジェネリック医薬品の安定供給に影響する可能性。</div>
   <div class="impact">処方するジェネリック医薬品の供給状況を継続的に確認し、代替薬の準備を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> ジェネリック医薬品の安定供給は薬価差益に直結。供給改善は経営にプラス影響。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUF1678R0W6A310C2000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUD038GK0T00C26A3000000/">
+<div class="card">
   <div class="card-head">
     <h3>肥満症は「要治療」 増える専門外来、健康障害防ぐ</h3>
     <span class="priority p-mid">要注視</span>
@@ -227,11 +192,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">肥満症治療への関心が高まり、専門外来の設置が増加している。肥満は糖尿病や循環器疾患の重要なリスク要因として認識されている。</div>
   <div class="impact">内科・糖尿病外来での肥満症治療強化、専門外来設置の検討が必要。</div>
   <div class="memo"><strong>理事長メモ:</strong> 糖尿病・循環器内科との連携で肥満症治療の収益機会拡大。生活習慣病管理指導料の算定機会増加。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUD038GK0T00C26A3000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/">
+<div class="card">
   <div class="card-head">
     <h3>不調の原因は「普段の呼吸」の可能性 死亡リスクにも影響を及ぼす</h3>
     <span class="priority p-mid">要注視</span>
@@ -243,11 +205,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">日常的な呼吸の質が健康状態や死亡リスクに影響する可能性が指摘されている。呼吸器系疾患や全身の健康管理への新たな視点。</div>
   <div class="impact">呼吸指導や呼吸器系診療の強化、患者教育プログラムの検討。</div>
   <div class="memo"><strong>理事長メモ:</strong> 耳鼻咽喉科での呼吸障害診療や内科での生活習慣病指導に活用可能。新たな指導料算定の機会。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.nikkei.com/article/DGXZQOSG174BJ0X10C26A2000000/">
+<div class="card">
   <div class="card-head">
     <h3>テレワーク社会の落とし穴 体力が10歳分下がり、議論が偏りがちに</h3>
     <span class="priority p-mid">要注視</span>
@@ -259,12 +218,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">テレワークの普及により体力低下や議論の偏りなどの健康・社会的問題が生じている。働き方の変化が健康に与える影響を指摘。</div>
   <div class="impact">生活習慣病患者の増加対応、運動指導強化、企業健診での啓発活動検討。</div>
   <div class="memo"><strong>理事長メモ:</strong> 糖尿病・循環器疾患患者の増加予測。特定保健指導や生活習慣病管理指導の需要拡大。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.nikkei.com/article/DGXZQOSG174BJ0X10C26A2000000/')"> 既読</label>
-  </div>
 </div>
 <details class="collapsible-section"><summary class="section-label" style="cursor:pointer">参考情報（5件）</summary>
-<div class="card" data-id="https://www.medscape.com/s/viewarticle/quantifying-cardiac-amyloid-burden-2026a10007jw?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>心臓アミロイドーシスの定量的評価に関する研究。</h3>
     <span class="priority p-info">参考</span>
@@ -276,11 +232,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">心臓アミロイドーシスの定量的評価に関する研究。循環器診療における診断技術の進歩について。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 当クリニックの循環器内科での診断精度向上に参考となる情報。将来的な検査技術導入の参考。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/s/viewarticle/quantifying-cardiac-amyloid-burden-2026a10007jw?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.medscape.com/viewarticle/axitinib-boosts-neuroendocrine-tumor-objective-response-rate-2026a10008jd?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>アキシチニブが神経内分泌腫瘍の奏効率を向上させるという研究結果。</h3>
     <span class="priority p-info">参考</span>
@@ -292,11 +245,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">アキシチニブが神経内分泌腫瘍の奏効率を向上させるという研究結果。がん治療薬の新たな適応について。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 消化器外科での腫瘍治療に関連する可能性。専門医との連携強化の参考情報。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/axitinib-boosts-neuroendocrine-tumor-objective-response-rate-2026a10008jd?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.medscape.com/viewarticle/waste-not-want-not-scientists-turn-plastic-levodopa-2026a10008jh?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>プラスチック廃棄物からレボドパを生成する技術に関する研究。</h3>
     <span class="priority p-info">参考</span>
@@ -308,11 +258,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">プラスチック廃棄物からレボドパを生成する技術に関する研究。パーキンソン病治療薬の新製造法について。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 将来的な薬価や供給安定性に影響する可能性。環境配慮の製薬技術の動向として注目。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/waste-not-want-not-scientists-turn-plastic-levodopa-2026a10008jh?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>Lifelike 3D-Printed ‘Training Brains’ React Like Real Organs</h3>
     <span class="priority p-info">参考</span>
@@ -324,11 +271,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">実際の臓器のように反応する3Dプリント製「訓練用脳」の開発。医療訓練技術の革新について。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 医療従事者の技術向上に寄与する可能性。将来的な研修制度への応用を検討材料として参考。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/lifelike-3d-printed-training-brains-react-real-organs-2026a10008if?src=rss')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.medscape.com/viewarticle/suicidality-may-predict-treatment-resistance-newly-diagnosed-2026a10008i9?src=rss">
+<div class="card">
   <div class="card-head">
     <h3>自殺傾向が焦点性てんかんの治療抵抗性を予測する可能性があるという研究結果。</h3>
     <span class="priority p-info">参考</span>
@@ -340,13 +284,10 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">自殺傾向が焦点性てんかんの治療抵抗性を予測する可能性があるという研究結果。精神症状とてんかん治療の関連について。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 内科での薬物治療時の精神症状への注意喚起として参考。専門医への紹介タイミングの判断材料。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.medscape.com/viewarticle/suicidality-may-predict-treatment-resistance-newly-diagnosed-2026a10008i9?src=rss')"> 既読</label>
-  </div>
 </div></details>
   </div>
   <div class="panel" id="pubmed"><div class="section-label">糖尿病・代謝</div>
-<div class="card" data-id="41865332">
+<div class="card">
   <div class="card-head">
     <h3>慢性腎臓病（CKD）治療における SGLT2 阻害剤等の新規腎保護薬の費用対効果を系統的レビューした研究。</h3>
     <span class="priority p-mid">要注視</span>
@@ -358,11 +299,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">慢性腎臓病（CKD）治療における SGLT2 阻害剤等の新規腎保護薬の費用対効果を系統的レビューした研究。2013年以降承認された腎保護薬の経済性評価を比較検討している。</div>
   <div class="impact">糖尿病専門クリニックとして、SGLT2阻害剤処方の経済的妥当性を再評価する必要</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院の内科・糖尿病外来でのSGLT2阻害剤使用実績と経済効果の検証が必要。腎機能悪化患者への積極的処方検討の根拠として活用できる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41865332')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41864758">
+<div class="card">
   <div class="card-head">
     <h3>代謝機能異常関連脂肪性肝疾患（MASLD）の薬物治療に関するイタリア肝臓学会の2026年版診療ガイダンス。</h3>
     <span class="priority p-mid">要注視</span>
@@ -374,11 +312,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">代謝機能異常関連脂肪性肝疾患（MASLD）の薬物治療に関するイタリア肝臓学会の2026年版診療ガイダンス。レスメチロムとセマグルチドが第3相試験で組織学的有効性を示している。</div>
   <div class="impact">糖尿病・肥満患者の脂肪肝管理において新薬導入時期と適応基準を検討する必要</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院の糖尿病患者で脂肪肝合併例が多い。新薬承認時の導入準備と適応患者の洗い出しを行う必要がある。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41864758')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41863684">
+<div class="card">
   <div class="card-head">
     <h3>2型糖尿病高齢者における栄養失調が見過ごされがちな老年症候群として注目されている。</h3>
     <span class="priority p-mid">要注視</span>
@@ -390,11 +325,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">2型糖尿病高齢者における栄養失調が見過ごされがちな老年症候群として注目されている。糖尿病研究で栄養失調が軽視される傾向を指摘。</div>
   <div class="impact">糖尿病高齢患者の栄養状態評価を診療プロトコルに組み込む検討が必要</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院の糖尿病外来で高齢患者の栄養評価が不十分な可能性。栄養士との連携強化と評価システム構築を検討すべき。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41863684')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41862354">
+<div class="card">
   <div class="card-head">
     <h3>GLP-1受容体作動薬の神経精神学的効果に関する系統的レビューとメタ解析。</h3>
     <span class="priority p-mid">要注視</span>
@@ -406,11 +338,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">GLP-1受容体作動薬の神経精神学的効果に関する系統的レビューとメタ解析。認知機能低下、気分障害、物質使用障害への効果を検討している。</div>
   <div class="impact">GLP-1薬処方時の多面的効果を患者説明に含め、精神科的既往の確認を強化する</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院でのGLP-1薬使用患者で認知機能や精神状態の変化を観察する価値あり。多科連携の強化も検討課題。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41862354')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41864364">
+<div class="card">
   <div class="card-head">
     <h3>アルツハイマー病におけるPANoptosis（複数の細胞死経路を統合したプログラム細胞死）の役割と治療介入の可能性について解説した総説。</h3>
     <span class="priority p-info">参考</span>
@@ -422,12 +351,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">アルツハイマー病におけるPANoptosis（複数の細胞死経路を統合したプログラム細胞死）の役割と治療介入の可能性について解説した総説。基礎研究レベルの内容。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 直接的な診療への影響は限定的だが、認知症患者の病態理解の参考となる。将来の治療法開発動向として把握。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41864364')"> 既読</label>
-  </div>
 </div>
 <div class="section-label">循環器</div>
-<div class="card" data-id="41861197">
+<div class="card">
   <div class="card-head">
     <h3>乾癬患者における脳卒中リスク増加を示すメタ解析。</h3>
     <span class="priority p-mid">要注視</span>
@@ -439,11 +365,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">乾癬患者における脳卒中リスク増加を示すメタ解析。70万人超の乾癬患者を含む18研究を解析し、脳卒中リスクの有意な増加を確認。</div>
   <div class="impact">皮膚症状で受診する患者の心血管リスク評価を強化し、必要に応じて循環器科紹介を検討</div>
   <div class="memo"><strong>理事長メモ:</strong> 耳鼻科外来でも皮膚症状を訴える患者がいる。乾癬疑い患者では心血管リスク評価と適切な専門医紹介が重要。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861197')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41864747">
+<div class="card">
   <div class="card-head">
     <h3>心臓弁膜症手術と同時冠動脈バイパス術において、血管造影由来FFRによる生理学的評価が従来の解剖学的評価より良好な結果をもたらすかを検討した中国の多施設無作為化試験。</h3>
     <span class="priority p-info">参考</span>
@@ -455,11 +378,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">心臓弁膜症手術と同時冠動脈バイパス術において、血管造影由来FFRによる生理学的評価が従来の解剖学的評価より良好な結果をもたらすかを検討した中国の多施設無作為化試験。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 循環器診療での参考情報だが、クリニックレベルでの直接的な影響は限定的。専門医療機関への紹介判断の参考程度。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41864747')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41862204">
+<div class="card">
   <div class="card-head">
     <h3>急性虚血性脳卒中患者に対する臨床意思決定支援システム（CDSS）の効果を検討した中国の多施設クラスター無作為化試験。</h3>
     <span class="priority p-info">参考</span>
@@ -471,11 +391,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">急性虚血性脳卒中患者に対する臨床意思決定支援システム（CDSS）の効果を検討した中国の多施設クラスター無作為化試験。AI支援画像解析等を含む。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 脳卒中診療の質向上に関する参考情報。当院では脳卒中の急性期治療は行わないが、予防・管理での参考となる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41862204')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860737">
+<div class="card">
   <div class="card-head">
     <h3>多発性骨髄腫治療薬タルケタマブの口腔毒性に関するレビュー。</h3>
     <span class="priority p-info">参考</span>
@@ -487,11 +404,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">多発性骨髄腫治療薬タルケタマブの口腔毒性に関するレビュー。GPRC5D標的療法による舌・唾液腺・角化組織への副作用について解説。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 血液悪性疾患の専門的治療に関する内容で、クリニックでの直接的な関連性は低い。専門医療機関での治療情報として参考程度。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860737')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860699">
+<div class="card">
   <div class="card-head">
     <h3>高安動脈炎の管理に関する2026年版アップデート。</h3>
     <span class="priority p-info">参考</span>
@@ -503,12 +417,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">高安動脈炎の管理に関する2026年版アップデート。疾患活動性と血管損傷の評価法、PET血管活動性スコア等の新しい評価指標について解説。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 稀少疾患に関する専門的内容で、クリニックでの遭遇頻度は極めて低い。専門医療機関への紹介判断時の参考情報程度。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860699')"> 既読</label>
-  </div>
 </div>
 <div class="section-label">一般内科</div>
-<div class="card" data-id="41860840">
+<div class="card">
   <div class="card-head">
     <h3>糖尿病性腎症の自己管理を支援するモバイルアプリの機能に関するレビュー研究。</h3>
     <span class="priority p-mid">要注視</span>
@@ -520,11 +431,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">糖尿病性腎症の自己管理を支援するモバイルアプリの機能に関するレビュー研究。糖尿病性腎症と慢性腎臓病の長期管理において、効果的な自己管理を支援するモバイルアプリが患者に利益をもたらす可能性がある。</div>
   <div class="impact">糖尿病患者の自己管理支援ツールの導入検討や、デジタルヘルス活用戦略の策定が必要。</div>
   <div class="memo"><strong>理事長メモ:</strong> 糖尿病内科として、患者の腎症管理にモバイルアプリを活用できる。治療成績向上と患者満足度向上につながる可能性。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860840')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860818">
+<div class="card">
   <div class="card-head">
     <h3>英国のプライマリケアにおいて、個別化された喘息アクションプランと定期的な専門家レビューを含む支援付き自己管理の実装に関する研究。</h3>
     <span class="priority p-mid">要注視</span>
@@ -536,11 +444,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">英国のプライマリケアにおいて、個別化された喘息アクションプランと定期的な専門家レビューを含む支援付き自己管理の実装に関する研究。この支援により予定外の受診が減少し、喘息の転帰と生活の質が改善される。</div>
   <div class="impact">呼吸器疾患患者の自己管理支援プログラムの導入を検討し、予定外受診の削減を図る。</div>
   <div class="memo"><strong>理事長メモ:</strong> 小児科での小児喘息管理に応用可能。患者教育プログラムの充実により、急患対応の負担軽減が期待できる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860818')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41863102">
+<div class="card">
   <div class="card-head">
     <h3>心理学が日常生活において、コミュニケーション能力や人間関係の改善、ストレス管理に役立つことが証明されている。</h3>
     <span class="priority p-info">参考</span>
@@ -552,11 +457,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">心理学が日常生活において、コミュニケーション能力や人間関係の改善、ストレス管理に役立つことが証明されている。ポジティブな感情を対象とした練習により、人々はより幸福感を感じ、うつ症状が軽減されることが示されている。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 患者やスタッフのメンタルヘルス向上に応用可能。クリニックの職場環境改善や患者満足度向上の参考となる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41863102')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860558">
+<div class="card">
   <div class="card-head">
     <h3>慢性肝疾患における腸内細菌叢移植（FMT）の現状と将来展望に関するレビュー。</h3>
     <span class="priority p-info">参考</span>
@@ -568,11 +470,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">慢性肝疾患における腸内細菌叢移植（FMT）の現状と将来展望に関するレビュー。肝硬変、肝性脳症、アルコール性肝疾患の治療にFMTが有効である可能性が示されている。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 消化器内科として、将来的な治療選択肢として注視が必要。現時点では研究段階だが、慢性肝疾患患者への新たなアプローチとなる可能性。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860558')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860310">
+<div class="card">
   <div class="card-head">
     <h3>老人医学の専門知識が不足している介護施設における転倒予防のための個人中心型eヘルス介入の費用対効果分析。</h3>
     <span class="priority p-info">参考</span>
@@ -584,12 +483,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">老人医学の専門知識が不足している介護施設における転倒予防のための個人中心型eヘルス介入の費用対効果分析。遠隔医療プログラムが医療過疎地域の介護施設入居者の転倒予防に効果的である可能性が示された。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 高齢患者の多いクリニックとして、転倒予防への取り組みや遠隔医療の活用に関する参考情報。地域医療連携の観点でも有用。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860310')"> 既読</label>
-  </div>
 </div>
 <div class="section-label">消化器内科・外科</div>
-<div class="card" data-id="41861187">
+<div class="card">
   <div class="card-head">
     <h3>急性虫垂炎診断における人工知能の活用に関する系統的レビュー。</h3>
     <span class="priority p-mid">要注視</span>
@@ -601,11 +497,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">急性虫垂炎診断における人工知能の活用に関する系統的レビュー。AIが診断精度の向上、臨床意思決定の支援、陰性虫垂切除術率の削減に有望なツールとして注目されている。</div>
   <div class="impact">AI診断支援ツールの導入検討や、急性腹症患者の診断精度向上のための体制整備を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 消化器外科として、急性虫垂炎の診断精度向上は重要課題。AI活用により誤診リスク軽減と医療の質向上が期待できる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861187')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861399">
+<div class="card">
   <div class="card-head">
     <h3>炎症性腸疾患患者の治療とケアの費用対効果に関する系統的レビュー。</h3>
     <span class="priority p-info">参考</span>
@@ -617,11 +510,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">炎症性腸疾患患者の治療とケアの費用対効果に関する系統的レビュー。生物学的製剤と非生物学的製剤の比較、異なる生物学的療法間の比較、治療順序戦略について検討している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 消化器内科として、IBD患者の治療選択や費用対効果を考慮した治療戦略の策定に参考となる情報。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861399')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861173">
+<div class="card">
   <div class="card-head">
     <h3>進行食道扁平上皮癌の一次治療におけるPD-1阻害剤と化学療法併用の有効な患者サブグループに関する系統的レビューとメタ解析。</h3>
     <span class="priority p-info">参考</span>
@@ -633,11 +523,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">進行食道扁平上皮癌の一次治療におけるPD-1阻害剤と化学療法併用の有効な患者サブグループに関する系統的レビューとメタ解析。欧州医薬品庁が高PD-1発現ESCCの一次治療として承認している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 消化器外科分野の最新治療情報として参考。食道癌患者の紹介タイミングや連携先選択の判断材料となる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861173')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860634">
+<div class="card">
   <div class="card-head">
     <h3>大腸癌患者の術後補助化学療法中における運動介入の有効性に関する系統的レビューとメタ解析。</h3>
     <span class="priority p-info">参考</span>
@@ -649,11 +536,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">大腸癌患者の術後補助化学療法中における運動介入の有効性に関する系統的レビューとメタ解析。運動能力、筋力、疲労、痛み、末梢神経障害、不安、うつ、生活の質への影響を検討している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 大腸癌患者の術後ケアや生活指導において、運動療法の重要性を認識し、患者教育や連携先との情報共有に活用できる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860634')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860039">
+<div class="card">
   <div class="card-head">
     <h3>The roles and heterogeneity of CD8+ T cells in inflammatory bowel disease: A narrative review of insights from single&amp;#x2011;cell transcriptomics (Review).</h3>
     <span class="priority p-info">参考</span>
@@ -665,12 +549,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">単一細胞トランスクリプトミクスを用いた炎症性腸疾患におけるCD8+ T細胞の役割と不均一性に関するレビュー。IBDにおいてCD8+ T細胞は顕著な表現型と機能的多様性を示し、特定のT細胞サブセットの標的調節により治療機会が期待される。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> IBD患者の病態理解と将来的な個別化治療の可能性を示す研究。消化器内科として患者への説明や治療選択の参考となる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860039')"> 既読</label>
-  </div>
 </div>
 <div class="section-label">耳鼻咽喉科</div>
-<div class="card" data-id="41850731">
+<div class="card">
   <div class="card-head">
     <h3>小児中耳炎に対するテレヘルス技術の応用と臨床成果に関するスコーピングレビュー。</h3>
     <span class="priority p-mid">要注視</span>
@@ -682,11 +563,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">小児中耳炎に対するテレヘルス技術の応用と臨床成果に関するスコーピングレビュー。従来の対面診療に代わるデジタルツールの診断精度や実装成果を包括的に調査している。</div>
   <div class="impact">小児科・耳鼻咽喉科でのテレヘルス導入可能性を検討し、遠隔診療体制の構築を準備する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院の小児科・耳鼻咽喉科での中耳炎診療効率化に直結。テレヘルス導入による診療アクセス向上と収益機会の拡大が期待される。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41850731')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861185">
+<div class="card">
   <div class="card-head">
     <h3>上咽頭がんの再発・転移例に対するPD-1/PD-L1阻害薬の治療効果について9つの研究を対象とした系統的レビュー。</h3>
     <span class="priority p-info">参考</span>
@@ -698,11 +576,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">上咽頭がんの再発・転移例に対するPD-1/PD-L1阻害薬の治療効果について9つの研究を対象とした系統的レビュー。883人の患者データを解析し、免疫チェックポイント阻害薬の有効性と安全性を評価している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 耳鼻咽喉科での上咽頭がん診療への参考となる最新治療情報。一般クリニックでは直接的な影響は限定的だが、専門医との連携時の知識として有用。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861185')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861173">
+<div class="card">
   <div class="card-head">
     <h3>進行食道扁平上皮がんの一次治療において、PD-1阻害薬と化学療法の併用療法の有効な患者群を特定するための系統的レビューとメタ解析。</h3>
     <span class="priority p-info">参考</span>
@@ -714,11 +589,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">進行食道扁平上皮がんの一次治療において、PD-1阻害薬と化学療法の併用療法の有効な患者群を特定するための系統的レビューとメタ解析。欧州医薬品庁がPD-1高発現例での併用療法を承認している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 消化器がん診療の最新動向として把握。当院では内視鏡診断から専門病院への紹介判断に活用できる情報。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861173')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41838294">
+<div class="card">
   <div class="card-head">
     <h3>前庭神経鞘腫に対する画像診断技術の進歩と腫瘍分類に関するレビュー。</h3>
     <span class="priority p-info">参考</span>
@@ -730,12 +602,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">前庭神経鞘腫に対する画像診断技術の進歩と腫瘍分類に関するレビュー。MRIが診断のゴールドスタンダードであり、高解像度MRIやDTIなどの先進技術が病変の特徴づけや手術計画の精緻化に貢献している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 耳鼻咽喉科診療での画像診断精度向上の参考情報。めまい患者の精査時により適切な専門医紹介判断が可能となる。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41838294')"> 既読</label>
-  </div>
 </div>
 <div class="section-label">小児科</div>
-<div class="card" data-id="41850235">
+<div class="card">
   <div class="card-head">
     <h3>母体血中12-HETEが小児喘息発症と関連し、妊娠中のオメガ3脂肪酸補給の効果に影響することを2つのコホート研究で実証。</h3>
     <span class="priority p-info">参考</span>
@@ -747,11 +616,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">母体血中12-HETEが小児喘息発症と関連し、妊娠中のオメガ3脂肪酸補給の効果に影響することを2つのコホート研究で実証。母体の12-HETE欠乏が小児の呼吸器疾患リスクと関連している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 小児科での喘息予防相談時の参考情報。妊娠中の栄養指導や小児喘息の予防的アプローチに活用できる知見。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41850235')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41690287">
+<div class="card">
   <div class="card-head">
     <h3>英国での妊娠中百日咳ワクチン接種が小児のポリオワクチン免疫応答に与える影響を調査した第IV相拡大試験。</h3>
     <span class="priority p-info">参考</span>
@@ -763,11 +629,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">英国での妊娠中百日咳ワクチン接種が小児のポリオワクチン免疫応答に与える影響を調査した第IV相拡大試験。妊娠中dTaP-IPVワクチン接種母の児では、就学前ブースター接種後の抗体価を評価している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 小児科でのワクチン接種スケジュールと効果に関する参考情報。妊娠中ワクチン接種の影響を理解した適切な予防接種指導に活用。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41690287')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41650673">
+<div class="card">
   <div class="card-head">
     <h3>エンテロウイルス71型ワクチンの手足口病に対する20年間の長期防御効果を数学モデルで予測した研究。</h3>
     <span class="priority p-info">参考</span>
@@ -779,12 +642,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">エンテロウイルス71型ワクチンの手足口病に対する20年間の長期防御効果を数学モデルで予測した研究。第3相試験データを用い、抗体減衰動態をSegmented Power-law Modelで解析している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 小児科での手足口病対策とワクチン相談時の参考情報。ワクチンの長期有効性を理解した適切な予防接種指導に役立つ。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41650673')"> 既読</label>
-  </div>
 </div>
 <div class="section-label">医療経営・政策</div>
-<div class="card" data-id="41861278">
+<div class="card">
   <div class="card-head">
     <h3>抗血栓療法を受けている患者において、基底核周囲血管周囲腔の拡大が虚血性・出血性イベントリスクに与える影響を調査した多施設前向き観察研究。</h3>
     <span class="priority p-mid">要注視</span>
@@ -796,11 +656,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">抗血栓療法を受けている患者において、基底核周囲血管周囲腔の拡大が虚血性・出血性イベントリスクに与える影響を調査した多施設前向き観察研究。</div>
   <div class="impact">循環器患者の抗血栓療法選択時にMRI所見も考慮したリスク評価を強化する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院の循環器内科診療で抗凝固薬処方時の判断材料として活用可能。脳出血リスク評価の精度向上に寄与。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861278')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861231">
+<div class="card">
   <div class="card-head">
     <h3>日本の糖尿病外来患者における体験的スティグマの調査研究。</h3>
     <span class="priority p-mid">要注視</span>
@@ -812,11 +669,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">日本の糖尿病外来患者における体験的スティグマの調査研究。年齢や多剤服用が糖尿病関連スティグマに影響することを明らかにした単施設横断研究。</div>
   <div class="impact">糖尿病患者の心理的負担軽減のための診療体制やコミュニケーション方法を見直す。</div>
   <div class="memo"><strong>理事長メモ:</strong> 当院の糖尿病診療において患者の心理的負担を理解し、より良い療養指導や診療環境整備の参考となる重要な知見。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861231')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861232">
+<div class="card">
   <div class="card-head">
     <h3>血管性白質病変における脳血流と認知機能の関係を3D動脈スピンラベリング法で調査した前向き研究。</h3>
     <span class="priority p-info">参考</span>
@@ -828,11 +682,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">血管性白質病変における脳血流と認知機能の関係を3D動脈スピンラベリング法で調査した前向き研究。脳小血管疾患の病態解明を目的としている。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 認知症予防や早期発見の観点で参考となる基礎研究。直接的な診療への応用は限定的だが、将来的な診断技術向上に寄与。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861232')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861186">
+<div class="card">
   <div class="card-head">
     <h3>COVID-19後遺症患者に対する漢方薬を含む治療レジメンの効果を調査した単施設前向き観察研究。</h3>
     <span class="priority p-info">参考</span>
@@ -844,11 +695,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">COVID-19後遺症患者に対する漢方薬を含む治療レジメンの効果を調査した単施設前向き観察研究。症状改善に関与する因子を分析している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> COVID-19後遺症への対応として漢方薬併用の参考データ。当院でも後遺症患者への治療選択肢として検討可能。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861186')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41860923">
+<div class="card">
   <div class="card-head">
     <h3>X連鎖性低リン血症の思春期患者におけるburosumab治療の経験を調査した多施設混合研究法による前向き研究。</h3>
     <span class="priority p-info">参考</span>
@@ -860,12 +708,9 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">X連鎖性低リン血症の思春期患者におけるburosumab治療の経験を調査した多施設混合研究法による前向き研究。骨格成長終了前後での治療体験を記述している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 稀少疾患の治療に関する研究で、小児科診療での参考情報。直接的な診療機会は限定的だが、専門的知識として有用。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860923')"> 既読</label>
-  </div>
 </div></div>
   <div class="panel" id="alert"><div class="section-label">厚労省トピックス</div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html">
+<div class="card">
   <div class="card-head">
     <h3>診療報酬改定</h3>
     <span class="priority p-info">参考</span>
@@ -877,11 +722,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">診療報酬改定</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html">
+<div class="card">
   <div class="card-head">
     <h3>消費税と診療報酬について</h3>
     <span class="priority p-info">参考</span>
@@ -893,11 +735,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">消費税と診療報酬について</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html">
+<div class="card">
   <div class="card-head">
     <h3>ジカウイルス感染症</h3>
     <span class="priority p-info">参考</span>
@@ -909,11 +748,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">ジカウイルス感染症</div>
   
   
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html')"> 既読</label>
-  </div>
 </div></div>
-  <div class="panel" id="tech"><div class="card" data-id="41860987">
+  <div class="panel" id="tech"><div class="card">
   <div class="card-head">
     <h3>PICU（小児集中治療室）での保護者支援を目的とした大規模言語モデルチャットボットの実現可能性を評価した前向き研究。</h3>
     <span class="priority p-mid">要注視</span>
@@ -925,11 +761,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">PICU（小児集中治療室）での保護者支援を目的とした大規模言語モデルチャットボットの実現可能性を評価した前向き研究。GPT-4oベースのHIPAA準拠チャットボットで患者固有のEHRデータを活用している。</div>
   <div class="impact">AI診療支援ツールの導入可能性を検討し、患者・家族とのコミュニケーション向上策を準備する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 小児科での保護者への説明支援ツールとして応用可能。AI技術による診療効率化と患者満足度向上の両立が期待される新しいアプローチ。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41860987')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41838695">
+<div class="card">
   <div class="card-head">
     <h3>電子健康記録（EHR）での稀少医療事象をAIで検出する研究のスコーピングレビュー。</h3>
     <span class="priority p-mid">要注視</span>
@@ -941,11 +774,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">電子健康記録（EHR）での稀少医療事象をAIで検出する研究のスコーピングレビュー。医療データの不均衡やAI異常検知の現状と課題を整理している。</div>
   <div class="impact">電子カルテシステムでのAI活用による稀少疾患の早期発見体制構築を検討する。</div>
   <div class="memo"><strong>理事長メモ:</strong> 当クリニックの電子カルテデータを活用した診断支援AI導入の参考となる。稀少疾患の見逃し防止に寄与する可能性。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41838695')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41861368">
+<div class="card">
   <div class="card-head">
     <h3>タイの病院記録から薬剤情報を抽出するため、オントロジーベースのアノテーションと事前訓練済みTransformerモデルを活用した固有表現認識フレームワークの構築と検証を行った研究。</h3>
     <span class="priority p-info">参考</span>
@@ -957,11 +787,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">タイの病院記録から薬剤情報を抽出するため、オントロジーベースのアノテーションと事前訓練済みTransformerモデルを活用した固有表現認識フレームワークの構築と検証を行った研究。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 医療DX推進における電子カルテデータ活用の参考事例。タイ・英語混合記録の処理技術は当院の多言語対応にも応用可能性あり。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41861368')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41849365">
+<div class="card">
   <div class="card-head">
     <h3>皮膚病変の自動分割技術を向上させるAI手法に関する研究。</h3>
     <span class="priority p-info">参考</span>
@@ -973,11 +800,8 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">皮膚病変の自動分割技術を向上させるAI手法に関する研究。境界の曖昧さや形態学的多様性などの課題に対処する新しいネットワークアーキテクチャを提案している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 皮膚科診療でのAI診断支援技術の発展。直接的な診療報酬への影響は現時点では限定的だが、将来的な診療効率化の可能性。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41849365')"> 既読</label>
-  </div>
 </div>
-<div class="card" data-id="41838331">
+<div class="card">
   <div class="card-head">
     <h3>Generating synthetic CEM from low-energy images using deep learning: A future without contrast media? A proof-of-concept study.</h3>
     <span class="priority p-info">参考</span>
@@ -989,9 +813,6 @@ body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-he
   <div class="body">深層学習を用いて低エネルギー画像から造影剤使用画像を合成生成する技術の概念実証研究。将来的に造影剤なしでの診断が可能になる可能性を示している。</div>
   
   <div class="memo"><strong>理事長メモ:</strong> 放射線画像診断での造影剤使用量削減の可能性。患者負担軽減と診療効率化の観点で将来的に注目すべき技術動向。</div>
-  <div class="checkbox-row">
-    <label><input type="checkbox" onchange="toggleRead(this,'41838331')"> 既読</label>
-  </div>
 </div></div>
   <div class="footer-note">
     自動生成: GitHub Actions + Claude API + PubMed + 厚労省 + HN + Medscape + Fierce + CareNet + 日経 + FT
@@ -1004,38 +825,4 @@ function showTab(el,id){
   document.getElementById(id).classList.add('active');
   el.classList.add('active');
 }
-function getReadStatus(){try{return JSON.parse(localStorage.getItem('briefing_read')||'{}')}catch(e){return{}}}
-function toggleRead(el,id){
-  var s=getReadStatus();
-  if(el.checked){s[id]=true}else{delete s[id]}
-  localStorage.setItem('briefing_read',JSON.stringify(s));
-  el.closest('.card').classList.toggle('read',el.checked);
-}
-(function(){
-  var s=getReadStatus();
-  document.querySelectorAll('.card[data-id]').forEach(function(card){
-    var id=card.getAttribute('data-id');
-    if(s[id]){card.classList.add('read');var cb=card.querySelector('input[type=checkbox]');if(cb)cb.checked=true}
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var HASH='76c85623ee58495b2449fe7dbc47b289c14459b3adb9eebc0c960514147e4233';
-  var KEY='briefing_auth';
-  function check(){return localStorage.getItem(KEY)===HASH}
-  if(check()){document.getElementById('auth-overlay').remove();return}
-  document.getElementById('auth-overlay').style.display='flex';
-  document.getElementById('auth-form').onsubmit=async function(e){
-    e.preventDefault();
-    var pw=document.getElementById('auth-pw').value;
-    var buf=new TextEncoder().encode(pw);
-    var hash=await crypto.subtle.digest('SHA-256',buf);
-    var hex=Array.from(new Uint8Array(hash)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
-    if(hex===HASH){localStorage.setItem(KEY,HASH);document.getElementById('auth-overlay').remove()}
-    else{document.getElementById('auth-error').style.display='block'}
-  };
-})();
-</script>
-</body></html>
+</script></body></html>
