@@ -381,23 +381,24 @@ async function main() {
       }
     }
 
-    // --- 週次キャッシュの保存 ---
+    // --- 週次キャッシュの保存（_meta付き） ---
+    const todayISO = new Date().toISOString().split('T')[0];
     if (schedule.isPaperDay) {
-      const weeklyData = {};
+      const weeklyData = { _meta: { papers_updated: todayISO } };
       if (rawData.pubmed) weeklyData.pubmed = rawData.pubmed;
       if (rawData.arxiv) weeklyData.arxiv = rawData.arxiv;
       saveJSON(WEEKLY_PAPERS_PATH, weeklyData);
       console.log(`  週次保存: weekly_papers.json`);
     }
     if (schedule.isTechDay) {
-      const weeklyData = {};
+      const weeklyData = { _meta: { tech_updated: todayISO } };
       if (rawData.hackernews) weeklyData.hackernews = rawData.hackernews;
       if (rawData.arxiv) weeklyData.arxiv = rawData.arxiv;
       saveJSON(WEEKLY_TECH_PATH, weeklyData);
       console.log(`  週次保存: weekly_tech.json`);
     }
     if (schedule.isAlertDay) {
-      const weeklyData = {};
+      const weeklyData = { _meta: { alerts_updated: todayISO } };
       if (rawData.mhlw) weeklyData.mhlw = rawData.mhlw;
       saveJSON(WEEKLY_ALERTS_PATH, weeklyData);
       console.log(`  週次保存: weekly_alerts.json`);

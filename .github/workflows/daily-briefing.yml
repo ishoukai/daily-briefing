@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,12 +27,25 @@ jobs:
       - name: Build briefing
         run: |
           node src/auto-briefing.js
-          echo "Auto-briefing completed, building static site..."
+          echo "Auto-briefing completed..."
+          # Persist weekly cache to docs/data for next run
+          mkdir -p docs/data
+          cp -f output/weekly_papers.json docs/data/ 2>/dev/null || true
+          cp -f output/weekly_alerts.json docs/data/ 2>/dev/null || true
+          cp -f output/weekly_tech.json docs/data/ 2>/dev/null || true
+          echo "Building static site..."
           node src/build-static.js
           echo "Static site built successfully"
         timeout-minutes: 25
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Commit weekly cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/weekly_*.json
+          git diff --staged --quiet || git commit -m "Update weekly cache data"
+          git push || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

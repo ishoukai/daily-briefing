@@ -72,6 +72,63 @@ function getAllArticles(data) {
   return articles.filter(a => a.priority !== '除外');
 }
 
+function loadJSON(filepath) {
+  try {
+    if (fs.existsSync(filepath)) return JSON.parse(fs.readFileSync(filepath, 'utf8'));
+  } catch (e) { /* ignore */ }
+  return null;
+}
+
+// Load weekly cache from output/ or docs/data/ (GitHub Actions persistence)
+function loadWeeklyCache(name) {
+  return loadJSON(path.join(OUTPUT_DIR, name)) || loadJSON(path.join(DATA_DIR, name));
+}
+
+// Merge weekly cache into daily data for tabs that have no fresh data
+function mergeWeeklyCache(data) {
+  // Papers: if no pubmed in today's data, use cache
+  if (!data.pubmed || Object.keys(data.pubmed).length === 0) {
+    const cached = loadWeeklyCache('weekly_papers.json');
+    if (cached) {
+      if (cached.pubmed) data.pubmed = cached.pubmed;
+      if (cached.arxiv && (!data.arxiv || data.arxiv.length === 0)) data.arxiv = cached.arxiv;
+      if (cached._meta) {
+        data._meta = data._meta || {};
+        if (!data._meta.papers_updated && cached._meta.papers_updated) data._meta.papers_updated = cached._meta.papers_updated;
+      }
+    }
+  }
+
+  // Alerts: if mhlw has no summarized articles, use cache
+  const mhlwHasSummary = (data.mhlw || []).some(a => a.priority && a.priority !== '参考');
+  if (!mhlwHasSummary) {
+    const cached = loadWeeklyCache('weekly_alerts.json');
+    if (cached && cached.mhlw && cached.mhlw.length > 0) {
+      // Only use cache if it has better data (API-summarized)
+      const cachedHasSummary = cached.mhlw.some(a => a.priority && a.priority !== '参考');
+      if (cachedHasSummary) {
+        data.mhlw = cached.mhlw;
+        data._meta = data._meta || {};
+        if (!data._meta.alerts_updated && cached._meta) data._meta.alerts_updated = cached._meta.alerts_updated;
+      }
+    }
+  }
+
+  // Tech: if hackernews/arxiv have no summarized articles, use cache
+  const hnHasSummary = (data.hackernews || []).some(a => a.summary_ja && a.summary_ja !== a.title);
+  if (!hnHasSummary) {
+    const cached = loadWeeklyCache('weekly_tech.json');
+    if (cached) {
+      if (cached.hackernews && cached.hackernews.length > 0) data.hackernews = cached.hackernews;
+      if (cached.arxiv && cached.arxiv.length > 0 && (!data.arxiv || data.arxiv.length === 0)) data.arxiv = cached.arxiv;
+      data._meta = data._meta || {};
+      if (!data._meta.tech_updated && cached._meta) data._meta.tech_updated = cached._meta.tech_updated;
+    }
+  }
+
+  return data;
+}
+
 function listExistingDates() {
   if (!fs.existsSync(DATA_DIR)) return [];
   return fs.readdirSync(DATA_DIR)
@@ -477,7 +534,13 @@ function main() {
   const dateCounts = {};
   for (const date of allDates) {
     const dataPath = path.join(DATA_DIR, `${date}.json`);
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    let data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+    // For the latest date, merge weekly cache to fill empty tabs
+    if (date === latestDate) {
+      data = mergeWeeklyCache(data);
+    }
+
     const articles = getAllArticles(data);
     dateCounts[date] = articles.length;
 
