@@ -27,10 +27,20 @@ const WEEKLY_ALERTS_PATH = path.join(OUTPUT_DIR, 'weekly_alerts.json');
 const NODE_BIN = process.execPath;
 const GLOBAL_TIMEOUT_MS = 15 * 60 * 1000; // 15 minutes
 
+// --- JST helpers (GitHub Actions runs in UTC) ---
+
+function getJSTNow() {
+  return new Date(Date.now() + 9 * 60 * 60 * 1000);
+}
+
+function getJSTDateString() {
+  return getJSTNow().toISOString().split('T')[0];
+}
+
 // --- Day-of-week schedule ---
 
 function getDaySchedule() {
-  const dayOfWeek = new Date().getDay(); // 0=日, 1=月, ..., 6=土
+  const dayOfWeek = getJSTNow().getUTCDay(); // 0=日, 1=月, ..., 6=土 (JST)
   const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
   return {
     dayOfWeek,
@@ -171,7 +181,7 @@ async function main() {
 
   console.log('═══════════════════════════════════════════════');
   console.log('  Auto Briefing — 自動ブリーフィング開始');
-  console.log(`  ${new Date().toLocaleString('ja-JP')}（${schedule.dayName}）[${modeLabel}]`);
+  console.log(`  ${getJSTNow().toISOString().replace('T', ' ').substring(0, 19)} JST（${schedule.dayName}）[${modeLabel}]`);
   console.log('═══════════════════════════════════════════════');
 
   // 1. データ収集（同一プロセス内で実行）
@@ -382,7 +392,7 @@ async function main() {
     }
 
     // --- 週次キャッシュの保存（_meta付き） ---
-    const todayISO = new Date().toISOString().split('T')[0];
+    const todayISO = getJSTDateString();
     if (schedule.isPaperDay) {
       const weeklyData = { _meta: { papers_updated: todayISO } };
       if (rawData.pubmed) weeklyData.pubmed = rawData.pubmed;
@@ -415,7 +425,7 @@ async function main() {
 
   // 更新日メタデータを埋め込み
   rawData._meta = rawData._meta || {};
-  rawData._meta.generated = new Date().toISOString().split('T')[0];
+  rawData._meta.generated = getJSTDateString();
   if (schedule.isPaperDay) rawData._meta.papers_updated = rawData._meta.generated;
   if (schedule.isTechDay) rawData._meta.tech_updated = rawData._meta.generated;
   if (schedule.isAlertDay) rawData._meta.alerts_updated = rawData._meta.generated;

@@ -13,6 +13,15 @@
 
 const fs = require('fs');
 const path = require('path');
+
+// JST helpers (GitHub Actions runs in UTC)
+function getJSTNow() {
+  return new Date(Date.now() + 9 * 60 * 60 * 1000);
+}
+function getJSTDateString() {
+  return getJSTNow().toISOString().split('T')[0];
+}
+
 const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
@@ -513,7 +522,7 @@ function main() {
   fs.mkdirSync(path.join(DOCS_DIR, 'archive'), { recursive: true });
 
   // Today's date
-  const today = new Date().toISOString().split('T')[0];
+  const today = getJSTDateString();
 
   // Copy today's enriched_data to data dir
   const enrichedPath = path.join(OUTPUT_DIR, 'enriched_data.json');

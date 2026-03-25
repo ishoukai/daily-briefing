@@ -17,6 +17,11 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// JST helpers (GitHub Actions runs in UTC)
+function getJSTNow() {
+  return new Date(Date.now() + 9 * 60 * 60 * 1000);
+}
+
 const pubmed = require('./sources/pubmed');
 const mhlw = require('./sources/mhlw');
 const hackernews = require('./sources/hackernews');
@@ -55,7 +60,7 @@ async function collect(options = {}) {
 
   console.log('═══════════════════════════════════════════════');
   console.log('  ニュースまとめくん — 収集開始');
-  console.log(`  ${new Date().toLocaleString('ja-JP')}`);
+  console.log(`  ${getJSTNow().toISOString().replace('T', ' ').substring(0, 19)} JST`);
   console.log('═══════════════════════════════════════════════');
 
   // Load config
@@ -256,9 +261,9 @@ async function collect(options = {}) {
   // ===== Generate HTML =====
   console.log('\n[HTML] ブリーフィングを生成中...');
 
-  const today = new Date();
-  const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][today.getDay()];
-  const dateStr = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日（${dayOfWeek}）`;
+  const todayJST = getJSTNow();
+  const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][todayJST.getUTCDay()];
+  const dateStr = `${todayJST.getUTCFullYear()}年${todayJST.getUTCMonth() + 1}月${todayJST.getUTCDate()}日（${dayOfWeek}）`;
 
   const htmlContent = generateHTML({
     morning: morning.length > 0 ? morning : summarizedNews.concat(summarizedPapers.slice(0, 5)),
