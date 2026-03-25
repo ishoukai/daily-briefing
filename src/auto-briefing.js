@@ -256,7 +256,7 @@ async function main() {
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     const { summarizeArticles } = require('./summarize');
 
-    // --- 厳格なAPI送信件数制限（全ソース合計20〜25件） ---
+    // --- 医療専門メディアは全件API送信（ソース別上限あり、2-3バッチ分割） ---
 
     const newsSourceKeys = ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune'];
     const sourceLabels = {
@@ -264,25 +264,21 @@ async function main() {
       fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune',
     };
 
-    // 曜日別のソース上限（厳格）
-    const baseLimits = { mhlw: 3, nikkei: 12, ft: 6, medscape: 4, fierce: 3, carenet: 2 };
+    // 全日共通: 医療専門メディアは全件（上限付き）
+    const baseLimits = { mhlw: 99, nikkei: 20, ft: 10, medscape: 5, fierce: 5, carenet: 99 };
     let limits;
-    if (schedule.isAlertDay) {
-      limits = { ...baseLimits, mhlw: 5, nikkei: 10 };
-    } else if (schedule.isTechDay) {
-      limits = { ...baseLimits, nikkei: 8, ft: 5, medscape: 3, fierce: 2, hackernews: 4, arxiv: 3 };
-    } else if (schedule.isPaperDay) {
-      limits = { ...baseLimits, nikkei: 5, ft: 3, medscape: 3, fierce: 2 };
+    if (schedule.isTechDay) {
+      limits = { ...baseLimits, hackernews: 3, arxiv: 3 };
     } else {
       limits = { ...baseLimits };
     }
 
-    // PubMed: 金曜のみ上位10件をAPI送信
+    // PubMed: 金曜のみ上位12件をAPI送信
     let pubmedApiArticles = [];
     if (schedule.isPaperDay && rawData.pubmed) {
       const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
       pubmedApiArticles = apiArticles.slice(0, 12);
-      const pubmedFallback = [...apiArticles.slice(10), ...fallbackArticles];
+      const pubmedFallback = [...apiArticles.slice(12), ...fallbackArticles];
       for (const a of pubmedFallback) writePubmedBack(rawData, [a]);
       console.log(`  [金曜] PubMed: ${pubmedApiArticles.length} 件をAPI送信`);
     }

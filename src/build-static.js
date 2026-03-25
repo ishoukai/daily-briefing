@@ -261,7 +261,7 @@ function renderCardHTML(article) {
   const impact = article.impact
     ? `<div class="impact">${escapeHtml(article.impact)}</div>` : '';
   const memo = article.memo
-    ? `<div class="memo"><strong>理事長メモ:</strong> ${escapeHtml(article.memo)}</div>` : '';
+    ? `<div class="memo"><strong>管理くんメモ:</strong> ${escapeHtml(article.memo)}</div>` : '';
   return `<div class="card">
   <div class="card-head">
     <h3>${escapeHtml(displayTitle(article))}</h3>

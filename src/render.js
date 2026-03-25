@@ -54,7 +54,7 @@ function renderCard(item) {
 
 function renderPaper(item) {
   const memo = item.memo
-    ? `<div class="takeaway"><strong>理事長メモ:</strong> ${escapeHtml(item.memo)}</div>`
+    ? `<div class="takeaway"><strong>管理くんメモ:</strong> ${escapeHtml(item.memo)}</div>`
     : '';
   return `<div class="paper">
   <div class="journal-line">

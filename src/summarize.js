@@ -78,7 +78,7 @@ function callClaude(messages, systemPrompt, model = 'claude-sonnet-4-20250514', 
 }
 
 /**
- * 収集した記事群をClaudeに送り、要約・優先度判定・「理事長メモ」を生成
+ * 収集した記事群をClaudeに送り、要約・優先度判定・「管理くんメモ」を生成
  * options.deadlineMs: この時刻(Date.now())を過ぎたら残りバッチをスキップ
  */
 async function summarizeArticles(articles, config, options = {}) {
@@ -124,7 +124,7 @@ URL: ${a.url || ''}
 - priority: "要対応" | "要注視" | "参考" | "除外"
 - summary_ja: 日本語での要約（2-3文、150字以内）
 - impact: 理事長として取るべきアクション（1文、80字以内）。"参考"の場合は空文字可。
-- memo: 理事長メモ（クリニック経営との接点、2文以内）
+- memo: 管理くんメモ（クリニック経営との接点、2文以内）
 
 JSONのみを返してください。マークダウンのコードブロックは不要です。
 
