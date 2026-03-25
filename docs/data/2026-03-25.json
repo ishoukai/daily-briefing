@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-03-25T00:48:02.984Z",
+  "collected_at": "2026-03-25T09:11:52.318Z",
   "pubmed": {},
   "mhlw": [
     {
@@ -49,6 +49,19 @@
   "arxiv": [],
   "medscape": [
     {
+      "title": "Spotting the Signs of Postpartum Psychosis",
+      "url": "https://www.medscape.com/viewarticle/spotting-signs-postpartum-psychosis-2026a100091w?src=rss",
+      "date": "2026-03-25",
+      "source": "Medscape",
+      "category": "medical_news",
+      "_sourceKey": "medscape",
+      "_score": 0,
+      "priority": "参考",
+      "summary_ja": "産後精神病の兆候発見に関する医学記事。産科領域での精神的合併症への対応を扱っている。",
+      "impact": "",
+      "memo": "産科・精神科領域の話題。当クリニックは産婦人科・精神科なし、直接影響は限定的。"
+    },
+    {
       "title": "Mandrola’s Top 4 Trials from ACC 2026",
       "url": "https://www.medscape.com/viewarticle/mandrolas-top-4-trials-acc-2026-details-matter-2026a10008ti?src=rss",
       "date": "2026-03-24",
@@ -57,9 +70,9 @@
       "_sourceKey": "medscape",
       "_score": 0,
       "priority": "参考",
-      "summary_ja": "ACC 2026における注目すべき4つの臨床試験についてのMandrola医師による解説記事。",
+      "summary_ja": "ACC 2026で発表された循環器分野の主要な臨床試験4つをMandrola医師が選出した記事。循環器診療のエビデンス更新に関する最新情報。",
       "impact": "",
-      "memo": "循環器領域の最新臨床試験情報。専門知識のアップデート参考資料。"
+      "memo": "循環器内科の診療方針に影響する可能性。最新のエビデンスを把握し診療ガイドライン変更に備える必要。"
     },
     {
       "title": "Arterial Stiffness Changes Linked to Developing Dementia",
@@ -69,10 +82,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "要注視",
-      "summary_ja": "動脈硬化の変化が認知症発症と関連があることが研究で明らかになった。",
-      "impact": "循環器・糖尿病患者の認知機能評価の重要性を再認識し、診療方針に反映させる。",
-      "memo": "循環器・糖尿病診療と認知症予防の関連性。包括的な患者管理の重要性が示唆される。"
+      "priority": "参考",
+      "summary_ja": "動脈硬化の変化が認知症発症と関連することが判明。循環器疾患と認知症の関係について新たな知見。",
+      "impact": "",
+      "memo": "糖尿病・循環器内科における認知症リスク評価の重要性。患者への予防的アプローチの参考情報。"
     },
     {
       "title": "Scotland Introduces Newborn Screening for SMA",
@@ -83,9 +96,9 @@
       "_sourceKey": "medscape",
       "_score": 0,
       "priority": "参考",
-      "summary_ja": "スコットランドが脊髄性筋萎縮症（SMA）の新生児スクリーニングを導入した。",
+      "summary_ja": "スコットランドで脊髄性筋萎縮症（SMA）の新生児スクリーニングが導入された。海外の新生児スクリーニング制度拡充事例。",
       "impact": "",
-      "memo": "新生児スクリーニングの国際動向。小児科診療の参考情報。"
+      "memo": "小児科診療における早期診断の重要性。日本でのスクリーニング制度変更の参考情報。"
     },
     {
       "title": "Exercise: A Disease-Modifying Therapy for PD",
@@ -95,10 +108,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Exercise: A Disease-Modifying Therapy for PD",
+      "priority": "参考",
+      "summary_ja": "運動がパーキンソン病の疾患修飾療法として有効であることが示された。運動療法の治療効果に関する研究結果。",
       "impact": "",
-      "memo": ""
+      "memo": "内科診療での運動指導の重要性。生活習慣病だけでなく神経変性疾患予防の観点も含める。"
     },
     {
       "title": "Can Exercise Ease ‘Chemobrain’ During Chemotherapy?",
@@ -109,9 +122,9 @@
       "_sourceKey": "medscape",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "化学療法中の「ケモブレイン」（認知機能低下）に対して運動療法が効果的である可能性についての研究報告。",
+      "summary_ja": "化学療法中の認知機能障害（ケモブレイン）に対する運動療法の効果を検討する内容。がん治療の副作用軽減に関する海外研究動向。",
       "impact": "",
-      "memo": "がん治療患者のケアにおいて、運動指導の重要性を示す情報として参考になる。"
+      "memo": "がん患者の支持療法として運動療法の重要性を示す参考情報。直接的な診療への影響は限定的。"
     },
     {
       "title": "When Medications May Contribute to Cognitive Decline",
@@ -121,10 +134,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "When Medications May Contribute to Cognitive Decline",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "薬物が認知機能低下に寄与する可能性について解説。処方薬の認知機能への副作用リスクを検討する重要性。",
+      "impact": "高齢患者の処方見直し時に認知機能への影響を考慮した薬物選択を徹底する。",
+      "memo": "特に高齢者が多い内科診療で重要。ポリファーマシー対策と併せて認知機能保護を意識。"
     },
     {
       "title": "Is ‘Spring Fatigue’ Real? Sleep Study Questions It",
@@ -134,10 +147,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Is ‘Spring Fatigue’ Real? Sleep Study Questions It",
+      "priority": "参考",
+      "summary_ja": "春の疲労症候群の実在性について睡眠研究で疑問視された。季節性の体調変化に関する科学的検証。",
       "impact": "",
-      "memo": ""
+      "memo": "患者の季節性の体調不良相談への対応参考。科学的根拠に基づいた説明が可能。"
     },
     {
       "title": "Dementia, AD Risk Nearly Double in Advanced CKM Syndrome",
@@ -147,10 +160,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Dementia, AD Risk Nearly Double in Advanced CKM Syndrome",
+      "priority": "参考",
+      "summary_ja": "CKM症候群の進行期では認知症・アルツハイマー病リスクが約2倍になることが判明。心腎代謝症候群と認知症の関連性。",
       "impact": "",
-      "memo": ""
+      "memo": "糖尿病・循環器疾患患者の認知症リスク評価。包括的な患者管理の重要性を再認識。"
     },
     {
       "title": "Quantifying Cardiac Amyloid Burden",
@@ -160,23 +173,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Quantifying Cardiac Amyloid Burden",
-      "impact": "",
-      "memo": ""
-    },
-    {
-      "title": "FDA Seeks New Warning for Certain Parkinson&apos;s Drugs",
-      "url": "https://www.medscape.com/s/viewarticle/fda-seeks-new-warning-seizure-risk-certain-parkinsons-drugs-2026a10008lk?src=rss",
-      "date": "2026-03-20",
-      "source": "Medscape",
-      "category": "medical_news",
-      "_sourceKey": "medscape",
-      "_score": 3,
       "priority": "参考",
-      "summary_ja": "FDAが特定のパーキンソン病治療薬について新たな警告表示を求める方針。副作用リスクに関する安全性情報の更新。",
+      "summary_ja": "心臓アミロイド症の負荷定量化に関する研究。心臓におけるアミロイド蓄積の評価手法について。",
       "impact": "",
-      "memo": "神経疾患患者への薬剤処方時の安全性確認に関する情報。直接的な処方機会は限定的。"
+      "memo": "循環器内科での心不全診断における専門的検査の位置づけ。必要時の紹介基準の参考。"
     }
   ],
   "fierce": [
@@ -188,8 +188,21 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
+      "priority": "要注視",
+      "summary_ja": "CVS Caremakとアメリカ連邦取引委員会がインスリン価格問題で和解に達した。米国でのインスリン価格問題の進展。",
+      "impact": "米国のインスリン価格動向を注視し、日本への影響や薬価政策の変化を把握する。",
+      "memo": "糖尿病診療でのインスリン処方に関わる情報。薬価制度や保険適用への示唆。"
+    },
+    {
+      "title": "PeaceHealth sued over plans to tap out-of-state staffer ApolloMD for Oregon EDs",
+      "url": "https://www.fiercehealthcare.com/providers/peacehealth-sued-over-plans-tap-out-state-staffer-apollomd-oregon-eds",
+      "date": "Mar 24, 2026 2:18pm",
+      "source": "Fierce Healthcare",
+      "category": "medical_news",
+      "_sourceKey": "fierce",
+      "_score": 0,
       "priority": "除外",
-      "summary_ja": "CVS Caremark, FTC reach settlement in insulin pricing case",
+      "summary_ja": "PeaceHealthが州外スタッフ会社ApolloMDをオレゴン州の救急部門で使用する計画で訴訟を起こされた。米国の病院経営に関する法的問題。",
       "impact": "",
       "memo": ""
     },
@@ -201,10 +214,10 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Fewer patients traveled for abortions in 2025 as telehealth care increased, report finds",
+      "priority": "参考",
+      "summary_ja": "2025年には人工妊娠中絶のための移動患者数が減少し、遠隔医療による診療が増加したと報告された。遠隔医療の活用拡大事例。",
       "impact": "",
-      "memo": ""
+      "memo": "遠隔医療の普及傾向。当院でのオンライン診療拡充の参考事例として活用可能。"
     },
     {
       "title": "Highmark reports $175M net loss for 2025 as financial headwinds batter health plan",
@@ -214,10 +227,10 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Highmark reports $175M net loss for 2025 as financial headwinds batter health plan",
+      "priority": "参考",
+      "summary_ja": "Higmarkが2025年に1億7500万ドルの純損失を報告。金融的逆風が健康保険プランを直撃している状況。",
       "impact": "",
-      "memo": ""
+      "memo": "米国保険業界の財務状況。日本の保険制度への示唆として参考程度に把握。"
     },
     {
       "title": "AI chatbot use for health information up 16% from 2024: Rock Health survey",
@@ -228,9 +241,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "2024年から2026年にかけてAIチャットボットを健康情報収集に使用する人が16%増加。患者の情報収集行動が変化している。",
+      "summary_ja": "2024年から健康情報取得のためのAIチャットボット利用が16%増加したという米国の調査結果。医療分野でのAI活用拡大を示す。",
       "impact": "",
-      "memo": "患者の医療情報収集手段の変化。診療時の情報提供方法や患者対応において参考となる動向。"
+      "memo": "患者の健康情報収集手段の変化として参考。将来的な患者対応方法を考える上での参考情報。"
     },
     {
       "title": "Fierce Healthcare Layoff Tracker—UCI Health cutting 1% of workforce; more layoffs at NSHA",
@@ -240,10 +253,10 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Fierce Healthcare Layoff Tracker—UCI Health cutting 1% of workforce; more layoffs at NSHA",
+      "priority": "参考",
+      "summary_ja": "UCI Healthが従業員の1%を削減、NSHAでもレイオフが発生。医療機関での人員削減の動向追跡。",
       "impact": "",
-      "memo": ""
+      "memo": "海外医療機関の経営効率化動向。人件費管理や組織運営の参考情報。"
     },
     {
       "title": "Trump administration unveils national policy framework for AI as it moves to override state laws",
@@ -254,9 +267,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "トランプ政権がAIに関する国家政策フレームワークを発表し、州法に優先する方針を示した。米国のAI規制政策に関する動向。",
+      "summary_ja": "トランプ政権がAIに関する国家政策枠組みを発表し、州法を上書きする動きを示している。米国のAI政策動向に関する内容。",
       "impact": "",
-      "memo": ""
+      "memo": "米国の政策動向で日本のクリニック経営に直接的な関連性がない。"
     },
     {
       "title": "Health system AI adoption surges in 2026 with execs reporting increased ROI: survey",
@@ -267,9 +280,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "2026年に米国医療システムでのAI導入が急増し、経営陣がROI向上を報告。医療機関でのAI活用が本格化している状況。",
+      "summary_ja": "2026年に米国の医療システムでのAI導入が急増し、幹部がROI向上を報告している。医療分野でのAI活用の効果が実証されつつある。",
       "impact": "",
-      "memo": "医療AIの導入効果に関する海外動向。将来的な診療システム改善の参考情報として有用。"
+      "memo": "AI導入による経営効率化の可能性を示す海外事例。将来的な技術導入検討の参考として有用。"
     },
     {
       "title": "Cencora acquiring EyeSouth Partners' retina business for $1.1B",
@@ -279,10 +292,10 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Cencora acquiring EyeSouth Partners' retina business for $1.1B",
+      "priority": "参考",
+      "summary_ja": "CencoraがEyeSouth Partnersの網膜事業を11億ドルで買収。眼科分野でのM&A動向。",
       "impact": "",
-      "memo": ""
+      "memo": "医療業界のM&A動向。専門診療分野での統合化傾向の参考情報。"
     },
     {
       "title": "A look at how Optum Rx is using AI to address pharmacy fraud, waste and abuse",
@@ -293,22 +306,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "Optum RxがAIを活用して薬局での不正行為、無駄、乱用に対処する取り組みを実施。薬局業務の効率化と適正化にAIを活用。",
+      "summary_ja": "米国のOptum RxがAIを活用して薬局での不正、無駄、濫用に対処している取り組みを紹介。AIによる医療費適正化の事例。",
       "impact": "",
-      "memo": "薬局業務や処方管理におけるAI活用事例。院内薬局運営の効率化において参考となる可能性。"
-    },
-    {
-      "title": "Fierce Healthcare Fundraising Tracker '26: Doctronic picks up $40M; Latent Health closes $80M series A",
-      "url": "https://www.fiercehealthcare.com/health-tech/fierce-healthcare-fundraising-tracker-26",
-      "date": "Feb 6, 2026 8:13am",
-      "source": "Fierce Healthcare",
-      "category": "medical_news",
-      "_sourceKey": "fierce",
-      "_score": 3,
-      "priority": "参考",
-      "summary_ja": "ヘルステック企業の資金調達動向。Doctronicが4000万ドル、Latent Healthが8000万ドルのシリーズA調達を実施。",
-      "impact": "",
-      "memo": "医療テック業界の投資動向。新技術導入時のベンダー選定や市場動向把握の参考情報。"
+      "memo": "AI活用による医療費適正化の海外事例として参考。国内での類似システム導入動向を注視する価値がある。"
     }
   ],
   "carenet": [
@@ -321,9 +321,9 @@
       "_sourceKey": "carenet",
       "_score": 0,
       "priority": "除外",
-      "summary_ja": "CareNetのニュースアーカイブページの日付情報のみで、具体的な内容が不明。",
+      "summary_ja": "CareNetの2026年3月23日-25日のアーカイブページ。具体的な医療情報コンテンツが不明。",
       "impact": "",
-      "memo": "内容が不明確で評価対象外。"
+      "memo": ""
     },
     {
       "title": "2026-03-09 ～ 2026-03-15",
@@ -334,9 +334,9 @@
       "_sourceKey": "carenet",
       "_score": 0,
       "priority": "除外",
-      "summary_ja": "CareNetのニュースアーカイブページの日付情報のみで、具体的な内容が不明。",
+      "summary_ja": "CareNetの2026年3月9日-15日のアーカイブページ。具体的な医療情報コンテンツが不明。",
       "impact": "",
-      "memo": "内容が不明確で評価対象外。"
+      "memo": ""
     },
     {
       "title": "2026-03-02 ～ 2026-03-08",
@@ -347,14 +347,14 @@
       "_sourceKey": "carenet",
       "_score": 0,
       "priority": "除外",
-      "summary_ja": "CareNetのニュースアーカイブページの日付情報のみで、具体的な内容が不明。",
+      "summary_ja": "CareNetの2026年3月2日-8日のアーカイブページ。具体的な医療情報コンテンツが不明。",
       "impact": "",
-      "memo": "内容が不明確で評価対象外。"
+      "memo": ""
     }
   ],
   "nikkei": [
     {
-      "title": "「ファンド病院」に監視のメス、4月から財務諸表の提出義務化",
+      "title": "「ファンド病院」監視へ、4月から財務諸表の提出義務化　営利重視防ぐ",
       "url": "https://www.nikkei.com/article/DGXZQOUA240OQ0U6A320C2000000/",
       "date": "2026-03-24",
       "description": "",
@@ -364,9 +364,24 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "要対応",
-      "summary_ja": "「ファンド病院」への監視強化として、4月から財務諸表の提出が義務化される。医療法人の財務透明性向上が求められる。",
-      "impact": "財務諸表提出義務化への対応準備と、財務管理体制の見直しが必要。",
-      "memo": "医療法人の財務報告義務に関する重要な制度変更。コンプライアンス対応として直接的な影響あり。"
+      "summary_ja": "4月から「ファンド病院」監視のため財務諸表提出が義務化される。営利重視を防ぐ目的で医療機関の財務透明性が求められる。",
+      "impact": "財務諸表提出義務化の詳細を確認し、必要な準備と対応体制を整備する。",
+      "memo": "医療法人として新たな報告義務が発生する可能性。制度変更への対応準備が必要。"
+    },
+    {
+      "title": "JR東日本、高輪で複合ビルなど公開　クリニックはスイカで受診",
+      "url": "https://www.nikkei.com/article/DGXZQOUC250QN0V20C26A3000000/",
+      "date": "2026-03-25",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "_rssOnly": true,
+      "_sourceKey": "nikkei",
+      "_score": 3,
+      "priority": "参考",
+      "summary_ja": "JR東日本が高輪の複合ビルでSuicaを使った受診システムを導入したクリニックを公開。交通系ICカードの医療分野活用事例。",
+      "impact": "",
+      "memo": "患者の利便性向上につながる決済システムの参考事例。将来的なキャッシュレス決済導入検討の参考。"
     },
     {
       "title": "小児がん「神経芽腫」、未承認薬で臨床研究　国立がん研究センター",
@@ -379,9 +394,9 @@
       "_sourceKey": "nikkei",
       "_score": 5,
       "priority": "参考",
-      "summary_ja": "国立がん研究センターが小児がんの「神経芽腫」に対して未承認薬を用いた臨床研究を実施。小児がん治療の選択肢拡大に向けた研究が進展。",
+      "summary_ja": "国立がん研究センターが小児がんの神経芽腫に対し、未承認薬を用いた臨床研究を実施する。小児がん治療の新たな選択肢開発の動向。",
       "impact": "",
-      "memo": "小児科を有する当院では、小児がん患者の紹介や連携において関連する治療選択肢の情報として有用。"
+      "memo": "小児科を持つクリニックとして小児がん治療の最新動向を把握しておく意義がある。直接的な診療への影響は限定的。"
     },
     {
       "title": "AIを介護相談に活用　鳥取のN.K.C、独居高齢者の見守りに活用も",
@@ -394,9 +409,54 @@
       "_sourceKey": "nikkei",
       "_score": 6,
       "priority": "参考",
-      "summary_ja": "鳥取のN.K.CがAIを介護相談に活用し、独居高齢者の見守りにも応用する取り組みを開始。AIによる介護支援サービスの実用化が進展している。",
+      "summary_ja": "鳥取のN.K.Cが介護相談にAIを活用し、独居高齢者の見守りサービスにも展開している。AIを用いた相談システムの実用化事例として注目される。",
       "impact": "",
-      "memo": "高齢患者の在宅医療支援やケア連携での参考情報。AI活用による患者フォローアップの可能性を示唆。"
+      "memo": "高齢患者の在宅医療支援や健康相談にAI活用の参考となる。将来的な患者サービス向上のヒントになる可能性。"
+    },
+    {
+      "title": "スズケン､セイノーHDなどと資本業務提携 メーカー物流を強化",
+      "url": "https://www.nikkei.com/article/DGXZQOFD255FE0V20C26A3000000/",
+      "date": "2026-03-25",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "_rssOnly": true,
+      "_sourceKey": "nikkei",
+      "_score": 0,
+      "priority": "参考",
+      "summary_ja": "スズケンがセイノーホールディングスなどと資本業務提携し、医薬品メーカーの物流体制を強化。医薬品流通業界の再編動向。",
+      "impact": "",
+      "memo": "医薬品供給体制の変化。薬品調達や在庫管理への影響を中期的に注視する必要。"
+    },
+    {
+      "title": "ジェイファーマ上場 吉武社長「独自の胆道がん薬を世界で発売」",
+      "url": "https://www.nikkei.com/article/DGXZQOUC255L00V20C26A3000000/",
+      "date": "2026-03-25",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "_rssOnly": true,
+      "_sourceKey": "nikkei",
+      "_score": 3,
+      "priority": "参考",
+      "summary_ja": "ジェイファーマが上場し、独自の胆道がん薬を世界展開すると発表。がん治療薬開発企業の成長戦略と市場参入動向。",
+      "impact": "",
+      "memo": "がん治療薬の開発動向として参考程度。消化器がん治療の選択肢拡大の可能性として注視。"
+    },
+    {
+      "title": "アステラス、中之島クロスのラボ公開 ロボット・AIで細胞培養自動化",
+      "url": "https://www.nikkei.com/article/DGXZQOUF241070U6A320C2000000/",
+      "date": "2026-03-25",
+      "description": "",
+      "source": "日経",
+      "category": "news",
+      "_rssOnly": true,
+      "_sourceKey": "nikkei",
+      "_score": 3,
+      "priority": "参考",
+      "summary_ja": "アステラス製薬が中之島クロスでロボットとAIを活用した細胞培養自動化ラボを公開。創薬研究の自動化・デジタル化の最新動向。",
+      "impact": "",
+      "memo": "製薬研究の技術革新事例として参考。医療技術の進歩動向を把握する意味で有用。"
     },
     {
       "title": "静岡県、医療産業集積拠点に4社誘致 スタートアップとの協業も",
@@ -409,9 +469,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "静岡県が医療産業集積拠点に4社を誘致し、スタートアップとの協業も促進。地方での医療産業クラスター形成が進展。",
+      "summary_ja": "静岡県が医療産業集積拠点に4社を誘致し、スタートアップとの協業も推進している。地方での医療産業育成の取り組み事例。",
       "impact": "",
-      "memo": "地域医療産業の発展動向。将来的な連携機会や技術導入の参考情報として把握。"
+      "memo": "地域医療産業の発展動向として参考。将来的な医療技術やサービスの源泉となる可能性。"
     },
     {
       "title": "塩野義製薬、睡眠障害の創薬合弁を160億円で完全子会社化",
@@ -424,9 +484,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "塩野義製薬が睡眠障害の創薬合弁事業を160億円で完全子会社化。睡眠障害治療薬の開発強化を図る。",
+      "summary_ja": "塩野義製薬が睡眠障害の創薬合弁会社を160億円で完全子会社化した。睡眠障害治療薬開発の強化を図る企業戦略。",
       "impact": "",
-      "memo": "睡眠障害患者の治療選択肢拡大の可能性。内科での睡眠時無呼吸症候群等の診療に関連。"
+      "memo": "睡眠障害治療薬の開発動向として参考。内科での睡眠障害診療に関連する新薬の可能性。"
     },
     {
       "title": "協和キリンCEO「3年7000億円の投資可能」 大型薬頓挫で戦略再構築",
@@ -439,9 +499,9 @@
       "_sourceKey": "nikkei",
       "_score": 0,
       "priority": "参考",
-      "summary_ja": "協和キリンCEOが大型薬開発頓挫を受けて戦略再構築を表明し、3年間で7000億円の投資を可能と発言した。",
+      "summary_ja": "協和キリンCEOが大型薬開発頓挫を受け、今後3年間で7000億円の投資が可能と表明。製薬企業の戦略再構築。",
       "impact": "",
-      "memo": "製薬企業の戦略転換情報。薬剤供給や価格に間接的な影響を与える可能性。"
+      "memo": "製薬企業の研究開発動向。新薬開発の方向性変化が将来の治療選択肢に影響する可能性。"
     },
     {
       "title": "ヴィアトリス、全般性不安障害向けに飲み薬の承認取得 国内初",
@@ -453,10 +513,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "ヴィアトリス、全般性不安障害向けに飲み薬の承認取得 国内初",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "ヴィアトリスが全般性不安障害向け飲み薬の承認を国内初取得。精神科領域の新薬承認情報。",
+      "impact": "新薬の適応症・処方条件を確認し、該当患者への治療選択肢として検討する。",
+      "memo": "内科診療でも不安障害を合併する患者は多い。精神科連携や薬物選択の参考情報。"
     },
     {
       "title": "GEヘルスケア、乳房用の超音波診断装置 スキャン速度4割向上",
@@ -468,10 +528,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "GEヘルスケア、乳房用の超音波診断装置 スキャン速度4割向上",
+      "priority": "参考",
+      "summary_ja": "GEヘルスケアが乳房用超音波診断装置の新型機を発表し、スキャン速度を従来比4割向上させた。乳がん検診の効率化が期待される。",
       "impact": "",
-      "memo": ""
+      "memo": "当院では乳がん検診は行っていないが、検診機器の技術進歩として把握。将来的な設備投資の参考情報。"
     },
     {
       "title": "松風、虫歯治療向け樹脂の生産能力3倍に 新工場が一部完成",
@@ -484,9 +544,9 @@
       "_sourceKey": "nikkei",
       "_score": 1,
       "priority": "参考",
-      "summary_ja": "松風が虫歯治療向け樹脂の生産能力を3倍に拡大する新工場が一部完成した。",
+      "summary_ja": "歯科材料メーカー松風が虫歯治療向け樹脂の生産能力を3倍に拡大。新工場が部分的に完成。",
       "impact": "",
-      "memo": "歯科材料メーカーの動向。直接的な経営影響は限定的だが業界動向として把握。"
+      "memo": "歯科医療材料の供給動向。当クリニックは歯科なし、直接影響は限定的。"
     },
     {
       "title": "塩野義製薬、3600億円借り入れ 田辺ファーマからのALS薬事業買収で",
@@ -499,9 +559,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "塩野義製薬が田辺ファーマからのALS薬事業買収のため3600億円を借り入れ。ALS治療薬事業の統合が進展。",
+      "summary_ja": "塩野義製薬が田辺ファーマからのALS薬事業買収のため3600億円を借り入れた。ALS治療薬事業への大型投資。",
       "impact": "",
-      "memo": "ALS治療薬の供給体制に関する業界再編。神経難病患者への治療提供において参考情報。"
+      "memo": "ALS治療薬の開発・販売体制強化の動向。神経内科領域での治療選択肢拡大の可能性として注視。"
     },
     {
       "title": "塩野義製薬のコロナ薬「ゾコーバ」、予防向けの承認取得 経口薬で初",
@@ -514,9 +574,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "要注視",
-      "summary_ja": "塩野義製薬のコロナ薬「ゾコーバ」が予防向けで承認取得。経口薬としては初めて予防効果が認められ、感染対策の選択肢が拡大。",
-      "impact": "院内感染対策や高リスク患者への予防投与について検討が必要。",
-      "memo": "内科外来でのコロナ対策において新たな選択肢。予防投与の適応や費用対効果を検討する必要。"
+      "summary_ja": "塩野義製薬のコロナ薬「ゾコーバ」が予防向けで承認取得し、経口薬では初となる。新型コロナの予防薬として新たな治療選択肢が加わった。",
+      "impact": "コロナ予防薬の処方可能性を検討し、適応患者への情報提供体制を整備する。",
+      "memo": "内科クリニックでコロナ対応を行う際の新たな治療選択肢。予防薬としての需要と処方体制の検討が必要。"
     },
     {
       "title": "中外製薬、希少疾患向けの治療薬候補開発中止 効果得られず",
@@ -529,9 +589,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "参考",
-      "summary_ja": "中外製薬が希少疾患向け治療薬候補の開発を中止。期待された効果が得られず、希少疾患治療薬開発の困難さを示している。",
+      "summary_ja": "中外製薬が希少疾患向け治療薬候補の開発を効果が得られずに中止した。創薬の困難さを示す事例として製薬業界の動向を反映。",
       "impact": "",
-      "memo": "希少疾患患者の治療選択肢に関する情報。直接的な経営への影響は限定的だが業界動向として把握。"
+      "memo": "希少疾患治療薬の開発動向として参考程度。クリニック経営への直接的影響はない。"
     },
     {
       "title": "市販薬、ネット販売・税優遇の対象増 活用促す制度拡充",
@@ -543,10 +603,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "市販薬、ネット販売・税優遇の対象増 活用促す制度拡充",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "市販薬のネット販売対象拡大と税制優遇措置の拡充により、患者のセルフメディケーション促進が図られる。処方薬から市販薬への移行が加速する可能性。",
+      "impact": "軽症患者の受診減少リスクを想定し、予防・健康管理サービスの強化を検討する。",
+      "memo": "感冒薬や胃腸薬等の軽症治療で来院する患者が減少する可能性。診療内容の差別化が必要。"
     },
     {
       "title": "エーザイ、抗がん剤「タズベリク」投与中止 血液がん発生リスク受け",
@@ -559,9 +619,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "要注視",
-      "summary_ja": "エーザイが抗がん剤「タズベリク」の投与を中止。血液がん発生リスクを受けた安全性上の措置。",
-      "impact": "該当薬剤を処方している場合は代替治療への切り替えを検討する必要。",
-      "memo": "抗がん剤の安全性に関する重要な情報。がん治療連携において把握すべき薬剤安全性情報。"
+      "summary_ja": "エーザイが抗がん剤「タズベリク」の投与を血液がん発生リスクのため中止した。薬剤安全性に関する重要な情報。",
+      "impact": "該当薬剤の使用状況を確認し、必要に応じて代替治療の検討や患者への情報提供を行う。",
+      "memo": "抗がん剤の安全性情報として重要。消化器がん治療で類似薬を使用する際のリスク評価に影響する可能性。"
     },
     {
       "title": "キッセイ、子宮筋腫治療薬の国内販売開始 自社で開発",
@@ -574,9 +634,9 @@
       "_sourceKey": "nikkei",
       "_score": 1,
       "priority": "参考",
-      "summary_ja": "キッセイが自社開発の子宮筋腫治療薬の国内販売を開始した。",
+      "summary_ja": "キッセイ薬品が自社開発の子宮筋腫治療薬の国内販売を開始。婦人科領域での新薬承認。",
       "impact": "",
-      "memo": "新薬承認情報。当クリニックでは婦人科診療を行わないが、業界動向として参考。"
+      "memo": "婦人科領域の新薬動向。当クリニックは産婦人科なし、直接影響は限定的。"
     },
     {
       "title": "インドネシア、デジタルで子どもの健康支援 新興企業のサービス拡大",
@@ -588,10 +648,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 1,
-      "priority": "参考",
-      "summary_ja": "インドネシアで新興企業がデジタル技術を活用した子どもの健康支援サービスを拡大している。",
-      "impact": "",
-      "memo": "小児科でのデジタルヘルス活用の海外事例。将来的な参考情報。"
+      "priority": "要注視",
+      "summary_ja": "インドネシアでデジタル技術を活用した子どもの健康支援サービスが拡大。新興企業による医療DXの進展。",
+      "impact": "小児科診療でのデジタルヘルス導入の検討と海外動向の参考にする。",
+      "memo": "小児科領域のデジタルヘルス動向。当クリニックの小児科でも応用可能性あり。"
     },
     {
       "title": "iPS細胞角膜シート、5月メドに1例目の移植 大阪大学発の新興",
@@ -603,10 +663,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "iPS細胞角膜シート、5月メドに1例目の移植 大阪大学発の新興",
+      "priority": "参考",
+      "summary_ja": "大阪大学発ベンチャーが5月をめどにiPS細胞由来の角膜シート移植の1例目を実施予定。再生医療の実用化が進展している。",
       "impact": "",
-      "memo": ""
+      "memo": "眼科診療は行っていないが、再生医療の進歩として注目。将来の医療技術動向として把握。"
     },
     {
       "title": "人生の最期、在宅復帰に尽力 東京・板橋の「おうちにかえろう。病院」",
@@ -619,39 +679,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "東京・板橋の「おうちにかえろう。病院」が人生最期の在宅復帰支援に尽力。終末期医療での在宅移行支援の事例。",
+      "summary_ja": "東京・板橋の「おうちにかえろう。病院」が終末期患者の在宅復帰支援に取り組んでいる。在宅医療連携の優良事例。",
       "impact": "",
-      "memo": "終末期医療や在宅医療連携の参考事例。地域包括ケアシステムでの役割分担において参考。"
-    },
-    {
-      "title": "科研製薬、遺伝性の希少疾患の治療薬発売 経口剤で患者の負担減",
-      "url": "https://www.nikkei.com/article/DGXZQOUC1899R0Y6A310C2000000/",
-      "date": "2026-03-25",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "_rssOnly": true,
-      "_sourceKey": "nikkei",
-      "_score": 4,
-      "priority": "参考",
-      "summary_ja": "科研製薬が遺伝性希少疾患の経口治療薬を発売。経口剤により患者の負担軽減が期待され、希少疾患治療の利便性が向上。",
-      "impact": "",
-      "memo": "希少疾患患者への治療選択肢の拡大。患者のQOL向上や通院負担軽減につながる可能性。"
-    },
-    {
-      "title": "マレーシアのサンウェイG傘下病院が上場 病床数拡大へ",
-      "url": "https://www.nikkei.com/article/DGXZQOGM184LW0Y6A310C2000000/",
-      "date": "2026-03-25",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "_rssOnly": true,
-      "_sourceKey": "nikkei",
-      "_score": 3,
-      "priority": "除外",
-      "summary_ja": "マレーシアのサンウェイグループ傘下の病院が上場し、病床数拡大を計画。東南アジア医療市場での事業拡大動向。",
-      "impact": "",
-      "memo": ""
+      "memo": "在宅医療や終末期ケアの連携モデルとして参考。高齢患者の在宅復帰支援体制構築の参考事例。"
     },
     {
       "title": "職域がん検診の法整備を 精密検査の受診率向上が急務",
@@ -664,9 +694,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "要注視",
-      "summary_ja": "職域がん検診の法整備と精密検査受診率向上が急務とされている。企業健診から精密検査への連携強化が求められる状況。",
-      "impact": "がん検診後の精密検査受入れ体制強化を検討し、企業との連携拡大を図る。",
-      "memo": "内科・消化器科でのがん検診精密検査需要増加の可能性。新たな患者獲得機会として重要。"
+      "summary_ja": "職域がん検診の法整備と精密検査受診率向上が急務とされている。企業健診からの二次検査需要増加の可能性がある。",
+      "impact": "がん検診の精密検査体制を見直し、企業との連携強化を検討する。",
+      "memo": "消化器内科・外科での内視鏡検査やがん検診フォローアップの需要増加につながる可能性。検診体制の強化を検討すべき。"
     },
     {
       "title": "東京農工大学、先端鶏舎で動物福祉の可能性探る 持続可能な畜産模索",
@@ -679,9 +709,9 @@
       "_sourceKey": "nikkei",
       "_score": 0,
       "priority": "除外",
-      "summary_ja": "東京農工大学、先端鶏舎で動物福祉の可能性探る 持続可能な畜産模索",
+      "summary_ja": "東京農工大学が先端鶏舎での動物福祉向上の研究を実施し、持続可能な畜産業のあり方を模索している。",
       "impact": "",
-      "memo": ""
+      "memo": "畜産業の研究であり、医療・ヘルスケアに直接関係しない。"
     },
     {
       "title": "不調の多くは過剰から 頑張り過ぎず、体の声に耳傾けて",
@@ -693,10 +723,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "不調の多くは過剰から 頑張り過ぎず、体の声に耳傾けて",
+      "priority": "参考",
+      "summary_ja": "体の不調の多くは過剰な活動や負荷が原因であり、頑張りすぎず体の声に耳を傾けることの重要性を解説した健康啓発記事。",
       "impact": "",
-      "memo": ""
+      "memo": "患者への生活指導の参考として活用可能。ストレス関連疾患の予防啓発に役立つ内容。"
     },
     {
       "title": "患者の血管ソックリ再現 東北大発新興、カテーテル治療の精度向上へ",
@@ -709,9 +739,9 @@
       "_sourceKey": "nikkei",
       "_score": 1,
       "priority": "要注視",
-      "summary_ja": "東北大発新興企業が患者の血管を精密に再現する技術を開発し、カテーテル治療の精度向上を目指している。",
-      "impact": "循環器診療における最新技術動向として情報収集し、連携医療機関との情報共有を検討する。",
-      "memo": "循環器内科に関連する技術革新。治療精度向上により診療の質改善につながる可能性。"
+      "summary_ja": "東北大発ベンチャーが患者の血管を忠実に再現する技術開発。カテーテル治療の精度向上を目指す。",
+      "impact": "循環器領域での新技術動向を把握し、治療精度向上への応用を検討する。",
+      "memo": "循環器内科の治療技術向上に関連。カテーテル治療の精度向上は診療の質に直結。"
     },
     {
       "title": "明治のナイチンゲール、4月からNHK朝ドラに 看護師の黎明期描く",
@@ -724,9 +754,9 @@
       "_sourceKey": "nikkei",
       "_score": 0,
       "priority": "除外",
-      "summary_ja": "明治のナイチンゲール、4月からNHK朝ドラに 看護師の黎明期描く",
+      "summary_ja": "明治時代の看護師の黎明期を描くNHK朝ドラが4月から放送開始。医療従事者の歴史的背景を扱うドラマ。",
       "impact": "",
-      "memo": ""
+      "memo": "エンターテインメント番組であり、直接的な医療経営への影響はない。"
     },
     {
       "title": "睡眠リズム、起きる時間で調整してみよう",
@@ -738,10 +768,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "睡眠リズム、起きる時間で調整してみよう",
+      "priority": "参考",
+      "summary_ja": "睡眠リズムの調整方法として、就寝時間より起床時間を一定に保つことの重要性を解説した健康情報記事。",
       "impact": "",
-      "memo": ""
+      "memo": "糖尿病患者や循環器疾患患者への生活指導で活用可能。睡眠障害の相談対応にも参考になる。"
     },
     {
       "title": "「5臓ないなら、ないなりに」 安藤忠雄さん、膵臓がんで再び手術",
@@ -754,9 +784,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "建築家の安藤忠雄さんが膵臓がんで再手術を受けた個人的な医療体験について。著名人の闘病に関する報道。",
+      "summary_ja": "建築家の安藤忠雄氏が膵臓がんで再び手術を受けたという個人の闘病に関する記事。著名人の病気体験談。",
       "impact": "",
-      "memo": ""
+      "memo": "著名人の闘病体験で医療・ヘルスケア業界のニュースではない。"
     },
     {
       "title": "肥満症は「要治療」 増える専門外来、健康障害防ぐ",
@@ -769,42 +799,27 @@
       "_sourceKey": "nikkei",
       "_score": 2,
       "priority": "要注視",
-      "summary_ja": "肥満症が要治療疾患として認識され、専門外来が増加している。健康障害の予防が重要視されている。",
-      "impact": "内科・糖尿病外来において肥満症治療の体制整備と専門性向上を検討する。",
-      "memo": "内科での生活習慣病管理に直結。肥満症治療の需要増加が期待される。"
-    },
-    {
-      "title": "目の前の命と向き合い続ける ジャパンハート創設者・吉岡秀人さん",
-      "url": "https://www.nikkei.com/article/DGXZQOUD16AU20W6A310C2000000/",
-      "date": "2026-03-25",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "_rssOnly": true,
-      "_sourceKey": "nikkei",
-      "_score": 0,
-      "priority": "除外",
-      "summary_ja": "目の前の命と向き合い続ける ジャパンハート創設者・吉岡秀人さん",
-      "impact": "",
-      "memo": ""
-    },
-    {
-      "title": "不調の原因は「普段の呼吸」の可能性 死亡リスクにも影響を及ぼす",
-      "url": "https://www.nikkei.com/article/DGXZQOUD045XB0U6A300C2000000/",
-      "date": "2026-03-25",
-      "description": "",
-      "source": "日経",
-      "category": "news",
-      "_rssOnly": true,
-      "_sourceKey": "nikkei",
-      "_score": 0,
-      "priority": "除外",
-      "summary_ja": "不調の原因は「普段の呼吸」の可能性 死亡リスクにも影響を及ぼす",
-      "impact": "",
-      "memo": ""
+      "summary_ja": "肥満症が治療対象として注目され、専門外来が増加している。健康障害予防のため積極的治療が推進される。",
+      "impact": "内科での肥満症治療体制構築と専門外来開設の検討が必要。",
+      "memo": "内科クリニックで肥満症患者が増加傾向。糖尿病との合併症治療でも重要な分野。"
     }
   ],
   "ft": [
+    {
+      "title": "Que Sora, Sora",
+      "url": "https://www.ft.com/content/5acd6554-fb76-4d44-9037-47995b8746b9",
+      "date": "2026-03-25",
+      "description": "RIP Sora. OpenAI video generation platform, 2024-26. We hardly knew ye.",
+      "source": "FT",
+      "category": "news",
+      "_rssOnly": true,
+      "_sourceKey": "ft",
+      "_score": 3,
+      "priority": "除外",
+      "summary_ja": "OpenAIの動画生成プラットフォームSoraに関する記事。AIスタートアップの戦略変更について扱っている。",
+      "impact": "",
+      "memo": "医療・ヘルスケア分野に直接関係しない一般的なAI技術動向のため除外。"
+    },
     {
       "title": "OpenAI to end Disney deal and Sora video app",
       "url": "https://www.ft.com/content/7087e252-0c24-4ba3-b64e-d1633a7692f0",
@@ -816,9 +831,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "OpenAIがディズニーとの提携を終了し、Sora動画アプリを停止。AI企業の事業戦略変更に関する動向。",
+      "summary_ja": "OpenAIがディズニーとの契約終了とSora動画アプリの戦略変更を発表。CEOが核心製品に集中する方針転換。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない一般的なテクノロジー企業の戦略変更のため除外。"
     },
     {
       "title": "Charting the OpenAI ‘ecosystem’",
@@ -831,9 +846,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "OpenAIのエコシステムに関する分析記事。AI業界の構造や関係性についての解説。",
+      "summary_ja": "OpenAIエコシステムの構造分析に関する記事。AI業界の関係図を扱った内容。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない一般的なAI業界分析のため除外。"
     },
     {
       "title": "Arm shares rise as it forecasts revenue boost from in-house AI chip",
@@ -846,9 +861,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "Armの株価が上昇。自社AI チップからの売上増加を5年間で5倍に予測。半導体企業の業績見通し。",
+      "summary_ja": "Armが自社開発AIチップで5年間で5倍の収益増を予測。ソフトバンク傘下のテック企業の業績見通し。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない半導体企業の業績予測のため除外。"
     },
     {
       "title": "Amazon’s Zoox targets paid robotaxi service as US race heats up",
@@ -861,9 +876,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "AmazonのZooxが有料ロボタクシーサービスを目指す。WaymoやTeslaとの競争が激化する自動運転車市場の動向。",
+      "summary_ja": "AmazonのZooxが有料ロボタクシーサービス開始を目指す。WaymoやTeslaとの競争激化。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない自動運転車事業のため除外。"
     },
     {
       "title": "Palantir turns poisonous on the midterms campaign trail",
@@ -876,9 +891,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "Palantirがトランプ政権の移民政策との関連により、中間選挙において候補者にとって政治的なリスク要因となっている。",
+      "summary_ja": "Palantirが中間選挙で政治的な負債となっている。トランプの移民政策との関連で候補者に影響。",
       "impact": "",
-      "memo": "政治・選挙関連の記事で、医療・ヘルスケアに直接関係しない。"
+      "memo": "医療・ヘルスケア分野に直接関係しない政治・選挙の話題のため除外。"
     },
     {
       "title": "AI could be a blockbuster — just not for film companies",
@@ -891,9 +906,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "映画業界におけるAI投資について、新技術への投資効果が競合他社との競争により相殺される可能性がある。",
+      "summary_ja": "AIが映画業界にとってブロックバスターになる可能性があるが、映画会社には必ずしも利益をもたらさない。",
       "impact": "",
-      "memo": "映画業界のAI動向で、医療・ヘルスケアに直接関係しない。"
+      "memo": "医療・ヘルスケア分野に直接関係しない映画・エンターテイメント業界の話題のため除外。"
     },
     {
       "title": "Siemens boss says Europe risks ‘disaster’ from prioritising AI independence",
@@ -906,9 +921,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "シーメンスCEOが、ヨーロッパのAI独立性重視により技術革新速度が阻害される災害的リスクを警告している。",
+      "summary_ja": "シーメンス社長が欧州のAI独立性優先により「災害」のリスクがあると警告。イノベーションより主権を重視する危険性。",
       "impact": "",
-      "memo": "AI主権・政策論で、医療・ヘルスケアに直接関係しない。"
+      "memo": "医療・ヘルスケア分野に直接関係しない産業政策・AI政策の一般論のため除外。"
     },
     {
       "title": "US must suspend Nvidia AI chip exports to China, senators say",
@@ -921,9 +936,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "米上院議員らが、Nvidiaの中国向けAIチップ輸出許可を停止するよう商務省に要請している。",
+      "summary_ja": "米国議員がNvidiaの中国向けAIチップ輸出停止を求める。商務省に東南アジア向けライセンス停止を要請。",
       "impact": "",
-      "memo": "半導体・貿易政策の話で、医療・ヘルスケアに直接関係しない。"
+      "memo": "医療・ヘルスケア分野に直接関係しない半導体輸出規制・地政学的な話題のため除外。"
     },
     {
       "title": "SoftBank tests its own borrowing limits with $30bn bet on OpenAI",
@@ -936,9 +951,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "ソフトバンクがOpenAIに300億ドルの大規模投資を行い、AI投資への massive spending により投資家の懸念が高まっている。",
+      "summary_ja": "ソフトバンクがOpenAIに300億ドル投資で借入限度額を試す。孫正義氏のAI投資に投資家が神経質。",
       "impact": "",
-      "memo": "投資・企業戦略の話で、医療・ヘルスケアに直接関係しない。"
+      "memo": "医療・ヘルスケア分野に直接関係しない投資・金融市場の話題のため除外。"
     },
     {
       "title": "AI child abuse images surge as watchdog warns of criminal misuse",
@@ -951,9 +966,9 @@
       "_sourceKey": "ft",
       "_score": 3,
       "priority": "除外",
-      "summary_ja": "AI技術を悪用した児童虐待画像が急増し、犯罪者がより暴力的な違法コンテンツを大量生産している現状について警告がなされている。",
+      "summary_ja": "AI技術を悪用した児童虐待画像が急増。監視団体が犯罪者による新技術の悪用について警告。",
       "impact": "",
-      "memo": "AI犯罪・社会問題で、医療・ヘルスケアに直接関係しない。"
+      "memo": "医療・ヘルスケア分野に直接関係しない犯罪・社会問題のため除外。"
     },
     {
       "title": "Apollo caps investor withdrawals from flagship private credit fund",
@@ -965,10 +980,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "Investor uncertainty intensifies as AI impacts on the enterprise software industry emerge",
+      "priority": "除外",
+      "summary_ja": "アポロが主力プライベートクレジットファンドの投資家引き出しを制限。AI影響でエンタープライズソフトウェア業界の不確実性増大。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない金融・投資ファンドの話題のため除外。"
     },
     {
       "title": "Musk verdict suggests US shareholders are stepping into the regulatory void",
@@ -980,10 +995,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "The ruling against him may suggest the judicial system is leaning into its expanded role in securities law enforcement",
+      "priority": "除外",
+      "summary_ja": "マスク氏の判決が米国株主による規制空白への介入を示唆。司法制度の証券法執行における役割拡大。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない法務・規制・企業統治の一般論のため除外。"
     },
     {
       "title": "OnlyFans owner Leonid Radvinsky dies at 43",
@@ -995,10 +1010,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Ukrainian-American billionaire bought majority stake in controversial porn streaming platform in 2018",
+      "priority": "除外",
+      "summary_ja": "OnlyFans所有者のレオニード・ラドビンスキー氏が43歳で死去。2018年に物議を醸すポルノストリーミングプラットフォームの過半数株式取得。",
       "impact": "",
-      "memo": ""
+      "memo": "医療・ヘルスケア分野に直接関係しない人物・訃報の話題のため除外。"
     },
     {
       "title": "The best tech for tricking out your home office",
@@ -1011,24 +1026,9 @@
       "_sourceKey": "ft",
       "_score": 0,
       "priority": "除外",
-      "summary_ja": "The best tech for tricking out your home office",
+      "summary_ja": "ホームオフィス向けの最新テクノロジー機器を紹介する記事で、高性能ルーターやデスクトップ健康管理デバイスなどを取り上げている。",
       "impact": "",
-      "memo": ""
-    },
-    {
-      "title": "Larry Fink warns AI may intensify wealth inequality",
-      "url": "https://www.ft.com/content/58602814-8138-4a14-a32e-d82dec2d472c",
-      "date": "2026-03-23",
-      "description": "CEO of world’s biggest asset manager says rich backers of artificial intelligence could reap most of rewards",
-      "source": "FT",
-      "category": "news",
-      "_rssOnly": true,
-      "_sourceKey": "ft",
-      "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "CEO of world’s biggest asset manager says rich backers of artificial intelligence could reap most of rewards",
-      "impact": "",
-      "memo": ""
+      "memo": "一般的なテクノロジー機器の紹介であり、医療・ヘルスケアに直接関係しない。"
     }
   ],
   "m3": [],
