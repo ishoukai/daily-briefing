@@ -264,22 +264,19 @@ async function main() {
       fierce: 'Fierce', carenet: 'CareNet', nikkei: '日経', ft: 'FT', m3: 'm3.com', medical_tribune: 'Medical Tribune',
     };
 
-    // 全日共通: 医療専門メディアは全件（上限付き）
-    const baseLimits = { mhlw: 99, nikkei: 20, ft: 10, medscape: 5, fierce: 5, carenet: 99 };
-    let limits;
+    // 全ソース全件API送信（曜日制限あり: HN/arXiv=水曜, PubMed=金曜）
+    const limits = { mhlw: 99, nikkei: 99, ft: 99, medscape: 99, fierce: 99, carenet: 99 };
     if (schedule.isTechDay) {
-      limits = { ...baseLimits, hackernews: 3, arxiv: 3 };
-    } else {
-      limits = { ...baseLimits };
+      limits.hackernews = 99;
+      limits.arxiv = 99;
     }
 
-    // PubMed: 金曜のみ上位12件をAPI送信
+    // PubMed: 金曜のみ全件API送信
     let pubmedApiArticles = [];
     if (schedule.isPaperDay && rawData.pubmed) {
       const { apiArticles, fallbackArticles } = filterPubmedForAPI(rawData.pubmed);
-      pubmedApiArticles = apiArticles.slice(0, 12);
-      const pubmedFallback = [...apiArticles.slice(12), ...fallbackArticles];
-      for (const a of pubmedFallback) writePubmedBack(rawData, [a]);
+      pubmedApiArticles = apiArticles; // 全件
+      for (const a of fallbackArticles) writePubmedBack(rawData, [a]);
       console.log(`  [金曜] PubMed: ${pubmedApiArticles.length} 件をAPI送信`);
     }
 
