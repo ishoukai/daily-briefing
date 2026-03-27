@@ -50,19 +50,31 @@ function stripHtmlTags(str) {
   return String(str || '').replace(/<[^>]+>/g, '').trim();
 }
 
+function decodeHTMLEntities(text) {
+  return text.replace(/&#x[0-9a-fA-F]+;/g, '').replace(/&#\d+;/g, '');
+}
+
+function truncate(str, max) {
+  if (!str || str.length <= max) return str;
+  return str.substring(0, max) + '…';
+}
+
 function isLatinOnly(str) {
   // Check if string contains only Latin characters, numbers, punctuation, and whitespace
   return /^[\x00-\x7F\u00C0-\u024F]+$/.test(str.trim());
 }
 
+function isUntranslated(article) {
+  return article.summary_ja && isLatinOnly(article.summary_ja);
+}
+
 function displayTitle(article) {
-  const title = stripHtmlTags(article.title);
+  const title = decodeHTMLEntities(stripHtmlTags(article.title));
   if (title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(title) && article.summary_ja) {
-    // summary_ja that is Latin-only means translation failed
-    if (isLatinOnly(article.summary_ja)) {
+    if (isUntranslated(article)) {
       return '【未翻訳】' + title;
     }
-    return article.summary_ja.split('\u3002')[0] + '\u3002';
+    return decodeHTMLEntities(article.summary_ja.split('\u3002')[0]) + '\u3002';
   }
   return title;
 }
@@ -280,7 +292,7 @@ function renderCardHTML(article) {
     <span class="source">${escapeHtml(article.source || article.journal || '')} ${article.date ? '— ' + escapeHtml(article.date) : ''}</span>
     ${article.url ? `<a class="link-btn" href="${escapeHtml(article.url)}" target="_blank" rel="noopener">原文 ↗</a>` : ''}
   </div>
-  <div class="body">${escapeHtml(article.summary_ja || article.abstract || '')}</div>
+  <div class="body">${escapeHtml(isUntranslated(article) ? 'この論文の自動翻訳に失敗しました。原文をご確認ください。' : truncate(decodeHTMLEntities(article.summary_ja || article.abstract || ''), 200))}</div>
   ${impact}
   ${memo}
 </div>`;
