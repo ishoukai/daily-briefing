@@ -2,6 +2,24 @@
   "_meta": {
     "tech_updated": "2026-03-25"
   },
-  "hackernews": [],
+  "hackernews": [
+    {
+      "title": "Embracing Bayesian methods in clinical trials",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2847011",
+      "hn_url": "https://news.ycombinator.com/item?id=47498222",
+      "score": 60,
+      "comments": 5,
+      "date": "2026-03-24",
+      "source": "Hacker News",
+      "category": "tech",
+      "matched_keyword": "clinical",
+      "_sourceKey": "hackernews",
+      "_score": 0,
+      "priority": "参考",
+      "summary_ja": "臨床試験におけるベイズ統計手法の活用に関する論文です。従来の頻度論的統計に比べて、ベイズ手法は試験の柔軟性と効率性を向上させる可能性があることを論じています。医学研究の質向上に寄与する統計手法の発展について述べています。",
+      "impact": "",
+      "memo": "直接的なクリニック経営への影響は限定的ですが、将来的に臨床試験の効率化により新薬開発が加速する可能性があります。統計手法の進歩は医学エビデンスの質向上に寄与します。"
+    }
+  ],
   "arxiv": []
 }
