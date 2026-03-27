@@ -56,8 +56,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Dementia Risk May Triple With Type 1 Diabetes",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -69,8 +68,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "人間の神経細胞を使ったバイオコンピュータがゲーム「ドゥーム」をプレイし、倫理的な課題を提起している研究。",
+      "summary_ja": "",
       "impact": "",
       "memo": "基礎研究レベルの話題で、臨床応用までは長期間を要する。現在のクリニック経営には関係しない。"
     },
@@ -82,10 +80,9 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "医師が医療におけるAI統合をリードしなければならないという論調。医療現場でのAI活用が急速に進展している状況。",
-      "impact": "AI診療支援ツールの導入検討や、スタッフのAIリテラシー向上を検討する。",
-      "memo": "AI問診や診療支援システムの導入は、診療効率化や質向上に直結する重要な検討課題。"
+      "summary_ja": "",
+      "impact": "",
+      "memo": ""
     },
     {
       "title": "S1 Episode 2: Can Early Genetic Testing Change ATTR-CM Outcomes?",
@@ -95,8 +92,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "S1 Episode 2: Can Early Genetic Testing Change ATTR-CM Outcomes?",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -108,8 +104,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "S1 Episode 1: Rethinking Rhythm Control in ATTR-CM",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -121,8 +116,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Preventing Deficiencies After Bariatric Surgery",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -147,8 +141,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "FDA OKs Drug to Treat Neurologic Symptoms in Hunter Syndrome",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -160,8 +153,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Don&apos;t Sleep on Heart Disease: Cardiac Risk of Sleep Disorders",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -188,8 +180,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "米国の保険会社SCANが初のチーフAIオフィサーとして、バイオファーマと連邦医療保険制度の経験者を任命。",
+      "summary_ja": "",
       "impact": "",
       "memo": "海外保険会社の人事案件で、日本の医療機関への直接的影響は限定的。AI活用トレンドの参考程度。"
     },
@@ -201,8 +192,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "ユナイテッドヘルス社の株主が企業統合の詳細を年次委任状報告書に含める提案について訴訟を起こしている。米国保険会社の内部統合問題に関する株主訴訟である。",
+      "summary_ja": "",
       "impact": "",
       "memo": "米国の保険会社内部問題であり、日本のクリニック経営には直接関係しない。海外企業の株主関連事項。"
     },
@@ -214,8 +204,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Infosys to acquire Optimum Healthcare IT in $465M deal",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -227,8 +216,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "DOJ alleges NewYork-Presbyterian forces payers into anticompetitive 'all-or-nothing' contracts",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -240,8 +228,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Trump admin delays nomination for new CDC director past deadline",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -253,8 +240,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Gen Z nurses prioritize schedule flexibility, need more manager interactions to avoid turnover",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -266,8 +252,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "参考",
-      "summary_ja": "Clasp, loan-linked hiring tool for employers, clinches $20M to expand amid federal loan caps",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -279,10 +264,9 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "オープンエビデンス社がAI医療コーディング機能をリリースした。医療記録の自動コード化により、診療記録の効率化と精度向上が期待される。",
-      "impact": "AI医療コーディングの動向を注視し、将来的な導入検討の準備を進める。",
-      "memo": "診療報酬請求業務の効率化に関連。レセプト作成の自動化や精度向上により事務負担軽減の可能性。"
+      "summary_ja": "",
+      "impact": "",
+      "memo": ""
     },
     {
       "title": "RWJF: Between 5M and 10M people could lose Medicaid coverage in 2028 under work requirements",
@@ -292,8 +276,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "ロバート・ウッド・ジョンソン財団の報告によると、2028年までに就労要件により500万から1000万人がメディケイド保障を失う可能性がある。米国の医療保険制度変更の影響予測。",
+      "summary_ja": "",
       "impact": "",
       "memo": "米国の医療保険制度変更であり、日本の保険診療制度への直接影響はない。海外動向の参考情報。"
     },
@@ -305,8 +288,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "CMS（米国メディケア・メディケイドサービスセンター）が複雑な医療ニーズを持つ小児の調整を支援する新しいメディケイドモデルを発表した。小児医療の連携体制強化が目的。",
+      "summary_ja": "",
       "impact": "",
       "memo": "米国の小児医療制度変更。日本の小児科診療への直接影響はないが、小児医療連携の参考事例。"
     }
@@ -815,8 +797,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "トランプ政権がペンタゴンとの争いでAnthropicを処罰することを裁判所が阻止。サプライチェーンリスクとしての分類が恣意的と判断。",
+      "summary_ja": "",
       "impact": "",
       "memo": "AI企業と政府の争いであり、医療・ヘルスケアに直接関係しない。"
     },
@@ -875,8 +856,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "AIエージェント技術の進歩により、ソフトウェアエンジニアの求人動向が変化している。シニア開発者への需要は増加しているが、全体的な雇用への影響が議論されている。",
+      "summary_ja": "",
       "impact": "",
       "memo": "医療システム開発に間接的に関連するが、直接的な医療・ヘルスケア分野ではない。クリニック経営への直接的影響は限定的。"
     },
@@ -890,8 +870,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "コープの最高責任者がサイバー攻撃によるコスト増大を受けて辞任。便利店運営会社での企業文化に関する問題も指摘されている。",
+      "summary_ja": "",
       "impact": "",
       "memo": "サイバーセキュリティは医療機関にも重要だが、この記事は小売業の企業統治に関する内容。直接的な医療・ヘルスケア分野ではない。"
     },
@@ -920,8 +899,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "カーライルとKKRが米軍向けに20億ドルのデータセンター建設を計画。イラン戦争により現代戦争におけるAIの役割拡大の必要性が指摘されている。",
+      "summary_ja": "",
       "impact": "",
       "memo": "軍事・防衛関連の投資案件で、医療・ヘルスケア分野とは直接関係しない。クリニック経営への影響はない。"
     },
@@ -950,8 +928,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "フランスが過去10年間の政府の持続的な取り組みにより、テックハブとしての地位を確立し、最速成長企業ランキングで首位に立った。",
+      "summary_ja": "",
       "impact": "",
       "memo": "国家レベルの産業政策に関する内容で、医療・ヘルスケア分野に特化していない。クリニック経営への直接的影響はない。"
     },
@@ -965,8 +942,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "欧州のベンチャーキャピタル投資662億ユーロのうち3分の1以上がAI関連企業に投資された。VCが急成長企業の重要な支援者となっている。",
+      "summary_ja": "",
       "impact": "",
       "memo": "投資市場の動向で、医療AI企業も含まれる可能性はあるが、一般的な投資トレンドの内容。医療・ヘルスケアに特化していない。"
     },
@@ -995,8 +971,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "除外",
-      "summary_ja": "イーロン・マスクのスペースXが750億ドルの資金調達を計画し、1兆7500億ドルの評価額でのIPOを目指している。",
+      "summary_ja": "",
       "impact": "",
       "memo": "宇宙産業の投資案件で、医療・ヘルスケア分野とは直接関係しない。クリニック経営への影響はない。"
     },

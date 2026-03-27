@@ -414,48 +414,7 @@ async function main() {
       }
     }
 
-    // --- 未翻訳記事の再処理（1回のみ） ---
-    const untranslated = collectUntranslatedArticles(rawData);
-    if (untranslated.length > 0) {
-      console.log(`  未翻訳記事を検出: ${untranslated.length} 件 → 再処理中...`);
-      try {
-        const retryBatchSize = 5;
-        for (let i = 0; i < untranslated.length; i += retryBatchSize) {
-          const batch = untranslated.slice(i, i + retryBatchSize);
-          const retryConfig = {
-            ...config,
-            claude_api: {
-              ...config.claude_api,
-              system_prompt: config.claude_api.system_prompt + '\n\n【再処理指示】この記事は前回英語で返されました。必ず日本語に翻訳してください。英語のまま返すことは絶対に禁止です。summary_ja、impact、memoは全て日本語で記述してください。',
-            },
-          };
-          const retrySummarized = await summarizeArticles(batch, retryConfig, { deadlineMs });
-
-          // Write retry results back
-          writePubmedBack(rawData, retrySummarized.filter(s => s._pubmedKey));
-          const retryMaps = {};
-          for (const key of newsSourceKeys) {
-            retryMaps[key] = new Map((rawData[key] || []).map((a, i) => [a.title, i]));
-          }
-          for (const s of retrySummarized) {
-            const key = s._sourceKey;
-            if (key && retryMaps[key] && retryMaps[key].has(s.title)) {
-              const idx = retryMaps[key].get(s.title);
-              rawData[key][idx] = { ...rawData[key][idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
-            }
-          }
-
-          if (i + retryBatchSize < untranslated.length) {
-            await new Promise(r => setTimeout(r, 2000));
-          }
-        }
-        console.log(`  再処理完了`);
-      } catch (e) {
-        console.error('  再処理エラー:', e.message);
-      }
-    }
-
-    // --- 週次キャッシュの保存（_meta付き） ---
+    // --- 週次キャッシュの保存（_meta付き、重点日のみ） ---
     const todayISO = getJSTDateString();
     if (schedule.isPaperDay) {
       const weeklyData = { _meta: { papers_updated: todayISO } };
@@ -481,6 +440,80 @@ async function main() {
 
   // 全記事にsummary_ja/impact/memoを保証（未設定の記事を補完）
   assignDefaultPriorities(rawData);
+
+  // --- 未翻訳記事の再処理（キャッシュ含む、1回のみ） ---
+  if (process.env.ANTHROPIC_API_KEY) {
+    const untranslated = collectUntranslatedArticles(rawData);
+    if (untranslated.length > 0) {
+      console.log(`\n  未翻訳記事を検出: ${untranslated.length} 件 → 再処理中...`);
+      const configPath = path.join(PROJECT_ROOT, 'config', 'settings.json');
+      const retryBaseConfig = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      const { summarizeArticles } = require('./summarize');
+      const retryConfig = {
+        ...retryBaseConfig,
+        claude_api: {
+          ...retryBaseConfig.claude_api,
+          system_prompt: retryBaseConfig.claude_api.system_prompt + '\n\n【再処理指示】この記事は前回英語で返されました。必ず日本語に翻訳してください。英語のまま返すことは絶対に禁止です。summary_ja、impact、memoは全て日本語で記述してください。',
+        },
+      };
+      const retryDeadline = Date.now() + 5 * 60 * 1000; // 5分
+      try {
+        const retryBatchSize = 5;
+        for (let i = 0; i < untranslated.length; i += retryBatchSize) {
+          const batch = untranslated.slice(i, i + retryBatchSize);
+          const retrySummarized = await summarizeArticles(batch, retryConfig, { deadlineMs: retryDeadline });
+
+          // Write retry results back to rawData
+          writePubmedBack(rawData, retrySummarized.filter(s => s._pubmedKey));
+          const newsSourceKeys = ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune'];
+          for (const s of retrySummarized) {
+            const key = s._sourceKey;
+            if (key && rawData[key]) {
+              const idx = rawData[key].findIndex(x => x.title === s.title);
+              if (idx >= 0) {
+                rawData[key][idx] = { ...rawData[key][idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
+              }
+            }
+          }
+
+          if (i + retryBatchSize < untranslated.length) {
+            await new Promise(r => setTimeout(r, 2000));
+          }
+        }
+        console.log(`  再処理完了`);
+
+        // 再処理後、週次キャッシュも更新
+        if (rawData.pubmed) {
+          const existing = loadJSON(WEEKLY_PAPERS_PATH);
+          if (existing) {
+            existing.pubmed = rawData.pubmed;
+            if (rawData.arxiv) existing.arxiv = rawData.arxiv;
+            saveJSON(WEEKLY_PAPERS_PATH, existing);
+            console.log(`  週次キャッシュ更新: weekly_papers.json`);
+          }
+        }
+        if (rawData.hackernews) {
+          const existing = loadJSON(WEEKLY_TECH_PATH);
+          if (existing) {
+            existing.hackernews = rawData.hackernews;
+            if (rawData.arxiv) existing.arxiv = rawData.arxiv;
+            saveJSON(WEEKLY_TECH_PATH, existing);
+            console.log(`  週次キャッシュ更新: weekly_tech.json`);
+          }
+        }
+        if (rawData.mhlw) {
+          const existing = loadJSON(WEEKLY_ALERTS_PATH);
+          if (existing) {
+            existing.mhlw = rawData.mhlw;
+            saveJSON(WEEKLY_ALERTS_PATH, existing);
+            console.log(`  週次キャッシュ更新: weekly_alerts.json`);
+          }
+        }
+      } catch (e) {
+        console.error('  再処理エラー:', e.message);
+      }
+    }
+  }
 
   // 4. enriched_data.json を保存
   console.log('\n[3/4] enriched_data.json を保存中...');

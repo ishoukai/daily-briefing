@@ -78,8 +78,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "internal_medicine_diabetes",
-          "priority": "要注視",
-          "summary_ja": "Refractory diabetic wounds are severe complications of diabetes mellitus, for which conventional treatments yield limited efficacy. Recent studies have demonstrated that the core pathogenesis lies in ",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -97,8 +96,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "internal_medicine_diabetes",
-          "priority": "要注視",
-          "summary_ja": "Diabetic wounds are hindered in the healing process due to chronic inflammation , vasculari-zation disorder, and abnormal expression of growth factors caused by the high glucose microenvironment. Masq",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         }
@@ -179,8 +177,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "internal_medicine_cardiology",
-          "priority": "要注視",
-          "summary_ja": "Microvascular resistance reserve (MRR) is a novel index for evaluating coronary microvascular function independently of epicardial disease. Its prognostic significance in coronary artery disease (CAD)",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -198,8 +195,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "internal_medicine_cardiology",
-          "priority": "要注視",
-          "summary_ja": "Diabetic wounds are hindered in the healing process due to chronic inflammation , vasculari-zation disorder, and abnormal expression of growth factors caused by the high glucose microenvironment. Masq",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         }
@@ -280,8 +276,7 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "internal_medicine_general",
-          "priority": "参考",
-          "summary_ja": "Diabetic kidney disease (DKD) is a chronic complication of diabetes mellitus (DM). DKD and chronic kidney disease (CKD) are both long-term conditions requiring ongoing patient care. Individuals living",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -299,8 +294,7 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "internal_medicine_general",
-          "priority": "参考",
-          "summary_ja": "Supported self-management that includes a personalised asthma action plan and regular professional review, reduces unscheduled consultations, and improves asthma outcomes and quality of life. However,",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         }
@@ -381,8 +375,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "gastroenterology",
-          "priority": "要注視",
-          "summary_ja": "Health Technology Assessment (HTA) Region Stockholm conducted a systematic review evaluating the risk of flare-ups from use of non-steroidal anti-inflammatory drugs (NSAID) in patients with inflammato",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -400,8 +393,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "gastroenterology",
-          "priority": "要注視",
-          "summary_ja": "This review investigates how recurrent colorectal cancer (CRC) affects ~16% of patients within 5 years after curative surgery and is linked to high mortality. Early dissemination and tumor dormancy ch",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         }
@@ -482,8 +474,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "ent",
-          "priority": "要注視",
-          "summary_ja": "Nasopharyngeal carcinoma (NPC) has a poor prognosis, largely due to immune escape. The programmed cell death protein 1 (PD-1) receptor and its ligand, PD-L1, play critical roles in this immune evasion",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -501,8 +492,7 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "ent",
-          "priority": "要注視",
-          "summary_ja": "Esophageal cancer exhibits peak incidence in Asia and Africa, representing the sixth most common malignancy and seventh leading cause of global cancer mortality. Esophageal squamous cell carcinoma (ES",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         }
@@ -608,8 +598,7 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "medical_ai",
-          "priority": "参考",
-          "summary_ja": "Medical ambient artificial intelligence (AI) scribes reduce documentation burden, but the current evidence is almost entirely from English systems. In the Arabic-speaking world, physicians converse ma",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -627,8 +616,7 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "medical_ai",
-          "priority": "参考",
-          "summary_ja": "Diabetic Retinopathy (DR) remains a leading cause of vision loss among diabetic patients, underscoring the importance of early detection through reliable retinal imaging analysis. Retinal fundus image",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -747,8 +735,7 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "healthcare_management",
-          "priority": "参考",
-          "summary_ja": "Immune checkpoint inhibitor (ICI)-related pneumonitis (ICI-pneumonitis) is a serious complication, whose clinical course and optimal management strategies remain inadequately elucidated. This study cl",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         },
@@ -766,8 +753,7 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "healthcare_management",
-          "priority": "参考",
-          "summary_ja": "Immigrants often face numerous health-related challenges, which may result in a lower health status (HS) as compared with the domestic population. This study examined the association between nationali",
+          "summary_ja": "",
           "impact": "",
           "memo": ""
         }

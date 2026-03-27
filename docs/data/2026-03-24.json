@@ -66,8 +66,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "When Medications May Contribute to Cognitive Decline",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -92,8 +91,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Quantifying Cardiac Amyloid Burden",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -118,8 +116,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Axitinib Ups Neuroendocrine Tumor Objective Response Rate",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -131,8 +128,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Waste Not, Want Not: Scientists Turn Plastic Into Levodopa",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -144,8 +140,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Employee Dies Of Meningitis in North France, Company Says no Link to UK Outbreak",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -170,8 +165,7 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "Suicidality May Predict Focal Epilepsy Treatment Resistance",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     }
@@ -198,8 +192,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "<a href=\"/sponsored/adpd-2026-new-data-highlight-cost-effectiveness-confirmatory-ad-blood-testing-us\" hreflang=\"en\">AD/PD 2026: New data highlight potential cost-effectiveness of confirmatory AD blood testing in U.S. diagnostic pathways</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -211,8 +204,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "<a href=\"/sponsored/how-cvs-caremark-shaping-future-pharmacy-benefits\" hreflang=\"en\">How CVS Caremark Is Shaping the Future of Pharmacy Benefits</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -237,8 +229,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "<a href=\"/sponsored/beyond-payment-integrity-ai-driven-approach-affordability\" hreflang=\"en\">Beyond payment integrity: An AI-driven approach to affordability</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -250,8 +241,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "<a href=\"/regulatory/cms-proposed-rule-aims-ax-fax-machine-phase-out-paper-mailing\" hreflang=\"en\">CMS final rule aims to axe the fax machine, phase out paper mailing</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -263,8 +253,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "<a href=\"/regulatory/labor-department-proposes-rule-force-greater-pbm-transparency\" hreflang=\"en\">PCMA urges Labor Department to rescind PBM transparency rule as Congress passed reforms</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -276,8 +265,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "<a href=\"/regulatory/hhs-moves-cut-federal-funding-hospitals-over-gender-affirming-care-minors\" hreflang=\"en\">HHS 'declaration' to restrict gender-affirming care for minors struck down by judge</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -302,8 +290,7 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "<a href=\"/payers/kff-aca-plan-enrollees-report-rising-costs-2026-coverage\" hreflang=\"en\">KFF: ACA plan enrollees report rising costs for 2026 coverage</a>",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     }
@@ -812,8 +799,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 0,
-      "priority": "除外",
-      "summary_ja": "The best tech for tricking out your home office",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -887,8 +873,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "How the Iran war could derail the AI boom",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -902,8 +887,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "AI hallucinations haunt users more than job losses",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -917,8 +901,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "How AI is reshaping the business of law",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -932,8 +915,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "OpenAI to double workforce as business push intensifies",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -947,8 +929,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Uber fights to stay in the robotaxi race",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -962,8 +943,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Britain must be more vigilant to the risk of sabotage by hostile states",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -977,8 +957,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "Amazon-backed nuclear reactor group X-energy files for IPO",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -992,8 +971,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Musk defrauded Twitter investors during buyout, jury finds",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -1007,8 +985,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "Donald Trump urges narrow AI regulation amid fierce Maga backlash",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     },
@@ -1022,8 +999,7 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "Mistral CEO: AI companies should pay a content levy in Europe",
+      "summary_ja": "",
       "impact": "",
       "memo": ""
     }
