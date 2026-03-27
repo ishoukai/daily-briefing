@@ -50,9 +50,18 @@ function stripHtmlTags(str) {
   return String(str || '').replace(/<[^>]+>/g, '').trim();
 }
 
+function isLatinOnly(str) {
+  // Check if string contains only Latin characters, numbers, punctuation, and whitespace
+  return /^[\x00-\x7F\u00C0-\u024F]+$/.test(str.trim());
+}
+
 function displayTitle(article) {
   const title = stripHtmlTags(article.title);
   if (title && /^[A-Za-z0-9\s\-:,.'"\(\)\[\]\/]+$/.test(title) && article.summary_ja) {
+    // summary_ja that is Latin-only means translation failed
+    if (isLatinOnly(article.summary_ja)) {
+      return '【未翻訳】' + title;
+    }
     return article.summary_ja.split('\u3002')[0] + '\u3002';
   }
   return title;
