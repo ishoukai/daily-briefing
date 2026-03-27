@@ -257,6 +257,7 @@ function layoutHead(title) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)}</title>
+<link rel="icon" href="/daily-briefing/kanri-kun.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>${CSS}</style>
 </head>`;
@@ -413,7 +414,7 @@ function buildBriefingPage(data, date, allDates, basePath) {
   const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][d.getDay()];
   const dateStr = `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日（${dayOfWeek}）`;
 
-  return `${layoutHead('Briefing ' + date)}
+  return `${layoutHead('管理くんニュース - ' + date)}
 <body>
 ${layoutHeader('', basePath)}
 <div class="container">
@@ -464,7 +465,7 @@ function buildArchiveListPage(allDates, dateCounts) {
     return `<li><a href="${d}/index.html">${d}<span class="count">${count} articles</span></a></li>`;
   }).join('\n');
 
-  return `${layoutHead('Archive — 管理くんニュース')}
+  return `${layoutHead('管理くんニュース')}
 <body>
 ${layoutHeader('/archive', '..')}
 <div class="container">
@@ -497,7 +498,7 @@ function buildSearchPage(allDates) {
     }
   }
 
-  return `${layoutHead('Search — 管理くんニュース')}
+  return `${layoutHead('管理くんニュース')}
 <body>
 ${layoutHeader('/search', '.')}
 <div class="container">

@@ -47,7 +47,7 @@ function getDaySchedule() {
     dayName: dayNames[dayOfWeek],
     isAlertDay: dayOfWeek === 1 || dayOfWeek === 4,  // 月・木
     isTechDay: dayOfWeek === 3,                       // 水
-    isPaperDay: true,                                  // テスト用：元は dayOfWeek === 5
+    isPaperDay: dayOfWeek === 5,                      // 金
   };
 }
 
