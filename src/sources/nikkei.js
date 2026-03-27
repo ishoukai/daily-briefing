@@ -13,9 +13,11 @@ function fetchRSS(url) {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         return fetchRSS(res.headers.location).then(resolve, reject);
       }
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(data));
+      const chunks = [];
+      res.on('data', chunk => {
+        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+      });
+      res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
     }).on('error', reject);
   });
 }
