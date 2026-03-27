@@ -8,6 +8,25 @@
       "priority": "high",
       "articles": [
         {
+          "pmid": "41886636",
+          "title": "Prevalence and incidence of infections among people with type 2 diabetes: a systematic review and meta-analysis.",
+          "abstract": "Although evidence suggests a greater susceptibility of type 2 diabetes to infections, the prevalence and incidence of different types of infections vary greatly, affecting clinical decision-making. We aimed to estimate the aggregate prevalence and incidence of infections among people with type 2 diabetes. We searched PubMed, Embase, Web of Science, and Cochrane Library from inception to August 2025. We combined the terms type 2 diabetes, infection, and prevalence/incidence for the search. We included studies with data on infection prevalence (percentage) and/or incidence (number of person-years at risk) among patients with type 2 diabetes. We used the quality-effects model to estimate effects and 95% confidence intervals (CIs). We included 70 studies in this meta-analysis. Severe periodontitis had the highest pooled prevalence among people with type 2 diabetes (33.6%; 95% CI&#x2009;=&#x2009;23.7-44.2), followed by skin infections (28.6%; 95% CI&#x2009;=&#x2009;20.7-37.2) and urinary tract infections (9.7%; 95% CI&#x2009;=&#x2009;6.5-13.5). Lower respiratory tract infections had the highest pooled incidence per 10&#x2009;000 person-years (1409.2; 95% CI&#x2009;=&#x2009;1048.1-1894.6), followed by skin infections (664.1; 95% CI&#x2009;=&#x2009;39.4-11203.9), upper respiratory tract infections (553.6; 95% CI&#x2009;=&#x2009;12.7-24149.2) and urinary tract infections (500.6; 95% CI&#x2009;=&#x2009;171.3-1462.6). Among people with type 2 diabetes, the prevalence of severe periodontitis and the incidence of lower respiratory tract infections were the highest. We pinpointed recently prevalent high-occurrence infections in type 2 diabetes, helping to update surveillance and control priorities for diabetes care. PROSPERO: CRD42024489267.",
+          "authors": "Fu Xue-Lei, Chen Wen-Jun, Zhao Hui-Mei, Li Meng-Di, Zhuang Meng-Yi et al.",
+          "journal": "Journal of global health",
+          "date": "2026 03",
+          "doi": "10.7189/jogh.16.04105",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886636/",
+          "source": "PubMed",
+          "specialty": "糖尿病・代謝",
+          "sourcePriority": "high",
+          "category": "paper",
+          "_pubmedKey": "internal_medicine_diabetes",
+          "priority": "参考",
+          "summary_ja": "2型糖尿病患者における感染症の有病率と発生率を評価したメタアナリシス。70の研究を分析し、2型糖尿病患者では重篤な歯周病などの感染症リスクが高いことを示している。",
+          "impact": "",
+          "memo": "糖尿病内科を持つクリニックでは、感染症予防の重要性を患者に啓発する根拠となる。歯科との連携強化も検討価値がある。"
+        },
+        {
           "pmid": "41885132",
           "title": "Safety of GLP-1 and Dual GLP-1/GIP Receptor Agonists in Preconception, Pregnancy, and Lactation: A Systematic Review of Maternal, Fetal, and Neonatal Outcomes.",
           "abstract": "Use of glucagon-like peptide-1 receptor agonists (GLP-1RAs) and dual GLP-1/glucose-dependent insulinotropic polypeptide (GIP) receptor agonists is increasing among reproductive-aged women for obesity, diabetes, polycystic ovary syndrome (PCOS), and cardiometabolic disease. However, the safety of these agents in pregnancy and lactation remains sparse, while inadvertent first-trimester exposure is becoming more common. The aim of this review is to systematically evaluate maternal, fetal, neonatal, and lactation outcomes following preconception, in-pregnancy, or postpartum exposure to GLP-1 and dual GLP-1/GIP receptor agonists. We conducted a systematic review of PubMed/MEDLINE, Web of Science, Scopus, and the Cochrane Library from inception to 23 September 2025. Human studies reporting exposure to GLP-1 or dual GLP-1/GIP receptor agonists during preconception, pregnancy, or lactation were included. Two reviewers independently screened studies, extracted data, and assessed risk of bias using validated tools. Given clinical heterogeneity, findings were synthesised narratively in accordance with PRISMA 2020 guidelines. Thirty-six studies met the inclusion criteria. Across large observational cohorts, periconceptional or early-pregnancy exposure to GLP-1-based therapies was not consistently associated with increased risk of major congenital malformations in adjusted analyses, fetal growth restriction, stillbirth, or neonatal mortality compared with insulin-treated or disease-matched controls. Maternal outcomes, including gestational diabetes, hypertensive disorders of pregnancy, preterm birth, and gestational weight gain, were heterogeneous without a reproducible safety signal. Indeed, in women with PCOS, GLP-1RAs seem promising in various aspects. Lactation data were sparse; one pharmacokinetic study reported no detectable semaglutide transfer into human milk. Current evidence suggests that preconceptional or early-pregnancy exposure to GLP-1-based therapies is not consistently associated with increased maternal, fetal, or neonatal risk, although data on continued use throughout gestation remain limited.",
@@ -22,9 +41,9 @@
           "category": "paper",
           "_pubmedKey": "internal_medicine_diabetes",
           "priority": "要注視",
-          "summary_ja": "GLP-1受容体作動薬と二重GLP-1/GIP受容体作動薬の妊娠・授乳期における安全性を系統的レビューで評価した研究。生殖可能年齢の女性への使用が増加しているが、妊娠・授乳期の安全性データは限定的であることが示された。",
-          "impact": "糖尿病・肥満治療薬の処方時に妊娠可能性のある女性患者への安全性説明を強化する必要がある。",
-          "memo": "内科診療でGLP-1製剤を処方する際の重要な安全性情報。妊娠計画のある患者への適切な情報提供が求められる。"
+          "summary_ja": "GLP-1受容体作動薬と二重受容体作動薬の妊娠期・授乳期における安全性を評価したシステマティックレビュー。妊娠可能年齢女性での使用が増加しているが、妊娠中の安全性データは限定的。",
+          "impact": "GLP-1薬処方時は妊娠可能性の確認と適切な避妊指導を徹底する。",
+          "memo": "糖尿病治療でGLP-1薬を使用する際、女性患者への妊娠・授乳期のリスク説明が重要。診療ガイドライン更新に注意が必要。"
         },
         {
           "pmid": "41884205",
@@ -41,9 +60,9 @@
           "category": "paper",
           "_pubmedKey": "internal_medicine_diabetes",
           "priority": "要注視",
-          "summary_ja": "インクレチン多重作動薬が肥満治療において外科手術に代わる選択肢として有効性を示している。二重・三重作動薬は外科手術に匹敵する体重減少効果を実現し、肥満治療の展望を変える可能性がある。",
-          "impact": "肥満・糖尿病患者への新規治療選択肢として、最新のインクレチン製剤の適応を検討する。",
-          "memo": "内科での肥満・糖尿病治療の選択肢拡大。外科手術に匹敵する効果があれば患者ニーズが高まる可能性。"
+          "summary_ja": "インクレチン多重作動薬が肥満治療における外科手術の代替選択肢として注目されている。二重・三重作動薬は外科手術に匹敵する体重減少効果を示すクリニカル試験結果が報告されている。",
+          "impact": "肥満症治療の選択肢拡大に備え、新薬情報の収集と適応患者の選定基準を検討する。",
+          "memo": "糖尿病・循環器内科で肥満患者が多い中、薬物治療による大幅な減量効果は診療方針に大きく影響する可能性がある。"
         },
         {
           "pmid": "41881587",
@@ -59,10 +78,10 @@
           "sourcePriority": "high",
           "category": "paper",
           "_pubmedKey": "internal_medicine_diabetes",
-          "priority": "参考",
-          "summary_ja": "糖尿病性難治性創傷の病態において、高血糖環境による細胞死調節ネットワークの異常が中心的役割を果たすことが明らかになった。ネクロプトーシスや鉄死などの過剰活性化が持続炎症を引き起こすメカニズムが解明された。",
+          "priority": "要注視",
+          "summary_ja": "Refractory diabetic wounds are severe complications of diabetes mellitus, for which conventional treatments yield limited efficacy. Recent studies have demonstrated that the core pathogenesis lies in ",
           "impact": "",
-          "memo": "糖尿病合併症管理の新たな知見。創傷治癒困難例への病態理解と治療戦略に参考となる基礎研究。"
+          "memo": ""
         },
         {
           "pmid": "41881577",
@@ -82,25 +101,6 @@
           "summary_ja": "Diabetic wounds are hindered in the healing process due to chronic inflammation , vasculari-zation disorder, and abnormal expression of growth factors caused by the high glucose microenvironment. Masq",
           "impact": "",
           "memo": ""
-        },
-        {
-          "pmid": "41880606",
-          "title": "Determinants of the Uptake and Frequency of Use of a Web Portal Digital Health Intervention in Patients With Type 2 Diabetes and/or Coronary Heart Disease: Secondary Analysis of a Randomized Controlled Trial.",
-          "abstract": "The targeted application and design of digital health interventions (DHIs) require an understanding of usage determinants. Usage includes uptake (initial use) and frequency (extent of use), but it is unclear whether both components are driven by the same determinants. This study aimed to examine the determinants of uptake and frequency of use and assess whether they differ. The investigated DHI was a web portal provided in an intervention for improving disease-related self-management. This study is a secondary analysis of intervention group data from a parallel-group randomized controlled trial. Eligibility criteria were being an adult and being diagnosed with type 2 diabetes and/or coronary heart disease. Sociodemographic, psychological, and health-related variables were examined as determinants. Determinants were analyzed using simple and multiple regression models. Uptake was analyzed using logistic regression, and frequency was analyzed using negative binomial regression with robust SEs. Frequency was analyzed for those who used the DHI at least once. Except for sociodemographic variables, all other variables were standardized to a range from 0 to 1. For simple regression, inflation of the &#x3b1; error due to multiple testing was controlled via the approach of Benjamini and Hochberg, and for multiple regression, it was controlled via the significance of the complete multiple regression model. Of 462 intervention group members, 199 (43.1%) used the web portal at least once. After controlling for inflation of the &#x3b1; error, simple regression for uptake yielded significant effects for higher education (B=0.56, 95% CI 0.18-0.95; P=.004), openness (B=1.08, 95% CI 0.33-1.83; P=.005), intention regarding physical activity (B=2.28, 95% CI 1.30-3.26; P&lt;.001), and intention regarding healthy nutrition (B=2.30, 95% CI 1.30-3.31; P&lt;.001). The multiple regression model for uptake was highly significant (P&lt;.001), with significant positive associations for intentions regarding physical activity (B=1.86, 95% CI 0.74-2.97; P=.001) and healthy nutrition (B=2.22, 95% CI 1.00-3.44; P&lt;.001), as well as a significant negative association for patient activation (B=-3.20, 95% CI -4.95 to -1.46; P&lt;.001). After controlling for inflation of the &#x3b1; error, simple regression for frequency yielded no statistically significant effect, and the multiple regression model for frequency was not significant (P=.07). This study is innovative in jointly examining determinants of the uptake and frequency of use of the same DHI within a single context and sample. By demonstrating that factors driving uptake do not necessarily increase the frequency of use, it advances existing research. The study contributes to a more differentiated understanding of DHI use and shows that distinct strategies are required to promote adoption versus sustained engagement. Applying this approach to other DHIs and settings may support more targeted and equitable digital health implementation in real-world contexts, thereby optimizing digital health deployment strategies overall.",
-          "authors": "Scholl Maximilian, Lendt Claas, Appelbaum Sebastian, Biallas Bianca, Brenk-Franz Katja et al.",
-          "journal": "Journal of medical Internet research",
-          "date": "2026 03",
-          "doi": "10.1016/j.pmedr.2018.10.008.",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41880606/",
-          "source": "PubMed",
-          "specialty": "糖尿病・代謝",
-          "sourcePriority": "high",
-          "category": "paper",
-          "_pubmedKey": "internal_medicine_diabetes",
-          "priority": "要注視",
-          "summary_ja": "The targeted application and design of digital health interventions (DHIs) require an understanding of usage determinants. Usage includes uptake (initial use) and frequency (extent of use), but it is ",
-          "impact": "",
-          "memo": ""
         }
       ]
     },
@@ -108,6 +108,44 @@
       "label": "循環器",
       "priority": "high",
       "articles": [
+        {
+          "pmid": "41886549",
+          "title": "Cellular Heterogeneity in Aortic Aneurysm and Dissection: Molecular Mechanisms and Therapeutic Opportunities.",
+          "abstract": "Aortic aneurysm and dissection (AAD) are life-threatening conditions characterized by progressive aortic dilation and acute aortic complications. Despite advances in surgical and endovascular management, effective pharmacological strategies to prevent AAD expansion and rupture are still lacking. The pathogenesis of AAD is increasingly understood to be driven by profound cellular heterogeneity within the aortic trilaminar wall, where diverse cell subpopulations contribute differentially to disease progression. This review integrates current evidence on how genetic predispositions, epigenetic modifications, clinical risk factors, and wall shear stress induce cellular heterogeneity, focusing on the pivotal roles of smooth muscle cells, endothelial cells, immune cells, and fibroblasts. We particularly highlight smooth muscle cell heterogeneity, which encompasses both distinct embryonic origins contributing to region-specific susceptibility to AAD, and dynamic phenotypic switching into fibroblast-like, proliferative, macrophage-like, osteochondrogenic, stressed, and adipocyte-like states. These phenotypic transitions, occurring in specific spatiotemporal patterns, critically drive extracellular matrix (ECM) degradation, inflammation, and metabolic reprogramming. Beyond smooth muscle cells, dysfunctional endothelial cells compromise barrier integrity through disruption of tight junctions (TJs), adherens junctions, and focal adhesions, facilitating leukocyte infiltration and procoagulant signaling. Diverse immune cell subsets, including heterogeneous monocytes/macrophages, eosinophils, and lymphoid cells, orchestrate complex inflammatory responses and mediate ECM breakdown. Furthermore, activated fibroblast subpopulations contribute to fibrotic remodeling and maintain close interactions with smooth muscle cells. Advances in single-cell multiomics and lineage-tracing technologies have been pivotal in unraveling the cellular complexity underlying AAD, uncovering novel disease mechanisms and cell-specific therapeutic targets. A comprehensive understanding of cellular heterogeneity, thus, holds the potential to develop precision medicine and offer promising therapeutic intervention for AAD.",
+          "authors": "Song Tianyu, Han Yi, Xie Liping, Ji Yong",
+          "journal": "Circulation research",
+          "date": "2026 03",
+          "doi": "10.1161/CIRCRESAHA.125.327197",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886549/",
+          "source": "PubMed",
+          "specialty": "循環器",
+          "sourcePriority": "high",
+          "category": "paper",
+          "_pubmedKey": "internal_medicine_cardiology",
+          "priority": "参考",
+          "summary_ja": "大動脈瘤・解離の病態における細胞不均一性の分子メカニズムと治療機会について解説したレビュー。平滑筋細胞、血管内皮細胞、免疫細胞、線維芽細胞の役割に焦点を当てている。",
+          "impact": "",
+          "memo": "循環器内科での大動脈疾患管理において、将来的な治療戦略の理解に役立つ基礎的知見。現在の診療に直接的影響は少ない。"
+        },
+        {
+          "pmid": "41886437",
+          "title": "Early aspirin withdrawal versus dual antiplatelet therapy in high-risk patients after percutaneous coronary intervention: Meta-analysis of randomized trials.",
+          "abstract": "Patients at high ischemic or bleeding risk after percutaneous coronary intervention (PCI) require protection against thrombotic events with dual antiplatelet therapy (DAPT) while avoiding bleeding. Although guidelines recommend 12-month DAPT after acute coronary syndrome (ACS), recent trials have tested the safety of early aspirin withdrawal with potent P2Y12-inhibitor monotherapy. We performed a meta-analysis of randomized trials (from inception through August 2025) comparing early aspirin withdrawal (&#x2264;3 months) with transition to ticagrelor- or prasugrel-monotherapy versus continued DAPT. Co-primary outcomes were myocardial infarction (MI) and clinically relevant bleeding. Prespecified timing analyses stratified the comparison versus DAPT by aspirin timing: immediate (aspirin noninitiation or in-hospital cessation) and early (post-discharge discontinuation within 3 months). Bayesian models quantified risk-stratified probabilities of benefit and harm; trial sequential analysis (TSA) assessed conclusiveness of evidence. Seven trials (n&#x2009;=&#x2009;27,743) were included. P2Y12-inhibitor monotherapy reduced bleeding (HR&#x2009;=&#x2009;0.55, 95% CI [0.42, 0.71]; p&#x2009;&lt;&#x2009;0.001) without significantly increasing MI overall (HR&#x2009;=&#x2009;1.11, 95% CI [0.91, 1.35]; p&#x2009;=&#x2009;0.31), death, stroke, or stent thrombosis. Immediate aspirin noninitiation/cessation increased MI (HR&#x2009;=&#x2009;1.41, 95% CI [1.01, 1.97]; p&#x2009;=&#x2009;0.04), whereas early discontinuation did not (HR&#x2009;=&#x2009;0.97, 95% CI [0.76, 1.24]; p&#x2009;=&#x2009;0.82). TSA indicated conclusiveness for bleeding benefit and futility for an MI excess. Analyses restricted to ACS confirmed the overall results. Bayesian analyses corroborated these effects and identified risk-aligned timing: in high bleeding risk,&#x2009;&#x2264;1-month aspirin discontinuation yielded a 100% posterior probability of bleeding benefit (NNT&#x2009;=&#x2009;12) and 70% probability of MI-safety; in high ischemic risk, 3-month aspirin discontinuation yielded 100% probability of bleeding benefit (NNT&#x2009;=&#x2009;57) and 86% probability of MI-safety. Limitations include aggregate data only and limited precision for the immediate aspirin withdrawal subgroup. Among high-risk post-PCI patients on ticagrelor/prasugrel, discontinuing aspirin within 3 months reduces bleeding without an ischemic trade-off versus DAPT. Immediate aspirin noninitiation or cessation should be avoided; timing should be individualized to bleeding and ischemic risk. PROSPERO: CRD420251167706.",
+          "authors": "Navarese Eliano P, Gurbel Paul, Tantry Udaya, Talanas Giuseppe, Grzelakowska Klaudyna et al.",
+          "journal": "PLoS medicine",
+          "date": "2026 03",
+          "doi": "10.1371/journal.pmed.1004995",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886437/",
+          "source": "PubMed",
+          "specialty": "循環器",
+          "sourcePriority": "high",
+          "category": "paper",
+          "_pubmedKey": "internal_medicine_cardiology",
+          "priority": "要注視",
+          "summary_ja": "PCI後の高リスク患者において、早期アスピリン中止とP2Y12阻害薬単剤療法の安全性を評価したメタアナリシス。従来の12か月間二抗血小板療法と比較検討している。",
+          "impact": "PCI後患者の抗血小板療法方針について、最新エビデンスを踏まえた見直しを検討する。",
+          "memo": "循環器内科でのPCI後管理において、出血リスクと血栓リスクのバランスを考慮した治療方針の参考となる重要な知見。"
+        },
         {
           "pmid": "41884277",
           "title": "Cardiotoxicity Challenges in Nanomaterial: Risk Assessment, Mechanisms, and Mitigation Strategies.",
@@ -123,9 +161,9 @@
           "category": "paper",
           "_pubmedKey": "internal_medicine_cardiology",
           "priority": "参考",
-          "summary_ja": "ナノマテリアルの心毒性に関するリスク評価、メカニズム、軽減戦略について包括的にレビューした研究。消費者・医療・産業製品での使用拡大に伴う心血管毒性リスクへの懸念が高まっている。",
+          "summary_ja": "ナノマテリアルによる心毒性のリスク評価、メカニズム、軽減戦略について包括的にレビューした論文。in vitro、in vivo、organ-on-chipプラットフォームでの評価手法を探討している。",
           "impact": "",
-          "memo": "新しい医療技術や材料の安全性評価に関する基礎的知見として、将来的な医療安全管理の参考となる。"
+          "memo": "ナノマテリアルの医療応用が進む中、将来的な安全性評価の知見として参考になるが、現在のクリニック診療への直接的影響は限定的。"
         },
         {
           "pmid": "41881651",
@@ -164,44 +202,6 @@
           "summary_ja": "Diabetic wounds are hindered in the healing process due to chronic inflammation , vasculari-zation disorder, and abnormal expression of growth factors caused by the high glucose microenvironment. Masq",
           "impact": "",
           "memo": ""
-        },
-        {
-          "pmid": "41881540",
-          "title": "Reproductive journey in women with congenital heart disease: a systematic review of mental health implications.",
-          "abstract": "Advances in medical care have led to increased survival rates among individuals with congenital heart disease (CHD), enabling many women to pursue pregnancy and motherhood; however, their reproductive journey remains complex, involving intertwined medical and psychological challenges that are still not fully understood. This review aimed to explore the lived experiences of women with CHD as they navigate these reproductive challenges. Systematic review of qualitative studies using Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. The Critical Appraisal Skills Programme checklist was used for quality assessment. APA PsycArticles, Medline Ultimate, APA PsycInfo, APA PsycTests and CINAHL Ultimate were searched on 10 March 2025. Studies were included if they examined the lived experiences of women with CHD, focused on reproductive health, used qualitative methods and were published in English without time or geographical limits. Exclusion criteria were studies focusing on family members, men or healthcare professionals; reproductive health in other non-communicable diseases; acquired cardiac disease; single case studies; or quantitative designs. The data extracted from qualitative studies included author(s), aims, location, design, method, analysis, results and clinical implications. The synthesis followed the Thomas and Harden thematic synthesis approach to answer the review question. Eleven studies met the inclusion criteria. Thematic synthesis identified four analytical themes: (1) the need for psychological support in high-stakes decision-making, including the emotional burden of parenthood; (2) challenges of receiving conflicting medical guidance; (3) balancing reproductive autonomy with health risks, including the influence of social norms and comparisons with peers; and (4) the impact of geographical location on access to support. Women with CHD face unique challenges within their reproductive health which is shaped by medical uncertainty, challenges with healthcare systems and high-stakes decision-making. Holistic care is crucial to support women through this journey and improve their outcomes.",
-          "authors": "Amato Melissa, Adeoye Marvellous, Schofield Rachel, Di Cesare Mariachiara",
-          "journal": "BMJ open",
-          "date": "2026 03",
-          "doi": "10.1136/bmjopen-2025-112904",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41881540/",
-          "source": "PubMed",
-          "specialty": "循環器",
-          "sourcePriority": "high",
-          "category": "paper",
-          "_pubmedKey": "internal_medicine_cardiology",
-          "priority": "参考",
-          "summary_ja": "先天性心疾患女性の妊娠・出産における心理的影響を系統的にレビューした研究。医学的進歩により生存率は向上したが、妊娠・母親になる過程で複雑な医学的・心理的課題に直面することが明らかになった。",
-          "impact": "",
-          "memo": "循環器疾患患者の包括的ケアにおいて、心理的サポートの重要性を示唆する知見として参考になる。"
-        },
-        {
-          "pmid": "41881536",
-          "title": "Community health worker-facilitated home visits for hypertension management in urban Nepal: a mixed-methods process evaluation.",
-          "abstract": "Hypertension remains poorly controlled globally, highlighting the need for scalable community-based strategies. Although community health worker (CHW)-facilitated interventions show promise, implementation evidence from low- and middle-income countries remains limited. This study assessed the implementation processes, mechanisms of impact and contextual factors influencing a CHW-facilitated home visit intervention for hypertension management. Mixed-methods process evaluation nested within a randomised cluster trial. An urban municipality in Nepal. Individuals with hypertension were surveyed at baseline (n=1252) and follow-up (n=1098). CHWs completed routine monitoring forms and home visits were observed (n=47). In-depth interviews were conducted with individuals with hypertension (n=20), spouses (n=7), adult children (n=13), CHWs (n=8) and public primary healthcare providers (n=5). Overall, 86% of participants completed all six planned home visits. Visits were generally delivered with fidelity, with minor adaptations to fit participant and family contexts. Participants reported high satisfaction and perceived benefits, including improved knowledge, family support and uptake of self-blood pressure monitoring. However, developed behavioural action plans often lacked specificity, limiting progress follow-up and accountability. Weak public primary care capacity, medication stockouts and preference for higher-level or private facilities constrained care linkage. CHW-facilitated home visits addressed key individual and family-level barriers to hypertension management, but impact was limited by uneven behaviour uptake and constrained public primary healthcare capacity for medication supply and titration. Strengthened CHW training and mentorship are needed to support effective behaviour change. Integration of community interventions with functional primary care systems is essential for sustained hypertension control in low-resource urban settings. NCT05292469; date of registration: 22 March 2022; URL: https://clinicaltrials.gov/ct2/show/NCT05292469?cntry=NP&amp;draw=2&amp;rank=6.",
-          "authors": "Bhattarai Sanju, Poudel Lisasha, Mj&#xf8;lstad Bente Prytz, &#xc5;svold Bj&#xf8;rn Olav, Skovlund Eva et al.",
-          "journal": "BMJ open",
-          "date": "2026 03",
-          "doi": "10.1136/bmjopen-2025-111093",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41881536/",
-          "source": "PubMed",
-          "specialty": "循環器",
-          "sourcePriority": "high",
-          "category": "paper",
-          "_pubmedKey": "internal_medicine_cardiology",
-          "priority": "参考",
-          "summary_ja": "ネパール都市部でコミュニティヘルスワーカーによる高血圧管理のための家庭訪問介入の実施プロセスを混合研究法で評価した。地域ベースの高血圧管理戦略の有効性と実装上の課題が検討された。",
-          "impact": "",
-          "memo": "地域医療連携や高血圧管理の新しいアプローチとして参考になるが、日本の医療制度との適用性は限定的。"
         }
       ]
     },
@@ -209,6 +209,25 @@
       "label": "一般内科",
       "priority": "medium",
       "articles": [
+        {
+          "pmid": "41886713",
+          "title": "Eptinezumab With Patient Education for Chronic Migraine and Medication-Overuse Headache: The Randomized, Placebo-Controlled RESOLUTION Trial.",
+          "abstract": "Medication-overuse headache (MOH) commonly co-occurs with and complicates chronic migraine (CM). This trial evaluated efficacy and safety of eptinezumab, an anti-calcitonin gene-related peptide monoclonal antibody for migraine prevention-combined with a standardized brief educational intervention (BEI)-in adults with CM and MOH. We report results from the 12-week placebo-controlled period, of which weeks 1-4 was the primary time point. The phase 4, double-blind, placebo-controlled RESOLUTION trial was conducted at 76 specialist clinics across 11 countries. Eligible participants were adults diagnosed with CM and MOH and were randomized 1:1 to eptinezumab 100 mg IV with BEI or placebo IV with BEI. The primary end point was mean change from baseline in monthly migraine days (MMDs; weeks 1-4). Key secondary end points (multiplicity-controlled) included changes from baseline in monthly headache days, monthly days with acute migraine medication use, and average daily pain, as well as fulfillment of thresholds defining CM and MOH. Treatment-emergent adverse events (TEAEs) were assessed. Between July 2022 and March 2025, 608 participants were randomized, and 596 (98%) completed the placebo-controlled period. Of 604 participants treated, 517 (86%) were female and 87 (14%) were male; the mean age was 45.5 years (SD 12.0). The primary end point, mean change from baseline in MMDs (weeks 1-4), favored eptinezumab with BEI vs placebo with BEI (-6.9 vs -3.7; group difference -3.2; 95% CI -4.2 to -2.2; p &lt; 0.0001). All key secondary end points showed statistically significant improvements with eptinezumab with BEI vs placebo with BEI; the greater reductions in disease burden observed during weeks 1-4 were sustained through weeks 1-12. The proportion of participants with TEAEs was similar with eptinezumab (41.9%) and placebo (36.9%); no new safety signals were identified. In adults with CM and MOH who also received patient education, eptinezumab was statistically superior to placebo on the primary and all key secondary end points, reducing disease burden as early as weeks 1-4 and throughout weeks 1-12. Eptinezumab was generally well tolerated, with no new safety signals identified. Together, data from this trial indicate that eptinezumab in combination with patient education is an effective treatment for reducing disease burden in patients living with CM complicated by medication overuse. ClinicalTrials.gov Identifier: NCT05452239 (clinicaltrials.gov/study/NCT05452239); EudraCT Number: 2021-003049-40 (clinicaltrialsregister.eu/ctr-search/search?query=2021-003049-40); EU CTR Number: 2024-510729-24-00 (euclinicaltrials.eu/search-for-clinical-trials/?lang=en&amp;EUCT=2024-510729-24-00). EudraCT Number obtained: May 25, 2021. ClinicalTrials.gov Identifier obtained: July 6, 2022. First patient enrolled: July 1, 2022. This clinical trial provides Class I evidence that eptinezumab with patient education is superior to placebo with patient education in reducing MMDs in adults with CM and MOH.",
+          "authors": "Jensen Rigmor H&#xf8;jland, Lundqvist Christofer, Schytz Henrik W, Tassorelli Cristina, Vernieri Fabrizio et al.",
+          "journal": "Neurology",
+          "date": "2026 03",
+          "doi": "10.1212/WNL.0000000000214863",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886713/",
+          "source": "PubMed",
+          "specialty": "一般内科",
+          "sourcePriority": "medium",
+          "category": "paper",
+          "_pubmedKey": "internal_medicine_general",
+          "priority": "参考",
+          "summary_ja": "慢性片頭痛と薬物乱用頭痛に対するエプチネズマブと患者教育の併用効果を評価したRESOLUTION試験。76の専門クリニックで実施されたランダム化比較試験の結果。",
+          "impact": "",
+          "memo": "頭痛専門外来は持たないが、片頭痛患者は多く受診する。新しい治療選択肢として情報を把握しておく価値がある。"
+        },
         {
           "pmid": "41866989",
           "title": "Examining the characteristics of patients with long-term impaired work ability in primary health care - a cross-sectional study.",
@@ -224,9 +243,9 @@
           "category": "paper",
           "_pubmedKey": "internal_medicine_general",
           "priority": "参考",
-          "summary_ja": "プライマリケアにおける長期就労能力障害患者の特性を調査した横断研究。スウェーデンの40のプライマリケアセンターで243名の患者を対象に、健康関連QOL、首尾一貫感覚、就労能力等を評価した。",
+          "summary_ja": "プライマリケア患者の長期就労能力障害の特性を調査した横断研究。スウェーデンの40のプライマリケアセンターで実施され、243名の患者を対象としている。",
           "impact": "",
-          "memo": "プライマリケアでの包括的患者評価や就労支援に関する参考情報だが、国情の違いにより直接適用は困難。"
+          "memo": "就労能力に関する研究だが、海外のプライマリケア研究であり、日本のクリニック経営への直接的示唆は限定的。"
         },
         {
           "pmid": "41863102",
@@ -243,9 +262,9 @@
           "category": "paper",
           "_pubmedKey": "internal_medicine_general",
           "priority": "除外",
-          "summary_ja": "心理学が日常生活に与える効果について、コミュニケーション能力、人間関係、ストレス管理の改善を通じて幸福度向上に寄与することを証明した研究。ポジティブ心理学の意義と実践的応用が論じられた。",
+          "summary_ja": "心理学が日常生活に与える効果について論じた総説。コミュニケーション技術、人間関係、ストレス管理の改善効果や、ポジティブ心理学の役割について説明している。",
           "impact": "",
-          "memo": "一般的な心理学研究であり、医療・ヘルスケアに直接関係しない内容。"
+          "memo": "医療・ヘルスケアに直接関係しない一般的な心理学の話題のため除外。"
         },
         {
           "pmid": "41860840",
@@ -284,25 +303,6 @@
           "summary_ja": "Supported self-management that includes a personalised asthma action plan and regular professional review, reduces unscheduled consultations, and improves asthma outcomes and quality of life. However,",
           "impact": "",
           "memo": ""
-        },
-        {
-          "pmid": "41860558",
-          "title": "Fecal microbiota transplantation in chronic liver disease: Current and future state of the art.",
-          "abstract": "Chronic liver diseases are associated with changes in gut microbiome composition and function. Early data suggest that fecal microbiota transplantation (FMT) may treat several chronic liver diseases, especially cirrhosis, hepatic encephalopathy, and alcohol-associated liver disease. Well-powered and multisite studies are needed to better understand which indications and subpopulations hold promise for FMT. At present, there is variability in the screening, processing, and administration of FMT. Some of this variability is inherent to the nature of FMT, but some of the variability could be standardized to optimize safety and efficacy. Ultimately, we may find that narrowed and donor-independent microbiome therapeutics are superior tools to provide a consistently effective result in chronic liver disease. Regulation of FMT for chronic liver disease indications in the United States will continue to require the rigid regulatory framework of other drugs, requiring an Investigational New Drug (IND) application.",
-          "authors": "Bloom Patricia, Khanna Sahil",
-          "journal": "Hepatology communications",
-          "date": "2026 03",
-          "doi": "10.1097/HC9.0000000000000927",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41860558/",
-          "source": "PubMed",
-          "specialty": "一般内科",
-          "sourcePriority": "medium",
-          "category": "paper",
-          "_pubmedKey": "internal_medicine_general",
-          "priority": "要注視",
-          "summary_ja": "慢性肝疾患における糞便微生物移植（FMT）の現状と将来展望をレビュー。肝硬変、肝性脳症、アルコール性肝疾患での治療効果が期待されるが、標準化された手法の確立が必要とされる。",
-          "impact": "消化器内科において、従来治療に難渋する慢性肝疾患患者への新規治療選択肢として検討が必要。",
-          "memo": "消化器内科・外科での新しい治療選択肢。まだ研究段階だが、将来的に導入検討が必要な治療法。"
         }
       ]
     },
@@ -317,7 +317,7 @@
           "authors": "Sinicrope Frank A, Ou Fang-Shu, Arnold Dirk, Peters Walter R, Behrens Robert J et al.",
           "journal": "The New England journal of medicine",
           "date": "2026 03",
-          "doi": "10.1056/NEJMoa2507874",
+          "doi": "10.3322/caac.21820.",
           "url": "https://pubmed.ncbi.nlm.nih.gov/41880612/",
           "source": "PubMed",
           "specialty": "消化器内科・外科",
@@ -325,9 +325,9 @@
           "category": "paper",
           "_pubmedKey": "gastroenterology",
           "priority": "参考",
-          "summary_ja": "ステージIII結腸癌のミスマッチ修復欠損例に対してアテゾリズマブ＋mFOLFOX6併用療法の有効性を評価した第3相試験。標準的な補助化学療法への免疫チェックポイント阻害剤追加の効果を検討した。",
+          "summary_ja": "ステージIII ミスマッチ修復欠損大腸癌に対するアテゾリズマブとFOLFOXの併用療法を評価した第3相試験。アテゾリズマブ追加による無病生存期間への影響を検討している。",
           "impact": "",
-          "memo": "消化器外科・内科での大腸癌治療における最新の臨床試験結果として参考になるが、直接的な診療変更は不要。"
+          "memo": "消化器内科・外科で大腸癌治療に関わる場合の最新治療情報として参考になるが、専門的な腫瘍治療の内容。"
         },
         {
           "pmid": "41880417",
@@ -344,9 +344,9 @@
           "category": "paper",
           "_pubmedKey": "gastroenterology",
           "priority": "参考",
-          "summary_ja": "大腸癌治療における腸内細菌叢調節（プロバイオティクス・プレバイオティクス）の効果に関する文献計量分析。2020-2025年の116研究を解析し、中国主導でプレバイオティクス研究が多いことが判明した。",
+          "summary_ja": "大腸癌治療における腸内細菌叢調節（プロバイオティクス・プレバイオティクス）の効果に関する文献計量学的分析。2020-2025年の116研究を分析し、中国が研究をリードしていることを示している。",
           "impact": "",
-          "memo": "消化器内科・外科での補完的治療選択肢として腸内環境改善の重要性を示す研究動向の参考情報。"
+          "memo": "消化器疾患治療において腸内細菌叢の重要性が注目される中、プロバイオティクス治療の根拠として今後参考となる可能性がある。"
         },
         {
           "pmid": "41880416",
@@ -363,9 +363,9 @@
           "category": "paper",
           "_pubmedKey": "gastroenterology",
           "priority": "参考",
-          "summary_ja": "袖状胃切除術後のGERD治療におけるligamentum teres cardiopexの有効性をメタ解析で評価。GERD症状の改善と制酸剤使用減少の効果を系統的レビューで検討した外科的修復法の研究。",
+          "summary_ja": "袖状胃切除術後のGERD治療として靱帯縫合術の有効性と安全性を評価したメタアナリシス。GERD症状の寛解と制酸薬使用減少への影響を分析している。",
           "impact": "",
-          "memo": "消化器外科での術後合併症管理に関する専門的知見だが、当院での直接的適用可能性は限定的。"
+          "memo": "消化器外科の専門的内容で、当クリニックでは直接実施しない手術治療の話題。GERD管理の参考情報として留意程度。"
         },
         {
           "pmid": "41873467",
@@ -426,9 +426,9 @@
           "category": "paper",
           "_pubmedKey": "ent",
           "priority": "参考",
-          "summary_ja": "聴覚・聴覚健康におけるAIの公平性とバイアスについて、特にアフリカおよび低中所得国への影響を分析したグローバル証拠レビュー。AI聴覚学システムの構造的バイアスと不公平性の問題を検討した。",
+          "summary_ja": "聴覚・聴力健康分野におけるAIの偏見と公平性への影響をアフリカを中心に検証したグローバル・エビデンス・レビュー。AIシステムが構造的偏見を埋め込む可能性について分析している。",
           "impact": "",
-          "memo": "耳鼻咽喉科でのAI導入時の留意点として参考になるが、現時点では理論的な内容に留まる。"
+          "memo": "耳鼻咽喉科でのAI活用時の注意点として参考になるが、主にアフリカの低中所得国を対象とした研究で直接的関連は限定的。"
         },
         {
           "pmid": "41883290",
@@ -445,9 +445,9 @@
           "category": "paper",
           "_pubmedKey": "ent",
           "priority": "参考",
-          "summary_ja": "18-60歳の聴覚障害者と健聴者の精神疾患の有病率、発症率、重症度を比較した系統的レビュー。労働年齢成人での精神健康格差を定量化し、将来の研究・政策・サービス開発への提言を行った。",
+          "summary_ja": "18-60歳の難聴・聴覚障害者と健聴者における精神疾患の有病率、発生率、重症度を比較したシステマティックレビュー。就労世代成人での精神健康格差を定量化することが目的。",
           "impact": "",
-          "memo": "耳鼻咽喉科診療で聴覚障害患者の包括的ケアを考える際の参考情報だが、専門的すぎて直接的活用は困難。"
+          "memo": "耳鼻咽喉科で聴覚障害患者を診る際、精神的ケアの必要性を考慮する参考となるが、専門的精神科治療は範囲外。"
         },
         {
           "pmid": "41880047",
@@ -464,9 +464,9 @@
           "category": "paper",
           "_pubmedKey": "ent",
           "priority": "参考",
-          "summary_ja": "頭頸部癌患者における口腔粘膜炎、口腔乾燥症、唾液流量、口腔痛、QOLに対するフォトバイオモジュレーションの効果をメタ解析。重篤な口腔粘膜炎と口腔痛のリスク軽減効果が示された。",
+          "summary_ja": "頭頸部癌患者の口腔粘膜炎、口腔痛、口腔乾燥症、唾液分泌量、生活の質に対する光生物調節療法の効果を評価したメタアナリシス。30のRCT（1748名）を分析し有効性を示している。",
           "impact": "",
-          "memo": "耳鼻咽喉科での頭頸部癌治療後の口腔ケアや支持療法として参考になる治療選択肢の情報。"
+          "memo": "頭頸部癌治療の支持療法として有用な情報だが、当クリニックでは専門的がん治療は行わない。口腔ケアの参考程度。"
         },
         {
           "pmid": "41861185",
@@ -527,9 +527,9 @@
           "category": "paper",
           "_pubmedKey": "pediatrics",
           "priority": "要注視",
-          "summary_ja": "米国で小児ワクチン接種率が低下し、麻疹の再流行が問題となっている。MMR、DTaP、ポリオ、水痘ワクチンの接種率低下に対し、ヘルスリテラシー向上による予防策の重要性が強調されている。",
-          "impact": "小児科診療において、ワクチン接種率向上のための保護者への教育・説明を強化する必要がある。",
-          "memo": "小児科での予防接種推進に直結する重要情報。保護者への適切な情報提供とワクチンリテラシー向上が急務。"
+          "summary_ja": "米国で小児ワクチン接種率が低下し麻疹が再燃している危機に対し、健康リテラシーの向上による解決策を提案。MMR、DTaP、ポリオ、水痘ワクチンの接種率低下とその対策について論じている。",
+          "impact": "小児科でワクチン接種率向上のため、保護者への健康教育と情報提供を強化する。",
+          "memo": "小児科でのワクチン接種推進において、保護者の健康リテラシー向上が重要。接種率低下への対策として参考となる。"
         },
         {
           "pmid": "41873445",
@@ -546,9 +546,9 @@
           "category": "paper",
           "_pubmedKey": "pediatrics",
           "priority": "参考",
-          "summary_ja": "韓国の小児COVID-19経験から次のパンデミック（Disease-X）への小児中心の準備戦略を分析。韓国の小児COVID-19対応の評価を通じて、子どもを考慮したパンデミック対応の重要性を論じた。",
+          "summary_ja": "韓国における小児COVID-19の経験と将来のDisease-X preparednessへの教訓をまとめた論文。国家レベルでの小児対応型パンデミック対策について分析している。",
           "impact": "",
-          "memo": "小児科診療でのパンデミック対応準備として参考になるが、国情の違いにより直接適用は困難。"
+          "memo": "小児科診療において、パンデミック対策の参考となる韓国の事例研究。将来の感染症対策立案時の参考情報。"
         },
         {
           "pmid": "41700952",
@@ -565,47 +565,9 @@
           "category": "paper",
           "_pubmedKey": "pediatrics",
           "priority": "参考",
-          "summary_ja": "肺炎球菌ワクチンの効果評価に焦点を当てた研究。PPV-23とPCV（最新のPCV-21まで）の特徴と効果の違い、WHOによる量的・機能的抗体反応の評価基準について詳述している。",
+          "summary_ja": "肺炎球菌ワクチンの免疫応答評価に焦点を当てたフランス語論文。非結合型多糖体ワクチン（PPV-23）と結合型ワクチン（PCV）の特性と効果について解説している。",
           "impact": "",
-          "memo": "小児科・内科での肺炎球菌ワクチン選択と効果評価の参考情報だが、専門的すぎて実務への直接影響は限定的。"
-        },
-        {
-          "pmid": "41690287",
-          "title": "An observational, cohort, multi-centre, open label phase IV extension study comparing IPV immune responses to preschool dTaP-IPV booster vaccines in children whose mothers received or did not receive an IPV-containing pertussis vaccine during pregnancy in England.",
-          "abstract": "A diphtheria-tetanus-acellular pertussis-inactivated polio combination vaccine (dTaP-IPV) was offered as part of the UK antenatal vaccination programme from 2012 to July 2024. Prior research established that infants of mothers who received a dTaP-IPV vaccine in pregnancy have significantly reduced poliovirus-specific neutralising antibodies after their primary immunisation series compared with infants of non-dTaP-IPV vaccinated mothers. We investigated whether sufficient poliovirus-specific neutralising antibody titres are achieved in these children following the pre-school dTaP-IPV booster vaccine. Poliovirus-specific neutralising antibody titres were measured, via a microneutralisation assay, prior to and following receipt of the pre-school booster vaccine in blood samples taken during an observational, cohort, multi-centre, open label phase IV extension study. Prior to the pre-school boost, children of mothers who received dTaP-IPV vaccines in pregnancy had lower geometric mean titres (GMT) of antibodies than children of unvaccinated mothers (4.3 vs 54.7, p&#xa0;=&#xa0;0.0001). However, following administration of the pre-school booster all children, regardless of maternal vaccination status achieved protective antibody titres (&#x2265;&#xa0;8), although children of vaccinated mothers still had lower GMTs (988 vs 2964, p&#xa0;=&#xa0;0.009). Administration of the preschool booster overcomes the polio virus immunity gap that develops following the primary vaccination series in children whose mothers received an antenatal dTaP-IPV vaccine versus unvaccinated mothers. Residual differences in post-booster titres warrant continued surveillance to assess their clinical relevance. Clinical trials registry:NCT03578120.",
-          "authors": "Radia Kajal, Sapuan Shari, Grassly Nicholas, Andrews Nick, Ramsay Mary et al.",
-          "journal": "Vaccine",
-          "date": "2026 03",
-          "doi": "10.1016/j.vaccine.2026.128306",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41690287/",
-          "source": "PubMed",
-          "specialty": "小児科",
-          "sourcePriority": "high",
-          "category": "paper",
-          "_pubmedKey": "pediatrics",
-          "priority": "要注視",
-          "summary_ja": "A diphtheria-tetanus-acellular pertussis-inactivated polio combination vaccine (dTaP-IPV) was offered as part of the UK antenatal vaccination programme from 2012 to July 2024. Prior research establish",
-          "impact": "",
-          "memo": ""
-        },
-        {
-          "pmid": "41650673",
-          "title": "Long-term protection of an inactivated enterovirus type 71 vaccine against hand, foot, and mouth diseases in children: a modelling study.",
-          "abstract": "Despite the availability of enterovirus type 71 (EV71) vaccines, evidence on long-term protection remains limited. We aimed to establish a mathematical model for predicting the 20-year long-term protection of the EV71 vaccine. We utilized data from a phase 3 trial in which infants and young children were randomized to receive either two doses of 400&#x202f;U EV71 vaccine or placebo. Neutralizing antibody data (NTAb) were obtained from the immunogenicity subpopulation who were followed for 5&#x202f;years. We compared candidate decay models using Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC), and selected the Segmented Power-law Model to fit antibody decay kinetics. Simulated datasets were generated via 10,000 iterations of Bootstrap sampling. We introduced dynamic exposure simulation with differential exposure rates before and after 2017, and applied a Scaled Logit Model to establish the association between NTAb titers and protective efficacy. Additionally, we performed stratified analysis by dividing the population into High, Medium, and Low responders based on initial antibody titers. Uncertainty was quantified using 95% confidence intervals (CI). The predicted geometric mean titers (GMT) were 168.30 (95% CI: [139.76, 202.67]) at Month 1, 111.28 (95% CI: [93.15, 132.95]) at Month 6, 93.80 (95% CI: [79.12, 111.20]) at Month 12, and 68.04 (95% CI: [60.38, 76.68]) at Month 240. The model predicts that the EV71 vaccine provides a protective efficacy of 80.19% (95% CI: [78.69%, 81.70%]) at Month 1, declining to 72.57% (95% CI: [71.35%, 73.80%]) at Year 20. Stratified analysis revealed that High Responders maintained 75.58% protection at Year 20, compared to 65.09% for Medium and 64.99% for Low Responders. Under the current EV71 epidemic conditions in China, the two-dose regimen of the inactivated EV71 vaccine provides durable protection exceeding 72% for at least 20&#x202f;years.",
-          "authors": "Ma Xinmo, Jin Lairun, Li Jing, Jin Pengfei, Liu Yue et al.",
-          "journal": "Vaccine",
-          "date": "2026 03",
-          "doi": "10.1016/j.vaccine.2026.128286",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41650673/",
-          "source": "PubMed",
-          "specialty": "小児科",
-          "sourcePriority": "high",
-          "category": "paper",
-          "_pubmedKey": "pediatrics",
-          "priority": "要注視",
-          "summary_ja": "Despite the availability of enterovirus type 71 (EV71) vaccines, evidence on long-term protection remains limited. We aimed to establish a mathematical model for predicting the 20-year long-term prote",
-          "impact": "",
-          "memo": ""
+          "memo": "肺炎球菌ワクチンの理解を深める参考資料だが、基礎的な内容で現在の診療方針への直接的影響は限定的。"
         }
       ]
     },
@@ -627,10 +589,10 @@
           "sourcePriority": "medium",
           "category": "paper",
           "_pubmedKey": "medical_ai",
-          "priority": "参考",
-          "summary_ja": "AI医療モデルの訓練に電子カルテだけでなく、患者と医師の会話データを活用する研究プロトコル。音声、テキスト、映像を含む多モーダルデータで、より実際の診療に即したAIシステムの開発を目指す。",
-          "impact": "",
-          "memo": "将来的な診療支援AIの精度向上に寄与する可能性。クリニックでの問診効率化や診断支援への応用が期待される。"
+          "priority": "要注視",
+          "summary_ja": "AIが患者と臨床医の実際の対話を多角的に記録・分析するシステムの研究プロトコル。従来の電子カルテデータだけでなく、音声・テキスト・映像を含む臨床現場の相互作用を捉える。",
+          "impact": "将来的にAI問診やコミュニケーション支援ツールの導入可能性を検討する。",
+          "memo": "クリニックでの患者対応の質向上や効率化に関連。AI技術の医療現場応用の進展として注目すべき研究。"
         },
         {
           "pmid": "41875245",
@@ -685,9 +647,9 @@
           "category": "paper",
           "_pubmedKey": "medical_ai",
           "priority": "参考",
-          "summary_ja": "電子健康記録の臨床ノートから自然言語処理を用いて産後うつ病を特定する手法を開発。診断コードだけでは見逃される症例の検出可能性と、産後うつ病の臨床的異質性の理解向上を目指している。",
+          "summary_ja": "電子健康記録の臨床ノートから自然言語処理を用いて産後うつ病を特定する手法を開発。米国の大学医療センターで64,426名の患者データを用いて評価し、診断コードでは特定できない症例を発見。",
           "impact": "",
-          "memo": "AI技術の医療応用例として参考になるが、産後うつ病は当院の主要診療領域ではなく直接的影響は小さい。"
+          "memo": "産後うつ病の早期発見にAI技術を活用する研究。小児科で産後の母親をフォローする際の参考となるが、実装は今後の課題。"
         },
         {
           "pmid": "41871866",
@@ -704,9 +666,9 @@
           "category": "paper",
           "_pubmedKey": "medical_ai",
           "priority": "参考",
-          "summary_ja": "臨床意思決定支援AIシステムにおける好奇心と謙虚さを備えたBODHIフレームワークを提案。大型言語モデルの不適切な確信表現を抑制し、認識論的不確実性を評価する二重反射アーキテクチャを構築した。",
+          "summary_ja": "臨床決定支援AIシステムのためのBODHI（バランス、開放性、診断、謙虚、探究心）フレームワークを提案。大規模言語モデルの不適切な確信度の問題に対処する二重反省アーキテクチャを開発。",
           "impact": "",
-          "memo": "医療AIシステムの安全性向上に関する技術的知見として参考になるが、現時点では理論的段階。"
+          "memo": "臨床AIシステムの信頼性向上に関する工学的研究。将来的にAI診療支援ツール導入時の判断基準として参考となる可能性がある。"
         }
       ]
     },
@@ -714,6 +676,82 @@
       "label": "医療経営・政策",
       "priority": "medium",
       "articles": [
+        {
+          "pmid": "41886501",
+          "title": "Comparison of post-discharge mortality and medical expenditures in COVID-19 patients according to mechanical ventilation and extracorporeal membrane oxygenation use: The LIFE study.",
+          "abstract": "Outcomes related to health status and economic burden among patients who experienced critical COVID-19 remain insufficiently studied. We examined 180-day post-discharge mortality and total medical expenditures in COVID-19 patients according to their use of mechanical ventilation (MV) or extracorporeal membrane oxygenation (ECMO) during hospitalization. Using medical claims data from a Japanese municipality, this retrospective cohort study analyzed hospitalized COVID-19 patients who were discharged between April 1, 2020 and September 30, 2021. Patients were categorized into an MV/ECMO group (indicating severe disease) or a non-MV/ECMO group. Their differences in mortality and expenditures were compared using the &#x3c7;2 test and Mann-Whitney U test, respectively. A Cox regression analysis was performed to calculate the hazard ratios of MV/ECMO use for mortality, and a generalized linear model with gamma distribution was constructed to examine the association between MV/ECMO use and expenditures. The covariates included age, sex, comorbidities, and length of stay. The MV/ECMO group had significantly higher mortality (16.0% vs. 11.1%, p&#x2009;=&#x2009;0.002) and expenditures ($8,732 vs. $3,460, p&#x2009;&lt;&#x2009;0.001) than the non-MV/ECMO group. MV/ECMO use was significantly associated with higher mortality (hazard ratio: 1.66, 95% confidence interval: 1.27-2.15); other risk factors included age (1.06, 1.05-1.07), dementia (1.48, 1.10-1.99), and cancer (1.92, 1.56-2.36). MV/ECMO use was also significantly associated with higher expenditures (Exp[&#x3b2;]: 1.49, 95% confidence interval: 1.29-1.73); other risk factors included kidney disease (1.60, 1.29-2.01), cerebrovascular disease (1.74, 1.56-1.94), and cancer (1.28, 1.14-1.44). Survivors of severe COVID-19 who required MV or ECMO during hospitalization were associated with higher post-discharge mortality and expenditures, suggesting a need for targeted care to reduce their clinical and economic burden.",
+          "authors": "Kawabata Jun, Goto Kenichi, Maeda Megumi, Fukuda Haruhisa",
+          "journal": "PloS one",
+          "date": "2026 03",
+          "doi": "10.1371/journal.pone.0345939",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886501/",
+          "source": "PubMed",
+          "specialty": "医療経営・政策",
+          "sourcePriority": "medium",
+          "category": "paper",
+          "_pubmedKey": "healthcare_management",
+          "priority": "参考",
+          "summary_ja": "COVID-19重症患者における人工呼吸器・ECMO使用と退院後の死亡率・医療費を分析した日本の研究。重症治療を受けた患者の180日後の予後と経済的負担を調査。",
+          "impact": "",
+          "memo": "当院では重症COVID-19治療は行わないが、退院後フォローアップの参考情報として把握しておく価値あり。"
+        },
+        {
+          "pmid": "41886441",
+          "title": "Study protocol: A randomized controlled trial of chemoradiotherapy versus chemotherapy as neoadjuvant therapy for resectable pancreatic cancer (CSGO-HBP-027).",
+          "abstract": "Despite advances in multimodal treatment, the long-term survival of patients with resectable pancreatic ductal adenocarcinoma (PDAC) remains poor. In Japan, neoadjuvant chemotherapy with gemcitabine and S-1 (GS) has demonstrated a survival benefit compared with upfront surgery. The addition of radiotherapy to chemotherapy may further improve outcomes by enhancing local tumor control and increasing R0 resection rates; however, no randomized trial has directly compared GS alone with GS plus radiotherapy (GS-RT) in patients with resectable PDAC. The CSGO-HBP-027 trial is a multicenter, randomized phase II/III study designed to evaluate whether neoadjuvant GS-RT improves survival compared with GS alone. This trial will enroll 200 patients with resectable PDAC, who will be randomized in a 1:1 ratio to receive either two cycles of GS or two cycles of GS with concurrent radiotherapy (50.4 Gy in 28 fractions), followed by surgery scheduled 3-8 weeks after completion of neoadjuvant therapy. The primary endpoint is overall survival, and secondary endpoints include resection rate, R0 resection rate, histological tumor response, progression-free survival, and safety. Overall survival will be compared between the two treatment arms using the stratified log-rank test, with adjusted hazard ratios estimated using the Cox proportional hazards model. This trial was registered with the Japan Registry of Clinical Trials (jRCTs051250150). The CSGO-HBP-027 trial will provide evidence on whether neoadjuvant GS-RT improves survival in patients with resectable PDAC compared with GS alone. The results of this study are expected to clarify the optimal neoadjuvant treatment strategy for resectable PDAC and to provide high-quality evidence regarding the clinical value of adding radiotherapy to GS-based neoadjuvant therapy.",
+          "authors": "Tomimaru Yoshito, Akita Hirofumi, Tamari Keisuke, Maeda Sakae, Wada Hiroshi et al.",
+          "journal": "PloS one",
+          "date": "2026 03",
+          "doi": "10.1371/journal.pone.0345459",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886441/",
+          "source": "PubMed",
+          "specialty": "医療経営・政策",
+          "sourcePriority": "medium",
+          "category": "paper",
+          "_pubmedKey": "healthcare_management",
+          "priority": "参考",
+          "summary_ja": "切除可能膵がんの術前治療として化学療法単独と化学放射線療法を比較する多施設ランダム化試験のプロトコル。200名の患者を対象とした第II/III相試験。",
+          "impact": "",
+          "memo": "専門的ながん治療の研究で当院業務への直接的影響は限定的。消化器外科との連携時の知識として参考程度。"
+        },
+        {
+          "pmid": "41886103",
+          "title": "Effectiveness of evidence-based nursing protocols in managing postpartum hemorrhage after vaginal delivery: a prospective observational quality-improvement evaluation.",
+          "abstract": "To investigate the effectiveness of evidence-based intervention strategies in managing postpartum hemorrhage following vaginal delivery. This was a prospective, observational quality-improvement evaluation conducted among 120 women who experienced postpartum hemorrhage after vaginal delivery. Two nursing strategies were compared consecutively: a conventional nursing routine and a structured evidence-based nursing protocol developed from current literature and clinical guidelines. Outcomes assessed included postpartum blood loss, coagulation indicators [prothrombin time (PT), thrombin time (TT), activated partial thromboplastin time (APTT), and fibrinogen (FIB)], adverse events, self-care ability, nursing satisfaction, emotional status [Self-Rating Anxiety Scale (SAS) and Self-Rating Depression Scale (SDS)], and quality of life. Compared with the routine nursing phase, the evidence-based nursing phase was associated with lower bleeding volume at 0.5, 2, 12, and 24&#xa0;h postpartum (P&#x2009;&lt;&#x2009;0.05). After 5 days of nursing care, PT, TT, and APTT were shorter, and FIB levels were higher (P&#x2009;&lt;&#x2009;0.05). The frequency of adverse events was lower (10.0% vs. 23.3%), while self-care ability, nursing satisfaction, and quality-of-life scores were higher. Both phases showed decreases in SAS and SDS scores, with greater improvement observed in the evidence-based phase (P&#x2009;&lt;&#x2009;0.05). An observational study of quality-improvement demonstrated a significant association between the implementation of a standardized evidence-based nursing protocol and reduced postpartum hemorrhage, improved coagulation profiles, lower incidence of adverse events, and improved psychosocial outcomes. These results should be validated in future randomized controlled trials.",
+          "authors": "Chen Yanting, Ling Mengxue, Nan Dandan, Zhang Zhenzhen, Liu Shanshan et al.",
+          "journal": "Archives of gynecology and obstetrics",
+          "date": "2026 03",
+          "doi": "10.1007/s00404-026-08393-4",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41886103/",
+          "source": "PubMed",
+          "specialty": "医療経営・政策",
+          "sourcePriority": "medium",
+          "category": "paper",
+          "_pubmedKey": "healthcare_management",
+          "priority": "参考",
+          "summary_ja": "経腟分娩後の産後出血管理における evidence-based nursing protocol の有効性を評価した前向き観察研究。従来の看護ルーチンと構造化されたプロトコルを比較。",
+          "impact": "",
+          "memo": "産科診療は行わないが、エビデンスに基づく看護プロトコルの導入という観点で参考となる手法。"
+        },
+        {
+          "pmid": "41885927",
+          "title": "Clinical characteristics, prognostic factors, and feasibility of ICI continuation in immune checkpoint inhibitor-related pneumonitis.",
+          "abstract": "Immune checkpoint inhibitor (ICI)-related pneumonitis (ICI-pneumonitis) is a serious complication, whose clinical course and optimal management strategies remain inadequately elucidated. This study clarified whether post-pneumonitis ICI continuation is safe and feasible, identified risk factors for fatal outcomes or successful continuation, and assessed whether findings from patients with lung cancer can be generalized to those with other malignancies. This retrospective study analyzed data from 1,320 patients who received ICI therapy at Kyushu University Hospital between September 2014 and March 2023. Among these, 300 and 1,020 patients had lung and non-lung cancers, respectively. Clinical characteristics, treatment strategies, and outcomes were compared between the two groups. Predictors of fatal pneumonitis and successful ICI continuation were identified using univariable logistic regression. ICI-pneumonitis occurred in 96 (7.3%) patients, with a higher incidence in those with lung cancer (14.0%, [42/300]) than in those with non-lung cancers (5.3%, [54/1020]). Clinical characteristics remained similar across cancer types post-pneumonitis. Diffuse alveolar damage pattern, grade&#x2009;&#x2265;&#x2009;3 pneumonitis at diagnosis, and elevated C-reactive protein level were significant predictors of fatal pneumonitis. Among 34 patients who attempted ICI continuation, 20 (58.8%) maintained ICI treatment until disease progression. Successful ICI continuation showed a trend toward association with normal baseline lung parenchyma. The similar characteristics of ICI-pneumonitis across malignancies support the generalizability of management strategies. Approximately one-fifth of patients successfully continued ICI therapy after pneumonitis. Systematic radiological surveillance and appropriate severity-based treatment may help optimize outcomes in patients receiving ICI therapy.",
+          "authors": "Masumoto Keisuke, Tsubouchi Kazuya, Matsukane Ryosuke, Yasukochi Sai, Ogata Hiroaki et al.",
+          "journal": "Cancer immunology, immunotherapy : CII",
+          "date": "2026 03",
+          "doi": "10.1007/s00262-026-04375-2",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41885927/",
+          "source": "PubMed",
+          "specialty": "医療経営・政策",
+          "sourcePriority": "medium",
+          "category": "paper",
+          "_pubmedKey": "healthcare_management",
+          "priority": "参考",
+          "summary_ja": "Immune checkpoint inhibitor (ICI)-related pneumonitis (ICI-pneumonitis) is a serious complication, whose clinical course and optimal management strategies remain inadequately elucidated. This study cl",
+          "impact": "",
+          "memo": ""
+        },
         {
           "pmid": "41883248",
           "title": "The role of health literacy in the association between nationality and health status among university students: a cross-sectional study.",
@@ -729,83 +767,7 @@
           "category": "paper",
           "_pubmedKey": "healthcare_management",
           "priority": "参考",
-          "summary_ja": "日本の大学生における国籍とヘルスリテラシーの関係を調査した研究。留学生は日本人学生より健康状態が低く、ヘルスリテラシーが媒介要因となることを示した。",
-          "impact": "",
-          "memo": "外国人患者対応の参考情報。多言語対応や文化的配慮の必要性を示唆している。"
-        },
-        {
-          "pmid": "41880299",
-          "title": "The coverage of maternal continuum-of-care and associated factors in the Lao People's Democratic Republic: A population-based cross-sectional study.",
-          "abstract": "Maternal, newborn, and child health remains a global challenge, with continuum-of-care serving as a key strategy to improve health outcomes. This study aimed to examine the coverage of maternal continuum-of-care and to identify factors associated with continued care in the Lao People's Democratic Republic (Lao PDR). This is a cross-sectional study including 2,612 women aged 15-49 years who participated in Lao Social Indicator Survey III, 2023, gave live birth in the two years preceding the interview, and responded to questions about antenatal care (ANC), postnatal care (PNC), and delivery assistance during their last pregnancy and childbirth. Maternal continuum-of-care was defined as having&#x2009;&#x2265;&#x2009;4 ANC visits, delivery by a skilled birth attendant (SBA), and at least one PNC visit after discharge and within six weeks postpartum. In the selection process of the study participants, all women who had home delivery were excluded due to missing data on the three components of the continuum-of-care. Of the 2,612 women (with facility-based delivery), 83.1% received&#x2009;&#x2265;&#x2009;4 ANC visits, 82.2% received both &#x2265; 4 ANC visits and SBA delivery, and 3.3% completed the maternal continuum-of-care. Factors associated with completion of the continuum-of-care included classifying as a high wealth index category (adjusted odds ratio [AOR] = 2.19, 95% confidence interval [CI]: 1.19-4.04), having the last child as male (AOR&#x2009;=&#x2009;1.65, 95% CI: 1.04-2.61) and receiving a maternal health check before discharge from the health facility (AOR&#x2009;=&#x2009;2.40, 95% CI: 1.06-5.41). Hmong-Mien women were significantly less likely to complete the continuum-of-care than Lao-Tai women (AOR&#x2009;=&#x2009;0.24, 95% CI: 0.06-0.91). The completion of the maternal continuum-of-care in Lao PDR was very low. Strengthening maternal health checks before discharge, addressing gender norms and financial barriers, and promoting culturally sensitive, community-based, and family-engaged approaches may improve coverage.",
-          "authors": "Xaypadith Sengdavy, Aoki Ai, Nishino Kimihiro, Yamamoto Eiko",
-          "journal": "PloS one",
-          "date": "2026 03",
-          "doi": "10.1016/j.heliyon.2023.e17559",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41880299/",
-          "source": "PubMed",
-          "specialty": "医療経営・政策",
-          "sourcePriority": "medium",
-          "category": "paper",
-          "_pubmedKey": "healthcare_management",
-          "priority": "参考",
-          "summary_ja": "ラオス人民民主共和国における母子継続ケアの実施状況と関連要因を分析した人口ベース横断研究。妊産婦ケアの継続的提供の重要性を示している。",
-          "impact": "",
-          "memo": "国際的な母子保健の参考情報。小児科における新生児ケアや母子支援の知見として活用可能。"
-        },
-        {
-          "pmid": "41880229",
-          "title": "Surname match/mismatch revisited: It may no longer matter for partner choice.",
-          "abstract": "Kin recognition plays a crucial role in mating across various biological taxa, including bacteria, plants, and animals, to prevent inbreeding. Historically, surnames have been indicators of kinship in humans, with many countries enforcing laws and norms to prohibit marriages between individuals sharing the same surname in the past. Here, considering the potentially adaptive role of surname mismatch in inbreeding avoidance, we address whether surnames can still influence partner choice in modern human society, where same-surname marriages are no longer prohibited, by utilizing nation-wide name databases from Taiwan. Analysis of data from 2018 revealed a lower frequency of same-surname marriages than expected, reflecting historical taboos against such marriages. However, this pattern was not observed in the 2023 data, suggesting a potential shift in people's attitudes over time. To further interpret this trend, we conducted a simple questionnaire survey among university students, which showed no significant correlation between surname coincidence and attractiveness ratings of heterosexual face images, in contrast to the traditional custom. Our results, although preliminary, suggest the hypothesis that the significance of surname match/mismatch in partner choice may have diminished, potentially due to rapidly changing socio-cultural environments. Further research into the shifting role of surnames is necessary to gain a deeper understanding of human social behaviors across different regions and contexts amidst modernization and globalization.",
-          "authors": "Nakazawa Takefumi, Shinohara Naoto, Fukano Yuya",
-          "journal": "PloS one",
-          "date": "2026 03",
-          "doi": "10.1098/rsbl.2007.0232",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41880229/",
-          "source": "PubMed",
-          "specialty": "医療経営・政策",
-          "sourcePriority": "medium",
-          "category": "paper",
-          "_pubmedKey": "healthcare_management",
-          "priority": "参考",
-          "summary_ja": "Kin recognition plays a crucial role in mating across various biological taxa, including bacteria, plants, and animals, to prevent inbreeding. Historically, surnames have been indicators of kinship in",
-          "impact": "",
-          "memo": ""
-        },
-        {
-          "pmid": "41877329",
-          "title": "Bayesian randomised controlled trial of guided parent-delivered cognitive behavioural therapy for children with anxiety disorders via remote sessions in Japan: a study protocol.",
-          "abstract": "Guided parent-delivered cognitive behavioural therapy (GPD-CBT) is an evidence-based, low-burden treatment programme for childhood anxiety disorders with demonstrated efficacy, cost-effectiveness and accessibility. However, it has been tested primarily in Western countries, and the efficacy and cost-effectiveness have not been evaluated in Japanese families. The current study aims to examine GPD-CBT's efficacy and cost-effectiveness in Japanese samples and explore potential cultural adaptations of the programme. This study is designed as a Bayesian single-blind randomised controlled trial with two parallel groups: GPD-CBT (intervention group) and a waitlist control group. The primary outcome is remission of primary anxiety disorders evaluated through diagnostic interviews by independent evaluators. Secondary outcomes include child and parent-reported child anxiety symptoms, depressive symptoms and life interference. Additionally, measures of parental psychological characteristics, programme acceptability and quality of life are collected. We will conduct qualitative interviews with parents who participated in the programme and therapists who delivered the intervention to explore potential cultural adaptations. We aim to recruit 54-170 families, depending on the results of sequential Bayesian analyses. GPD-CBT consists of seven&#x2009;weekly 20&#x2009;min sessions and a 1-month follow-up session. Assessments will be conducted at baseline, 13 weeks post randomisation (primary endpoint for between-group comparison), with an additional 25 weeks post randomisation. The waitlist control group will receive GPD-CBT after the 13-week assessment. This study has been approved by the Ethics Review Committees of Chiba University and the University of Tokyo. We will disseminate results through academic conference presentations and peer-reviewed journal publications. If the GPD-CBT intervention proves efficacious, we will promote wider implementation in Japan through the development of training programmes for mental health professionals and key stakeholders. jRCT1032250421 (https://jrct.mhlw.go.jp/latest-detail/jRCT1032250421) and jRCT1030250422 (https://jrct.mhlw.go.jp/latest-detail/jRCT1030250422) registered on 9 October 2025.",
-          "authors": "Okawa Sho, Blackwell Simon E, Violato Mara, Creswell Cathy, Ishikawa Shin-Ichi et al.",
-          "journal": "BMJ open",
-          "date": "2026 03",
-          "doi": "10.1136/bmjopen-2025-114705",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41877329/",
-          "source": "PubMed",
-          "specialty": "医療経営・政策",
-          "sourcePriority": "medium",
-          "category": "paper",
-          "_pubmedKey": "healthcare_management",
-          "priority": "参考",
-          "summary_ja": "日本の小児不安障害に対する親主導認知行動療法の効果と費用対効果を検証するランダム化比較試験。リモートセッションによる治療プログラムの日本での適応性を評価。",
-          "impact": "",
-          "memo": "小児科での不安障害治療の選択肢拡大。遠隔診療やメンタルヘルス支援サービスの参考情報として有用。"
-        },
-        {
-          "pmid": "41875181",
-          "title": "Reliability and validity of a newly developed Action Research Arm Test for upper limb function assessment in patients with stroke: A comparison with the conventional version.",
-          "abstract": "Following the discontinuation of the conventional Action Research Arm Test (ARAT) import in Japan, a domestically manufactured version with identical assessment protocols but modified equipment was developed. We aimed to evaluate the psychometric properties of the newly developed ARAT and compare it with the conventional ARAT in patients with stroke. This single-center cross-sectional study enrolled 64 patients with stroke and hemiparesis who met predefined inclusion criteria. Participants were randomly allocated to a reliability validation (n&#x2009;=&#x2009;33) or criterion validity validation (n&#x2009;=&#x2009;31) group. The reliability group underwent duplicate assessments with the new ARAT at 15-min intervals, with video recording for independent inter-rater evaluation. The validity group received the new and conventional ARAT assessments in randomized order. Convergent validity was assessed using Spearman correlation coefficients with Fugl-Meyer Assessment of the Upper Extremity (FMA-UE), Box and Block Test (BBT), grip strength, Motor Activity Log (MAL), and Jikei Assessment Scale for Motor Impairment in Daily Living (JASMID). Intra-rater reliability demonstrated excellent agreement (intraclass correlation coefficient [ICC]: 0.997-1.000, 95% confidence interval [CI]: 0.995-1.000) across all subscales and total scores. Inter-rater reliability showed equally excellent agreement (ICC: 0.979-0.999, 95% CI: 0.963-0.999). Bland-Altman analysis revealed limits of agreement within clinically acceptable ranges for all measures. The new ARAT demonstrated very strong convergent validity with FMA-UE (&#x3c1;&#x2009;=&#x2009;0.934, p&#x2009;&lt;&#x2009;0.001) and BBT (&#x3c1;&#x2009;=&#x2009;0.917, p&#x2009;&lt;&#x2009;0.001), and moderate-to-strong correlations with grip strength (&#x3c1;&#x2009;=&#x2009;0.683, p&#x2009;&lt;&#x2009;0.001), MAL subscales (&#x3c1;&#x2009;=&#x2009;0.610-0.666, p&#x2009;&lt;&#x2009;0.001), and JASMID subscales (&#x3c1;&#x2009;=&#x2009;0.806-0.808, p&#x2009;&lt;&#x2009;0.001). The new ARAT demonstrates measurement properties equivalent to the conventional version with excellent reliability and strong criterion-related validity. Its robust convergent validity with established upper limb assessments supports its clinical utility for comprehensive stroke rehabilitation evaluation.",
-          "authors": "Sakamoto Daigo, Hamaguchi Toyohiro, Nakayama Yasuhide, Abo Masahiro",
-          "journal": "PloS one",
-          "date": "2026 03",
-          "doi": "10.1016/S1474-4422(21)00252-0",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/41875181/",
-          "source": "PubMed",
-          "specialty": "医療経営・政策",
-          "sourcePriority": "medium",
-          "category": "paper",
-          "_pubmedKey": "healthcare_management",
-          "priority": "参考",
-          "summary_ja": "Following the discontinuation of the conventional Action Research Arm Test (ARAT) import in Japan, a domestically manufactured version with identical assessment protocols but modified equipment was de",
+          "summary_ja": "Immigrants often face numerous health-related challenges, which may result in a lower health status (HS) as compared with the domestic population. This study examined the association between nationali",
           "impact": "",
           "memo": ""
         }
