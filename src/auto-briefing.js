@@ -105,26 +105,13 @@ function filterPubmedForAPI(pubmedData) {
       return aTop - bTop;
     });
 
-    const forAPI = sorted.slice(0, 3);
-    const rest = sorted.slice(3);
-
-    for (const a of forAPI) {
+    // 全件API送信（トップジャーナル順でソート済み）
+    for (const a of sorted) {
       a._pubmedKey = key;
       a.source = a.source || 'PubMed';
       a.specialty = a.specialty || catData.label;
       a.category = 'paper';
       apiArticles.push(a);
-    }
-    for (const a of rest) {
-      a._pubmedKey = key;
-      a.source = a.source || 'PubMed';
-      a.specialty = a.specialty || catData.label;
-      a.category = 'paper';
-      a.priority = a.priority || (catData.priority === 'high' ? '要注視' : '参考');
-      a.summary_ja = a.summary_ja || (a.abstract || '').substring(0, 200);
-      a.impact = a.impact || '';
-      a.memo = a.memo || '';
-      fallbackArticles.push(a);
     }
   }
 
