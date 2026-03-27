@@ -85,8 +85,8 @@ async function summarizeArticles(articles, config, options = {}) {
   const systemPrompt = config.claude_api.system_prompt;
   const deadlineMs = options.deadlineMs || Infinity;
 
-  // バッチ処理: 1回のAPI呼び出しで最大20記事を処理
-  const batchSize = 20;
+  // バッチ処理: 1回のAPI呼び出しで最大10記事を処理
+  const batchSize = 10;
   const results = [];
 
   for (let i = 0; i < articles.length; i += batchSize) {

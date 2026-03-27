@@ -166,6 +166,36 @@ function writePubmedBack(rawData, summarizedArticles) {
   }
 }
 
+// --- 未翻訳（Latin文字のみ）検出 ---
+
+function isLatinOnly(str) {
+  if (!str || str.trim().length === 0) return false;
+  return /^[\x00-\x7F\u00C0-\u024F]+$/.test(str.trim());
+}
+
+function collectUntranslatedArticles(data) {
+  const untranslated = [];
+  if (data.pubmed) {
+    for (const [key, catData] of Object.entries(data.pubmed)) {
+      for (const article of (catData.articles || [])) {
+        if (article.summary_ja && isLatinOnly(article.summary_ja)) {
+          untranslated.push({ ...article, _pubmedKey: key });
+        }
+      }
+    }
+  }
+  for (const key of ['mhlw', 'hackernews', 'arxiv', 'medscape', 'fierce', 'carenet', 'nikkei', 'ft', 'm3', 'medical_tribune']) {
+    if (data[key]) {
+      for (const article of data[key]) {
+        if (article.summary_ja && isLatinOnly(article.summary_ja)) {
+          untranslated.push({ ...article, _sourceKey: key });
+        }
+      }
+    }
+  }
+  return untranslated;
+}
+
 // --- Main ---
 
 async function main() {
@@ -381,6 +411,47 @@ async function main() {
       } catch (e) {
         console.error('API error:', e.message);
         assignDefaultPriorities(rawData);
+      }
+    }
+
+    // --- 未翻訳記事の再処理（1回のみ） ---
+    const untranslated = collectUntranslatedArticles(rawData);
+    if (untranslated.length > 0) {
+      console.log(`  未翻訳記事を検出: ${untranslated.length} 件 → 再処理中...`);
+      try {
+        const retryBatchSize = 5;
+        for (let i = 0; i < untranslated.length; i += retryBatchSize) {
+          const batch = untranslated.slice(i, i + retryBatchSize);
+          const retryConfig = {
+            ...config,
+            claude_api: {
+              ...config.claude_api,
+              system_prompt: config.claude_api.system_prompt + '\n\n【再処理指示】この記事は前回英語で返されました。必ず日本語に翻訳してください。英語のまま返すことは絶対に禁止です。summary_ja、impact、memoは全て日本語で記述してください。',
+            },
+          };
+          const retrySummarized = await summarizeArticles(batch, retryConfig, { deadlineMs });
+
+          // Write retry results back
+          writePubmedBack(rawData, retrySummarized.filter(s => s._pubmedKey));
+          const retryMaps = {};
+          for (const key of newsSourceKeys) {
+            retryMaps[key] = new Map((rawData[key] || []).map((a, i) => [a.title, i]));
+          }
+          for (const s of retrySummarized) {
+            const key = s._sourceKey;
+            if (key && retryMaps[key] && retryMaps[key].has(s.title)) {
+              const idx = retryMaps[key].get(s.title);
+              rawData[key][idx] = { ...rawData[key][idx], priority: s.priority, summary_ja: s.summary_ja, impact: s.impact, memo: s.memo };
+            }
+          }
+
+          if (i + retryBatchSize < untranslated.length) {
+            await new Promise(r => setTimeout(r, 2000));
+          }
+        }
+        console.log(`  再処理完了`);
+      } catch (e) {
+        console.error('  再処理エラー:', e.message);
       }
     }
 
