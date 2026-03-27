@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-03-27T16:19:59.114Z",
+  "collected_at": "2026-03-27T16:25:53.911Z",
   "pubmed": {},
   "mhlw": [
     {
@@ -9,9 +9,9 @@
       "source": "厚生労働省",
       "category": "regulation",
       "priority": "要対応",
-      "summary_ja": "厚生労働省の診療報酬改定に関する公式情報。医療機関の経営に直接影響する制度変更の詳細が含まれている。",
-      "impact": "改定内容を精査し、当クリニックの各診療科への影響度を評価、必要な体制変更を検討する。",
-      "memo": "診療報酬は当クリニックの収益基盤に直結。改定内容によって算定方式や施設基準への対応が必要。",
+      "summary_ja": "診療報酬改定に関する厚生労働省の公式情報。",
+      "impact": "改定内容を詳細確認し、各診療科の算定要件変更への対応を準備する。",
+      "memo": "全診療科に影響する重要な制度変更。算定漏れや新要件への対応が経営に直結する。",
       "_cached": true,
       "_sourceKey": "mhlw",
       "_score": 5
@@ -23,9 +23,9 @@
       "source": "厚生労働省",
       "category": "regulation",
       "priority": "要対応",
-      "summary_ja": "厚生労働省による消費税と診療報酬の関係についての公式見解。医療機関の消費税負担と補填措置に関する重要な情報。",
-      "impact": "消費税負担の実情と補填状況を確認し、必要に応じて関係機関へ意見提出を検討する。",
-      "memo": "消費税は医療機関の経営を圧迫する要因。診療報酬での補填状況は収益性に直接関わる重要事項。",
+      "summary_ja": "消費税と診療報酬の関係について厚生労働省が解説。医療機関の消費税負担と診療報酬での補填に関する内容。",
+      "impact": "消費税負担の影響を正確に把握し、診療報酬での補填状況を確認する。",
+      "memo": "消費税負担は医療機関の経営圧迫要因。補填状況の理解は収益管理に重要。",
       "_cached": true,
       "_sourceKey": "mhlw",
       "_score": 5
@@ -37,9 +37,9 @@
       "source": "厚生労働省",
       "category": "regulation",
       "priority": "参考",
-      "summary_ja": "厚生労働省によるジカウイルス感染症に関する公式情報。感染症対策や届出基準などの情報が含まれる。",
+      "summary_ja": "厚生労働省によるジカウイルス感染症に関する情報。",
       "impact": "",
-      "memo": "感染症対策の一環として把握。当院での感染症診療時の参考情報として保管。",
+      "memo": "感染症対策の一環として知識を持っておくべき情報だが、日本では現在流行していない。",
       "_cached": true,
       "_sourceKey": "mhlw",
       "_score": 3
@@ -70,9 +70,9 @@
       "_sourceKey": "medscape",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "Biocomputer From Human Neurons Plays Doom, Raises Ethics",
+      "summary_ja": "人間の神経細胞を使ったバイオコンピュータがゲーム「ドゥーム」をプレイし、倫理的な課題を提起している研究。",
       "impact": "",
-      "memo": ""
+      "memo": "基礎研究レベルの話題で、臨床応用までは長期間を要する。現在のクリニック経営には関係しない。"
     },
     {
       "title": "Physicians Must Lead AI Integration in Medicine",
@@ -82,10 +82,10 @@
       "category": "medical_news",
       "_sourceKey": "medscape",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Physicians Must Lead AI Integration in Medicine",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "医師が医療におけるAI統合をリードしなければならないという論調。医療現場でのAI活用が急速に進展している状況。",
+      "impact": "AI診療支援ツールの導入検討や、スタッフのAIリテラシー向上を検討する。",
+      "memo": "AI問診や診療支援システムの導入は、診療効率化や質向上に直結する重要な検討課題。"
     },
     {
       "title": "S1 Episode 2: Can Early Genetic Testing Change ATTR-CM Outcomes?",
@@ -189,9 +189,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "SCAN taps biopharma, CMS vet Aman Bhandari as its first chief AI officer",
+      "summary_ja": "米国の保険会社SCANが初のチーフAIオフィサーとして、バイオファーマと連邦医療保険制度の経験者を任命。",
       "impact": "",
-      "memo": ""
+      "memo": "海外保険会社の人事案件で、日本の医療機関への直接的影響は限定的。AI活用トレンドの参考程度。"
     },
     {
       "title": "UnitedHealth shareholder sues over proposal to include details on integration in annual proxy",
@@ -201,10 +201,10 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "UnitedHealth shareholder sues over proposal to include details on integration in annual proxy",
+      "priority": "除外",
+      "summary_ja": "ユナイテッドヘルス社の株主が企業統合の詳細を年次委任状報告書に含める提案について訴訟を起こしている。米国保険会社の内部統合問題に関する株主訴訟である。",
       "impact": "",
-      "memo": ""
+      "memo": "米国の保険会社内部問題であり、日本のクリニック経営には直接関係しない。海外企業の株主関連事項。"
     },
     {
       "title": "Infosys to acquire Optimum Healthcare IT in $465M deal",
@@ -279,10 +279,10 @@
       "category": "medical_news",
       "_sourceKey": "fierce",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "OpenEvidence rolls out AI medical coding feature",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "オープンエビデンス社がAI医療コーディング機能をリリースした。医療記録の自動コード化により、診療記録の効率化と精度向上が期待される。",
+      "impact": "AI医療コーディングの動向を注視し、将来的な導入検討の準備を進める。",
+      "memo": "診療報酬請求業務の効率化に関連。レセプト作成の自動化や精度向上により事務負担軽減の可能性。"
     },
     {
       "title": "RWJF: Between 5M and 10M people could lose Medicaid coverage in 2028 under work requirements",
@@ -293,9 +293,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "RWJF: Between 5M and 10M people could lose Medicaid coverage in 2028 under work requirements",
+      "summary_ja": "ロバート・ウッド・ジョンソン財団の報告によると、2028年までに就労要件により500万から1000万人がメディケイド保障を失う可能性がある。米国の医療保険制度変更の影響予測。",
       "impact": "",
-      "memo": ""
+      "memo": "米国の医療保険制度変更であり、日本の保険診療制度への直接影響はない。海外動向の参考情報。"
     },
     {
       "title": "CMS reveals new Medicaid model that supports coordination for children with complex needs",
@@ -306,9 +306,9 @@
       "_sourceKey": "fierce",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "CMS reveals new Medicaid model that supports coordination for children with complex needs",
+      "summary_ja": "CMS（米国メディケア・メディケイドサービスセンター）が複雑な医療ニーズを持つ小児の調整を支援する新しいメディケイドモデルを発表した。小児医療の連携体制強化が目的。",
       "impact": "",
-      "memo": ""
+      "memo": "米国の小児医療制度変更。日本の小児科診療への直接影響はないが、小児医療連携の参考事例。"
     }
   ],
   "carenet": [
@@ -364,9 +364,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "大塚製薬、米バイオ企業を1100億円で買収　PTSDの新薬候補取得",
+      "summary_ja": "大塚製薬が米国のバイオテクノロジー企業を1100億円で買収し、PTSD治療薬の新薬候補を取得した。精神医療分野での製薬企業の投資拡大を示している。",
       "impact": "",
-      "memo": ""
+      "memo": "製薬業界の動向として参考。PTSD治療薬は精神科領域で、当クリニックの診療科目への直接影響は限定的。"
     },
     {
       "title": "エーザイと米メルク　腎臓がん向けに抗がん剤を併用、日本で申請",
@@ -379,9 +379,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "エーザイと米メルク　腎臓がん向けに抗がん剤を併用、日本で申請",
+      "summary_ja": "エーザイと米メルクが腎臓がん治療向けに抗がん剤の併用療法を日本で申請した。がん治療の選択肢拡大により、専門医療機関への紹介機会が増加する可能性。",
       "impact": "",
-      "memo": ""
+      "memo": "がん専門医療ではないが、腎臓がん患者の紹介先選択肢拡大として参考。糖尿病患者の合併症管理の観点で関連。"
     },
     {
       "title": "調剤報酬改定で「医療モール薬局」苦難　収益力低下、M&A加速へ",
@@ -393,10 +393,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "調剤報酬改定で「医療モール薬局」苦難　収益力低下、M&A加速へ",
-      "impact": "",
-      "memo": ""
+      "priority": "要対応",
+      "summary_ja": "調剤報酬改定により医療モール薬局の収益力が低下し、M&Aが加速している。調剤報酬制度変更が薬局経営に大きな影響を与えている状況。",
+      "impact": "隣接薬局との連携関係を確認し、薬局側の経営状況変化への対応策を検討する。",
+      "memo": "医療モール内薬局との連携は患者利便性向上の重要要素。薬局の経営不振は患者サービスに直接影響。"
     },
     {
       "title": "塩野義製薬、3000億円借り入れ　エイズ治療薬の英社への追加出資で",
@@ -409,9 +409,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "参考",
-      "summary_ja": "塩野義製薬、3000億円借り入れ　エイズ治療薬の英社への追加出資で",
+      "summary_ja": "塩野義製薬がエイズ治療薬開発の英国企業への追加出資のため、3000億円の借り入れを実施。製薬企業の大型投資案件。",
       "impact": "",
-      "memo": ""
+      "memo": "製薬業界の投資動向として参考程度。クリニック経営への直接的影響は限定的。"
     },
     {
       "title": "がん治療向け放射性元素「アスタチン」　住友重機械、27年製造開始へ",
@@ -424,9 +424,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "参考",
-      "summary_ja": "がん治療向け放射性元素「アスタチン」　住友重機械、27年製造開始へ",
+      "summary_ja": "住友重機械工業が、がん治療向け放射性元素「アスタチン」の製造を2027年に開始予定。新たながん治療技術の製造体制整備。",
       "impact": "",
-      "memo": ""
+      "memo": "がん診療に関わる新技術だが、専門的な放射線治療領域のため、一般クリニックへの直接的影響は限定的。"
     },
     {
       "title": "AI新興ジールス、筑波大付属病院と二足歩行のロボ実証　夜間見回りに",
@@ -438,10 +438,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 6,
-      "priority": "参考",
-      "summary_ja": "AI新興ジールス、筑波大付属病院と二足歩行のロボ実証　夜間見回りに",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "AI新興企業ジールスが筑波大学付属病院と共同で、夜間見回り業務に二足歩行ロボットの実証実験を開始。病院での人手不足解消や業務効率化を目的とした実証実験。",
+      "impact": "人手不足が深刻化する中、将来的な自動化技術導入の可能性を検討する。",
+      "memo": "看護師不足や夜間業務の負担軽減は小規模クリニックでも課題。将来的な導入コスト効果を検討する価値がある。"
     },
     {
       "title": "GSKやアストラゼネカ、ぜんそくにバイオ薬 効果長持ち・価格10倍超",
@@ -484,9 +484,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "参考",
-      "summary_ja": "エーザイ、肺がん治療薬を欧州で承認申請",
+      "summary_ja": "エーザイが肺がん治療薬の欧州での承認申請を実施。がん治療薬の新たな選択肢拡大に向けた動き。",
       "impact": "",
-      "memo": ""
+      "memo": "肺がん治療薬の選択肢拡大は将来的に紹介先病院の治療成績向上に寄与する可能性。間接的な影響程度。"
     },
     {
       "title": "小野薬品、希少がん治療薬の承認申請 既存薬使用後の患者対象",
@@ -499,9 +499,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "参考",
-      "summary_ja": "小野薬品、希少がん治療薬の承認申請 既存薬使用後の患者対象",
+      "summary_ja": "小野薬品工業が希少がん治療薬の承認申請を実施。既存薬使用後の患者を対象とした新たな治療選択肢の提供。",
       "impact": "",
-      "memo": ""
+      "memo": "希少がんの治療選択肢拡大は、患者さんへの情報提供や適切な紹介の観点で参考になる程度。"
     },
     {
       "title": "メルク、がん治療薬新興を1兆円で買収 主力薬特許切れで連続M&A",
@@ -514,9 +514,9 @@
       "_sourceKey": "nikkei",
       "_score": 4,
       "priority": "参考",
-      "summary_ja": "メルク、がん治療薬新興を1兆円で買収 主力薬特許切れで連続M&A",
+      "summary_ja": "メルクが主力薬の特許切れに備え、がん治療薬新興企業を1兆円で買収。製薬大手の戦略的M&A。",
       "impact": "",
-      "memo": ""
+      "memo": "製薬業界の再編動向として参考程度。クリニック経営への直接的影響は限定的。"
     },
     {
       "title": "武田薬品、27年3月期に構造再編費1500億円 特許切れや新薬に備え",
@@ -544,9 +544,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "介護のソラストがMBO、上場廃止へ 経営自由度高める",
+      "summary_ja": "介護事業大手のソラストがMBO（経営陣買収）により上場廃止し、経営自由度を高める方針を発表した。介護業界での経営戦略変更の事例。",
       "impact": "",
-      "memo": ""
+      "memo": "介護業界の動向として参考。高齢患者の介護サービス連携先として、業界の経営環境変化を把握。"
     },
     {
       "title": "杏林製薬、ヤンセンファーマと販売の契約締結 抗結核薬で",
@@ -559,9 +559,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "杏林製薬、ヤンセンファーマと販売の契約締結 抗結核薬で",
+      "summary_ja": "杏林製薬がヤンセンファーマと抗結核薬の販売契約を締結した。結核治療薬の供給体制強化により、感染症治療の選択肢が拡大する。",
       "impact": "",
-      "memo": ""
+      "memo": "結核は感染症として内科診療に関連。治療薬の供給安定化は患者治療継続性向上に寄与。"
     },
     {
       "title": "川崎重工、介護職員の行動を自動で記録できるシステム 業務改善に",
@@ -574,9 +574,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "川崎重工、介護職員の行動を自動で記録できるシステム 業務改善に",
+      "summary_ja": "川崎重工が介護職員の行動を自動記録できるシステムを開発し、業務改善を支援する。介護現場でのデジタル化とワークフロー最適化が進展。",
       "impact": "",
-      "memo": ""
+      "memo": "医療現場でも類似技術の応用可能性。スタッフの業務効率化や記録業務の自動化技術として参考。"
     },
     {
       "title": "スズケン､セイノーHDなどと資本業務提携 メーカー物流を強化",
@@ -604,9 +604,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "ジェイファーマ上場 吉武社長「独自の胆道がん薬を世界で発売」",
+      "summary_ja": "ジェイファーマが上場し、独自の胆道がん薬を世界で発売する計画を発表。同社の吉武社長が世界展開への意欲を示している。",
       "impact": "",
-      "memo": ""
+      "memo": "がん治療薬の新たな選択肢として、将来的に消化器内科・外科での治療に影響する可能性。直接的な経営への影響は限定的。"
     },
     {
       "title": "「ファンド病院」監視へ、4月から財務諸表の提出義務化 営利重視防ぐ",
@@ -618,10 +618,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "「ファンド病院」監視へ、4月から財務諸表の提出義務化 営利重視防ぐ",
-      "impact": "",
-      "memo": ""
+      "priority": "要対応",
+      "summary_ja": "4月からファンド病院の監視強化として、財務諸表の提出が義務化される。営利重視の病院運営を防ぐための規制措置。",
+      "impact": "医療法人としての財務透明性確保と規制対応体制の準備が必要。",
+      "memo": "医療法人の経営監視強化により、財務管理の透明性がより重要に。コンプライアンス体制の見直しが必要。"
     },
     {
       "title": "アステラス、中之島クロスのラボ公開 ロボット・AIで細胞培養自動化",
@@ -634,9 +634,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "アステラス、中之島クロスのラボ公開 ロボット・AIで細胞培養自動化",
+      "summary_ja": "アステラス製薬が中之島クロスの研究ラボを公開し、ロボットとAIによる細胞培養の自動化技術を披露。創薬の効率化を図る。",
       "impact": "",
-      "memo": ""
+      "memo": "製薬会社の研究開発効率化により、将来的に新薬開発スピードの向上が期待される。クリニックでの新薬導入機会増加の可能性。"
     },
     {
       "title": "静岡県、医療産業集積拠点に4社誘致 スタートアップとの協業も",
@@ -649,9 +649,9 @@
       "_sourceKey": "nikkei",
       "_score": 3,
       "priority": "参考",
-      "summary_ja": "静岡県、医療産業集積拠点に4社誘致 スタートアップとの協業も",
+      "summary_ja": "静岡県が医療産業集積拠点に4社を誘致し、スタートアップとの協業も推進。地域の医療産業振興を図る取り組み。",
       "impact": "",
-      "memo": ""
+      "memo": "地域医療産業の活性化により、医療技術や機器の地域調達機会が増加する可能性。直接的な影響は限定的。"
     },
     {
       "title": "塩野義製薬、睡眠障害の創薬合弁を160億円で完全子会社化",
@@ -663,10 +663,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "塩野義製薬、睡眠障害の創薬合弁を160億円で完全子会社化",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "塩野義製薬が睡眠障害の創薬合弁会社を160億円で完全子会社化。睡眠医学分野での事業強化を図る。",
+      "impact": "睡眠障害患者の治療選択肢拡大により、内科での睡眠障害診療機会増加を検討。",
+      "memo": "睡眠障害は内科で扱う疾患として需要増加中。新薬開発により治療オプション拡大と患者獲得機会の向上が期待される。"
     },
     {
       "title": "ストレッチの効果アップ 「痛気持ちいい」より強めに伸ばす",
@@ -708,10 +708,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 4,
-      "priority": "参考",
-      "summary_ja": "職域がん検診の法整備を 精密検査の受診率向上が急務",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "職域がん検診の法整備と精密検査受診率向上の必要性が指摘されている。企業健診の制度改革の可能性。",
+      "impact": "企業健診や精密検査の需要増加に備えて検診体制の見直しを検討する。",
+      "memo": "法整備により企業健診の精密検査需要が増加すれば、内科や消化器科での検査件数増加の可能性がある。"
     },
     {
       "title": "東京農工大学、先端鶏舎で動物福祉の可能性探る 持続可能な畜産模索",
@@ -753,10 +753,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 1,
-      "priority": "参考",
-      "summary_ja": "患者の血管ソックリ再現 東北大発新興、カテーテル治療の精度向上へ",
-      "impact": "",
-      "memo": ""
+      "priority": "要注視",
+      "summary_ja": "東北大学発ベンチャーが患者の血管を精密に再現する技術を開発し、カテーテル治療の精度向上を目指している。医療技術の革新的な進歩である。",
+      "impact": "循環器診療への技術革新として情報収集し、将来的な治療精度向上の動向を注視する。",
+      "memo": "循環器内科を運営するクリニックにとって、カテーテル治療の精度向上技術は将来的に診療の質向上に寄与する可能性がある。"
     },
     {
       "title": "明治のナイチンゲール、4月からNHK朝ドラに 看護師の黎明期描く",
@@ -798,10 +798,10 @@
       "_rssOnly": true,
       "_sourceKey": "nikkei",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "「5臓ないなら、ないなりに」 安藤忠雄さん、膵臓がんで再び手術",
+      "priority": "除外",
+      "summary_ja": "建築家の安藤忠雄氏が膵臓がんで再び手術を受けることを公表。5つの臓器を失いながらも創作活動を継続する意欲を示す。",
       "impact": "",
-      "memo": ""
+      "memo": "著名人の闘病記録として注目されるが、クリニック経営への直接的な影響はない。"
     }
   ],
   "ft": [
@@ -815,10 +815,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Trump administration blocked from punishing Anthropic over Pentagon row",
+      "priority": "除外",
+      "summary_ja": "トランプ政権がペンタゴンとの争いでAnthropicを処罰することを裁判所が阻止。サプライチェーンリスクとしての分類が恣意的と判断。",
       "impact": "",
-      "memo": ""
+      "memo": "AI企業と政府の争いであり、医療・ヘルスケアに直接関係しない。"
     },
     {
       "title": "The new Disney CEO’s horrible first week",
@@ -830,10 +830,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "The new Disney CEO’s horrible first week",
+      "priority": "除外",
+      "summary_ja": "ディズニーの新CEO、ジョシュ・ダマロ氏が就任初週から各事業部門で危機に直面。エンターテインメント企業の経営課題。",
       "impact": "",
-      "memo": ""
+      "memo": "エンターテインメント業界の経営問題であり、医療・ヘルスケアに直接関係しない。"
     },
     {
       "title": "Musk’s lawsuit against X advertisers thrown out by US judge",
@@ -845,10 +845,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Musk’s lawsuit against X advertisers thrown out by US judge",
+      "priority": "除外",
+      "summary_ja": "イーロン・マスクがX（旧Twitter）の広告主に対する訴訟が米国の裁判官により棄却。違法なボイコット組織化との主張を退ける。",
       "impact": "",
-      "memo": ""
+      "memo": "ソーシャルメディア企業の法的争いであり、医療・ヘルスケアに直接関係しない。"
     },
     {
       "title": "OpenAI makes a ‘Code Red’ turn in strategy",
@@ -860,10 +860,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "OpenAI makes a ‘Code Red’ turn in strategy",
+      "priority": "除外",
+      "summary_ja": "OpenAIが戦略を大幅転換し「コードレッド」状態に。Sora動画アプリの中止や成人向けチャットボット計画の廃止など事業規律を示す。",
       "impact": "",
-      "memo": ""
+      "memo": "AI企業の事業戦略変更であり、医療・ヘルスケアに直接関係しない。"
     },
     {
       "title": "Will software engineers survive agentic AI?",
@@ -875,10 +875,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Will software engineers survive agentic AI?",
+      "priority": "除外",
+      "summary_ja": "AIエージェント技術の進歩により、ソフトウェアエンジニアの求人動向が変化している。シニア開発者への需要は増加しているが、全体的な雇用への影響が議論されている。",
       "impact": "",
-      "memo": ""
+      "memo": "医療システム開発に間接的に関連するが、直接的な医療・ヘルスケア分野ではない。クリニック経営への直接的影響は限定的。"
     },
     {
       "title": "Co-op chief to step down as cyber attack costs mount",
@@ -890,10 +890,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Co-op chief to step down as cyber attack costs mount",
+      "priority": "除外",
+      "summary_ja": "コープの最高責任者がサイバー攻撃によるコスト増大を受けて辞任。便利店運営会社での企業文化に関する問題も指摘されている。",
       "impact": "",
-      "memo": ""
+      "memo": "サイバーセキュリティは医療機関にも重要だが、この記事は小売業の企業統治に関する内容。直接的な医療・ヘルスケア分野ではない。"
     },
     {
       "title": "OpenAI puts erotic chatbot plans on hold ‘indefinitely’",
@@ -905,10 +905,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "OpenAI puts erotic chatbot plans on hold ‘indefinitely’",
+      "priority": "除外",
+      "summary_ja": "オープンAIが性的なAIコンテンツに対するスタッフと投資家の懸念を受けて、エロティックチャットボットの計画を無期限延期した。",
       "impact": "",
-      "memo": ""
+      "memo": "AI技術の倫理的問題だが、医療・ヘルスケアに直接関係しない。クリニック経営への影響はない。"
     },
     {
       "title": "Carlyle and KKR to build $2bn data centres for US Army",
@@ -920,10 +920,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Carlyle and KKR to build $2bn data centres for US Army",
+      "priority": "除外",
+      "summary_ja": "カーライルとKKRが米軍向けに20億ドルのデータセンター建設を計画。イラン戦争により現代戦争におけるAIの役割拡大の必要性が指摘されている。",
       "impact": "",
-      "memo": ""
+      "memo": "軍事・防衛関連の投資案件で、医療・ヘルスケア分野とは直接関係しない。クリニック経営への影響はない。"
     },
     {
       "title": "FT 1000: Europe’s Fastest-Growing Companies",
@@ -935,10 +935,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "FT 1000: Europe’s Fastest-Growing Companies",
+      "priority": "除外",
+      "summary_ja": "フィナンシャル・タイムズによる欧州の最速成長企業ランキング。不確実な時代に繁栄している企業を特集し、ベンチャーキャピタルの役割なども含む。",
       "impact": "",
-      "memo": ""
+      "memo": "一般的な企業成長ランキングで、医療・ヘルスケア企業に特化した内容ではない。クリニック経営への直接的参考価値は低い。"
     },
     {
       "title": "France leads the pack in the fastest-growing companies ranking",
@@ -950,10 +950,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "France leads the pack in the fastest-growing companies ranking",
+      "priority": "除外",
+      "summary_ja": "フランスが過去10年間の政府の持続的な取り組みにより、テックハブとしての地位を確立し、最速成長企業ランキングで首位に立った。",
       "impact": "",
-      "memo": ""
+      "memo": "国家レベルの産業政策に関する内容で、医療・ヘルスケア分野に特化していない。クリニック経営への直接的影響はない。"
     },
     {
       "title": "Venture capital: a crucial backer of fast-growing businesses",
@@ -965,10 +965,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "Venture capital: a crucial backer of fast-growing businesses",
+      "priority": "除外",
+      "summary_ja": "欧州のベンチャーキャピタル投資662億ユーロのうち3分の1以上がAI関連企業に投資された。VCが急成長企業の重要な支援者となっている。",
       "impact": "",
-      "memo": ""
+      "memo": "投資市場の動向で、医療AI企業も含まれる可能性はあるが、一般的な投資トレンドの内容。医療・ヘルスケアに特化していない。"
     },
     {
       "title": "The rise of China’s hottest new commodity: AI tokens",
@@ -980,10 +980,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "The rise of China’s hottest new commodity: AI tokens",
+      "priority": "除外",
+      "summary_ja": "中国のディープシークやミニマックスなどのAIモデルが、トークン消費量で米国のライバルを上回り、AIトークンが中国の新たな注目商品となっている。",
       "impact": "",
-      "memo": ""
+      "memo": "AI技術の国際競争に関する内容だが、医療・ヘルスケア分野に特化していない。クリニック経営への直接的影響はない。"
     },
     {
       "title": "SpaceX boosts IPO ambition with plans to raise $75bn",
@@ -995,10 +995,10 @@
       "_rssOnly": true,
       "_sourceKey": "ft",
       "_score": 3,
-      "priority": "参考",
-      "summary_ja": "SpaceX boosts IPO ambition with plans to raise $75bn",
+      "priority": "除外",
+      "summary_ja": "イーロン・マスクのスペースXが750億ドルの資金調達を計画し、1兆7500億ドルの評価額でのIPOを目指している。",
       "impact": "",
-      "memo": ""
+      "memo": "宇宙産業の投資案件で、医療・ヘルスケア分野とは直接関係しない。クリニック経営への影響はない。"
     },
     {
       "title": "Meta and Google liable for harm to children’s mental health in landmark US case",
