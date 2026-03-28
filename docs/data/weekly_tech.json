@@ -7,8 +7,8 @@
       "title": "Embracing Bayesian methods in clinical trials",
       "url": "https://jamanetwork.com/journals/jama/fullarticle/2847011",
       "hn_url": "https://news.ycombinator.com/item?id=47498222",
-      "score": 69,
-      "comments": 6,
+      "score": 76,
+      "comments": 8,
       "date": "2026-03-24",
       "source": "Hacker News",
       "category": "tech",
@@ -16,9 +16,9 @@
       "_sourceKey": "hackernews",
       "_score": 0,
       "priority": "参考",
-      "summary_ja": "臨床試験におけるベイズ統計手法の採用について論じた記事。従来の頻度論的統計とは異なるアプローチで、試験データの解釈や意思決定をより柔軟に行える手法として注目されている。医薬品開発や医療研究の効率化に寄与する可能性がある。",
+      "summary_ja": "臨床試験におけるベイズ統計手法の採用について議論した記事。従来の頻度論的統計手法と比較して、ベイズ手法は事前情報を活用でき、より柔軟で効率的な臨床試験の設計が可能とされる。医薬品開発や治療効果の評価において、より精度の高い統計解析手法として注目されている。",
       "impact": "",
-      "memo": "クリニック経営では直接的な影響は限定的だが、将来的に新薬開発や治療エビデンスの質向上につながる可能性がある。統計手法の進歩として知識として把握しておく価値がある。"
+      "memo": "クリニックでの臨床研究参加や新薬の治療効果評価時の参考となる統計手法の知識。直接的な経営への影響は限定的だが、エビデンスの質的理解に役立つ。"
     }
   ],
   "arxiv": []
