@@ -46,6 +46,24 @@ function priorityClass(priority) {
   }
 }
 
+function displayPriority(priority) {
+  const map = {
+    '要対応': 'いますぐチェック！',
+    '要注視': 'あとで読む',
+    '参考': '参考'
+  };
+  return map[priority] || priority;
+}
+
+function displayPrioritySection(priority) {
+  const map = {
+    '要対応': 'いますぐ確認！',
+    '要注視': 'チェックしておこう',
+    '参考': '参考情報'
+  };
+  return map[priority] || priority;
+}
+
 function stripHtmlTags(str) {
   return String(str || '').replace(/<[^>]+>/g, '').trim();
 }
@@ -287,7 +305,7 @@ function renderCardHTML(article) {
   return `<div class="card">
   <div class="card-head">
     <h3>${escapeHtml(displayTitle(article))}</h3>
-    <span class="priority ${priorityClass(article.priority)}">${escapeHtml(article.priority || '')}</span>
+    <span class="priority ${priorityClass(article.priority)}">${escapeHtml(displayPriority(article.priority || ''))}</span>
   </div>
   <div class="source-line">
     <span class="source">${escapeHtml(article.source || article.journal || '')} ${article.date ? '— ' + escapeHtml(article.date) : ''}</span>
@@ -350,8 +368,8 @@ function buildBriefingPage(data, date, allDates, basePath) {
   const morningCount = morningHigh.length + morningMid.length + morningInfo.length;
 
   const morningHTML = [
-    morningHigh.length > 0 ? `<div class="section-label">要対応 — 経営判断に直結</div>\n${renderCards(morningHigh)}` : '',
-    morningMid.length > 0 ? `<div class="section-label">要注視 — 中期的に影響</div>\n${renderCards(morningMid)}` : '',
+    morningHigh.length > 0 ? `<div class="section-label">いますぐチェック！ — いますぐ確認！</div>\n${renderCards(morningHigh)}` : '',
+    morningMid.length > 0 ? `<div class="section-label">あとで読む — チェックしておこう</div>\n${renderCards(morningMid)}` : '',
     morningInfo.length > 0 ? `<details class="collapsible-section"><summary class="section-label" style="cursor:pointer">参考情報（${morningInfo.length}件）</summary>\n${renderCards(morningInfo)}</details>` : '',
   ].filter(Boolean).join('\n');
 
@@ -422,15 +440,15 @@ ${layoutHeader('', basePath)}
   <div class="date-nav">${dateNav}</div>
   <div class="source-pills">${pillsHTML}</div>
   <div class="tabs">
-    <div class="tab active" onclick="showTab(this,'morning')">朝ブリーフィング<span class="badge">${morningCount}</span></div>
+    <div class="tab active" onclick="showTab(this,'morning')">今日のトピック<span class="badge">${morningCount}</span></div>
     <div class="tab" onclick="showTab(this,'pubmed')">論文ダイジェスト${papersUpdated ? '<span style="font-size:10px;color:var(--sub);margin-left:4px">'+papersUpdated+'</span>' : ''}<span class="badge">${papersCount}</span></div>
     <div class="tab" onclick="showTab(this,'alert')">制度アラート${alertsUpdated ? '<span style="font-size:10px;color:var(--sub);margin-left:4px">'+alertsUpdated+'</span>' : ''}<span class="badge">${mhlwArticles.length}</span></div>
     <div class="tab" onclick="showTab(this,'tech')">テック・AI${techUpdated ? '<span style="font-size:10px;color:var(--sub);margin-left:4px">'+techUpdated+'</span>' : ''}<span class="badge">${techItems.length}</span></div>
   </div>
   <div class="panel active" id="morning">
     <div class="stats-row">
-      <div class="stat"><div class="num">${nHigh}</div><div class="label">要対応</div></div>
-      <div class="stat"><div class="num">${nMid}</div><div class="label">要注視</div></div>
+      <div class="stat"><div class="num">${nHigh}</div><div class="label">いますぐチェック！</div></div>
+      <div class="stat"><div class="num">${nMid}</div><div class="label">あとで読む</div></div>
       <div class="stat"><div class="num">${nInfo}</div><div class="label">参考情報</div></div>
       <div class="stat"><div class="num">${pubmedArticles.length}</div><div class="label">新着論文</div></div>
     </div>
@@ -513,6 +531,7 @@ var info=document.getElementById('search-info');
 var results=document.getElementById('search-results');
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function pclass(p){return p==='要対応'?'p-high':p==='要注視'?'p-mid':p==='テック'?'p-tech':'p-info'}
+function dpri(p){return p==='要対応'?'いますぐチェック！':p==='要注視'?'あとで読む':p||''}
 function search(){
   var q=input.value.trim().toLowerCase();
   if(!q){info.style.display='none';results.innerHTML='';return}
@@ -522,7 +541,7 @@ function search(){
   info.style.display='block';
   info.innerHTML='<b>'+matches.length+'</b> 件見つかりました';
   results.innerHTML=matches.slice(0,50).map(function(a){
-    return '<div class="card"><div class="card-head"><h3>'+esc(a.t)+'</h3><span class="priority '+pclass(a.p)+'">'+esc(a.p)+'</span></div>'
+    return '<div class="card"><div class="card-head"><h3>'+esc(a.t)+'</h3><span class="priority '+pclass(a.p)+'">'+esc(dpri(a.p))+'</span></div>'
       +'<div class="source-line"><span class="source">'+esc(a.src)+' — '+esc(a.d)+'</span>'
       +(a.u?'<a class="link-btn" href="'+esc(a.u)+'" target="_blank" rel="noopener">原文 ↗</a>':'')
       +'</div><div class="body">'+esc(a.s)+'</div></div>';

@@ -22,6 +22,15 @@ function priorityClass(priority) {
   }
 }
 
+function displayPriority(priority) {
+  const map = {
+    '要対応': 'いますぐチェック！',
+    '要注視': 'あとで読む',
+    '参考': '参考'
+  };
+  return map[priority] || priority;
+}
+
 function stripHtmlTags(str) {
   return String(str || '').replace(/<[^>]+>/g, '').trim();
 }
@@ -41,7 +50,7 @@ function renderCard(item) {
   return `<div class="card">
   <div class="card-head">
     <h3>${escapeHtml(displayTitle(item))}</h3>
-    <span class="priority ${priorityClass(item.priority)}">${escapeHtml(item.priority)}</span>
+    <span class="priority ${priorityClass(item.priority)}">${escapeHtml(displayPriority(item.priority))}</span>
   </div>
   <div class="source-line">
     <span class="source">${escapeHtml(item.source || item.journal || '')} — ${escapeHtml(item.date || '')}</span>
@@ -98,8 +107,8 @@ function generateHTML(data) {
   const nInfo = mInfo.length;
 
   const morningHTML = [
-    nHigh > 0 ? renderSection('要対応 — 経営判断に直結') + '\n' + mHigh.map(renderCard).join('\n') : '',
-    nMid > 0 ? renderSection('要注視 — 中期的に影響') + '\n' + mMid.map(renderCard).join('\n') : '',
+    nHigh > 0 ? renderSection('いますぐチェック！ — いますぐ確認！') + '\n' + mHigh.map(renderCard).join('\n') : '',
+    nMid > 0 ? renderSection('あとで読む — チェックしておこう') + '\n' + mMid.map(renderCard).join('\n') : '',
     nInfo > 0 ? `<details class="collapsible-section"><summary class="section-label" style="cursor:pointer">${escapeHtml('参考情報（' + nInfo + '件）')}</summary>\n${mInfo.map(renderCard).join('\n')}</details>` : '',
   ].filter(Boolean).join('\n');
 
