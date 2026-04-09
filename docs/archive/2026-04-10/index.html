@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理くんニュース - 2026-04-10</title>
+<link rel="icon" href="/daily-briefing/kanri-kun.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E6E0;--text:#1A1A18;--sub:#6B6960;--accent:#1A5F4A;--red:#9B2C2C;--amber:#92600A;--blue:#1A4B8C;--purple:#5B21B6;--tag-red:#FEF2F2;--tag-amber:#FFFBEB;--tag-blue:#EFF6FF;--tag-green:#F0FDF4;--tag-purple:#F5F3FF;--font-sans:'Noto Sans JP',sans-serif;--font-serif:'Noto Serif JP',serif}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
+.app-header{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.app-header h1{font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:0.02em;white-space:nowrap}
+.app-header nav{display:flex;gap:12px;align-items:center;flex:1}
+.app-header nav a{font-size:13px;color:var(--sub);text-decoration:none;font-weight:500;padding:4px 10px;border-radius:6px;transition:all .15s}
+.app-header nav a:hover,.app-header nav a.active{color:var(--accent);background:var(--tag-green)}
+.container{max-width:820px;margin:0 auto;padding:24px 20px 80px}
+.date-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.date-nav a{font-size:12px;padding:4px 12px;border:1px solid var(--border);border-radius:20px;text-decoration:none;color:var(--sub);background:var(--card);transition:all .15s}
+.date-nav a:hover,.date-nav a.current{background:var(--accent);color:#fff;border-color:var(--accent)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:12px;transition:box-shadow .2s}
+.card:hover{box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card.read{opacity:0.55}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.card h3{font-size:14.5px;font-weight:700;line-height:1.55}
+.priority{font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.p-high{background:var(--tag-red);color:var(--red)}
+.p-mid{background:var(--tag-amber);color:var(--amber)}
+.p-info{background:var(--tag-green);color:var(--accent)}
+.p-tech{background:var(--tag-purple);color:var(--purple)}
+.card .source-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:4px}
+.card .source{font-size:11px;color:var(--sub)}
+.card .link-btn{font-size:11px;color:var(--accent);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border:1px solid rgba(26,95,74,.25);border-radius:4px;transition:all .15s}
+.card .link-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.card .body{font-size:13px;color:#3D3D3A;line-height:1.8}
+.card .impact{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);font-size:12.5px;color:var(--accent);font-weight:500;line-height:1.7}
+.card .impact::before{content:'-> '}
+.card .memo{margin-top:8px;background:#F7F7F5;border-radius:6px;padding:10px 14px;font-size:12.5px;line-height:1.7}
+.card .memo strong{color:var(--accent);font-weight:700}
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sub);margin:28px 0 14px;display:flex;align-items:center;gap:8px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.archive-list{list-style:none}
+.archive-list li{margin-bottom:8px}
+.archive-list li a{font-size:14px;color:var(--accent);text-decoration:none;padding:10px 16px;display:block;background:var(--card);border:1px solid var(--border);border-radius:8px;transition:all .15s}
+.archive-list li a:hover{box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.archive-list li a .count{font-size:12px;color:var(--sub);margin-left:8px}
+.empty-state{text-align:center;padding:60px 20px;color:var(--sub);font-size:14px}
+.collapsible-section{margin-top:8px}
+.collapsible-section>summary{list-style:none}
+.collapsible-section>summary::-webkit-details-marker{display:none}
+.collapsible-section>summary::after{content:' \25B6';font-size:10px}
+.collapsible-section[open]>summary::after{content:' \25BC'}
+.tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{padding:10px 18px;font-size:13.5px;font-weight:500;color:var(--sub);cursor:pointer;border-bottom:2.5px solid transparent;transition:all .2s;white-space:nowrap;user-select:none;text-decoration:none}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab .badge{display:inline-block;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:8px;margin-left:5px;vertical-align:1px}
+.panel{display:none}.panel.active{display:block}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 10px;text-align:center}
+.stat .num{font-size:24px;font-weight:700;color:var(--accent)}
+.stat .label{font-size:11px;color:var(--sub);margin-top:2px}
+.source-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.source-pill{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--sub);background:var(--card)}
+.source-pill b{color:var(--text);font-weight:700}
+.footer-note{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--sub);line-height:1.7;text-align:center}
+.search-box{margin-bottom:20px;display:flex;gap:8px}
+.search-box input{flex:1;font-size:14px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:var(--font-sans);background:var(--card)}
+.search-box input:focus{outline:none;border-color:var(--accent)}
+.search-results-info{font-size:13px;color:var(--sub);margin-bottom:16px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.search-results-info b{color:var(--text)}
+@media(max-width:600px){.stats-row{grid-template-columns:repeat(2,1fr)}.card-head{flex-direction:column;gap:4px}.priority{align-self:flex-start}.app-header{flex-direction:column;align-items:flex-start}}</style>
+</head>
+<body>
+<div class="app-header">
+  <h1><img src="../../kanri-kun.png" alt="管理くん" style="height:36px;vertical-align:middle;margin-right:8px">管理くんニュース</h1>
+  <nav>
+    <a href="../../index.html">Latest</a>
+    <a href="../../archive/index.html">Archive</a>
+    <a href="../../search.html">Search</a>
+  </nav>
+</div>
+<div class="container">
+  <div style="font-family:var(--font-serif);font-size:15px;color:var(--sub);margin-bottom:16px">2026年4月10日（金）</div>
+  <div class="date-nav"><a href="../../archive/2026-04-10/index.html" class="current">2026-04-10</a>
+<a href="../../archive/2026-04-09/index.html">2026-04-09</a>
+<a href="../../archive/2026-04-08/index.html">2026-04-08</a>
+<a href="../../archive/2026-04-07/index.html">2026-04-07</a>
+<a href="../../archive/2026-04-06/index.html">2026-04-06</a>
+<a href="../../archive/2026-04-05/index.html">2026-04-05</a>
+<a href="../../archive/2026-04-04/index.html">2026-04-04</a>
+<a href="../../archive/2026-04-03/index.html">2026-04-03</a>
+<a href="../../archive/2026-04-02/index.html">2026-04-02</a>
+<a href="../../archive/2026-04-01/index.html">2026-04-01</a></div>
+  <div class="source-pills"><span class="source-pill">PubMed <b>38</b></span>
+<span class="source-pill">厚労省 <b>3</b></span>
+<span class="source-pill">Medscape <b>10</b></span>
+<span class="source-pill">Fierce <b>9</b></span>
+<span class="source-pill">日経 <b>28</b></span>
+<span class="source-pill">FT <b>2</b></span></div>
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(this,'morning')">今日のトピック<span class="badge">18</span></div>
+    <div class="tab" onclick="showTab(this,'pubmed')">論文ダイジェスト<span style="font-size:10px;color:var(--sub);margin-left:4px">4/10（金）</span><span class="badge">33</span></div>
+    <div class="tab" onclick="showTab(this,'alert')">制度アラート<span class="badge">3</span></div>
+    <div class="tab" onclick="showTab(this,'tech')">テック・AI<span style="font-size:10px;color:var(--sub);margin-left:4px">3/25（水）</span><span class="badge">5</span></div>
+  </div>
+  <div class="panel active" id="morning">
+    <div class="stats-row">
+      <div class="stat"><div class="num">5</div><div class="label">いますぐチェック！</div></div>
+      <div class="stat"><div class="num">35</div><div class="label">あとで読む</div></div>
+      <div class="stat"><div class="num">50</div><div class="label">参考情報</div></div>
+      <div class="stat"><div class="num">38</div><div class="label">新着論文</div></div>
+    </div>
+    <div class="section-label">いますぐチェック！ — いますぐ確認！</div>
+<div class="card">
+  <div class="card-head">
+    <h3>75歳以上金融所得の医療費反映、法案審議入り　OTC類似薬は追加負担</h3>
+    <span class="priority p-high">いますぐチェック！</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-04-09</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOUA08CRW0Y6A400C2000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">75歳以上の高齢者の金融所得を医療費負担に反映させる法案が審議入り。OTC類似薬については追加負担が発生する見込み。</div>
+  <div class="impact">患者の自己負担増による受診控えや薬剤選択への影響を想定し、説明体制を整備する必要がある。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 高齢患者の多いクリニックでは受診頻度や治療継続に直接影響。患者への丁寧な説明が重要になる。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>厚労省、医療物資の確保へシステム構築　全病院が随時報告可能に</h3>
+    <span class="priority p-high">いますぐチェック！</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-04-08</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOUA085V70Y6A400C2000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">厚生労働省が医療物資確保のためのシステム構築を進め、全病院が随時報告可能な体制を整備するとの報道です。医療物資の安定供給に向けた行政の取り組みが強化されています。</div>
+  <div class="impact">新しい医療物資報告システムへの対応準備と手順確立が必要です。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 医療物資の在庫管理と報告業務が変更される可能性があり、クリニック運営に直接影響します。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>消費税コストの軽減制度、病院にも適用案 自民・維新が物価高で検討</h3>
+    <span class="priority p-high">いますぐチェック！</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-04-09</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOUA013RG0R00C26A4000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">自民党と維新の会が物価高対策として、消費税コスト軽減制度の病院への適用を検討。医療機関の経営負担軽減を目指す。</div>
+  <div class="impact">制度適用の詳細と申請手続きを確認し、適用可能であれば積極的に活用を検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> クリニック経営の消費税負担軽減に直結する可能性。制度設計と適用条件の詳細把握が重要。</div>
+</div>
+<div class="section-label">あとで読む — チェックしておこう</div>
+<div class="card">
+  <div class="card-head">
+    <h3>Does Ez-PAVE Support ‘Lower Is Better’ for LDL-C?</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-08</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/does-ez-pave-support-lower-better-ldl-c-2026a1000akx?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">Ez-PAVE研究におけるLDLコレステロール低下療法の効果に関する検討。「低ければ低いほど良い」という考え方の妥当性について議論されている。循環器疾患予防における治療戦略への影響が予想される。</div>
+  <div class="impact">循環器内科での脂質管理療法の見直しや患者説明内容の更新を検討する必要がある。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 当院の糖尿病・循環器内科での脂質異常症治療方針に直接関連。患者への治療目標設定や薬物療法の調整に影響する可能性。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>New Central Sleep Apnea Guidelines: Did They Go Too Far?</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-08</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/new-central-sleep-apnea-guidelines-did-they-go-too-far-2026a1000aab?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">中枢性睡眠時無呼吸症候群の新しい診療ガイドラインについて、その妥当性や臨床現場への適用可能性に関する議論。過度に厳格な基準設定への懸念が示されている。</div>
+  <div class="impact">睡眠時無呼吸症候群患者の診断・治療方針や他科連携体制の見直しを検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 当院の内科や耳鼻咽喉科での睡眠時無呼吸症候群診療に関連。専門医への紹介基準や診断アプローチの更新が必要な可能性。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>早産や低出生体重児が学習障害のリスク増加と関連しているという研究結果。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-08</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/preterm-birth-low-birth-weight-tied-learning-challenges-2026a1000aov?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">早産や低出生体重児が学習障害のリスク増加と関連しているという研究結果。小児の発達や学習能力に与える出生時要因の長期的影響が明らかになった。</div>
+  <div class="impact">小児科での発達フォローアップ体制強化や保護者への早期相談勧奨を検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 当院小児科での乳幼児健診や発達相談に直接関連。早産児や低出生体重児の長期フォローアップ体制の見直しが必要。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>Is Your Patient a Migraine Prophylaxis Candidate?</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-07</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/migraine-prophylaxis-indications-every-primary-care-2026a10009yz?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">片頭痛予防治療の適応患者について、プライマリケア医向けの診断・治療指針。片頭痛患者の適切な治療選択に関する情報。</div>
+  <div class="impact">内科診療において片頭痛患者への予防治療の適応判断基準を確認し、診療プロトコルを見直す。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科クリニックで片頭痛患者を診察する機会があり、適切な予防治療の判断基準は診療品質向上に直結する。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>イーライリリーが経口GLP-1薬を米国全土でLilly Directとテレヘルス事業者を通じて販売開始。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Fierce Healthcare — Apr 9, 2026 10:46am</span>
+    <a class="link-btn" href="https://www.fiercehealthcare.com/telehealth/eli-lillys-launches-oral-glp-1-drug-across-us-through-lilly-direct-telehealth-providers" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">イーライリリーが経口GLP-1薬を米国全土でLilly Directとテレヘルス事業者を通じて販売開始。GLP-1薬の新たな投与方法と流通チャネルの拡大。</div>
+  <div class="impact">糖尿病患者への新たな治療選択肢として経口薬の需要動向を注視し、患者への情報提供を準備。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科クリニックの糖尿病診療において、注射薬から経口薬への患者ニーズ変化に対応が必要。テレヘルスとの競合も想定される。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>ヒューマナ、ヌーム、ウェルドックがb.wellと連携し、CMS推進の一環として健康データアクセス拡大を図る取り組み。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Fierce Healthcare — Apr 9, 2026 10:08am</span>
+    <a class="link-btn" href="https://www.fiercehealthcare.com/health-tech/humana-noom-and-welldoc-team-bwell-expand-health-data-access-part-cms-push" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">ヒューマナ、ヌーム、ウェルドックがb.wellと連携し、CMS推進の一環として健康データアクセス拡大を図る取り組み。医療データ連携とデジタルヘルスの進展。</div>
+  <div class="impact">医療DXや患者データ連携システムの導入可能性について情報収集と検討を行う。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 医療DXや電子カルテ連携、患者ポータルサービスなど、当院のデジタル化推進に参考となる海外動向。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>電子健康記録システムベンダーの技術ロードマップへの依存が、医療機関のAI導入進歩を遅らせているとIT幹部が指摘。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Fierce Healthcare — Apr 7, 2026 4:22pm</span>
+    <a class="link-btn" href="https://www.fiercehealthcare.com/ai-and-machine-learning/ehr-dependence-acts-barrier-health-systems-implementing-ai-qventus" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">電子健康記録システムベンダーの技術ロードマップへの依存が、医療機関のAI導入進歩を遅らせているとIT幹部が指摘。医療IT導入の課題。</div>
+  <div class="impact">電子カルテシステムの更新やAI機能導入検討時に、ベンダー依存リスクを評価し選択基準を見直す。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> クリニックでの電子カルテ運用やAI問診システム導入において、ベンダー選択と将来性の検討が重要な経営判断となる。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>看護師の職務満足度がパンデミック後の回復から再び低下していることが調査で判明。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Fierce Healthcare — Apr 8, 2026 3:56pm</span>
+    <a class="link-btn" href="https://www.fiercehealthcare.com/providers/nurses-job-satisfaction-stumbles-after-post-pandemic-gains-survey" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">看護師の職務満足度がパンデミック後の回復から再び低下していることが調査で判明。医療従事者の労働環境と定着に関する課題。</div>
+  <div class="impact">看護師の職務満足度向上と定着率改善のため、労働環境と待遇の見直しを検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> クリニック運営において看護師の定着は重要な経営課題であり、満足度低下の要因分析と対策が必要。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>医師の51%が遠隔診療に期待　地域偏在対策、普及へ報酬増求める声</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-04-09</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOUA198F60Z10C26A3000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">医師の51%が遠隔診療に期待を示し、地域偏在対策として診療報酬の増加を求める声が高まっている。</div>
+  <div class="impact">遠隔診療の導入検討と診療報酬改定動向の継続的な情報収集が必要。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 遠隔診療は当クリニックでも導入可能な領域。診療報酬改定により収益構造に影響する可能性がある。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>野放図な開業を医師も危惧、4割｢規制を｣　大都市・診療科の偏り加速</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">日経 — 2026-04-09</span>
+    <a class="link-btn" href="https://www.nikkei.com/article/DGXZQOUA162EP0W6A310C2000000/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">医師の4割が開業規制の必要性を感じており、大都市部と特定診療科への偏りが加速している状況への懸念が高まっている。</div>
+  <div class="impact">開業規制動向の注視と、差別化戦略の検討が必要。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> クリニック経営への直接的影響が予想される。開業規制が実施されれば新規参入が制限され、既存クリニックには有利に働く可能性。</div>
+</div>
+<details class="collapsible-section"><summary class="section-label" style="cursor:pointer">参考情報（5件）</summary>
+<div class="card">
+  <div class="card-head">
+    <h3>Mystery Solved? How Psychedelics Affect the Brain</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-09</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/mystery-solved-how-psychedelics-affect-brain-2026a1000ax5?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">サイケデリック薬物が脳に与える影響のメカニズムが解明されたという研究報告。精神医学や神経科学分野での新たな知見。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 精神科領域の治療法に関する基礎研究だが、当クリニックの診療科目との直接的な関連性は低い。学術的な情報として把握。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>メドスケープの2026年医師報酬調査報告書で前向きな兆候が示されている。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-09</span>
+    <a class="link-btn" href="https://www.medscape.com/p11/return-normalization-medscape-physician-compensation-report-2026a10009um?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">メドスケープの2026年医師報酬調査報告書で前向きな兆候が示されている。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 医師の労働環境・報酬動向を把握する参考資料。経営指標の一つとして活用可能。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>肝細胞癌による脊髄圧迫症例の医学的ケースレポート。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-09</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/man-spinal-compression-hepatocellular-carcinoma-2026a1000ask?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">肝細胞癌による脊髄圧迫症例の医学的ケースレポート。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 消化器内科・外科領域の症例として参考になる。稀な合併症の知識として有用。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>米国神経学会2026年年次総会の情報。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-08</span>
+    <a class="link-btn" href="https://www.medscape.com/c25/p14/american-academy-neurology-aan-2026-annual-meeting-2026a10009hr?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">米国神経学会2026年年次総会の情報。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 神経学分野の最新動向。直接的関連は少ないが医学全般の知識更新として参考。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>機能性発作（非てんかん性発作）が死亡リスクの増加と関連しているという研究結果。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">Medscape — 2026-04-08</span>
+    <a class="link-btn" href="https://www.medscape.com/viewarticle/functional-seizures-linked-higher-risk-mortality-2026a1000ade?src=rss" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">機能性発作（非てんかん性発作）が死亡リスクの増加と関連しているという研究結果。精神的・心理的要因による発作の予後への影響が示されている。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 直接的な診療科目には該当しないが、救急対応や他科紹介時の判断材料として参考になる情報。</div>
+</div></details>
+  </div>
+  <div class="panel" id="pubmed"><div class="section-label">糖尿病・代謝</div>
+<div class="card">
+  <div class="card-head">
+    <h3>GLP-1受容体アゴニストと肥満外科内視鏡治療の有効性、安全性、代謝結果に関する系統的レビューとメタ解析。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41954719/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">GLP-1受容体アゴニストと肥満外科内視鏡治療の有効性、安全性、代謝結果に関する系統的レビューとメタ解析。抄録情報は利用不可のため詳細不明。</div>
+  <div class="impact">糖尿病治療選択肢としてのGLP-1製剤の位置づけを再評価する際の参考資料</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科での肥満・糖尿病治療における治療選択肢の比較検討に有用。詳細確認が必要。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>肥満治療における腸脳軸を標的とした複合薬物療法についてのレビュー。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41947825/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">肥満治療における腸脳軸を標的とした複合薬物療法についてのレビュー。GLP-1アナログなど腸管ホルモンと脳内機構を併用したアプローチで、単剤で目標達成できない患者に対する治療戦略を提案している。</div>
+  <div class="impact">糖尿病外来でのGLP-1製剤処方時に、複合療法の可能性を検討する参考情報として活用</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科での糖尿病・肥満治療に直結する情報。GLP-1製剤の使用拡大と複合療法の検討材料となる。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>2型糖尿病におけるメトホルミンの脳内での低用量作用に関する新規メカニズムのレビュー。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41943980/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">2型糖尿病におけるメトホルミンの脳内での低用量作用に関する新規メカニズムのレビュー。血液脳関門を通過し中枢神経系から抗糖尿病効果を発揮するという末梢作用以外の機序を解説している。</div>
+  <div class="impact">メトホルミン処方時に、従来の末梢作用に加えて中枢作用も考慮した処方設計を検討</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 糖尿病内科診療で最も使用頻度の高いメトホルミンの新たな作用機序。処方指導の参考となる。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>肥満における骨格筋量保持を目的としたアクチビン/ミオスタチン-ActRII経路を標的とする治療戦略についての機序的洞察と治療展望。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41954678/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">肥満における骨格筋量保持を目的としたアクチビン/ミオスタチン-ActRII経路を標的とする治療戦略についての機序的洞察と治療展望。抄録情報は利用不可。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 基礎研究レベルの内容で、現在のクリニック診療には直接的影響なし。将来的な治療オプションの参考程度。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>全関節置換術における周術期栄養最適化について、スクリーニングからサプリメント補給まで包括的にレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951067/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">全関節置換術における周術期栄養最適化について、スクリーニングからサプリメント補給まで包括的にレビュー。高齢者や複雑な病態を持つ患者の術後回復支援に焦点を当てている。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 整形外科手術に関する内容で、内科クリニックには直接関係しないが、周術期管理の知識として参考になる。</div>
+</div>
+<div class="section-label">循環器</div>
+<div class="card">
+  <div class="card-head">
+    <h3>COPD患者における吸入コルチコステロイドと心血管死亡リスクの関連についての系統的レビューとメタ解析。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951243/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">COPD患者における吸入コルチコステロイドと心血管死亡リスクの関連についての系統的レビューとメタ解析。COPDと心血管疾患の併存が多い中、吸入コルチコステロイドの心血管保護効果を検証している。</div>
+  <div class="impact">COPD患者への吸入コルチコステロイド処方時に心血管保護効果も考慮した治療選択を検討</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科での呼吸器疾患管理に直結する情報。COPD患者の併存疾患管理において重要な知見。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>低所得患者に対する高血圧管理のための多面的戦略に関する研究。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950472/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">低所得患者に対する高血圧管理のための多面的戦略に関する研究。チーム医療、プロトコールベースの血圧管理、健康コーチング、家庭血圧モニタリングを含む包括的アプローチを評価している。</div>
+  <div class="impact">循環器内科での高血圧管理において、チーム医療とデジタル活用を組み合わせた診療体制を構築検討</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 循環器内科の中核疾患である高血圧管理の新たなアプローチ。クリニック運営体制への示唆が大きい。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>救急外来でのめまい患者における脳卒中リスクに関する系統的レビューとメタ解析。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950225/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">救急外来でのめまい患者における脳卒中リスクに関する系統的レビューとメタ解析。特に神経学的異常を伴わない孤立性めまい患者の脳卒中診断困難性と予後不良リスクを検討している。</div>
+  <div class="impact">めまい患者の診察時に脳卒中リスクを念頭に置いた詳細な評価と専門医紹介基準を明確化</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科外来でよく遭遇するめまい症状の鑑別診断において重要。見落としリスクの高い病態への対応指針。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>心房細動の免疫学的機序をより深く理解するため、心房細動報告と関連する免疫調節薬を特定するVigibaseを用いた後方視的不均衡分析と文献レビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41946548/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">心房細動の免疫学的機序をより深く理解するため、心房細動報告と関連する免疫調節薬を特定するVigibaseを用いた後方視的不均衡分析と文献レビュー。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 循環器診療に関連するが、基礎研究的内容で日常診療への即座の影響は限定的。薬剤性心房細動の参考程度。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>脳卒中生存者に対するピアコーチング介入についてのスコーピングレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41945596/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">脳卒中生存者に対するピアコーチング介入についてのスコーピングレビュー。脳卒中後のピアコーチング介入の特徴と成果を統合し、標準化された定義と統合的な知見をまとめている。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> リハビリテーション分野の内容で、急性期クリニック診療には直接関係しない。脳卒中後ケアの参考程度。</div>
+</div>
+<div class="section-label">一般内科</div>
+<div class="card">
+  <div class="card-head">
+    <h3>COPD患者における吸入ステロイド薬（ICS）使用と心血管死亡リスクの関連を検討したメタ解析。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951243/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">COPD患者における吸入ステロイド薬（ICS）使用と心血管死亡リスクの関連を検討したメタ解析。COPDと心血管疾患の併存が多い中、ICSの心血管保護効果を包括的に評価した。</div>
+  <div class="impact">COPD患者の治療方針において心血管リスクを考慮したICS使用の判断基準を見直す。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 循環器・呼吸器両方の診療科に関連。COPD患者の併存疾患管理方針の見直しに重要な情報。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>急性胸痛の電話トリアージにおいてMarburg心疾患スコアとINTERCHESTスコアの診断精度を評価した研究。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41946552/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">急性胸痛の電話トリアージにおいてMarburg心疾患スコアとINTERCHESTスコアの診断精度を評価した研究。従来のトリアージプロトコルと比較して診断能力の改善を検討した。</div>
+  <div class="impact">循環器内科での電話相談対応の標準化を検討する際の参考として活用を検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 循環器内科での胸痛患者の電話トリアージ改善に直接活用できる可能性。診療効率向上と患者安全の両立に寄与する。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>軽度から中等度COPD患者に対する低用量テオフィリンの有効性と安全性を検討した中国での多施設ランダム化比較試験。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41944062/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">軽度から中等度COPD患者に対する低用量テオフィリンの有効性と安全性を検討した中国での多施設ランダム化比較試験。12ヶ月間の治療により肺機能改善と増悪抑制効果を確認した。</div>
+  <div class="impact">軽度COPD患者への低用量テオフィリン使用を治療選択肢として検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 内科でのCOPD治療選択肢の拡大につながる情報。従来治療に加えた新たなアプローチとして有用。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>がん患者のニーズ評価ツール（NAT-C）をプライマリケアで実装する際の課題を評価した研究。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951259/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">がん患者のニーズ評価ツール（NAT-C）をプライマリケアで実装する際の課題を評価した研究。英国の一般診療所21施設でのランダム化比較試験の一環として、ツールの忠実度と実装上の問題を検討した。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> がん患者のフォローアップツールの実装研究。当院でのがん患者管理の質向上に参考となる可能性がある。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>小児・青年期がんサバイバーの小児科から成人診療科への移行ケアに関するガイドラインと試験の系統的レビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41949619/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">小児・青年期がんサバイバーの小児科から成人診療科への移行ケアに関するガイドラインと試験の系統的レビュー。移行ケアの断片化問題と改善策を検討した。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 小児科から成人診療への移行期患者管理の参考情報。当院での思春期・青年期患者のフォローアップ体制に活用可能。</div>
+</div>
+<div class="section-label">消化器内科・外科</div>
+<div class="card">
+  <div class="card-head">
+    <h3>セリアック病は人口の約1%に影響する自己免疫疾患で、任意の年齢でグルテン摂取により発症する。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950475/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">セリアック病は人口の約1%に影響する自己免疫疾患で、任意の年齢でグルテン摂取により発症する。血清学的検査による診断と、グルテンフリー食事療法が治療の主体である。</div>
+  <div class="impact">原因不明の消化器症状患者に対してセリアック病を鑑別診断に含める体制を整備する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 消化器内科と小児科両方に関連。見逃されがちな疾患として診断能力向上が必要。栄養指導体制も重要。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>HECT型E3ユビキチンリガーゼが肝疾患（脂肪肝、肝炎、肝線維症、肝細胞癌）において果たす複雑な役割についてのレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41952501/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">HECT型E3ユビキチンリガーゼが肝疾患（脂肪肝、肝炎、肝線維症、肝細胞癌）において果たす複雑な役割についてのレビュー。代謝経路や炎症シグナル調節における二面的機能を解説した。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 肝疾患の分子メカニズムに関する基礎研究情報。消化器内科での病態理解に参考となるが、直接的な臨床応用は限定的。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>潰瘍性大腸炎における糖化最終産物受容体（RAGE）/VEGF軸を標的とした抗血管新生療法の可能性についてのレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41952489/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">潰瘍性大腸炎における糖化最終産物受容体（RAGE）/VEGF軸を標的とした抗血管新生療法の可能性についてのレビュー。従来治療の副作用問題を踏まえた新たな治療選択肢を検討した。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 消化器内科での炎症性腸疾患治療の将来的な展開に関する情報。現在は研究段階だが、治療選択肢拡大の可能性を示唆。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>肝硬変患者における食道胃静脈瘤出血リスク予測のための機械学習モデルの性能を評価した系統的レビューとメタ解析。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950370/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">肝硬変患者における食道胃静脈瘤出血リスク予測のための機械学習モデルの性能を評価した系統的レビューとメタ解析。早期特定のための予測ツールの有効性を検討した。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 消化器内科での肝硬変患者管理における予測ツール活用の可能性。重篤な合併症の早期発見に役立つ情報。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>胃がんに対する全胃切除術において脾臓摘出を併施する場合と温存する場合の利益と害を評価したレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41948983/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">胃がんに対する全胃切除術において脾臓摘出を併施する場合と温存する場合の利益と害を評価したレビュー。リンパ節郭清のための脾摘の役割について議論されている。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 消化器外科領域の情報で、クリニックレベルでの直接的な関連性は低い。胃がん患者の術式選択に関する知識として参考程度。</div>
+</div>
+<div class="section-label">耳鼻咽喉科</div>
+<div class="card">
+  <div class="card-head">
+    <h3>頭頸部腫瘍における糖代謝とタンパク質恒常性の関係についての基礎研究。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41954805/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">頭頸部腫瘍における糖代謝とタンパク質恒常性の関係についての基礎研究。腫瘍細胞の代謝リプログラミングが治療抵抗性に関与することを解析している。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 耳鼻咽喉科で扱う頭頸部腫瘍の病態理解に関連するが、基礎研究レベル。診療への直接的影響は限定的。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>中等度から重度の閉塞性睡眠時無呼吸症候群に対する舌下神経刺激療法の認知機能と患者報告アウトカムへの効果を評価した臨床試験。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41946918/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">中等度から重度の閉塞性睡眠時無呼吸症候群に対する舌下神経刺激療法の認知機能と患者報告アウトカムへの効果を評価した臨床試験。60名の患者で実施された。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 当院では睡眠時無呼吸症候群の治療は行っていないが、内科・小児科での診療連携の参考情報として有用。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>再発または転移性鼻咽頭癌に対する抗PD-1抗体ペンプリマブと化学療法併用の第3相試験。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41946687/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">再発または転移性鼻咽頭癌に対する抗PD-1抗体ペンプリマブと化学療法併用の第3相試験。291名を対象とした無作為化試験で有効性を示した。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 耳鼻咽喉科領域の悪性腫瘍治療に関する情報だが、専門的ながん治療は当院では実施していない。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>エプスタイン・バーウイルス関連鼻咽頭癌におけるT細胞運命制御メカニズムのレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41930573/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">エプスタイン・バーウイルス関連鼻咽頭癌におけるT細胞運命制御メカニズムのレビュー。腫瘍免疫回避におけるT細胞代謝疲弊の役割を解析している。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 耳鼻咽喉科領域の基礎研究情報だが、当院の診療レベルを超える専門的内容。学術的参考程度。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>甲状腺癌におけるRET遺伝子変異の機序と研究進展についてのレビュー。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41930492/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">甲状腺癌におけるRET遺伝子変異の機序と研究進展についてのレビュー。甲状腺癌の発症と治療標的としてのRET遺伝子の役割を解説している。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 内科での甲状腺疾患診療に関連するが、遺伝子レベルの専門的内容で当院の診療範囲を超える。</div>
+</div>
+<div class="section-label">小児科</div>
+<div class="card">
+  <div class="card-head">
+    <h3>安定期および急性増悪期喘息における呼吸器ウイルスの有病率を系統的レビューとメタ解析で検討。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951240/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">安定期および急性増悪期喘息における呼吸器ウイルスの有病率を系統的レビューとメタ解析で検討。111研究を含む解析で、喘息患者の33.9%でウイルスが検出された。</div>
+  <div class="impact">小児科・内科での喘息管理において、ウイルス感染との関連性を考慮した診療体制を検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 当院の小児科・内科で喘息患者を多数診療しており、ウイルス感染管理の重要性を示す有用な情報。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>インドにおける6か月齢以上を対象とした4価不活化インフルエンザワクチンの免疫原性と安全性を評価した第3相試験。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41940741/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">インドにおける6か月齢以上を対象とした4価不活化インフルエンザワクチンの免疫原性と安全性を評価した第3相試験。401名を対象に実施された。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> インフルエンザワクチンの安全性データだが、国内承認ワクチンとは異なるため直接的な診療への影響は限定的。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>スペインでの4価髄膜炎菌ワクチン接種キャンペーンにおける、未接種者への通知方法（郵送、SMS等）の効果を評価した研究。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 03</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41722530/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">スペインでの4価髄膜炎菌ワクチン接種キャンペーンにおける、未接種者への通知方法（郵送、SMS等）の効果を評価した研究。接種率向上のための戦略を検討。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 予防接種の普及啓発手法として参考になるが、当院で髄膜炎菌ワクチンの積極的接種は実施していない。</div>
+</div>
+<div class="section-label">医療経営・政策</div>
+<div class="card">
+  <div class="card-head">
+    <h3>多民族コホート研究において、植物ベース食事パターンがアルツハイマー病および関連認知症のリスクに与える長期的影響が調査されました。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950435/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">多民族コホート研究において、植物ベース食事パターンがアルツハイマー病および関連認知症のリスクに与える長期的影響が調査されました。食事パターンの経時変化と認知症発症の関連性が分析されています。</div>
+  <div class="impact">認知症予防に関する栄養指導の根拠として活用を検討すべきです。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 高齢患者への生活習慣指導、特に認知症予防の観点から栄養指導に活用可能な知見です。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>全身性エリテマトーデス患者の臨床表現型と免疫分子特徴の関係を、教師なし機械学習とマルチオミクス統合により解析しました。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951250/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">全身性エリテマトーデス患者の臨床表現型と免疫分子特徴の関係を、教師なし機械学習とマルチオミクス統合により解析しました。5つの異なる表現型クラスターが特定され、治療反応予測への応用が検討されています。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 専門性の高い自己免疫疾患の研究。クリニックレベルでの直接的な応用は限定的です。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>自己免疫性肺胞蛋白症の疾患負荷に関する系統的レビューが実施されました。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951241/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">自己免疫性肺胞蛋白症の疾患負荷に関する系統的レビューが実施されました。患者、介護者、社会への負担について、治療法や症状の観点から包括的な分析が行われています。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 稀な疾患に関する研究。一般的なクリニック診療での遭遇頻度は低いと考えられます。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>優性遺伝性アルツハイマー病において、認知予備能が症状発症年齢と認知機能低下に与える影響が解析されました。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950468/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">優性遺伝性アルツハイマー病において、認知予備能が症状発症年齢と認知機能低下に与える影響が解析されました。高い認知予備能が症状発症の遅延と機能低下の減速に関連することが示されています。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 認知症予防の観点で興味深いが、遺伝性アルツハイマー病は稀であり、一般診療への直接的影響は限定的です。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>がん化学療法による口腔粘膜炎予防のため、ベタメタゾン含嗽薬と従来のグアレン酸ナトリウム含嗽薬の有効性と安全性を比較する多施設ランダム化比較試験のプロトコルが発表されました。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41950207/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">がん化学療法による口腔粘膜炎予防のため、ベタメタゾン含嗽薬と従来のグアレン酸ナトリウム含嗽薬の有効性と安全性を比較する多施設ランダム化比較試験のプロトコルが発表されました。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> がん治療に関連する副作用対策の研究。クリニックでのがん患者管理に参考となる可能性があります。</div>
+</div></div>
+  <div class="panel" id="alert"><div class="section-label">厚労省トピックス</div>
+<div class="card">
+  <div class="card-head">
+    <h3>診療報酬改定</h3>
+    <span class="priority p-high">いますぐチェック！</span>
+  </div>
+  <div class="source-line">
+    <span class="source">厚生労働省 </span>
+    <a class="link-btn" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000106602.html" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">診療報酬改定に関する厚生労働省の公式情報。</div>
+  <div class="impact">改定内容を詳細確認し、各診療科の算定要件変更への対応を準備する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 全診療科に影響する重要な制度変更。算定漏れや新要件への対応が経営に直結する。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>消費税と診療報酬について</h3>
+    <span class="priority p-high">いますぐチェック！</span>
+  </div>
+  <div class="source-line">
+    <span class="source">厚生労働省 </span>
+    <a class="link-btn" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/iryouhoken14/index.html" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">消費税と診療報酬の関係について厚生労働省が解説。医療機関の消費税負担と診療報酬での補填に関する内容。</div>
+  <div class="impact">消費税負担の影響を正確に把握し、診療報酬での補填状況を確認する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 消費税負担は医療機関の経営圧迫要因。補填状況の理解は収益管理に重要。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>ジカウイルス感染症</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">厚生労働省 </span>
+    <a class="link-btn" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000109881.html" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">厚生労働省によるジカウイルス感染症に関する情報。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 感染症対策の一環として知識を持っておくべき情報だが、日本では現在流行していない。</div>
+</div></div>
+  <div class="panel" id="tech"><div class="card">
+  <div class="card-head">
+    <h3>病院専用の大規模言語モデルがMRI検査依頼書の不完全な臨床情報を補完し、プロトコル選択の精度向上に寄与することが示されました。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41945643/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">病院専用の大規模言語モデルがMRI検査依頼書の不完全な臨床情報を補完し、プロトコル選択の精度向上に寄与することが示されました。電子医療記録からの情報を活用し、放射線科医との比較評価が行われています。</div>
+  <div class="impact">AI活用による検査依頼の質向上システムの導入検討が必要です。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> クリニックでの画像検査依頼の質向上に活用可能。電子カルテとの連携でワークフロー改善が期待できます。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>救急・ICU環境での透析決定において、ChatGPTと腎臓専門医の判断の一致度を評価した後向き観察研究。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41943432/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">救急・ICU環境での透析決定において、ChatGPTと腎臓専門医の判断の一致度を評価した後向き観察研究。AIによる臨床決定支援の可能性を検討している。</div>
+  <div class="impact">AI活用の動向を注視し、将来的な診療支援ツールとしての導入可能性を検討する。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 当院では透析は実施していないが、AI診療支援の実用化動向として経営戦略上重要な情報。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>プライマリケアの自由記述テキストを自動的にICD-10コードに分類する多言語対応システムが開発されました。</h3>
+    <span class="priority p-mid">あとで読む</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41941723/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">プライマリケアの自由記述テキストを自動的にICD-10コードに分類する多言語対応システムが開発されました。ドイツ語環境での短い医療記録に対する分類精度が評価されています。</div>
+  <div class="impact">電子カルテの診療録自動コード化システムの導入を検討すべきです。</div>
+  <div class="memo"><strong>管理くんメモ:</strong> 診療録の構造化とコード化の自動化により、レセプト業務の効率化と精度向上が期待できます。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>皮膚癌全スライド画像の多クラス分類のための深層学習ネットワーク（MSF-VMDNet）を開発。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41951639/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">皮膚癌全スライド画像の多クラス分類のための深層学習ネットワーク（MSF-VMDNet）を開発。10種類の組織クラスの精密な分類を可能にする技術。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 皮膚科診療は当院で実施していないが、画像診断AI技術の進展として参考情報程度。</div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3>胸部X線画像での肺結節検出を改善するため、YOLOv12モデルを基盤とした検出フレームワークが開発されました。</h3>
+    <span class="priority p-info">参考</span>
+  </div>
+  <div class="source-line">
+    <span class="source">PubMed — 2026 04</span>
+    <a class="link-btn" href="https://pubmed.ncbi.nlm.nih.gov/41946809/" target="_blank" rel="noopener">原文 ↗</a>
+  </div>
+  <div class="body">胸部X線画像での肺結節検出を改善するため、YOLOv12モデルを基盤とした検出フレームワークが開発されました。空間情報保持機能やマルチスケール特徴融合機能を統合し、従来手法より高い検出精度を実現したとされています。</div>
+  
+  <div class="memo"><strong>管理くんメモ:</strong> 胸部X線診断の自動化技術の進歩として注目。将来的に診断支援ツールとして導入可能性があります。</div>
+</div></div>
+  <div class="footer-note">
+    自動生成: GitHub Actions + Claude API + PubMed + 厚労省 + HN + Medscape + Fierce + CareNet + 日経 + FT
+  </div>
+</div>
+<script>
+function showTab(el,id){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+</script></body></html>
