@@ -1,24 +1,24 @@
 {
   "_meta": {
-    "tech_updated": "2026-03-25"
+    "tech_updated": "2026-04-29"
   },
   "hackernews": [
     {
-      "title": "FDA approves first gene therapy for treatment of genetic hearing loss",
-      "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-ever-gene-therapy-treatment-genetic-hearing-loss-under-national-priority-voucher",
-      "hn_url": "https://news.ycombinator.com/item?id=47919733",
-      "score": 183,
-      "comments": 73,
-      "date": "2026-04-27",
+      "title": "AISLE Discovers 38 CVEs in OpenEMR Healthcare Software",
+      "url": "https://aisle.com/blog/aisle-discovers-38-critical-security-vulnerabilities-in-healthcare-software-used-by-100000-providers",
+      "hn_url": "https://news.ycombinator.com/item?id=47936347",
+      "score": 160,
+      "comments": 102,
+      "date": "2026-04-28",
       "source": "Hacker News",
       "category": "tech",
-      "matched_keyword": "FDA",
+      "matched_keyword": "healthcare",
       "_sourceKey": "hackernews",
-      "_score": 0,
+      "_score": 3,
       "priority": "要注視",
-      "summary_ja": "米国FDAが遺伝性難聴に対する初の遺伝子治療薬を承認しました。これは遺伝性聴覚障害の治療において画期的な進歩となります。今後、日本での承認や臨床応用が期待されます。",
-      "impact": "耳鼻咽喉科での将来的な治療選択肢として情報収集と専門医との連携強化を検討する。",
-      "memo": "当法人の耳鼻咽喉科で扱う難聴患者への新たな治療選択肢となる可能性があります。遺伝子治療の動向は専門性の高い医療技術として注目すべき分野です。"
+      "summary_ja": "セキュリティ企業が医療ソフトウェアOpenEMRで38件の重大な脆弱性を発見。10万以上の医療プロバイダーが使用する電子医療記録システムに影響。",
+      "impact": "電子カルテシステムのセキュリティ対策強化と脆弱性情報の定期確認が必要。",
+      "memo": "電子カルテのサイバーセキュリティは患者情報保護の観点で重要。使用システムの脆弱性対応とセキュリティ体制見直しが必要。"
     }
   ],
   "arxiv": []
