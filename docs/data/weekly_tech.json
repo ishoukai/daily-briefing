@@ -1,25 +1,7 @@
 {
   "_meta": {
-    "tech_updated": "2026-04-29"
+    "tech_updated": "2026-03-25"
   },
-  "hackernews": [
-    {
-      "title": "AISLE Discovers 38 CVEs in OpenEMR Healthcare Software",
-      "url": "https://aisle.com/blog/aisle-discovers-38-critical-security-vulnerabilities-in-healthcare-software-used-by-100000-providers",
-      "hn_url": "https://news.ycombinator.com/item?id=47936347",
-      "score": 160,
-      "comments": 102,
-      "date": "2026-04-28",
-      "source": "Hacker News",
-      "category": "tech",
-      "matched_keyword": "healthcare",
-      "_sourceKey": "hackernews",
-      "_score": 3,
-      "priority": "要注視",
-      "summary_ja": "セキュリティ企業が医療ソフトウェアOpenEMRで38件の重大な脆弱性を発見。10万以上の医療プロバイダーが使用する電子医療記録システムに影響。",
-      "impact": "電子カルテシステムのセキュリティ対策強化と脆弱性情報の定期確認が必要。",
-      "memo": "電子カルテのサイバーセキュリティは患者情報保護の観点で重要。使用システムの脆弱性対応とセキュリティ体制見直しが必要。"
-    }
-  ],
+  "hackernews": [],
   "arxiv": []
 }
