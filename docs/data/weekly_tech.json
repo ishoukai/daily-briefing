@@ -1,25 +1,7 @@
 {
   "_meta": {
-    "tech_updated": "2026-03-25"
+    "tech_updated": "2026-05-06"
   },
-  "hackernews": [
-    {
-      "title": "US healthcare marketplaces shared citizenship and race data with ad tech giants",
-      "url": "https://techcrunch.com/2026/05/04/us-healthcare-marketplaces-shared-citizenship-and-race-data-with-ad-tech-giants/",
-      "hn_url": "https://news.ycombinator.com/item?id=48011689",
-      "score": 352,
-      "comments": 123,
-      "date": "2026-05-04",
-      "source": "Hacker News",
-      "category": "tech",
-      "matched_keyword": "healthcare",
-      "_sourceKey": "hackernews",
-      "_score": 0,
-      "priority": "参考",
-      "summary_ja": "米国のヘルスケア市場において、医療保険マーケットプレイスが市民権や人種データを広告技術大手企業と共有していたことが判明しました。個人の医療情報やプライバシーに関わる重要なデータが第三者に提供されていた問題です。",
-      "impact": "",
-      "memo": "日本の医療機関でも患者データの取り扱いには細心の注意が必要。個人情報保護法の遵守とデータ管理体制の見直しが重要。"
-    }
-  ],
+  "hackernews": [],
   "arxiv": []
 }
