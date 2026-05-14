@@ -2,24 +2,6 @@
   "_meta": {
     "tech_updated": "2026-03-25"
   },
-  "hackernews": [
-    {
-      "title": "\"Not Medically Necessary\": Helping America's Health Insurers Deny Coverage",
-      "url": "https://www.propublica.org/article/evicore-health-insurance-denials-cigna-unitedhealthcare-aetna-prior-authorizations",
-      "hn_url": "https://news.ycombinator.com/item?id=48126000",
-      "score": 106,
-      "comments": 66,
-      "date": "2026-05-13",
-      "source": "Hacker News",
-      "category": "tech",
-      "matched_keyword": "healthcare",
-      "_sourceKey": "hackernews",
-      "_score": 0,
-      "priority": "要注視",
-      "summary_ja": "米国の健康保険会社が「医学的に必要でない」として医療サービスの承認を拒否する実態について報告。保険会社が第三者機関を通じて事前承認プロセスを厳格化し、医療費抑制を図っている現状を詳述。",
-      "impact": "日本でも保険制度の変化に備え、患者説明の充実と診療根拠の明確化が必要。",
-      "memo": "日本の診療報酬制度でも査定が厳格化する傾向にあり、適切な診療記録と根拠の整備が重要。米国の動向は日本の医療制度改革の参考になる。"
-    }
-  ],
+  "hackernews": [],
   "arxiv": []
 }
