@@ -2,6 +2,24 @@
   "_meta": {
     "tech_updated": "2026-03-25"
   },
-  "hackernews": [],
+  "hackernews": [
+    {
+      "title": "Fecal transplants for autism deliver success in clinical trials (2019)",
+      "url": "https://refractor.io/adhd-autism/fecal-transplants-for-autism-delivers-success-in-clinical-trials/",
+      "hn_url": "https://news.ycombinator.com/item?id=48158494",
+      "score": 271,
+      "comments": 190,
+      "date": "2026-05-16",
+      "source": "Hacker News",
+      "category": "tech",
+      "matched_keyword": "clinical",
+      "_sourceKey": "hackernews",
+      "_score": 0,
+      "priority": "参考",
+      "summary_ja": "2019年の臨床試験で、自閉症患者に対する糞便移植が成功を収めたという研究結果。腸内細菌叢と自閉症症状の改善に関連があることが示された。新しい治療法としての可能性が注目されている。",
+      "impact": "",
+      "memo": "小児科診療で自閉症児を診る際の新しい治療選択肢として将来的に検討される可能性。現時点では研究段階のため直接的な診療への影響は限定的。"
+    }
+  ],
   "arxiv": []
 }
