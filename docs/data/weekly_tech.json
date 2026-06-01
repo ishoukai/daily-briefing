@@ -2,24 +2,6 @@
   "_meta": {
     "tech_updated": "2026-03-25"
   },
-  "hackernews": [
-    {
-      "title": "Daily pill can double survival time for deadliest cancer, trial shows",
-      "url": "https://www.theguardian.com/society/2026/may/31/daily-pill-daraxonrasib-double-survival-time-pancreatic-pancreas-cancer-clinical-trial",
-      "hn_url": "https://news.ycombinator.com/item?id=48346629",
-      "score": 124,
-      "comments": 35,
-      "date": "2026-05-31",
-      "source": "Hacker News",
-      "category": "tech",
-      "matched_keyword": "clinical",
-      "_sourceKey": "hackernews",
-      "_score": 3,
-      "priority": "参考",
-      "summary_ja": "膵臓がんに対する新しい経口薬ダラクソンラシブの臨床試験で、生存期間が2倍に延長される結果が示された。膵臓がんは最も致命的ながんの一つとして知られている。この新薬は日常的な服用で効果が期待される。",
-      "impact": "",
-      "memo": "当院では膵臓がんの診断・治療は行っていないため直接的な影響は限定的。消化器内科・外科での紹介判断の参考情報として把握しておく価値がある。"
-    }
-  ],
+  "hackernews": [],
   "arxiv": []
 }
