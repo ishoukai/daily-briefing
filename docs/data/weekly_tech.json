@@ -2,24 +2,6 @@
   "_meta": {
     "tech_updated": "2026-03-25"
   },
-  "hackernews": [
-    {
-      "title": "Running DOS on Behringers DDX3216 with a DIY x86-Bios from Scratch",
-      "url": "https://chrisdevblog.com/2026/06/08/running-dos-on-behringers-ddx3216-using-a-diy-x86-bios/",
-      "hn_url": "https://news.ycombinator.com/item?id=48520080",
-      "score": 51,
-      "comments": 7,
-      "date": "2026-06-13",
-      "source": "Hacker News",
-      "category": "tech",
-      "matched_keyword": "EHR",
-      "_sourceKey": "hackernews",
-      "_score": 3,
-      "priority": "除外",
-      "summary_ja": "ベリンガーのDDX3216デジタルミキサーでDOSを動作させるためのDIY x86-BIOS開発に関する技術記事。音響機器のハードウェアハッキングとレガシーOS移植についての内容。",
-      "impact": "",
-      "memo": "音響機器の技術的改造に関する記事で、医療・ヘルスケア分野との直接的な関連性はない。クリニック経営への影響も想定されない。"
-    }
-  ],
+  "hackernews": [],
   "arxiv": []
 }
