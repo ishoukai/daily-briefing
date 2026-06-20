@@ -2,6 +2,24 @@
   "_meta": {
     "tech_updated": "2026-03-25"
   },
-  "hackernews": [],
+  "hackernews": [
+    {
+      "title": "I Stored a Website in a Favicon",
+      "url": "https://www.timwehrle.de/blog/i-stored-a-website-in-a-favicon/",
+      "hn_url": "https://news.ycombinator.com/item?id=48606619",
+      "score": 284,
+      "comments": 96,
+      "date": "2026-06-20",
+      "source": "Hacker News",
+      "category": "tech",
+      "matched_keyword": "EHR",
+      "_sourceKey": "hackernews",
+      "_score": 0,
+      "priority": "参考",
+      "summary_ja": "I Stored a Website in a Favicon",
+      "impact": "",
+      "memo": ""
+    }
+  ],
   "arxiv": []
 }
